@@ -35,9 +35,11 @@ public interface TripDao {
     @Query("select * from Trip where status = 'Canceled'")
     LiveData<List<Trip>> getCanceledTrips();
 
+    //update Trip
     @Update
     void updateTrip(Trip trip);
 
+    //Delete Trip
     @Delete
     void delete(Trip trip);
 }
