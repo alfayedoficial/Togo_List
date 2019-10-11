@@ -12,8 +12,10 @@ public class Trip {
     @PrimaryKey(autoGenerate = true)
     private int id;
     private String tripName;
-    private Location startLocation;
-    private Location endLocation;
+    private double startLocationLongitude;
+    private double startLocationLatitude;
+    private double endLocationLongitude;
+    private double endLocationLatitude;
     private Date startDate;
     private Date endDate;
     private String status;
@@ -41,12 +43,20 @@ public class Trip {
         return tripName;
     }
 
-    public Location getStartLocation() {
-        return startLocation;
+    public double getStartLocationLongitude() {
+        return startLocationLongitude;
     }
 
-    public Location getEndLocation() {
-        return endLocation;
+    public double getStartLocationLatitude() {
+        return startLocationLatitude;
+    }
+
+    public double getEndLocationLongitude() {
+        return endLocationLongitude;
+    }
+
+    public double getEndLocationLatitude() {
+        return endLocationLatitude;
     }
 
     public Date getStartDate() {
@@ -81,12 +91,20 @@ public class Trip {
         this.tripName = tripName;
     }
 
-    public void setStartLocation(Location startLocation) {
-        this.startLocation = startLocation;
+    public void setStartLocationLongitude(double startLocationLongitude) {
+        this.startLocationLongitude = startLocationLongitude;
     }
 
-    public void setEndLocation(Location endLocation) {
-        this.endLocation = endLocation;
+    public void setStartLocationLatitude(double startLocationLatitude) {
+        this.startLocationLatitude = startLocationLatitude;
+    }
+
+    public void setEndLocationLongitude(double endLocationLongitude) {
+        this.endLocationLongitude = endLocationLongitude;
+    }
+
+    public void setEndLocationLatitude(double endLocationLatitude) {
+        this.endLocationLatitude = endLocationLatitude;
     }
 
     public void setStartDate(Date startDate) {
