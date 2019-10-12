@@ -22,6 +22,9 @@ public class Home extends AppCompatActivity implements View.OnClickListener {
     private void initcomponent() {
         btn_SignIN = findViewById(R.id.btn_SignIN);
         btn_createaccount = findViewById(R.id.btn_createaccount);
+
+        btn_SignIN.setOnClickListener(this);
+        btn_createaccount.setOnClickListener(this);
     }
 
     @Override

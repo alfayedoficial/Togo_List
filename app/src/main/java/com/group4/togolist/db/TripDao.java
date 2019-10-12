@@ -7,8 +7,8 @@ import androidx.room.Insert;
 import androidx.room.Query;
 import androidx.room.Update;
 
-import com.group4.togolist.model.Trip;
 
+import com.group4.togolist.model.Trip;
 import java.util.List;
 
 @Dao
