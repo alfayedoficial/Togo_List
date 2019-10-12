@@ -19,9 +19,9 @@ public class FirebaseHandler {
     public static final int NEW_ACCOUNT_CREATED = 3001;
     public static final int NEW_ACCOUNT_FAILED = 3002;
 
-    int signInResult;
-    int registerResult;
-    Activity activity;
+    private int signInResult;
+    private int registerResult;
+    private Activity activity;
 
 
     public FirebaseHandler(Activity activity){

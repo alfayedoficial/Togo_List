@@ -16,8 +16,8 @@ import com.group4.togolist.view.FirstActivity;
 
 public class RegisterViewModel extends ViewModel {
 
-    Activity registerActivity;
-    FirebaseHandler firebaseHandler;
+    private Activity registerActivity;
+    private FirebaseHandler firebaseHandler;
 
     /**
      * RegisterViewModel Constructor Method, it takes Activity as its input parameter
