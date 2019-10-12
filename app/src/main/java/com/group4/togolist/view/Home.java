@@ -23,6 +23,7 @@ public class Home extends AppCompatActivity implements View.OnClickListener {
         btn_SignIN = findViewById(R.id.btn_SignIN);
         btn_createaccount = findViewById(R.id.btn_createaccount);
 
+        // assigning Events to Buttons
         btn_SignIN.setOnClickListener(this);
         btn_createaccount.setOnClickListener(this);
     }
