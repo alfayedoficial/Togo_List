@@ -19,6 +19,9 @@ public class FirstActivity extends AppCompatActivity implements View.OnClickList
         initComponent();
     }
 
+    /**
+     *    set up of  sign in and sign up Buttons
+     */
     private void initComponent() {
         btnSignIN = findViewById(R.id.btnSignIn);
         btnCreateAccount = findViewById(R.id.btnSignUp);
@@ -28,6 +31,10 @@ public class FirstActivity extends AppCompatActivity implements View.OnClickList
         btnCreateAccount.setOnClickListener(this);
     }
 
+    /**
+     *
+     *    Handling events to sign in and sign up Buttons
+     */
     @Override
     public void onClick(View view) {
         switch (view.getId()) {
