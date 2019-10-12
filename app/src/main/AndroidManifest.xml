@@ -12,8 +12,8 @@
 		  android:roundIcon="@mipmap/ic_launcher_round"
 		  android:supportsRtl="true"
 		  android:theme="@style/AppTheme">
-		  <activity android:name=".view.SignUpActivity"></activity>
-		  <activity android:name=".view.SignInActivity" />
+		  <activity android:name=".view.SignUpActivity"  android:theme="@style/AppTheme.NoActionBar"></activity>
+		  <activity android:name=".view.SignInActivity"  android:theme="@style/AppTheme.NoActionBar"/>
 		  <activity
 			   android:name=".view.FirstActivity"
 			   android:theme="@style/AppTheme.NoActionBar" />
