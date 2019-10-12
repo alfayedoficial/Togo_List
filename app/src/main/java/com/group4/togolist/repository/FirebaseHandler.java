@@ -12,6 +12,10 @@ import com.google.firebase.auth.FirebaseAuth;
 
 public class FirebaseHandler {
 
+    /**
+     * This class is Designed to handle Firebase Login And Register
+     */
+
     private FirebaseAuth mAuth;
     private static final String TAG = "FirebaseHandler";
     public static final int ACCESS_DENIED = 2001;
@@ -22,6 +26,7 @@ public class FirebaseHandler {
     private int signInResult;
     private int registerResult;
     private Activity activity;
+
 
 
     public FirebaseHandler(Activity activity){
