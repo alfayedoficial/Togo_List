@@ -15,13 +15,13 @@ public class FirstActivity extends AppCompatActivity implements View.OnClickList
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_home);
+        setContentView(R.layout.activity_first);
         initComponent();
     }
 
     private void initComponent() {
-        btnSignIN = findViewById(R.id.btn_sign_in);
-        btnCreateAccount = findViewById(R.id.btn_create_account);
+        btnSignIN = findViewById(R.id.btnSignIn);
+        btnCreateAccount = findViewById(R.id.btnSignUp);
 
         // assigning Events to Buttons
         btnSignIN.setOnClickListener(this);
@@ -31,11 +31,11 @@ public class FirstActivity extends AppCompatActivity implements View.OnClickList
     @Override
     public void onClick(View view) {
         switch (view.getId()) {
-            case R.id.btn_sign_in:
+            case R.id.btnSignIn:
                 Intent SignIN = new Intent(FirstActivity.this, SignInActivity.class);
                 startActivity(SignIN);
                 break;
-            case R.id.btn_create_account:
+            case R.id.btnSignUp:
                 Intent SignUP = new Intent(FirstActivity.this, SignUpActivity.class);
                 startActivity(SignUP);
                 break;

@@ -8,7 +8,7 @@
 	 tools:context=".view.FirstActivity">
 
 	 <ImageView
-		  android:id="@+id/id_splashIcon4"
+		  android:id="@+id/id_SplashIcon"
 		  android:layout_width="30dp"
 		  android:layout_height="30dp"
 		  android:layout_marginBottom="36dp"
@@ -65,15 +65,15 @@
 		  android:id="@+id/divider2"
 		  android:layout_width="409dp"
 		  android:layout_height="1dp"
-		  android:layout_marginTop="368dp"
+		  android:layout_marginBottom="170dp"
 		  android:background="@color/background_offwhite"
+		  app:layout_constraintBottom_toBottomOf="parent"
 		  app:layout_constraintEnd_toEndOf="parent"
 		  app:layout_constraintHorizontal_bias="1.0"
-		  app:layout_constraintStart_toStartOf="parent"
-		  app:layout_constraintTop_toBottomOf="@+id/textView" />
+		  app:layout_constraintStart_toStartOf="parent" />
 
 	 <Button
-		  android:id="@+id/btn_sign_in"
+		  android:id="@+id/btnSignIn"
 		  android:layout_width="match_parent"
 		  android:layout_height="wrap_content"
 		  android:layout_marginStart="100dp"
@@ -88,7 +88,7 @@
 		  app:layout_constraintTop_toBottomOf="@+id/divider2" />
 
 	 <Button
-		  android:id="@+id/btn_create_account"
+		  android:id="@+id/btnSignUp"
 		  android:layout_width="match_parent"
 		  android:layout_height="wrap_content"
 		  android:layout_marginStart="100dp"
@@ -100,6 +100,6 @@
 		  android:textColor="@color/background_offwhite"
 		  app:layout_constraintEnd_toEndOf="parent"
 		  app:layout_constraintStart_toStartOf="parent"
-		  app:layout_constraintTop_toBottomOf="@+id/btn_sign_in" />
+		  app:layout_constraintTop_toBottomOf="@+id/btnSignIn" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
