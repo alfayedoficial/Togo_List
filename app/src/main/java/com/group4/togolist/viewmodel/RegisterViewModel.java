@@ -6,6 +6,7 @@ import android.widget.Toast;
 
 import androidx.lifecycle.ViewModel;
 
+import com.group4.togolist.view.HomeActivity;
 import com.group4.togolist.view.SplashActivity;
 
 public class RegisterViewModel extends ViewModel {
@@ -45,7 +46,7 @@ public class RegisterViewModel extends ViewModel {
      * this method called when Cancel Button in the Register activity, it takes you back to SplashActivity
      */
     public void cancel(){
-        RegisterActivity.startActivity(new Intent(RegisterActivity, SplashActivity.class));
+        RegisterActivity.startActivity(new Intent(RegisterActivity, HomeActivity.class));
     }
 
 }
