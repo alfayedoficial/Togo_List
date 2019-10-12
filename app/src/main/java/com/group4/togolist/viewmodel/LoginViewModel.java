@@ -8,6 +8,10 @@ import androidx.lifecycle.ViewModel;
 
 import com.group4.togolist.view.FirstActivity;
 
+/**
+ * Handle Sign In Activity
+ */
+
 public class LoginViewModel extends ViewModel {
 
     public static final int ACCESS_DENIED = 2001;

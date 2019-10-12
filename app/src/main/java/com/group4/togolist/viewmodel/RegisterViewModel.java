@@ -8,6 +8,10 @@ import androidx.lifecycle.ViewModel;
 
 import com.group4.togolist.view.FirstActivity;
 
+/**
+ * Handle Sign up Activity
+ */
+
 public class RegisterViewModel extends ViewModel {
 
     Activity RegisterActivity;
