@@ -46,7 +46,7 @@
 		  app:layout_constraintTop_toBottomOf="@+id/id_name_app4" />
 
 	 <Button
-		  android:id="@+id/button"
+		  android:id="@+id/btn_Cancel"
 		  style="@style/Widget.AppCompat.Button.Borderless.Colored"
 		  android:layout_width="70sp"
 		  android:layout_height="wrap_content"
@@ -144,7 +144,7 @@
 		  app:layout_constraintTop_toBottomOf="@+id/editText_password" />
 
 	 <Button
-		  android:id="@+id/btn_sign_in_sgin_in_activity"
+		  android:id="@+id/btn_sign_in"
 		  android:layout_width="match_parent"
 		  android:layout_height="wrap_content"
 		  android:layout_marginStart="70dp"
@@ -175,7 +175,7 @@
 		  app:layout_constraintEnd_toEndOf="parent"
 		  app:layout_constraintHorizontal_bias="1.0"
 		  app:layout_constraintStart_toStartOf="parent"
-		  app:layout_constraintTop_toBottomOf="@+id/btn_sign_in_sgin_in_activity" />
+		  app:layout_constraintTop_toBottomOf="@+id/btn_sign_in" />
 
 
 
