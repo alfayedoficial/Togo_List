@@ -37,13 +37,13 @@ public class SignInActivity extends AppCompatActivity implements View.OnClickLis
      */
     private void initComponent(){
 
-        btnSignIn =  findViewById(R.id.btn_sign_in);
-        btnCancel =  findViewById(R.id.btn_Cancel);
-        btnSignInWithGoogle =  findViewById(R.id.btn_sign_in_with_google);
+        btnSignIn =  findViewById(R.id.btn_sign_up);
+        btnCancel =  findViewById(R.id.btn_Cancel_Signin);
+        btnSignInWithGoogle =  findViewById(R.id.btn_sign_up_with_google);
         btnForgetPassword =findViewById(R.id.btn_forget_password);
 
-        eTxtEmail = findViewById(R.id.editText_email);
-        eTxtPassword =  findViewById(R.id.editText_password);
+        eTxtEmail = findViewById(R.id.editText_email_Signin);
+        eTxtPassword =  findViewById(R.id.editText_password_Signin);
 
         btnSignIn.setOnClickListener(this);
         btnCancel.setOnClickListener(this);
@@ -63,17 +63,17 @@ public class SignInActivity extends AppCompatActivity implements View.OnClickLis
     public void onClick(View v) {
 
         switch (v.getId()){
-            case R.id.btn_sign_in:
+            case R.id.btn_sign_up:
 
                 loginViewModel.signIn(eTxtEmail.getText().toString() , eTxtPassword.getText().toString());
                 break;
 
-            case R.id.btn_Cancel:
+            case R.id.btn_Cancel_Signin:
 
                     loginViewModel.cancel();
                      break;
 
-            case R.id.btn_sign_in_with_google:
+            case R.id.btn_sign_up_with_google:
 
                 break;
 

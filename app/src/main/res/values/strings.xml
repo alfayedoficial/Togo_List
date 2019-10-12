@@ -10,4 +10,9 @@
 	 <string name="forgetpassword">Forget Password ?</string>
 	 <string name="sign_in_with_google">Sign In With Google</string>
     <string name="e_mail">Email</string>
+	 <string name="welcome_to_togo_list">Welcome to Togo List</string>
+	 <string name="sign_up">Sign Up</string>
+	 <string name="username">Username</string>
+	 <string name="confirmPassword">Confirm Password</string>
+	 <string name="sign_up_with_google">Sign Up With Google</string>
 </resources>
