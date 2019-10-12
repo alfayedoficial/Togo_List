@@ -9,8 +9,8 @@ import com.group4.togolist.R;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-public class Home extends AppCompatActivity implements View.OnClickListener {
-    Button btn_SignIN, btn_createaccount;
+public class HomeActivity extends AppCompatActivity implements View.OnClickListener {
+    Button btnSignIN, btnCreateAccount;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -20,23 +20,23 @@ public class Home extends AppCompatActivity implements View.OnClickListener {
     }
 
     private void initComponent() {
-        btn_SignIN = findViewById(R.id.btn_SignIN);
-        btn_createaccount = findViewById(R.id.btn_createaccount);
+        btnSignIN = findViewById(R.id.btn_sign_in);
+        btnCreateAccount = findViewById(R.id.btn_create_account);
 
         // assigning Events to Buttons
-        btn_SignIN.setOnClickListener(this);
-        btn_createaccount.setOnClickListener(this);
+        btnSignIN.setOnClickListener(this);
+        btnCreateAccount.setOnClickListener(this);
     }
 
     @Override
     public void onClick(View view) {
         switch (view.getId()) {
-            case R.id.btn_SignIN:
-                Intent SignIN = new Intent(Home.this, com.group4.togolist.view.SignIN.class);
+            case R.id.btn_sign_in:
+                Intent SignIN = new Intent(HomeActivity.this, SignInActivity.class);
                 startActivity(SignIN);
                 break;
-            case R.id.btn_createaccount:
-                Intent SignUP = new Intent(Home.this, com.group4.togolist.view.SignUP.class);
+            case R.id.btn_create_account:
+                Intent SignUP = new Intent(HomeActivity.this, SignUpActivity.class);
                 startActivity(SignUP);
                 break;
         }

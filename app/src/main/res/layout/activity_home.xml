@@ -5,7 +5,7 @@
 	 android:layout_width="match_parent"
 	 android:layout_height="match_parent"
 	 android:background="@drawable/background_home"
-	 tools:context=".view.Home">
+	 tools:context=".view.HomeActivity">
 
 	 <ImageView
 		  android:id="@+id/id_splashIcon4"
@@ -13,13 +13,13 @@
 		  android:layout_height="30dp"
 		  android:layout_marginBottom="36dp"
 		  android:src="@drawable/planeicon"
-		  app:layout_constraintBottom_toBottomOf="@+id/id_NameApp4"
-		  app:layout_constraintEnd_toEndOf="@+id/id_NameApp4"
+		  app:layout_constraintBottom_toBottomOf="@+id/id_name_app4"
+		  app:layout_constraintEnd_toEndOf="@+id/id_name_app4"
 		  app:layout_constraintHorizontal_bias="1.0"
-		  app:layout_constraintStart_toStartOf="@+id/id_NameApp4" />
+		  app:layout_constraintStart_toStartOf="@+id/id_name_app4" />
 
 	 <TextView
-		  android:id="@+id/id_NameApp4"
+		  android:id="@+id/id_name_app4"
 		  android:layout_width="wrap_content"
 		  android:layout_height="wrap_content"
 		  android:layout_marginTop="40dp"
@@ -44,7 +44,7 @@
 		  android:shadowDy="1"
 		  app:layout_constraintEnd_toEndOf="parent"
 		  app:layout_constraintStart_toStartOf="parent"
-		  app:layout_constraintTop_toBottomOf="@+id/id_NameApp4" />
+		  app:layout_constraintTop_toBottomOf="@+id/id_name_app4" />
 
 	 <TextView
 		  android:id="@+id/textView"
@@ -73,7 +73,7 @@
 		  app:layout_constraintTop_toBottomOf="@+id/textView" />
 
 	 <Button
-		  android:id="@+id/btn_SignIN"
+		  android:id="@+id/btn_sign_in"
 		  android:layout_width="match_parent"
 		  android:layout_height="wrap_content"
 		  android:layout_marginStart="100dp"
@@ -88,7 +88,7 @@
 		  app:layout_constraintTop_toBottomOf="@+id/divider2" />
 
 	 <Button
-		  android:id="@+id/btn_createaccount"
+		  android:id="@+id/btn_create_account"
 		  android:layout_width="match_parent"
 		  android:layout_height="wrap_content"
 		  android:layout_marginStart="100dp"
@@ -100,6 +100,6 @@
 		  android:textColor="@color/background_offwhite"
 		  app:layout_constraintEnd_toEndOf="parent"
 		  app:layout_constraintStart_toStartOf="parent"
-		  app:layout_constraintTop_toBottomOf="@+id/btn_SignIN" />
+		  app:layout_constraintTop_toBottomOf="@+id/btn_sign_in" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

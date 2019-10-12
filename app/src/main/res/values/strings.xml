@@ -9,4 +9,5 @@
 	 <string name="password">Password</string>
 	 <string name="forgetpassword">Forget Password ?</string>
 	 <string name="sign_in_with_google">Sign In With Google</string>
+    <string name="e_mail">Email</string>
 </resources>

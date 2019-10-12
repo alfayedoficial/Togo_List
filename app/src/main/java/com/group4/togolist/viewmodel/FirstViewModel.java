@@ -2,11 +2,9 @@ package com.group4.togolist.viewmodel;
 
 import android.app.Activity;
 import android.content.Intent;
-import android.view.animation.AccelerateInterpolator;
-import android.widget.Toast;
 
-import com.group4.togolist.view.SignIN;
-import com.group4.togolist.view.SignUP;
+import com.group4.togolist.view.SignInActivity;
+import com.group4.togolist.view.SignUpActivity;
 
 import androidx.lifecycle.ViewModel;
 
@@ -26,7 +24,7 @@ public class FirstViewModel extends ViewModel {
      * this method called when Sign in Button in the starting activity, it takes you to Sign In Activity
      */
     public void signIn(){
-        Intent signInIntent = new Intent(firstActivity, SignIN.class);
+        Intent signInIntent = new Intent(firstActivity, SignInActivity.class);
         firstActivity.startActivity(signInIntent);
     }
 
@@ -34,7 +32,7 @@ public class FirstViewModel extends ViewModel {
      * this method called when create an Account Button in the starting activity, it takes you to Register Activity
      */
     public void createAccount(){
-        Intent signUpIntent = new Intent (firstActivity, SignUP.class);
+        Intent signUpIntent = new Intent (firstActivity, SignUpActivity.class);
         firstActivity.startActivity(signUpIntent);
     }
 

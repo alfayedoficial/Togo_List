@@ -8,7 +8,7 @@
 	 tools:context=".view.SplashActivity">
 
 	 <TextView
-		  android:id="@+id/id_NameApp"
+		  android:id="@+id/id_name_app"
 		  android:layout_width="wrap_content"
 		  android:layout_height="wrap_content"
 		  android:layout_marginTop="70dp"
@@ -30,8 +30,8 @@
 		  android:layout_width="37dp"
 		  android:layout_height="51dp"
 		  android:src="@drawable/planeicon"
-		  app:layout_constraintBottom_toBottomOf="@+id/id_NameApp"
-		  app:layout_constraintEnd_toEndOf="@+id/id_NameApp"
+		  app:layout_constraintBottom_toBottomOf="@+id/id_name_app"
+		  app:layout_constraintEnd_toEndOf="@+id/id_name_app"
 		  app:layout_constraintTop_toTopOf="parent"
 		  app:layout_constraintVertical_bias="0.366" />
 
