@@ -47,6 +47,12 @@ public class SignInActivity extends AppCompatActivity implements View.OnClickLis
 
     }
 
+
+    /**
+     *
+     *  Handling Button events
+     */
+
     @Override
     public void onClick(View v) {
 
