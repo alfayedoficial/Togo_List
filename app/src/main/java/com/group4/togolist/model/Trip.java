@@ -7,7 +7,6 @@ import androidx.room.PrimaryKey;
 
 import java.util.Date;
 
-
 @Entity
 public class Trip {
     @PrimaryKey(autoGenerate = true)
@@ -17,16 +16,8 @@ public class Trip {
     private double startLocationLatitude;
     private double endLocationLongitude;
     private double endLocationLatitude;
-    private int startDateYear;
-    private int startDateMonth;
-    private int startDateDay;
-    private int startDateHours;
-    private int startDateMinutes;
-    private int endDateYear;
-    private int endDateMonth;
-    private int endDateDay;
-    private int endDateHours;
-    private int endDateMinutes;
+    private Date startDate;
+    private Date endDate;
     private String status;
     private int repetition;
     private boolean isRoundTrip;
@@ -68,44 +59,12 @@ public class Trip {
         return endLocationLatitude;
     }
 
-    public int getStartDateYear() {
-        return startDateYear;
+    public Date getStartDate() {
+        return startDate;
     }
 
-    public int getStartDateMonth() {
-        return startDateMonth;
-    }
-
-    public int getStartDateDay() {
-        return startDateDay;
-    }
-
-    public int getStartDateHours() {
-        return startDateHours;
-    }
-
-    public int getStartDateMinutes() {
-        return startDateMinutes;
-    }
-
-    public int getEndDateYear() {
-        return endDateYear;
-    }
-
-    public int getEndDateMonth() {
-        return endDateMonth;
-    }
-
-    public int getEndDateDay() {
-        return endDateDay;
-    }
-
-    public int getEndDateHours() {
-        return endDateHours;
-    }
-
-    public int getEndDateMinutes() {
-        return endDateMinutes;
+    public Date getEndDate() {
+        return endDate;
     }
 
     public String getStatus() {
@@ -148,44 +107,12 @@ public class Trip {
         this.endLocationLatitude = endLocationLatitude;
     }
 
-    public void setStartDateYear(int startDateYear) {
-        this.startDateYear = startDateYear;
+    public void setStartDate(Date startDate) {
+        this.startDate = startDate;
     }
 
-    public void setStartDateMonth(int startDateMonth) {
-        this.startDateMonth = startDateMonth;
-    }
-
-    public void setStartDateDay(int startDateDay) {
-        this.startDateDay = startDateDay;
-    }
-
-    public void setStartDateHours(int startDateHours) {
-        this.startDateHours = startDateHours;
-    }
-
-    public void setStartDateMinutes(int startDateMinutes) {
-        this.startDateMinutes = startDateMinutes;
-    }
-
-    public void setEndDateYear(int endDateYear) {
-        this.endDateYear = endDateYear;
-    }
-
-    public void setEndDateMonth(int endDateMonth) {
-        this.endDateMonth = endDateMonth;
-    }
-
-    public void setEndDateDay(int endDateDay) {
-        this.endDateDay = endDateDay;
-    }
-
-    public void setEndDateHours(int endDateHours) {
-        this.endDateHours = endDateHours;
-    }
-
-    public void setEndDateMinutes(int endDateMinutes) {
-        this.endDateMinutes = endDateMinutes;
+    public void setEndDate(Date endDate) {
+        this.endDate = endDate;
     }
 
     public void setStatus(String status) {

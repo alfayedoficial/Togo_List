@@ -1,0 +1,60 @@
+package com.group4.togolist.view;
+
+import android.animation.ObjectAnimator;
+import android.content.Intent;
+import android.os.Bundle;
+import android.os.Handler;
+import android.widget.ImageView;
+
+import com.group4.togolist.R;
+
+import androidx.appcompat.app.AppCompatActivity;
+
+public class SplashActivity extends AppCompatActivity {
+
+     /**
+     * Class do : run animation plane
+     * duration of wait 3 sec until animation finished
+     * Created by Group 4 ITI (Eng/Bassen - Eng Fatma - Eng Ali)
+     */
+
+    ObjectAnimator objectAnimator;
+    ImageView id_splashIcon;
+
+     // Duration of wait
+    private final int SPLASH_DISPLAY_LENGTH = 3000;
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_splash);
+        animatorplane();
+        durationofwait();
+    }
+
+    private void animatorplane() {
+        id_splashIcon = findViewById(R.id.id_splashIcon);
+        // code objectAnimator
+        objectAnimator = ObjectAnimator.ofFloat(id_splashIcon, "x", 2000);
+        objectAnimator.setDuration(4000);
+    }
+
+    @Override
+    protected void onStart() {
+        super.onStart();
+        objectAnimator.start();
+    }
+
+    private void durationofwait() {
+        new Handler().postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                /* Create an Intent that will start the Menu-Activity. */
+                Intent mainIntent = new Intent(SplashActivity.this, Home.class);
+                startActivity(mainIntent);
+                SplashActivity.this.finish();
+            }
+        }, SPLASH_DISPLAY_LENGTH);
+    }
+
+}
