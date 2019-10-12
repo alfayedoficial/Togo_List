@@ -4,20 +4,8 @@
 	 xmlns:tools="http://schemas.android.com/tools"
 	 android:layout_width="match_parent"
 	 android:layout_height="match_parent"
-	 tools:context=".view.SplashActivity"
-	 android:background="@color/background_offwhite">
-
-	 <ImageView
-		  android:layout_width="match_parent"
-		  android:layout_height="match_parent"
-		  android:layout_gravity="end|bottom"
-		  android:layout_marginTop="100dp"
-		  android:background="@drawable/background_splash"
-		  app:layout_constraintBottom_toBottomOf="parent"
-		  app:layout_constraintEnd_toEndOf="parent"
-		  app:layout_constraintHorizontal_bias="1.0"
-		  app:layout_constraintStart_toStartOf="parent"
-		  app:layout_constraintTop_toBottomOf="@+id/id_NameApp" />
+	 android:background="@drawable/background_splash"
+	 tools:context=".view.SplashActivity">
 
 	 <TextView
 		  android:id="@+id/id_NameApp"

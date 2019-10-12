@@ -4,6 +4,102 @@
 	 xmlns:tools="http://schemas.android.com/tools"
 	 android:layout_width="match_parent"
 	 android:layout_height="match_parent"
+	 android:background="@drawable/background_home"
 	 tools:context=".view.Home">
+
+	 <ImageView
+		  android:id="@+id/id_splashIcon4"
+		  android:layout_width="30dp"
+		  android:layout_height="30dp"
+		  android:layout_marginBottom="36dp"
+		  android:src="@drawable/planeicon"
+		  app:layout_constraintBottom_toBottomOf="@+id/id_NameApp4"
+		  app:layout_constraintEnd_toEndOf="@+id/id_NameApp4"
+		  app:layout_constraintHorizontal_bias="1.0"
+		  app:layout_constraintStart_toStartOf="@+id/id_NameApp4" />
+
+	 <TextView
+		  android:id="@+id/id_NameApp4"
+		  android:layout_width="wrap_content"
+		  android:layout_height="wrap_content"
+		  android:layout_marginTop="40dp"
+		  android:fontFamily="@font/betterfontlogo"
+		  android:text="@string/app_name"
+		  android:textColor="@color/home_color"
+		  android:textSize="20sp"
+		  android:textStyle="bold"
+		  app:layout_constraintEnd_toEndOf="parent"
+		  app:layout_constraintHorizontal_bias="0.498"
+		  app:layout_constraintStart_toStartOf="parent"
+		  app:layout_constraintTop_toTopOf="parent" />
+
+	 <View
+		  android:id="@+id/divider"
+		  android:layout_width="match_parent"
+		  android:layout_height="1dp"
+		  android:layout_marginTop="8dp"
+		  android:background="@color/colorPrimaryDark"
+		  android:outlineSpotShadowColor="@color/text_shadow"
+		  android:shadowDx="1"
+		  android:shadowDy="1"
+		  app:layout_constraintEnd_toEndOf="parent"
+		  app:layout_constraintStart_toStartOf="parent"
+		  app:layout_constraintTop_toBottomOf="@+id/id_NameApp4" />
+
+	 <TextView
+		  android:id="@+id/textView"
+		  android:layout_width="wrap_content"
+		  android:layout_height="wrap_content"
+		  android:layout_marginStart="177dp"
+		  android:layout_marginTop="20dp"
+		  android:layout_marginEnd="176dp"
+		  android:fontFamily="@font/boutrosart"
+		  android:text="@string/titleHome"
+		  android:textColor="@color/home_color"
+		  android:textSize="30sp"
+		  app:layout_constraintEnd_toEndOf="parent"
+		  app:layout_constraintStart_toStartOf="parent"
+		  app:layout_constraintTop_toBottomOf="@+id/divider" />
+
+	 <View
+		  android:id="@+id/divider2"
+		  android:layout_width="409dp"
+		  android:layout_height="1dp"
+		  android:layout_marginTop="368dp"
+		  android:background="@color/background_offwhite"
+		  app:layout_constraintEnd_toEndOf="parent"
+		  app:layout_constraintHorizontal_bias="1.0"
+		  app:layout_constraintStart_toStartOf="parent"
+		  app:layout_constraintTop_toBottomOf="@+id/textView" />
+
+	 <Button
+		  android:id="@+id/btn_SignIN"
+		  android:layout_width="match_parent"
+		  android:layout_height="wrap_content"
+		  android:layout_marginStart="100dp"
+		  android:layout_marginTop="20dp"
+		  android:layout_marginEnd="100dp"
+		  android:background="@drawable/gradient_btn_signin"
+		  android:textColor="@color/background_offwhite"
+		  android:textStyle="bold"
+		  android:text="@string/signin"
+		  app:layout_constraintEnd_toEndOf="parent"
+		  app:layout_constraintStart_toStartOf="parent"
+		  app:layout_constraintTop_toBottomOf="@+id/divider2" />
+
+	 <Button
+		  android:id="@+id/btn_createaccount"
+		  android:layout_width="match_parent"
+		  android:layout_height="wrap_content"
+		  android:layout_marginStart="100dp"
+		  android:layout_marginTop="15dp"
+		  android:layout_marginEnd="100dp"
+		  android:text="@string/createanaccount"
+		  android:textStyle="bold"
+		  android:background="@drawable/gradient_btn_createaccount"
+		  android:textColor="@color/background_offwhite"
+		  app:layout_constraintEnd_toEndOf="parent"
+		  app:layout_constraintStart_toStartOf="parent"
+		  app:layout_constraintTop_toBottomOf="@+id/btn_SignIN" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -8,4 +8,11 @@
 		  <item name="colorAccent">@color/colorAccent</item>
 	 </style>
 
+	 <!--	 noAcrionBar Theme-->
+	 <style name="AppTheme.NoActionBar">
+		  <item name="windowActionBar">false</item>
+		  <item name="windowNoTitle">true</item>
+		  <item name="windowActionBarOverlay">true</item>
+	 </style>
+
 </resources>
