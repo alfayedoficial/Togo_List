@@ -9,7 +9,7 @@ import com.group4.togolist.R;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-public class HomeActivity extends AppCompatActivity implements View.OnClickListener {
+public class FirstActivity extends AppCompatActivity implements View.OnClickListener {
     Button btnSignIN, btnCreateAccount;
 
     @Override
@@ -32,11 +32,11 @@ public class HomeActivity extends AppCompatActivity implements View.OnClickListe
     public void onClick(View view) {
         switch (view.getId()) {
             case R.id.btn_sign_in:
-                Intent SignIN = new Intent(HomeActivity.this, SignInActivity.class);
+                Intent SignIN = new Intent(FirstActivity.this, SignInActivity.class);
                 startActivity(SignIN);
                 break;
             case R.id.btn_create_account:
-                Intent SignUP = new Intent(HomeActivity.this, SignUpActivity.class);
+                Intent SignUP = new Intent(FirstActivity.this, SignUpActivity.class);
                 startActivity(SignUP);
                 break;
         }

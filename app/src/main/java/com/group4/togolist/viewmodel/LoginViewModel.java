@@ -6,8 +6,7 @@ import android.widget.Toast;
 
 import androidx.lifecycle.ViewModel;
 
-import com.group4.togolist.view.HomeActivity;
-import com.group4.togolist.view.SplashActivity;
+import com.group4.togolist.view.FirstActivity;
 
 public class LoginViewModel extends ViewModel {
 
@@ -40,7 +39,7 @@ public class LoginViewModel extends ViewModel {
      * this method called when Cancel Button in the Log In activity, it takes you back to SplashActivity
      */
     public void cancel(){
-        Intent intent = new Intent(loginActivity, HomeActivity.class);
+        Intent intent = new Intent(loginActivity, FirstActivity.class);
         loginActivity.startActivity(intent);
     }
 
