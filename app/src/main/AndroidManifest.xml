@@ -15,7 +15,7 @@
 		  <activity android:name=".view.SignUpActivity"></activity>
 		  <activity android:name=".view.SignInActivity" />
 		  <activity
-			   android:name=".view.HomeActivity"
+			   android:name=".view.FirstActivity"
 			   android:theme="@style/AppTheme.NoActionBar" />
 		  <activity
 			   android:name=".view.SplashActivity"
