@@ -28,11 +28,11 @@ public class SplashActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_splash);
-        animatorplane();
-        durationofwait();
+        animatorPlane();
+        durationOfWait();
     }
 
-    private void animatorplane() {
+    private void animatorPlane() {
         id_splashIcon = findViewById(R.id.id_splashIcon);
         // code objectAnimator
         objectAnimator = ObjectAnimator.ofFloat(id_splashIcon, "x", 2000);
@@ -45,7 +45,7 @@ public class SplashActivity extends AppCompatActivity {
         objectAnimator.start();
     }
 
-    private void durationofwait() {
+    private void durationOfWait() {
         new Handler().postDelayed(new Runnable() {
             @Override
             public void run() {

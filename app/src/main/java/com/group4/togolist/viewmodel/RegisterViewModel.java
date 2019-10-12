@@ -33,7 +33,7 @@ public class RegisterViewModel extends ViewModel {
 
             }
             else {
-                Toast.makeText(RegisterActivity,"the passwrod and repeated password is not the same",Toast.LENGTH_SHORT).show();
+                Toast.makeText(RegisterActivity,"the password and repeated password is not the same",Toast.LENGTH_SHORT).show();
             }
         }
         else{
