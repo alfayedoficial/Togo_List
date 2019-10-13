@@ -1,6 +1,7 @@
 <resources>
 	 <string name="app_name">Togo List</string>
 	 <string name="titleHome">Never forget your Trip</string>
+	 <!--	 Sign in Activity-->
 	 <string name="signin">Sign In</string>
 	 <string name="createanaccount">Create an Account</string>
 	 <string name="cancel">Cancel</string>
@@ -9,18 +10,46 @@
 	 <string name="password">Password</string>
 	 <string name="forgetpassword">Forget Password ?</string>
 	 <string name="sign_in_with_google">Sign In With Google</string>
+	 <!--	 Sign up Activity-->
 	 <string name="e_mail">Email</string>
 	 <string name="welcome_to_togo_list"> Welcome to Togo List</string>
 	 <string name="sign_up">Sign Up</string>
 	 <string name="username">Username</string>
 	 <string name="confirmPassword">Confirm Password</string>
 	 <string name="sign_up_with_google">Sign Up With Google</string>
-	 <string name="sorry_for_forget_your_password">We are sorry for forget your password</string>
-	 <string name="forget_password">Forget Password</string>
-	 <string name="please_enter_your_e_mail">please enter your e-mail</string>
-	 <string name="reset_password">Reset Password</string>
 	 <string name="privacy_policy"><![CDATA[By clicking the sign up button , you agree to our ]]></string>
 	 <string name="terms_conditions"><![CDATA[Terms & Conditions]]></string>
 	 <string name="privacy_policybutton">Privacy Policy</string>
 	 <string name="and">and</string>
+	 <!--	 Forget password Activity-->
+	 <string name="sorry_for_forget_your_password">We are sorry for forget your password</string>
+	 <string name="forget_password">Forget Password</string>
+	 <string name="please_enter_your_e_mail">please enter your e-mail</string>
+	 <string name="reset_password">Reset Password</string>
+	 <!--	 Add new Trip activity-->
+	 <string name="add_new_trip">Add New Trip</string>
+	 <string name="trip_name">Trip Name</string>
+	 <string name="start_pint">Start Point</string>
+	 <string name="endpoint">End Point</string>
+	 <string name="startdate">Start Date</string>
+	 <string name="starttime">Start Time</string>
+	 <string name="repetition">Repetition</string>
+	 <string name="daily">Daily</string>
+	 <string name="weakly">Weakly</string>
+	 <string name="days">Days</string>
+	 <string name="saturday">Saturday</string>
+	 <string name="sunday">Sunday</string>
+	 <string name="monday">Monday</string>
+	 <string name="tuesday">Tuesday</string>
+	 <string name="wednesday">Wednesday</string>
+	 <string name="thursday">Thursday</string>
+	 <string name="friday">Friday</string>
+	 <string name="one_direction">One Direction</string>
+	 <string name="trip_type">Trip Type</string>
+	 <string name="round_trip">Round Trip</string>
+	 <string name="addnote">Add Note</string>
+	 <string name="add">Add</string>
+
+
+
 </resources>
