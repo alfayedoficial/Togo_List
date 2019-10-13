@@ -37,20 +37,7 @@
 			   app:layout_constraintStart_toStartOf="parent"
 			   app:layout_constraintTop_toTopOf="parent" />
 
-		  <View
-			   android:id="@+id/divider"
-			   android:layout_width="match_parent"
-			   android:layout_height="1dp"
-			   android:layout_marginTop="8dp"
-			   android:background="@color/colorPrimaryDark"
-			   android:outlineSpotShadowColor="@color/text_shadow"
-			   android:shadowDx="1"
-			   android:shadowDy="1"
-			   app:layout_constraintEnd_toEndOf="parent"
-			   app:layout_constraintStart_toStartOf="parent"
-			   app:layout_constraintTop_toBottomOf="@+id/id_name_app4" />
-
-		  <ImageButton
+		 <ImageButton
 			   android:id="@+id/btn_back_addform"
 			   style="@style/Widget.AppCompat.Button.Borderless.Colored"
 			   android:layout_width="70sp"
@@ -77,7 +64,20 @@
 			   app:layout_constraintStart_toStartOf="parent"
 			   app:layout_constraintTop_toBottomOf="@+id/divider" />
 
-		  <EditText
+		 <View
+			 android:id="@+id/divider"
+			 android:layout_width="match_parent"
+			 android:layout_height="1dp"
+			 android:layout_marginTop="8dp"
+			 android:background="@color/colorPrimaryDark"
+			 android:outlineSpotShadowColor="@color/text_shadow"
+			 android:shadowDx="1"
+			 android:shadowDy="1"
+			 app:layout_constraintEnd_toEndOf="parent"
+			 app:layout_constraintStart_toStartOf="parent"
+			 app:layout_constraintTop_toBottomOf="@+id/id_name_app4" />
+
+		 <EditText
 			   android:id="@+id/editText_nameTrip"
 			   android:layout_width="0dp"
 			   android:layout_height="wrap_content"
@@ -177,7 +177,7 @@
 			   app:layout_constraintTop_toBottomOf="@+id/editText_startPoint" />
 
 		  <EditText
-			   android:id="@+id/editText6"
+			   android:id="@+id/editText_startTime"
 			   android:layout_width="0dp"
 			   android:layout_height="wrap_content"
 			   android:layout_marginStart="10dp"
@@ -204,7 +204,7 @@
 			   android:textSize="14sp"
 			   android:visibility="visible"
 			   app:layout_constraintStart_toStartOf="parent"
-			   app:layout_constraintTop_toBottomOf="@+id/editText6" />
+			   app:layout_constraintTop_toBottomOf="@+id/editText_startTime" />
 
 		  <LinearLayout
 			   android:id="@+id/linearLayout"
@@ -235,7 +235,7 @@
 						 android:textSize="14sp" />
 
 					<RadioButton
-						 android:id="@+id/radioBtnweakly"
+						 android:id="@+id/radioBtnweekly"
 						 android:layout_width="wrap_content"
 						 android:layout_height="wrap_content"
 						 android:layout_weight="1"
@@ -377,7 +377,7 @@
 						 android:textSize="14sp" />
 
 					<RadioButton
-						 android:id="@+id/radioButton5"
+						 android:id="@+id/radioBtnRoundTrip"
 						 android:layout_width="wrap_content"
 						 android:layout_height="wrap_content"
 						 android:layout_weight="1"
