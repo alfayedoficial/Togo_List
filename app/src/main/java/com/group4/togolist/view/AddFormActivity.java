@@ -29,7 +29,8 @@ public class AddFormActivity extends AppCompatActivity {
 
         final PlaceAutocompleteFragment autocompleteFragment1 = (PlaceAutocompleteFragment)
                 getFragmentManager().findFragmentById(R.id.editText_startPoint);
-        autocompleteFragment1.getView().setBackgroundColor(Color.WHITE);
+        autocompleteFragment1.getView().setBackgroundColor(getResources().getColor(R.color.background_offwhite));
+//        autocompleteFragment1.setText("Start Point");
         autocompleteFragment1.setOnPlaceSelectedListener(new PlaceSelectionListener() {
             @Override
             public void onPlaceSelected(Place place) {
@@ -44,7 +45,8 @@ public class AddFormActivity extends AppCompatActivity {
 
                 final PlaceAutocompleteFragment autocompleteFragment2 = (PlaceAutocompleteFragment)
                         getFragmentManager().findFragmentById(R.id.editText_endPoint);
-                autocompleteFragment2.getView().setBackgroundColor(Color.WHITE);
+                autocompleteFragment2.getView().setBackgroundColor(getResources().getColor(R.color.background_offwhite));
+//                autocompleteFragment2.setText("End Point");
                 autocompleteFragment2.setOnPlaceSelectedListener(new PlaceSelectionListener() {
                     @Override
                     public void onPlaceSelected(Place place) {
