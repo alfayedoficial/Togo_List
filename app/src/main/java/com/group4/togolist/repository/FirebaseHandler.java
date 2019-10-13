@@ -9,6 +9,8 @@ import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
+import com.group4.togolist.viewmodel.LoginViewModel;
+import com.group4.togolist.viewmodel.RegisterViewModel;
 
 public class FirebaseHandler {
 
@@ -24,47 +26,51 @@ public class FirebaseHandler {
     public static final int NEW_ACCOUNT_CREATED = 3001;
     public static final int NEW_ACCOUNT_FAILED = 3002;
 
-    private int signInResult;
-    private int registerResult;
+
     private Activity activity;
 
+    private LoginViewModel loginViewModel;
+    private RegisterViewModel registerViewModel;
 
-
-    public FirebaseHandler(Activity activity){
+    public FirebaseHandler(Activity activity,RegisterViewModel viewModel){
         mAuth = FirebaseAuth.getInstance();
         this.activity = activity;
+        registerViewModel = viewModel;
     }
 
-    public int signIn(String email, String password){
+    public FirebaseHandler(Activity activity,LoginViewModel viewModel){
+        this.activity = activity;
+        loginViewModel = viewModel;
+    }
+
+    public void signIn(String email, String password){
 
         mAuth.signInWithEmailAndPassword(email,password).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
             @Override
             public void onComplete(@NonNull Task<AuthResult> task) {
                 if(!task.isSuccessful()){
-                    signInResult = ACCESS_DENIED;
+                    loginViewModel.loginToHomeScreen(ACCESS_DENIED);
                 }else{
-                    signInResult = ACCESS_GRANTED;
+                    loginViewModel.loginToHomeScreen(ACCESS_GRANTED);
                 }
             }
         });
-        return signInResult;
     }
 
-    public int signUp(String email, String password){
+    public void signUp(String email, String password){
         mAuth.createUserWithEmailAndPassword(email,password)
                 .addOnCompleteListener(new OnCompleteListener<AuthResult>() {
                     @Override
                     public void onComplete(@NonNull Task<AuthResult> task) {
                         if(!task.isSuccessful()){
                             Toast.makeText(activity, "Please Try again with a different username", Toast.LENGTH_SHORT).show();
-                            registerResult = NEW_ACCOUNT_FAILED;
+                            registerViewModel.signUpToHomeScreen(NEW_ACCOUNT_FAILED);
                         }
                         else {
                             Toast.makeText(activity, "Success", Toast.LENGTH_SHORT).show();
-                            registerResult = NEW_ACCOUNT_CREATED;
+                            registerViewModel.signUpToHomeScreen(NEW_ACCOUNT_CREATED);
                         }
                     }
                 });
-        return registerResult;
     }
 }

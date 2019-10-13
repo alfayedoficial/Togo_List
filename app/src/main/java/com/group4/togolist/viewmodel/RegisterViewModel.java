@@ -25,7 +25,7 @@ public class RegisterViewModel extends ViewModel {
      */
     public RegisterViewModel(Activity registerActivity){
         this.registerActivity = registerActivity;
-        firebaseHandler = new FirebaseHandler(registerActivity);
+        firebaseHandler = new FirebaseHandler(registerActivity,this);
     }
 
     /**
@@ -38,14 +38,8 @@ public class RegisterViewModel extends ViewModel {
         password != null && !password.isEmpty() &&
         repeatedPassword != null && !repeatedPassword.isEmpty()){
             if(password.equals(repeatedPassword)){
-                int result = firebaseHandler.signUp(username,password);
-                if(result == FirebaseHandler.NEW_ACCOUNT_CREATED){
-                    Intent registerIntent = new Intent(registerActivity, HomeActivity.class);
-                    registerActivity.startActivity (registerIntent);
-                }
-                else{
-                    Toast.makeText(registerActivity, "Please Try Again with different Email and Password", Toast.LENGTH_SHORT).show();
-                }
+                firebaseHandler.signUp(username,password);
+
             }
             else {
                 Toast.makeText(registerActivity,"the password and repeated password is not the same",Toast.LENGTH_SHORT).show();
@@ -53,6 +47,20 @@ public class RegisterViewModel extends ViewModel {
         }
         else{
             Toast.makeText(registerActivity, "Please Enter required Fields Correctly", Toast.LENGTH_SHORT).show();
+        }
+    }
+
+    /**
+     * if sign up is successful go to Home Screen
+     */
+
+    public void signUpToHomeScreen(int registerResult){
+        if(registerResult == FirebaseHandler.NEW_ACCOUNT_CREATED){
+            Intent registerIntent = new Intent(registerActivity, HomeActivity.class);
+            registerActivity.startActivity (registerIntent);
+        }
+        else{
+            Toast.makeText(registerActivity, "Please Try Again with different Email and Password", Toast.LENGTH_SHORT).show();
         }
     }
 

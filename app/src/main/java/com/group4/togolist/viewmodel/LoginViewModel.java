@@ -28,7 +28,7 @@ public class LoginViewModel extends ViewModel {
      */
     public LoginViewModel(Activity loginActivity){
         this.loginActivity = loginActivity;
-        firebaseHandler = new FirebaseHandler(loginActivity);
+        firebaseHandler = new FirebaseHandler(loginActivity,this);
     }
 
     /**
@@ -36,16 +36,22 @@ public class LoginViewModel extends ViewModel {
      */
     public void signIn(String username, String password){
         if(username != null && !username.isEmpty() && password != null && !password.isEmpty()){
-            int result = firebaseHandler.signIn(username,password);
-            if(result == FirebaseHandler.ACCESS_GRANTED){
-                Intent loginIntent = new Intent(loginActivity, HomeActivity.class);
-                loginActivity.startActivity(loginIntent);
-            }else{
-                Toast.makeText(loginActivity, "Your Email or Password is incorrect", Toast.LENGTH_SHORT).show();
-            }
+            firebaseHandler.signIn(username,password);
         }
         else {
             Toast.makeText(loginActivity, "Please Enter your Username and Password", Toast.LENGTH_SHORT).show();
+        }
+    }
+
+    /**
+     *  Go To Home Screen
+     */
+    public void loginToHomeScreen(int loginResult){
+        if(loginResult == FirebaseHandler.ACCESS_GRANTED){
+            Intent loginIntent = new Intent(loginActivity, HomeActivity.class);
+            loginActivity.startActivity(loginIntent);
+        }else{
+            Toast.makeText(loginActivity, "Your Email or Password is incorrect", Toast.LENGTH_SHORT).show();
         }
     }
 
