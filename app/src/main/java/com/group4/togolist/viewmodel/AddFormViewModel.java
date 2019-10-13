@@ -17,8 +17,8 @@ public class AddFormViewModel extends ViewModel{
         this.activity = activity;
     }
 
-    public void createNewTrip(String tripName, double startLocationLongitude, double startLocationLatitude, double endLocationLongitude, double endLocationLatitude, int startDateYear, int startDateMonth, int startDateDay, int startDateHours, int startDateMinutes, int endDateYear, int endDateMonth, int endDateDay, int endDateHours, int endDateMinutes, String status, int repetition, boolean isRoundTrip, String notes){
-        Trip newTrip = new Trip(tripName, startLocationLongitude, startLocationLatitude, endLocationLongitude, endLocationLatitude,  startDateYear, startDateMonth, startDateDay, startDateHours, startDateMinutes, endDateYear, endDateMonth, endDateDay, endDateHours, endDateMinutes,status,repetition, isRoundTrip, notes);
+    public void createNewTrip(String tripName, double startLocationLongitude, double startLocationLatitude, double endLocationLongitude, double endLocationLatitude, int startDateYear, int startDateMonth, int startDateDay, int startDateHours, int startDateMinutes, String status, int repetition, boolean isRoundTrip, String notes){
+        Trip newTrip = new Trip(tripName, startLocationLongitude, startLocationLatitude, endLocationLongitude, endLocationLatitude,  startDateYear, startDateMonth, startDateDay, startDateHours, startDateMinutes, status,repetition, isRoundTrip, notes);
 
     }
 

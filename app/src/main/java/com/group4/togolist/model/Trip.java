@@ -26,11 +26,6 @@ public class Trip {
     private int startDateDay;
     private int startDateHours;
     private int startDateMinutes;
-    private int endDateYear;
-    private int endDateMonth;
-    private int endDateDay;
-    private int endDateHours;
-    private int endDateMinutes;
     private String status;
     private int repetition;
     private boolean isRoundTrip;
@@ -48,7 +43,7 @@ public class Trip {
     public static final int WEEKLY = 1003;
     public static final int MONTHLY = 1004;
 
-    public Trip(String tripName, double startLocationLongitude, double startLocationLatitude, double endLocationLongitude, double endLocationLatitude, int startDateYear, int startDateMonth, int startDateDay, int startDateHours, int startDateMinutes, int endDateYear, int endDateMonth, int endDateDay, int endDateHours, int endDateMinutes, String status, int repetition, boolean isRoundTrip, String notes) {
+    public Trip(String tripName, double startLocationLongitude, double startLocationLatitude, double endLocationLongitude, double endLocationLatitude, int startDateYear, int startDateMonth, int startDateDay, int startDateHours, int startDateMinutes,  String status, int repetition, boolean isRoundTrip, String notes) {
         this.tripName = tripName;
         this.startLocationLongitude = startLocationLongitude;
         this.startLocationLatitude = startLocationLatitude;
@@ -59,11 +54,6 @@ public class Trip {
         this.startDateDay = startDateDay;
         this.startDateHours = startDateHours;
         this.startDateMinutes = startDateMinutes;
-        this.endDateYear = endDateYear;
-        this.endDateMonth = endDateMonth;
-        this.endDateDay = endDateDay;
-        this.endDateHours = endDateHours;
-        this.endDateMinutes = endDateMinutes;
         this.status = status;
         this.repetition = repetition;
         this.isRoundTrip = isRoundTrip;
@@ -112,26 +102,6 @@ public class Trip {
 
     public int getStartDateMinutes() {
         return startDateMinutes;
-    }
-
-    public int getEndDateYear() {
-        return endDateYear;
-    }
-
-    public int getEndDateMonth() {
-        return endDateMonth;
-    }
-
-    public int getEndDateDay() {
-        return endDateDay;
-    }
-
-    public int getEndDateHours() {
-        return endDateHours;
-    }
-
-    public int getEndDateMinutes() {
-        return endDateMinutes;
     }
 
     public String getStatus() {
@@ -192,26 +162,6 @@ public class Trip {
 
     public void setStartDateMinutes(int startDateMinutes) {
         this.startDateMinutes = startDateMinutes;
-    }
-
-    public void setEndDateYear(int endDateYear) {
-        this.endDateYear = endDateYear;
-    }
-
-    public void setEndDateMonth(int endDateMonth) {
-        this.endDateMonth = endDateMonth;
-    }
-
-    public void setEndDateDay(int endDateDay) {
-        this.endDateDay = endDateDay;
-    }
-
-    public void setEndDateHours(int endDateHours) {
-        this.endDateHours = endDateHours;
-    }
-
-    public void setEndDateMinutes(int endDateMinutes) {
-        this.endDateMinutes = endDateMinutes;
     }
 
     public void setStatus(String status) {
