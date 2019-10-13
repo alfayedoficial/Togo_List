@@ -10,6 +10,10 @@ import com.group4.togolist.R;
 import androidx.appcompat.app.AppCompatActivity;
 
 public class FirstActivity extends AppCompatActivity implements View.OnClickListener {
+    /**
+     * Class do :
+     * Created by Group 4 ITI (Eng/Bassen - Eng Fatma - Eng Ali)
+     */
     Button btnSignIN, btnCreateAccount;
 
     @Override

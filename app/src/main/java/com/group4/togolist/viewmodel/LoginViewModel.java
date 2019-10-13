@@ -6,13 +6,16 @@ import android.widget.Toast;
 
 import androidx.lifecycle.ViewModel;
 
+import com.group4.togolist.view.ForgetPasswordActivity;
 import com.group4.togolist.view.HomeActivity;
 import com.group4.togolist.repository.FirebaseHandler;
 import com.group4.togolist.view.FirstActivity;
 
 /**
- * Handle Sign In Activity
+ * Class do : Handle Sign In Activity
+ * Created by Group 4 ITI (Eng/Bassen - Eng Fatma - Eng Ali)
  */
+
 
 public class LoginViewModel extends ViewModel {
 
@@ -59,7 +62,8 @@ public class LoginViewModel extends ViewModel {
     }
 
     public void forgetPassword(){
-
+        Intent intent = new Intent(loginActivity, ForgetPasswordActivity.class);
+        loginActivity.startActivity(intent);
     }
 
 }

@@ -9,7 +9,8 @@ import com.group4.togolist.view.SignUpActivity;
 import androidx.lifecycle.ViewModel;
 
 /**
- * Handle First Activity Buttons
+ * Class do : Handle First Activity Buttons
+ * Created by Group 4 ITI (Eng/Bassen - Eng Fatma - Eng Ali)
  */
 
 public class FirstViewModel extends ViewModel {

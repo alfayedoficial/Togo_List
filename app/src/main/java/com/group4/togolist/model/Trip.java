@@ -7,6 +7,11 @@ import androidx.room.PrimaryKey;
 
 import java.util.Date;
 
+/**
+ * Class do :
+ * Created by Group 4 ITI (Eng/Bassen - Eng Fatma - Eng Ali)
+ */
+
 @Entity
 public class Trip {
     @PrimaryKey(autoGenerate = true)

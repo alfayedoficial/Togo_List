@@ -13,7 +13,8 @@ import com.google.firebase.auth.FirebaseAuth;
 public class FirebaseHandler {
 
     /**
-     * This class is Designed to handle Firebase Login And Register
+     * Class do : This class is Designed to handle Firebase Login And Register
+     * Created by Group 4 ITI (Eng/Bassen - Eng Fatma - Eng Ali)
      */
 
     private FirebaseAuth mAuth;

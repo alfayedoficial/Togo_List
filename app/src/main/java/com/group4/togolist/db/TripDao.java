@@ -13,6 +13,10 @@ import java.util.List;
 
 @Dao
 public interface TripDao {
+    /**
+     * Class do :
+     * Created by Group 4 ITI (Eng/Bassen - Eng Fatma - Eng Ali)
+     */
 
     // method for entering new row int Trip Table
     @Insert

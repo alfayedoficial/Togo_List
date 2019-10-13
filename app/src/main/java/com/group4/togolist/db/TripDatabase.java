@@ -8,6 +8,11 @@ import androidx.room.RoomDatabase;
 
 import com.group4.togolist.model.Trip;
 
+/**
+ * Class do :
+ * Created by Group 4 ITI (Eng/Bassen - Eng Fatma - Eng Ali)
+ */
+
 @Database(entities = {Trip.class},version = 1 , exportSchema = false)
 public abstract class TripDatabase extends RoomDatabase {
     public static TripDatabase getDataBaseInstance(Context context){

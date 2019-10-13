@@ -6,7 +6,7 @@ import android.os.Bundle;
 
 import com.group4.togolist.R;
 
-public class HomeActivity extends AppCompatActivity {
+public class ForgetPasswordActivity extends AppCompatActivity {
     /**
      * Class do :
      * Created by Group 4 ITI (Eng/Bassen - Eng Fatma - Eng Ali)
@@ -15,6 +15,6 @@ public class HomeActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_home);
+        setContentView(R.layout.activity_forget_password);
     }
 }

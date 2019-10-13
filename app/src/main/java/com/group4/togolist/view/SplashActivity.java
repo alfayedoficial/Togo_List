@@ -14,7 +14,7 @@ public class SplashActivity extends AppCompatActivity {
 
      /**
      * Class do : run animation plane
-     * duration of wait 3 sec until animation finished
+     * duration of wait 2 sec until animation finished
      * Created by Group 4 ITI (Eng/Bassen - Eng Fatma - Eng Ali)
      */
 
@@ -22,7 +22,7 @@ public class SplashActivity extends AppCompatActivity {
     ImageView id_splashIcon;
 
      // Duration of wait
-    private final int SPLASH_DISPLAY_LENGTH = 3000;
+    private final int SPLASH_DISPLAY_LENGTH = 2300;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

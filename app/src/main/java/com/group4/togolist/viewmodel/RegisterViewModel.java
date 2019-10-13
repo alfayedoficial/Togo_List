@@ -11,7 +11,8 @@ import com.group4.togolist.repository.FirebaseHandler;
 import com.group4.togolist.view.FirstActivity;
 
 /**
- * Handle Sign up Activity
+ * Class do : Handle Sign up Activity
+ * Created by Group 4 ITI (Eng/Bassen - Eng Fatma - Eng Ali)
  */
 
 public class RegisterViewModel extends ViewModel {

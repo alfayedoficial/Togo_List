@@ -2,6 +2,11 @@ package com.group4.togolist.model;
 
 import java.util.ArrayList;
 
+/**
+ * Class do :
+ * Created by Group 4 ITI (Eng/Bassen - Eng Fatma - Eng Ali)
+ */
+
 public class User {
 
     private String name;
