@@ -2,9 +2,11 @@ package com.group4.togolist.viewmodel;
 
 import android.app.Activity;
 
+import androidx.lifecycle.ViewModel;
+
 import com.group4.togolist.repository.FirebaseHandler;
 
-public class ForgetPassViewModel{
+public class ForgetPassViewModel extends ViewModel {
 
     /**
      * this class handle Forget Password View
