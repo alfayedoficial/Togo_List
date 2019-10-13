@@ -1,6 +1,7 @@
 package com.group4.togolist.repository;
 
 import android.app.Activity;
+import android.util.Log;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
@@ -9,6 +10,7 @@ import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
+import com.group4.togolist.viewmodel.ForgetPassViewModel;
 import com.group4.togolist.viewmodel.LoginViewModel;
 import com.group4.togolist.viewmodel.RegisterViewModel;
 
@@ -31,6 +33,11 @@ public class FirebaseHandler {
 
     private LoginViewModel loginViewModel;
     private RegisterViewModel registerViewModel;
+
+    public FirebaseHandler(Activity activity){
+        mAuth = FirebaseAuth.getInstance();
+        this.activity = activity;
+    }
 
     public FirebaseHandler(Activity activity,RegisterViewModel viewModel){
         mAuth = FirebaseAuth.getInstance();
@@ -70,6 +77,18 @@ public class FirebaseHandler {
                         else {
                             Toast.makeText(activity, "Success", Toast.LENGTH_SHORT).show();
                             registerViewModel.signUpToHomeScreen(NEW_ACCOUNT_CREATED);
+                        }
+                    }
+                });
+    }
+
+    public void resetPassword(String email){
+        mAuth.sendPasswordResetEmail(email)
+                .addOnCompleteListener(new OnCompleteListener<Void>() {
+                    @Override
+                    public void onComplete(@NonNull Task<Void> task) {
+                        if (task.isSuccessful()) {
+                            Toast.makeText(activity, "Email Sent", Toast.LENGTH_SHORT).show();
                         }
                     }
                 });
