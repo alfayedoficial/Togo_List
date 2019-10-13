@@ -27,20 +27,24 @@ public class FirebaseHandler {
     public static final int ACCESS_GRANTED = 2002;
     public static final int NEW_ACCOUNT_CREATED = 3001;
     public static final int NEW_ACCOUNT_FAILED = 3002;
+    public static final int RESET_EMAIL_SENT = 4001;
+    public static final int RESET_EMAIL_FAILED = 4002;
 
 
     private Activity activity;
 
     private LoginViewModel loginViewModel;
     private RegisterViewModel registerViewModel;
+    private ForgetPassViewModel forgetPassViewModel;
 
     /**
      * Firebase Handler Constructors
      */
 
-    public FirebaseHandler(Activity activity){
+    public FirebaseHandler(Activity activity,ForgetPassViewModel forgetPassViewModel){
         createFirebaseAuth();
         this.activity = activity;
+        this.forgetPassViewModel = forgetPassViewModel;
     }
 
     public FirebaseHandler(Activity activity,RegisterViewModel viewModel){
@@ -104,7 +108,10 @@ public class FirebaseHandler {
                     @Override
                     public void onComplete(@NonNull Task<Void> task) {
                         if (task.isSuccessful()) {
-                            Toast.makeText(activity, "Email Sent", Toast.LENGTH_SHORT).show();
+                            forgetPassViewModel.onResult(RESET_EMAIL_SENT);
+                        }
+                        else{
+                            forgetPassViewModel.onResult(RESET_EMAIL_FAILED);
                         }
                     }
                 });
