@@ -220,18 +220,78 @@
 			   android:layout_marginStart="70dp"
 			   android:layout_marginTop="20dp"
 			   android:layout_marginEnd="70dp"
-			   android:layout_marginBottom="40dp"
+			   android:layout_marginBottom="16dp"
 			   android:background="@drawable/gradient_btn_signup"
 			   android:drawableLeft="@drawable/icon_google"
 			   android:paddingLeft="15dp"
 			   android:text="@string/sign_up_with_google"
 			   android:textColor="@color/background_offwhite"
 			   android:textStyle="bold"
-			   app:layout_constraintBottom_toBottomOf="parent"
+			   app:layout_constraintBottom_toTopOf="@+id/ConstraintLayout3"
 			   app:layout_constraintEnd_toEndOf="parent"
 			   app:layout_constraintHorizontal_bias="1.0"
 			   app:layout_constraintStart_toStartOf="parent"
 			   app:layout_constraintTop_toBottomOf="@+id/btn_sign_up" />
+
+		  <androidx.constraintlayout.widget.ConstraintLayout
+			   android:id="@+id/ConstraintLayout3"
+			   android:layout_width="0dp"
+			   android:layout_height="wrap_content"
+			   android:layout_marginStart="1dp"
+			   android:layout_marginEnd="1dp"
+			   android:layout_marginBottom="40dp"
+			   app:layout_constraintBottom_toBottomOf="parent"
+			   app:layout_constraintEnd_toEndOf="parent"
+			   app:layout_constraintStart_toStartOf="parent">
+
+			   <TextView
+					android:id="@+id/Policy"
+					android:layout_width="wrap_content"
+					android:layout_height="wrap_content"
+					android:layout_marginTop="3dp"
+					android:textColor="@color/background_offwhite"
+					android:text="@string/privacy_policy"
+					app:layout_constraintEnd_toEndOf="parent"
+					app:layout_constraintStart_toStartOf="parent"
+					app:layout_constraintTop_toTopOf="parent" />
+
+			   <LinearLayout
+					android:layout_width="wrap_content"
+					android:layout_height="wrap_content"
+					android:layout_marginTop="0dp"
+					android:layout_marginBottom="32dp"
+					android:orientation="horizontal"
+					app:layout_constraintBottom_toBottomOf="parent"
+					app:layout_constraintEnd_toEndOf="parent"
+					app:layout_constraintStart_toStartOf="parent"
+					app:layout_constraintTop_toBottomOf="@+id/Policy">
+
+					<Button
+						 android:id="@+id/button2"
+						 android:layout_width="wrap_content"
+						 android:layout_height="wrap_content"
+						 android:layout_weight="1"
+						 style="@style/Widget.AppCompat.Button.Borderless.Colored"
+						 android:text="@string/terms_conditions" />
+
+					<TextView
+						 android:id="@+id/textView6"
+						 android:layout_width="wrap_content"
+						 android:layout_height="wrap_content"
+						 android:layout_weight="1"
+						 android:textColor="@color/background_offwhite"
+						 android:text="@string/and" />
+
+					<Button
+						 android:id="@+id/button3"
+						 android:layout_width="wrap_content"
+						 android:layout_height="wrap_content"
+						 android:layout_weight="1"
+						 android:text="@string/privacy_policybutton"
+						 style="@style/Widget.AppCompat.Button.Borderless.Colored"/>
+			   </LinearLayout>
+
+		  </androidx.constraintlayout.widget.ConstraintLayout>
 	 </androidx.constraintlayout.widget.ConstraintLayout>
 
 

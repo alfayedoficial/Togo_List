@@ -19,4 +19,8 @@
 	 <string name="forget_password">Forget Password</string>
 	 <string name="please_enter_your_e_mail">please enter your e-mail</string>
 	 <string name="reset_password">Reset Password</string>
+	 <string name="privacy_policy"><![CDATA[By clicking the sign up button , you agree to our ]]></string>
+	 <string name="terms_conditions"><![CDATA[Terms & Conditions]]></string>
+	 <string name="privacy_policybutton">Privacy Policy</string>
+	 <string name="and">and</string>
 </resources>
