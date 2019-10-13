@@ -4,14 +4,14 @@ import android.app.Activity;
 
 import androidx.lifecycle.ViewModel;
 
-public class addFormViewModel extends ViewModel {
+public class AddFormViewModel extends ViewModel {
     /**
      * class to handle add form view
      */
 
     private Activity activity;
 
-    public addFormViewModel(Activity activity){
+    public AddFormViewModel(Activity activity){
         this.activity = activity;
     }
 

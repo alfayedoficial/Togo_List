@@ -1,11 +1,13 @@
 package com.group4.togolist.viewmodel;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.widget.Toast;
 
 import androidx.lifecycle.ViewModel;
 
 import com.group4.togolist.repository.FirebaseHandler;
+import com.group4.togolist.view.FirstActivity;
 
 public class ForgetPassViewModel extends ViewModel {
 
@@ -41,5 +43,10 @@ public class ForgetPassViewModel extends ViewModel {
                 Toast.makeText(activity, "Email not found", Toast.LENGTH_SHORT).show();
                 break;
         }
+    }
+
+    public void cancel(){
+        Intent intent = new Intent(activity, LoginViewModel.class);
+        activity.startActivity(intent);
     }
 }
