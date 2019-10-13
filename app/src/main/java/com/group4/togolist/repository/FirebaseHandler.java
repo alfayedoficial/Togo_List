@@ -39,6 +39,7 @@ public class FirebaseHandler {
     }
 
     public FirebaseHandler(Activity activity,LoginViewModel viewModel){
+        mAuth = FirebaseAuth.getInstance();
         this.activity = activity;
         loginViewModel = viewModel;
     }
