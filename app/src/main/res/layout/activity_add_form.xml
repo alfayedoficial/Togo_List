@@ -78,21 +78,21 @@
 			 app:layout_constraintTop_toBottomOf="@+id/id_name_app4" />
 
 		 <EditText
-			   android:id="@+id/editText_nameTrip"
-			   android:layout_width="0dp"
-			   android:layout_height="wrap_content"
-			   android:layout_marginStart="10dp"
-			   android:layout_marginTop="10dp"
-			   android:layout_marginEnd="17dp"
-			   android:ems="10"
-			   android:inputType="textPersonName"
-			   android:text="@string/trip_name"
-			   android:textColor="@color/editText"
-			   android:textColorHint="@color/colorAccent"
-			   android:textSize="14sp"
-			   app:layout_constraintEnd_toEndOf="parent"
-			   app:layout_constraintStart_toStartOf="parent"
-			   app:layout_constraintTop_toBottomOf="@+id/textView2" />
+			 android:id="@+id/editText_nameTrip"
+			 android:layout_width="0dp"
+			 android:layout_height="wrap_content"
+			 android:layout_marginStart="10dp"
+			 android:layout_marginTop="10dp"
+			 android:layout_marginEnd="17dp"
+			 android:ems="10"
+			 android:hint="@string/trip_name"
+			 android:inputType="textPersonName"
+			 android:textColor="@color/editText"
+			 android:textColorHint="@color/colorAccent"
+			 android:textSize="14sp"
+			 app:layout_constraintEnd_toEndOf="parent"
+			 app:layout_constraintStart_toStartOf="parent"
+			 app:layout_constraintTop_toBottomOf="@+id/textView2" />
 
 		  <fragment
 			   android:id="@+id/editText_startPoint"
@@ -159,39 +159,39 @@
 <!--			   app:layout_constraintStart_toEndOf="@+id/editText_startPoint"-->
 <!--			   app:layout_constraintTop_toBottomOf="@+id/editText_nameTrip" />-->
 
-		  <EditText
-			   android:id="@+id/editText_startDate"
-			   android:layout_width="0dp"
-			   android:layout_height="wrap_content"
-			   android:layout_marginStart="10dp"
-			   android:layout_marginTop="8dp"
-			   android:layout_marginEnd="17dp"
-			   android:ems="10"
-			   android:inputType="datetime"
-			   android:text="@string/startdate"
-			   android:textColor="@color/editText"
-			   android:textColorHint="@color/colorAccent"
-			   android:textSize="14sp"
-			   app:layout_constraintEnd_toEndOf="parent"
-			   app:layout_constraintStart_toStartOf="parent"
-			   app:layout_constraintTop_toBottomOf="@+id/editText_startPoint" />
+		 <EditText
+			 android:id="@+id/editText_startDate"
+			 android:layout_width="0dp"
+			 android:layout_height="wrap_content"
+			 android:layout_marginStart="10dp"
+			 android:layout_marginTop="8dp"
+			 android:layout_marginEnd="17dp"
+			 android:ems="10"
+			 android:hint="@string/startdate"
+			 android:inputType="datetime"
+			 android:textColor="@color/editText"
+			 android:textColorHint="@color/colorAccent"
+			 android:textSize="14sp"
+			 app:layout_constraintEnd_toEndOf="parent"
+			 app:layout_constraintStart_toStartOf="parent"
+			 app:layout_constraintTop_toBottomOf="@+id/editText_startPoint" />
 
-		  <EditText
-			   android:id="@+id/editText_startTime"
-			   android:layout_width="0dp"
-			   android:layout_height="wrap_content"
-			   android:layout_marginStart="10dp"
-			   android:layout_marginTop="8dp"
-			   android:layout_marginEnd="17dp"
-			   android:ems="10"
-			   android:inputType="time"
-			   android:text="@string/starttime"
-			   android:textColor="@color/editText"
-			   android:textColorHint="@color/colorAccent"
-			   android:textSize="14sp"
-			   app:layout_constraintEnd_toEndOf="parent"
-			   app:layout_constraintStart_toStartOf="parent"
-			   app:layout_constraintTop_toBottomOf="@+id/editText_startDate" />
+		 <EditText
+			 android:id="@+id/editText_startTime"
+			 android:layout_width="0dp"
+			 android:layout_height="wrap_content"
+			 android:layout_marginStart="10dp"
+			 android:layout_marginTop="8dp"
+			 android:layout_marginEnd="17dp"
+			 android:ems="10"
+			 android:hint="@string/starttime"
+			 android:inputType="time"
+			 android:textColor="@color/editText"
+			 android:textColorHint="@color/colorAccent"
+			 android:textSize="14sp"
+			 app:layout_constraintEnd_toEndOf="parent"
+			 app:layout_constraintStart_toStartOf="parent"
+			 app:layout_constraintTop_toBottomOf="@+id/editText_startDate" />
 
 		  <TextView
 			   android:id="@+id/textView4"
@@ -388,22 +388,22 @@
 			   </RadioGroup>
 		  </LinearLayout>
 
-		  <EditText
-			   android:id="@+id/editText_Note"
-			   android:layout_width="0dp"
-			   android:layout_height="wrap_content"
-			   android:layout_marginStart="10dp"
-			   android:layout_marginTop="8dp"
-			   android:layout_marginEnd="17dp"
-			   android:ems="10"
-			   android:inputType="textPersonName"
-			   android:text="@string/addnote"
-			   android:textColor="@color/editText"
-			   android:textColorHint="@color/colorAccent"
-			   android:textSize="14sp"
-			   app:layout_constraintEnd_toEndOf="parent"
-			   app:layout_constraintStart_toStartOf="parent"
-			   app:layout_constraintTop_toBottomOf="@+id/linearLayout5" />
+		 <EditText
+			 android:id="@+id/editText_Note"
+			 android:layout_width="0dp"
+			 android:layout_height="wrap_content"
+			 android:layout_marginStart="10dp"
+			 android:layout_marginTop="8dp"
+			 android:layout_marginEnd="17dp"
+			 android:ems="10"
+			 android:hint="@string/addnote"
+			 android:inputType="textPersonName"
+			 android:textColor="@color/editText"
+			 android:textColorHint="@color/colorAccent"
+			 android:textSize="14sp"
+			 app:layout_constraintEnd_toEndOf="parent"
+			 app:layout_constraintStart_toStartOf="parent"
+			 app:layout_constraintTop_toBottomOf="@+id/linearLayout5" />
 
 		  <Button
 			   android:id="@+id/btn_add"
