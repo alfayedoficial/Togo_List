@@ -8,7 +8,8 @@ import android.widget.Button;
 
 import com.group4.togolist.R;
 import com.group4.togolist.viewmodel.FirstViewModel;
-import com.group4.togolist.viewmodel.RegisterViewModel;
+
+
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.lifecycle.ViewModel;
@@ -51,7 +52,7 @@ public class FirstActivity extends AppCompatActivity implements View.OnClickList
         buttontest.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(FirstActivity.this,AddFormActivity.class);
+                Intent intent = new Intent(FirstActivity.this, AddFormActivity.class);
                 startActivity(intent);
             }
         });
