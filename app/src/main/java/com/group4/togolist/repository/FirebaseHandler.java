@@ -39,18 +39,18 @@ public class FirebaseHandler {
      */
 
     public FirebaseHandler(Activity activity){
-        mAuth = FirebaseAuth.getInstance();
+        createFirebaseAuth();
         this.activity = activity;
     }
 
     public FirebaseHandler(Activity activity,RegisterViewModel viewModel){
-        mAuth = FirebaseAuth.getInstance();
+        createFirebaseAuth();
         this.activity = activity;
         registerViewModel = viewModel;
     }
 
     public FirebaseHandler(Activity activity,LoginViewModel viewModel){
-        mAuth = FirebaseAuth.getInstance();
+        createFirebaseAuth();
         this.activity = activity;
         loginViewModel = viewModel;
     }
@@ -108,5 +108,11 @@ public class FirebaseHandler {
                         }
                     }
                 });
+    }
+
+    public void createFirebaseAuth(){
+        if(mAuth == null) {
+            mAuth = FirebaseAuth.getInstance();
+        }
     }
 }
