@@ -40,8 +40,8 @@ public class AddFormActivity extends AppCompatActivity implements View.OnClickLi
      */
     private void initComponent() {
         eTxtTripName = findViewById(R.id.editText_nameTrip);
-        eTxtStartPoint = findViewById(R.id.editText_startPoint);
-        eTxtEndPoint = findViewById(R.id.editText_endPoint);
+//        eTxtStartPoint = findViewById(R.id.editText_startPoint);
+ //       eTxtEndPoint = findViewById(R.id.editText_endPoint);
         eTxtStartDate =findViewById(R.id.editText_startDate);
         eTxtStartTime = findViewById(R.id.editText_startTime);
         eTxtNotes = findViewById(R.id.editText_Note);
