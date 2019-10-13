@@ -19,6 +19,14 @@ public class DatabaseHandler {
         initComponent(activity);
     }
 
+    //Initialize database
+    public void initComponent(Activity activity){
+        if(daoInstance == null){
+            TripDatabase databaseInstance = TripDatabase.getDataBaseInstance(activity);
+            daoInstance = databaseInstance.getDaoInstance();
+        }
+    }
+
     /**
      *  this method get a Trip object as an input and add it to database
      */
@@ -39,11 +47,4 @@ public class DatabaseHandler {
         }
     }
 
-    //Initialize database
-    public void initComponent(Activity activity){
-        if(daoInstance == null){
-            TripDatabase databaseInstance = TripDatabase.getDataBaseInstance(activity);
-            daoInstance = databaseInstance.getDaoInstance();
-        }
-    }
 }
