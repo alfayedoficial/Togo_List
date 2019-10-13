@@ -34,6 +34,10 @@ public class FirebaseHandler {
     private LoginViewModel loginViewModel;
     private RegisterViewModel registerViewModel;
 
+    /**
+     * Firebase Handler Constructors
+     */
+
     public FirebaseHandler(Activity activity){
         mAuth = FirebaseAuth.getInstance();
         this.activity = activity;
@@ -51,6 +55,10 @@ public class FirebaseHandler {
         loginViewModel = viewModel;
     }
 
+
+    /**
+     * this method request sign in using email and password
+     */
     public void signIn(String email, String password){
 
         mAuth.signInWithEmailAndPassword(email,password).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
@@ -65,6 +73,10 @@ public class FirebaseHandler {
         });
     }
 
+
+    /**
+     * this method request sign up using email and password
+     */
     public void signUp(String email, String password){
         mAuth.createUserWithEmailAndPassword(email,password)
                 .addOnCompleteListener(new OnCompleteListener<AuthResult>() {
@@ -82,6 +94,10 @@ public class FirebaseHandler {
                 });
     }
 
+
+    /**
+     *  method reset password and send email to the user
+     */
     public void resetPassword(String email){
         mAuth.sendPasswordResetEmail(email)
                 .addOnCompleteListener(new OnCompleteListener<Void>() {
