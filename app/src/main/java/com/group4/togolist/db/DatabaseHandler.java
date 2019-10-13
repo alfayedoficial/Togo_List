@@ -3,7 +3,12 @@ package com.group4.togolist.db;
 import android.app.Activity;
 import android.os.AsyncTask;
 
+import androidx.lifecycle.LiveData;
+
 import com.group4.togolist.model.Trip;
+
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * This class is used to handle access to SQLite database
@@ -11,6 +16,7 @@ import com.group4.togolist.model.Trip;
 
 public class DatabaseHandler {
     private TripDao daoInstance;
+    private LiveData<List<Trip>> trips;
 
     /**
      * class Constructor
@@ -34,6 +40,11 @@ public class DatabaseHandler {
         new AddTrip().execute(trip);
     }
 
+    public LiveData<List<Trip>> getTrips(){
+        new GetTrips().execute();
+        return trips;
+    }
+
 
     /**
      * Inner class AddTrip used to create a Thread to add Trip to database
@@ -44,6 +55,19 @@ public class DatabaseHandler {
         protected Void doInBackground(Trip... trips) {
             daoInstance.addTrip(trips[0]);
             return null;
+        }
+    }
+
+    class GetTrips extends AsyncTask<Void,Void,LiveData<List<Trip>>>{
+        @Override
+        protected LiveData<List<Trip>> doInBackground(Void... voids) {
+            return daoInstance.getTrips();
+        }
+
+        @Override
+        protected void onPostExecute(LiveData<List<Trip>> listLiveData) {
+            super.onPostExecute(listLiveData);
+            trips = listLiveData;
         }
     }
 

@@ -2,10 +2,14 @@ package com.group4.togolist.viewmodel;
 
 import android.app.Activity;
 import android.content.Intent;
+import android.provider.ContactsContract;
 import android.widget.Toast;
 
 import androidx.lifecycle.ViewModel;
+import androidx.room.Database;
 
+import com.group4.togolist.db.DatabaseHandler;
+import com.group4.togolist.model.User;
 import com.group4.togolist.view.ForgetPasswordActivity;
 import com.group4.togolist.view.HomeActivity;
 import com.group4.togolist.repository.FirebaseHandler;
@@ -23,12 +27,15 @@ public class LoginViewModel extends ViewModel {
 
     private Activity loginActivity;
     private FirebaseHandler firebaseHandler;
+    private DatabaseHandler databaseHandler;
+    User user;
     /**
      * Login View Model Constructor Method it takes the activity as input parameter
      */
     public LoginViewModel(Activity loginActivity){
         this.loginActivity = loginActivity;
         firebaseHandler = new FirebaseHandler(loginActivity,this);
+        databaseHandler = new DatabaseHandler(loginActivity);
     }
 
     /**
@@ -37,6 +44,7 @@ public class LoginViewModel extends ViewModel {
     public void signIn(String username, String password){
         if(username != null && !username.isEmpty() && password != null && !password.isEmpty()){
             firebaseHandler.signIn(username,password);
+            user = User.getUserInstance(username,password,databaseHandler.getTrips());
         }
         else {
             Toast.makeText(loginActivity, "Please Enter your Username and Password", Toast.LENGTH_SHORT).show();
@@ -52,6 +60,7 @@ public class LoginViewModel extends ViewModel {
             loginActivity.startActivity(loginIntent);
         }else{
             Toast.makeText(loginActivity, "Your Email or Password is incorrect", Toast.LENGTH_SHORT).show();
+            user = null;
         }
     }
 

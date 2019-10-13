@@ -1,6 +1,9 @@
 package com.group4.togolist.model;
 
+import androidx.lifecycle.LiveData;
+
 import java.util.ArrayList;
+import java.util.List;
 
 /**
  * Class do :
@@ -13,14 +16,15 @@ public class User {
     private String email;
     private String photoUrl;
     private String password;
-    private ArrayList<Trip> trips;
+    private LiveData<List<Trip>> trips;
+    private static User user;
 
     //Three User Constructors
 
     /**
      * POJO constructor using user name, email, photo, password and list of trips
      */
-    public User(String name, String email, String photoUrl, String password, ArrayList<Trip> trips) {
+    private User(String name, String email, String photoUrl, String password, LiveData<List<Trip>> trips) {
         this.name = name;
         this.email = email;
         this.photoUrl = photoUrl;
@@ -31,7 +35,7 @@ public class User {
     /**
      * POJO constructor using user name, email, password and list of trips
      */
-    public User(String name, String email, String password, ArrayList<Trip> trips) {
+    private User(String name, String email, String password, LiveData<List<Trip>> trips) {
         this.name = name;
         this.email = email;
         this.password = password;
@@ -41,10 +45,29 @@ public class User {
     /**
      * POJO constructor using user name, password and list of trips
      */
-    public User(String name, String password, ArrayList<Trip> trips) {
+    private User(String name, String password, LiveData<List<Trip>> trips) {
         this.name = name;
         this.password = password;
         this.trips = trips;
+    }
+
+    /**
+     * user Static Constructor
+     */
+
+    public static User getUserInstance(String name, String email, String photoUrl, String password, LiveData<List<Trip>> trips){
+        user = new User(name, email, photoUrl, password, trips);
+        return user;
+    }
+
+    public static User getUserInstance(String name, String email, String password, LiveData<List<Trip>> trips){
+        user = new User(name, email, password, trips);
+        return user;
+    }
+
+    public static User getUserInstance(String name,  String password, LiveData<List<Trip>> trips){
+        user = new User(name, password, trips);
+        return user;
     }
 
     /**
@@ -66,7 +89,7 @@ public class User {
         return password;
     }
 
-    public ArrayList<Trip> getTrips() {
+    public LiveData<List<Trip>> getTrips() {
         return trips;
     }
 
@@ -89,7 +112,7 @@ public class User {
         this.password = password;
     }
 
-    public void setTrips(ArrayList<Trip> trips) {
+    public void setTrips(LiveData<List<Trip>> trips) {
         this.trips = trips;
     }
 }
