@@ -48,6 +48,28 @@ public class Trip {
     public static final int WEEKLY = 1003;
     public static final int MONTHLY = 1004;
 
+    public Trip(String tripName, double startLocationLongitude, double startLocationLatitude, double endLocationLongitude, double endLocationLatitude, int startDateYear, int startDateMonth, int startDateDay, int startDateHours, int startDateMinutes, int endDateYear, int endDateMonth, int endDateDay, int endDateHours, int endDateMinutes, String status, int repetition, boolean isRoundTrip, String notes) {
+        this.tripName = tripName;
+        this.startLocationLongitude = startLocationLongitude;
+        this.startLocationLatitude = startLocationLatitude;
+        this.endLocationLongitude = endLocationLongitude;
+        this.endLocationLatitude = endLocationLatitude;
+        this.startDateYear = startDateYear;
+        this.startDateMonth = startDateMonth;
+        this.startDateDay = startDateDay;
+        this.startDateHours = startDateHours;
+        this.startDateMinutes = startDateMinutes;
+        this.endDateYear = endDateYear;
+        this.endDateMonth = endDateMonth;
+        this.endDateDay = endDateDay;
+        this.endDateHours = endDateHours;
+        this.endDateMinutes = endDateMinutes;
+        this.status = status;
+        this.repetition = repetition;
+        this.isRoundTrip = isRoundTrip;
+        this.notes = notes;
+    }
+
     public int getId() {
         return id;
     }
