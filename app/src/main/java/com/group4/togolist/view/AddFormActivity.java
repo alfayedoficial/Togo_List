@@ -1,70 +1,110 @@
 package com.group4.togolist.view;
 
-import android.graphics.Color;
+import android.app.Activity;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
+import android.widget.EditText;
+import android.widget.RadioButton;
 
-import com.google.android.gms.common.api.Status;
-import com.google.android.gms.location.places.Place;
-import com.google.android.gms.location.places.ui.PlaceAutocompleteFragment;
-import com.google.android.gms.location.places.ui.PlaceSelectionListener;
-import com.google.android.gms.maps.model.LatLng;
 import com.group4.togolist.R;
+import com.group4.togolist.viewmodel.AddFormViewModel;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.lifecycle.ViewModel;
+import androidx.lifecycle.ViewModelProvider;
+import androidx.lifecycle.ViewModelProviders;
 
-public class AddFormActivity extends AppCompatActivity {
-    LatLng latLang1;
-    LatLng latLang2;
-    Double lat1;
-    Double lat2;
-    Double long2;
-    Double long1;
-    String placeDestination;
-    String placeName;
+public class AddFormActivity extends AppCompatActivity implements View.OnClickListener {
+
+    private AddFormViewModel addFormViewModel;
+    private Button btnAdd , btnCancel ;
+    private RadioButton rdnBtnDaily , rdnBtnWeekly , rdnBtnDays , rdnBtnOneDirection , rdnBtnRoundTrip;
+    private EditText eTxtTripName , eTxtStartPoint , eTxtEndPoint , eTxtStartDate , eTxtStartTime , eTxtNotes;
+
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_add_form);
 
-        final PlaceAutocompleteFragment autocompleteFragment1 = (PlaceAutocompleteFragment)
-                getFragmentManager().findFragmentById(R.id.editText_startPoint);
-        autocompleteFragment1.getView().setBackgroundColor(getResources().getColor(R.color.background_offwhite));
-//        autocompleteFragment1.setText("Start Point");
-        autocompleteFragment1.setOnPlaceSelectedListener(new PlaceSelectionListener() {
-            @Override
-            public void onPlaceSelected(Place place) {
-                latLang1 = place.getLatLng();
-                placeName = (String) place.getName();
-                long1 = latLang1.longitude;
-                lat1 = latLang1.latitude;
-            }
+        addFormViewModel = ViewModelProviders.of(this , new MyViewModelFactory(AddFormActivity.this)).get(AddFormViewModel.class);
 
-            @Override
-            public void onError(Status status) {
+        initComponent();
 
-                final PlaceAutocompleteFragment autocompleteFragment2 = (PlaceAutocompleteFragment)
-                        getFragmentManager().findFragmentById(R.id.editText_endPoint);
-                autocompleteFragment2.getView().setBackgroundColor(getResources().getColor(R.color.background_offwhite));
-//                autocompleteFragment2.setText("End Point");
-                autocompleteFragment2.setOnPlaceSelectedListener(new PlaceSelectionListener() {
-                    @Override
-                    public void onPlaceSelected(Place place) {
-                        // TODO: Get info about the selected place.
-                        latLang2 = place.getLatLng();
-                        placeDestination = (String) place.getName();
-                        long2 = latLang2.longitude;
-                        lat2 = latLang2.latitude;
-
-                    }
-
-                    @Override
-                    public void onError(Status status) {
-
-                    }
-                });
-            }
-        });
     }
 
+    /**
+     *
+     */
+    private void initComponent() {
+        eTxtTripName = findViewById(R.id.editText_nameTrip);
+        eTxtStartPoint = findViewById(R.id.editText_startPoint);
+        eTxtEndPoint = findViewById(R.id.editText_endPoint);
+        eTxtStartDate =findViewById(R.id.editText_startDate);
+        eTxtStartTime = findViewById(R.id.editText_startTime);
+        eTxtNotes = findViewById(R.id.editText_Note);
+
+        btnAdd = findViewById(R.id.btn_add);
+        btnCancel = findViewById(R.id.btn_cancel);
+
+        rdnBtnDaily = findViewById(R.id.radioBtn_daily);
+        rdnBtnWeekly = findViewById(R.id.radioBtnweekly);
+        rdnBtnDays = findViewById(R.id.radioBtnDays);
+        rdnBtnOneDirection = findViewById(R.id.radioBtnOneDirection);
+        rdnBtnRoundTrip = findViewById(R.id.radioBtnRoundTrip);
+
+
+    }
+
+    @Override
+    public void onClick(View v) {
+        switch (v.getId()){
+            case R.id.editText_startPoint:
+                break;
+            case R.id.editText_endPoint:
+                break;
+            case R.id.editText_startDate:
+                break;
+            case R.id.editText_startTime:
+                break;
+
+            case R.id.radioBtn_daily:
+                break;
+            case R.id.radioBtnweekly:
+                break;
+            case R.id.radioBtnDays:
+                break;
+            case R.id.radioBtnOneDirection:
+                break;
+            case R.id.radioBtnRoundTrip:
+                break;
+            case R.id.btn_add:
+                break;
+            case R.id.btn_cancel:
+                break;
+
+
+
+        }
+    }
+
+    /**
+     *
+     */
+    class MyViewModelFactory implements ViewModelProvider.Factory {
+        private Activity mActivity;
+
+
+        public MyViewModelFactory(Activity activity) {
+            mActivity = activity;
+        }
+
+
+        @Override
+        public <T extends ViewModel> T create(Class<T> modelClass) {
+            return (T) new AddFormViewModel(mActivity);
+        }
+    }
 }
