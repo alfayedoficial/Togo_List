@@ -38,7 +38,7 @@ public class RegisterViewModel extends ViewModel {
         password != null && !password.isEmpty() &&
         repeatedPassword != null && !repeatedPassword.isEmpty()){
             if(password.equals(repeatedPassword)){
-                firebaseHandler.signUp(username,password);
+                firebaseHandler.signUp(email,password);
 
             }
             else {

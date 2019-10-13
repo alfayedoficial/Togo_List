@@ -4,7 +4,7 @@ import android.app.Activity;
 
 import com.group4.togolist.repository.FirebaseHandler;
 
-public class ForgetPassViewModel {
+public class ForgetPassViewModel{
 
     /**
      * this class handle Forget Password View
