@@ -37,7 +37,7 @@ public class ForgetPasswordActivity extends AppCompatActivity implements View.On
 
     private void initComponent() {
 
-        btnResetPassword = findViewById(R.id.btn_forget_password);
+        btnResetPassword = findViewById(R.id.btn_reset_password);
         btnCancel = findViewById(R.id.btn_Cancel_forgetPass);
 
         eTxtPassword = findViewById(R.id.editText_email_forgetPass);
@@ -50,7 +50,7 @@ public class ForgetPasswordActivity extends AppCompatActivity implements View.On
     public void onClick(View v) {
         switch (v.getId()){
 
-            case R.id.btn_forget_password:
+            case R.id.btn_reset_password:
 
                 forgetPassViewModel.sendEmail(eTxtPassword.getText().toString());
                 break;
