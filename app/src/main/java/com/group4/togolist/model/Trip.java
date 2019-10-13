@@ -1,11 +1,10 @@
 package com.group4.togolist.model;
 
-import android.location.Location;
 
 import androidx.room.Entity;
 import androidx.room.PrimaryKey;
 
-import java.util.Date;
+import java.util.Calendar;
 
 /**
  * Class do :
@@ -54,6 +53,23 @@ public class Trip {
         this.startDateDay = startDateDay;
         this.startDateHours = startDateHours;
         this.startDateMinutes = startDateMinutes;
+        this.status = status;
+        this.repetition = repetition;
+        this.isRoundTrip = isRoundTrip;
+        this.notes = notes;
+    }
+
+    public Trip(String tripName, double startLocationLongitude, double startLocationLatitude, double endLocationLongitude, double endLocationLatitude,Calendar startDate, String status, int repetition, boolean isRoundTrip, String notes){
+        this.tripName = tripName;
+        this.startLocationLongitude = startLocationLongitude;
+        this.startLocationLatitude = startLocationLatitude;
+        this.endLocationLongitude = endLocationLongitude;
+        this.endLocationLatitude = endLocationLatitude;
+        this.startDateYear = startDate.get(Calendar.YEAR);
+        this.startDateMonth = startDate.get(Calendar.MONTH);
+        this.startDateDay = startDate.get(Calendar.DAY_OF_MONTH);
+        this.startDateHours = startDate.get(Calendar.HOUR_OF_DAY);
+        this.startDateMinutes = startDate.get(Calendar.MINUTE);
         this.status = status;
         this.repetition = repetition;
         this.isRoundTrip = isRoundTrip;
@@ -118,6 +134,24 @@ public class Trip {
 
     public String getNotes() {
         return notes;
+    }
+
+    public Calendar getStartTime(){
+        Calendar cal = Calendar.getInstance();
+        cal.set(Calendar.YEAR,getStartDateYear());
+        cal.set(Calendar.MONTH,getStartDateMonth());
+        cal.set(Calendar.DAY_OF_MONTH,getStartDateDay());
+        cal.set(Calendar.HOUR_OF_DAY,getStartDateHours());
+        cal.set(Calendar.MINUTE,getStartDateMinutes());
+        return cal;
+    }
+
+    public void setStartTime(Calendar cal){
+        setStartDateYear(cal.get(Calendar.YEAR));
+        setStartDateMonth(cal.get(Calendar.MONTH));
+        setStartDateDay(cal.get(Calendar.DAY_OF_MONTH));
+        setStartDateHours(cal.get(Calendar.HOUR_OF_DAY));
+        setStartDateMinutes(cal.get(Calendar.MINUTE));
     }
 
     public void setId(int id) {
