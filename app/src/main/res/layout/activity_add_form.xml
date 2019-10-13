@@ -94,44 +94,70 @@
 			   app:layout_constraintStart_toStartOf="parent"
 			   app:layout_constraintTop_toBottomOf="@+id/textView2" />
 
-		  <EditText
+		  <fragment
 			   android:id="@+id/editText_startPoint"
+			   android:name="com.google.android.gms.location.places.ui.PlaceAutocompleteFragment"
 			   android:layout_width="0dp"
 			   android:layout_height="wrap_content"
 			   android:layout_marginStart="8dp"
-			   android:drawableEnd="@drawable/ic_search"
-			   android:drawableRight="@drawable/ic_search"
-			   android:ems="10"
-			   android:inputType="textPersonName"
-			   android:paddingEnd="10dp"
-			   android:paddingRight="10dp"
-			   android:text="@string/start_pint"
-			   android:textColor="@color/editText"
-			   android:textColorHint="@color/colorAccent"
-			   android:textSize="14sp"
-			   app:layout_constraintStart_toStartOf="parent"
+			   android:layout_marginTop="8dp"
+			   android:layout_marginEnd="16dp"
+			   app:layout_constraintEnd_toStartOf="@+id/editText_endPoint"
+			   app:layout_constraintStart_toStartOf="@+id/editText_nameTrip"
 			   app:layout_constraintTop_toBottomOf="@+id/editText_nameTrip" />
 
-		  <EditText
+<!--		  <EditText-->
+<!--			   android:id="@+id/editText_startPoint"-->
+<!--			   android:layout_width="0dp"-->
+<!--			   android:layout_height="wrap_content"-->
+<!--			   android:layout_marginStart="8dp"-->
+<!--			   android:drawableEnd="@drawable/ic_search"-->
+<!--			   android:drawableRight="@drawable/ic_search"-->
+<!--			   android:ems="10"-->
+<!--			   android:inputType="textPersonName"-->
+<!--			   android:paddingEnd="10dp"-->
+<!--			   android:paddingRight="10dp"-->
+<!--			   android:text="@string/start_pint"-->
+<!--			   android:textColor="@color/editText"-->
+<!--			   android:textColorHint="@color/colorAccent"-->
+<!--			   android:textSize="14sp"-->
+<!--			   app:layout_constraintStart_toStartOf="parent"-->
+<!--			   app:layout_constraintTop_toBottomOf="@+id/editText_nameTrip" />-->
+
+		  <fragment
 			   android:id="@+id/editText_endPoint"
+			   android:name="com.google.android.gms.location.places.ui.PlaceAutocompleteFragment"
 			   android:layout_width="0dp"
 			   android:layout_height="wrap_content"
 			   android:layout_marginStart="16dp"
+			   android:layout_marginTop="8dp"
 			   android:layout_marginEnd="18dp"
-			   android:drawableEnd="@drawable/ic_search"
-			   android:drawableRight="@drawable/ic_search"
-			   android:ems="10"
-			   android:inputType="textPersonName"
-			   android:paddingEnd="10dp"
-			   android:paddingRight="10dp"
-			   android:text="@string/endpoint"
-			   android:textColor="@color/editText"
-			   android:textColorHint="@color/colorAccent"
-			   android:textSize="14sp"
+			   android:textColorHint="#ffffff"
 			   app:layout_constraintEnd_toEndOf="parent"
 			   app:layout_constraintHorizontal_bias="0.0"
 			   app:layout_constraintStart_toEndOf="@+id/editText_startPoint"
 			   app:layout_constraintTop_toBottomOf="@+id/editText_nameTrip" />
+
+<!--		  <EditText-->
+<!--			   android:id="@+id/editText_endPoint"-->
+<!--			   android:layout_width="0dp"-->
+<!--			   android:layout_height="wrap_content"-->
+<!--			   android:layout_marginStart="16dp"-->
+<!--			   android:layout_marginEnd="18dp"-->
+<!--			   android:drawableEnd="@drawable/ic_search"-->
+<!--			   android:drawableRight="@drawable/ic_search"-->
+<!--			   android:ems="10"-->
+<!--			   android:inputType="textPersonName"-->
+<!--			   android:paddingEnd="10dp"-->
+<!--			   android:paddingRight="10dp"-->
+<!--			   android:text="@string/endpoint"-->
+<!--			   android:textColor="@color/editText"-->
+<!--			   android:textColorHint="@color/colorAccent"-->
+<!--			   android:textSize="14sp"-->
+<!--			   app:layout_constraintEnd_toEndOf="parent"-->
+<!--			   app:layout_constraintHorizontal_bias="0.0"-->
+<!--			   app:layout_constraintStart_toEndOf="@+id/editText_startPoint"-->
+<!--			   app:layout_constraintTop_toBottomOf="@+id/editText_nameTrip" />-->
 
 		  <EditText
 			   android:id="@+id/editText_startDate"

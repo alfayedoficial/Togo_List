@@ -1,11 +1,10 @@
 package com.group4.togolist.model;
 
-import android.location.Location;
 
 import androidx.room.Entity;
 import androidx.room.PrimaryKey;
 
-import java.util.Date;
+import java.util.Calendar;
 
 /**
  * Class do :
@@ -26,11 +25,6 @@ public class Trip {
     private int startDateDay;
     private int startDateHours;
     private int startDateMinutes;
-    private int endDateYear;
-    private int endDateMonth;
-    private int endDateDay;
-    private int endDateHours;
-    private int endDateMinutes;
     private String status;
     private int repetition;
     private boolean isRoundTrip;
@@ -47,6 +41,40 @@ public class Trip {
     public static final int DAILY = 1002;
     public static final int WEEKLY = 1003;
     public static final int MONTHLY = 1004;
+
+    public Trip(String tripName, double startLocationLongitude, double startLocationLatitude, double endLocationLongitude, double endLocationLatitude, int startDateYear, int startDateMonth, int startDateDay, int startDateHours, int startDateMinutes,  String status, int repetition, boolean isRoundTrip, String notes) {
+        this.tripName = tripName;
+        this.startLocationLongitude = startLocationLongitude;
+        this.startLocationLatitude = startLocationLatitude;
+        this.endLocationLongitude = endLocationLongitude;
+        this.endLocationLatitude = endLocationLatitude;
+        this.startDateYear = startDateYear;
+        this.startDateMonth = startDateMonth;
+        this.startDateDay = startDateDay;
+        this.startDateHours = startDateHours;
+        this.startDateMinutes = startDateMinutes;
+        this.status = status;
+        this.repetition = repetition;
+        this.isRoundTrip = isRoundTrip;
+        this.notes = notes;
+    }
+
+    public Trip(String tripName, double startLocationLongitude, double startLocationLatitude, double endLocationLongitude, double endLocationLatitude,Calendar startDate, String status, int repetition, boolean isRoundTrip, String notes){
+        this.tripName = tripName;
+        this.startLocationLongitude = startLocationLongitude;
+        this.startLocationLatitude = startLocationLatitude;
+        this.endLocationLongitude = endLocationLongitude;
+        this.endLocationLatitude = endLocationLatitude;
+        this.startDateYear = startDate.get(Calendar.YEAR);
+        this.startDateMonth = startDate.get(Calendar.MONTH);
+        this.startDateDay = startDate.get(Calendar.DAY_OF_MONTH);
+        this.startDateHours = startDate.get(Calendar.HOUR_OF_DAY);
+        this.startDateMinutes = startDate.get(Calendar.MINUTE);
+        this.status = status;
+        this.repetition = repetition;
+        this.isRoundTrip = isRoundTrip;
+        this.notes = notes;
+    }
 
     public int getId() {
         return id;
@@ -92,26 +120,6 @@ public class Trip {
         return startDateMinutes;
     }
 
-    public int getEndDateYear() {
-        return endDateYear;
-    }
-
-    public int getEndDateMonth() {
-        return endDateMonth;
-    }
-
-    public int getEndDateDay() {
-        return endDateDay;
-    }
-
-    public int getEndDateHours() {
-        return endDateHours;
-    }
-
-    public int getEndDateMinutes() {
-        return endDateMinutes;
-    }
-
     public String getStatus() {
         return status;
     }
@@ -126,6 +134,24 @@ public class Trip {
 
     public String getNotes() {
         return notes;
+    }
+
+    public Calendar getStartTime(){
+        Calendar cal = Calendar.getInstance();
+        cal.set(Calendar.YEAR,getStartDateYear());
+        cal.set(Calendar.MONTH,getStartDateMonth());
+        cal.set(Calendar.DAY_OF_MONTH,getStartDateDay());
+        cal.set(Calendar.HOUR_OF_DAY,getStartDateHours());
+        cal.set(Calendar.MINUTE,getStartDateMinutes());
+        return cal;
+    }
+
+    public void setStartTime(Calendar cal){
+        setStartDateYear(cal.get(Calendar.YEAR));
+        setStartDateMonth(cal.get(Calendar.MONTH));
+        setStartDateDay(cal.get(Calendar.DAY_OF_MONTH));
+        setStartDateHours(cal.get(Calendar.HOUR_OF_DAY));
+        setStartDateMinutes(cal.get(Calendar.MINUTE));
     }
 
     public void setId(int id) {
@@ -170,26 +196,6 @@ public class Trip {
 
     public void setStartDateMinutes(int startDateMinutes) {
         this.startDateMinutes = startDateMinutes;
-    }
-
-    public void setEndDateYear(int endDateYear) {
-        this.endDateYear = endDateYear;
-    }
-
-    public void setEndDateMonth(int endDateMonth) {
-        this.endDateMonth = endDateMonth;
-    }
-
-    public void setEndDateDay(int endDateDay) {
-        this.endDateDay = endDateDay;
-    }
-
-    public void setEndDateHours(int endDateHours) {
-        this.endDateHours = endDateHours;
-    }
-
-    public void setEndDateMinutes(int endDateMinutes) {
-        this.endDateMinutes = endDateMinutes;
     }
 
     public void setStatus(String status) {
