@@ -229,7 +229,7 @@ public class AddFormActivity extends AppCompatActivity implements View.OnClickLi
 
         myCalendar.set(year , month , day , hour , minute);
 
-        addFormViewModel.createNewTrip(eTxtTripName.getText().toString() , longStartPoint, latStartPoint, longEndPoint, latEndPoint, myCalendar, repetition, roundTrip, eTxtNotes.getText().toString());
+      //  addFormViewModel.createNewTrip(eTxtTripName.getText().toString() , longStartPoint, latStartPoint, longEndPoint, latEndPoint, myCalendar, repetition, roundTrip, eTxtNotes.getText().toString());
 
     }
 
