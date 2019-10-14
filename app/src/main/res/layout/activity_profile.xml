@@ -282,7 +282,6 @@
 			   app:layout_constraintTop_toTopOf="@+id/imageBtnHome" />
 
 
-
 		  <ImageButton
 			   android:id="@+id/imageBtnProfile"
 			   style="@style/Widget.AppCompat.Button.Borderless.Colored"
