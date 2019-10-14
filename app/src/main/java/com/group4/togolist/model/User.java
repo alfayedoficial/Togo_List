@@ -51,9 +51,20 @@ public class User {
         this.trips = trips;
     }
 
+    private User(String name, String email,String password ) {
+        this.name = name;
+        this.email = email;
+        this.photoUrl = photoUrl;
+        this.password = password;
+        this.trips = trips;
+    }
     /**
      * user Static Constructor
      */
+
+    public static User getUserInstance(){
+        return user;
+    }
 
     public static User getUserInstance(String name, String email, String photoUrl, String password, LiveData<List<Trip>> trips){
         user = new User(name, email, photoUrl, password, trips);
@@ -67,6 +78,11 @@ public class User {
 
     public static User getUserInstance(String name,  String password, LiveData<List<Trip>> trips){
         user = new User(name, password, trips);
+        return user;
+    }
+
+    public static User getUserInstance(String name,String email,String password){
+        user = new User(name,email,password);
         return user;
     }
 
