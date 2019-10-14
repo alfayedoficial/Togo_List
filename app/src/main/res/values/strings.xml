@@ -1,6 +1,7 @@
 <resources>
 	 <string name="app_name">Togo List</string>
 	 <string name="titleHome">Never forget your Trip</string>
+
 	 <!--	 Sign in Activity-->
 	 <string name="signin">Sign In</string>
 	 <string name="createanaccount">Create an Account</string>
@@ -53,6 +54,7 @@
 	 <string name="user">User</string>
 
 
-
+	<!--	 Google API Key-->
+	<string name="google_maps_key" templateMergeStrategy="preserve" translatable="false">AIzaSyB4PIv_KoqOvbbtOgLUTBDCG0b1aampKcE</string>
 
 </resources>
