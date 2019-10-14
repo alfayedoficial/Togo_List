@@ -129,4 +129,18 @@
 		  app:layout_constraintStart_toStartOf="parent"
 		  app:layout_constraintTop_toBottomOf="@+id/textView" />
 
+	 <Button
+		  android:id="@+id/buttontestdialog"
+		  android:layout_width="wrap_content"
+		  android:layout_height="wrap_content"
+		  android:layout_marginStart="146dp"
+		  android:layout_marginTop="106dp"
+		  android:layout_marginEnd="177dp"
+		  android:layout_marginBottom="26dp"
+		  android:text="@string/details"
+		  app:layout_constraintBottom_toTopOf="@+id/buttontest2"
+		  app:layout_constraintEnd_toEndOf="parent"
+		  app:layout_constraintStart_toStartOf="parent"
+		  app:layout_constraintTop_toBottomOf="@+id/textView" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

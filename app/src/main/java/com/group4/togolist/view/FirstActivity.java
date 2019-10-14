@@ -21,7 +21,7 @@ public class FirstActivity extends AppCompatActivity implements View.OnClickList
      * Class do :
      * Created by Group 4 ITI (Eng/Bassen - Eng Fatma - Eng Ali)
      */
-    private Button btnSignIN, btnCreateAccount , buttontest,buttontest2;
+    private Button btnSignIN, btnCreateAccount , buttontest,buttontest2,buttontestdialog;
     private FirstViewModel firstViewModel;
 
     @Override
@@ -41,6 +41,7 @@ public class FirstActivity extends AppCompatActivity implements View.OnClickList
         btnCreateAccount = findViewById(R.id.btnSignUp);
         buttontest = findViewById(R.id.buttontest);
         buttontest2 = findViewById(R.id.buttontest2);
+        buttontestdialog = findViewById(R.id.buttontestdialog);
 
         // assigning Events to Buttons
         btnSignIN.setOnClickListener(this);
@@ -61,6 +62,13 @@ public class FirstActivity extends AppCompatActivity implements View.OnClickList
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(FirstActivity.this, ProfileActivity.class);
+                startActivity(intent);
+            }
+        });
+        buttontestdialog.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(FirstActivity.this, DialogActivity.class);
                 startActivity(intent);
             }
         });
