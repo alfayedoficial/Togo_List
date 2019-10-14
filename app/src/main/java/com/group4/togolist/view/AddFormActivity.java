@@ -32,14 +32,14 @@ import java.util.Calendar;
 import java.util.Locale;
 
 public class AddFormActivity extends AppCompatActivity implements View.OnClickListener , View.OnFocusChangeListener{
-   private LatLng latLang1;
-   private LatLng latLang2;
-   private Double lat1;
-    private Double lat2;
-   private Double long2;
-   private Double long1;
-   private String placeDestination;
-   private String placeName;
+   private LatLng latLangStartPoint;
+   private LatLng latLangEndPoint;
+   private Double latStartPoint;
+    private Double latEndPoint;
+   private Double longStartPoint;
+   private Double longEndPoint;
+   private String placeEndPoint;
+   private String placeStartPoint;
    private String strMinute = "";
     private String strHour = "";
     private int repetition = Trip.NOT_REPEATED;
@@ -69,36 +69,38 @@ public class AddFormActivity extends AppCompatActivity implements View.OnClickLi
         autocompleteFragment1.setOnPlaceSelectedListener(new PlaceSelectionListener() {
             @Override
             public void onPlaceSelected(Place place) {
-                latLang1 = place.getLatLng();
-                placeName = (String) place.getName();
-                long1 = latLang1.longitude;
-                lat1 = latLang1.latitude;
-                Toast.makeText(AddFormActivity.this, placeName + ":" + long1 + ":" + lat1, Toast.LENGTH_SHORT).show();
+                latLangStartPoint = place.getLatLng();
+                placeStartPoint = (String) place.getName();
+                longStartPoint = latLangStartPoint.longitude;
+                latStartPoint = latLangStartPoint.latitude;
+             //   Toast.makeText(AddFormActivity.this, placeStartPoint + ":" + longStartPoint + ":" + latStartPoint, Toast.LENGTH_SHORT).show();
             }
 
             @Override
             public void onError(Status status) {
+                System.out.println(status.toString());
+            }
+        });
 
-                final PlaceAutocompleteFragment autocompleteFragment2 = (PlaceAutocompleteFragment)
-                        getFragmentManager().findFragmentById(R.id.editText_endPoint);
-                autocompleteFragment2.getView().setBackgroundColor(getResources().getColor(R.color.background_offwhite));
+
+        final PlaceAutocompleteFragment autocompleteFragment2 = (PlaceAutocompleteFragment)
+                getFragmentManager().findFragmentById(R.id.editText_endPoint);
+        autocompleteFragment2.getView().setBackgroundColor(getResources().getColor(R.color.background_offwhite));
 //                autocompleteFragment2.setText("End Point");
-                autocompleteFragment2.setOnPlaceSelectedListener(new PlaceSelectionListener() {
-                    @Override
-                    public void onPlaceSelected(Place place) {
-                        // TODO: Get info about the selected place.
-                        latLang2 = place.getLatLng();
-                        placeDestination = (String) place.getName();
-                        long2 = latLang2.longitude;
-                        lat2 = latLang2.latitude;
-                        Toast.makeText(AddFormActivity.this, " Dest "+placeDestination + ":" + long2 + ":" + lat2, Toast.LENGTH_SHORT).show();
-                    }
+        autocompleteFragment2.setOnPlaceSelectedListener(new PlaceSelectionListener() {
+            @Override
+            public void onPlaceSelected(Place place) {
+                // TODO: Get info about the selected place.
+                latLangEndPoint = place.getLatLng();
+                placeEndPoint = (String) place.getName();
+                longEndPoint = latLangEndPoint.longitude;
+                latEndPoint = latLangEndPoint.latitude;
+              //  Toast.makeText(AddFormActivity.this, " Dest "+placeEndPoint + ":" + longEndPoint + ":" + latEndPoint, Toast.LENGTH_SHORT).show();
+            }
 
-                    @Override
-                    public void onError(Status status) {
-
-                    }
-                });
+            @Override
+            public void onError(Status status) {
+                System.out.println(status.toString());
             }
         });
     }
@@ -227,6 +229,7 @@ public class AddFormActivity extends AppCompatActivity implements View.OnClickLi
 
         myCalendar.set(year , month , day , hour , minute);
 
+        addFormViewModel.createNewTrip(eTxtTripName.getText().toString() , longStartPoint, latStartPoint, longEndPoint, latEndPoint, myCalendar, repetition, roundTrip, eTxtNotes.getText().toString());
 
     }
 
