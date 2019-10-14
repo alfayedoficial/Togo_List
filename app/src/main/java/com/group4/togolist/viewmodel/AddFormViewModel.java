@@ -45,7 +45,7 @@ public class AddFormViewModel extends ViewModel{
         AlarmManager alarmManager = (AlarmManager) activity.getSystemService(Context.ALARM_SERVICE);
         Intent intent = new Intent(activity, TripAlarm.class);
         intent.putExtra(TripAlarm.TRIP_NAME,newTrip.getTripName());
-        PendingIntent pendingIntent = PendingIntent.getBroadcast(activity, 1, intent, 0);
+        PendingIntent pendingIntent = PendingIntent.getBroadcast(activity, newTrip.getId(), intent, 0);
 
         if (startDate.before(Calendar.getInstance())) {
             startDate.add(Calendar.DATE, 1);
