@@ -58,6 +58,7 @@
 			   android:shadowColor="#000000"
 			   android:textSize="12sp"
 			   android:text="@string/cancel"
+			   android:visibility="gone"
 			   android:textColor="@color/colorPrimary"
 			   app:layout_constraintEnd_toStartOf="@+id/id_name_app4"
 			   app:layout_constraintHorizontal_bias="0.0"
