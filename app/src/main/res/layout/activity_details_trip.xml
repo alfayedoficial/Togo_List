@@ -314,7 +314,7 @@
 					android:layout_marginTop="20dp"
 					android:layout_marginBottom="100dp"
 					android:background="@drawable/gradient_btn_signin"
-					android:text="@string/later"
+					android:text="@string/edit"
 					android:textColor="@color/background_offwhite"
 					android:textSize="18sp"
 					android:fontFamily="@font/boutfont"
