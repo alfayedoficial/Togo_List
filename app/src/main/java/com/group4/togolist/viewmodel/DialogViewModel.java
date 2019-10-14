@@ -104,7 +104,7 @@ public class DialogViewModel extends ViewModel {
             return new NotificationCompat.Builder(getApplicationContext(), channelID)
                     .setContentTitle(getString(R.string.app_name))
                     .setContentText(currentTrip.getTripName())
-                    .setSmallIcon(R.drawable.ic_launcher_foreground);
+                    .setSmallIcon(R.drawable.logo);
         }
     }
 }
