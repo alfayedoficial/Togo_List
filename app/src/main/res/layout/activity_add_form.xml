@@ -7,9 +7,14 @@
 	 android:background="@color/background_offwhite"
 	 tools:context=".view.AddFormActivity">
 
-	 <androidx.core.widget.NestedScrollView
+	 <ScrollView
 		  android:layout_width="match_parent"
-		  android:layout_height="match_parent">
+		  android:layout_height="match_parent"
+		  android:layout_marginBottom="50dp"
+		  app:layout_constraintBottom_toTopOf="@+id/constraintLayout"
+		  app:layout_constraintEnd_toEndOf="parent"
+		  app:layout_constraintStart_toStartOf="parent"
+		  app:layout_constraintTop_toTopOf="parent">
 
 		  <androidx.constraintlayout.widget.ConstraintLayout
 			   android:layout_width="match_parent"
@@ -64,6 +69,7 @@
 					android:shadowRadius="1"
 					android:src="@drawable/ic_back"
 					android:textSize="12sp"
+					android:visibility="gone"
 					app:layout_constraintEnd_toStartOf="@+id/id_name_app4"
 					app:layout_constraintHorizontal_bias="0.0"
 					app:layout_constraintStart_toStartOf="parent"
@@ -98,17 +104,40 @@
 					app:layout_constraintStart_toStartOf="parent"
 					app:layout_constraintTop_toBottomOf="@+id/textView2" />
 
-			   <fragment
-					android:id="@+id/editText_startPoint"
-					android:name="com.google.android.gms.location.places.ui.PlaceAutocompleteFragment"
+			   <LinearLayout
+					android:id="@+id/StartPoint"
 					android:layout_width="0dp"
 					android:layout_height="wrap_content"
-					android:layout_marginStart="10dp"
+					android:layout_marginStart="13dp"
 					android:layout_marginTop="8dp"
-					android:layout_marginEnd="10dp"
-					app:layout_constraintEnd_toStartOf="@+id/editText_endPoint"
+					android:layout_marginEnd="17dp"
+					android:orientation="horizontal"
+					app:layout_constraintEnd_toEndOf="parent"
 					app:layout_constraintStart_toStartOf="parent"
-					app:layout_constraintTop_toBottomOf="@+id/editText_nameTrip" />
+					app:layout_constraintTop_toBottomOf="@+id/editText_nameTrip">
+
+					<TextView
+						 android:id="@+id/TextViewStartPoint"
+						 android:layout_width="0dp"
+						 android:layout_height="wrap_content"
+						 android:layout_gravity="center"
+						 android:layout_weight="1"
+						 android:gravity="center"
+						 android:text="@string/start_pint"
+						 android:textColor="@color/editText"
+						 android:textSize="18sp" />
+
+					<fragment
+						 android:id="@+id/FragmentStartPoint"
+						 android:name="com.google.android.gms.location.places.ui.PlaceAutocompleteFragment"
+						 android:layout_width="0dp"
+						 android:layout_height="wrap_content"
+						 android:layout_gravity="center|start"
+						 android:layout_weight="1"
+						 android:textColorHint="@color/home_color" />
+
+
+			   </LinearLayout>
 
 			   <!--		  <EditText-->
 			   <!--			   android:id="@+id/editText_startPoint"-->
@@ -127,20 +156,41 @@
 			   <!--			   android:textSize="14sp"-->
 			   <!--			   app:layout_constraintStart_toStartOf="parent"-->
 			   <!--			   app:layout_constraintTop_toBottomOf="@+id/editText_nameTrip" />-->
-
-			   <fragment
-					android:id="@+id/editText_endPoint"
-					android:name="com.google.android.gms.location.places.ui.PlaceAutocompleteFragment"
+			   <LinearLayout
+					android:id="@+id/EndPoint"
 					android:layout_width="0dp"
 					android:layout_height="wrap_content"
-					android:layout_marginStart="8dp"
+					android:layout_marginStart="13dp"
 					android:layout_marginTop="8dp"
 					android:layout_marginEnd="17dp"
-					android:textColorHint="#ffffff"
 					app:layout_constraintEnd_toEndOf="parent"
 					app:layout_constraintHorizontal_bias="0.0"
-					app:layout_constraintStart_toEndOf="@+id/editText_startPoint"
-					app:layout_constraintTop_toBottomOf="@+id/editText_nameTrip" />
+					app:layout_constraintStart_toStartOf="parent"
+					app:layout_constraintTop_toBottomOf="@+id/StartPoint">
+
+					<TextView
+						 android:id="@+id/TextViewEndPoint"
+						 android:layout_width="0dp"
+						 android:layout_height="wrap_content"
+						 android:layout_gravity="center"
+						 android:layout_weight="1"
+						 android:gravity="center"
+						 android:text="@string/end_point"
+						 android:textColor="@color/editText"
+						 android:textSize="18sp" />
+
+					<fragment
+
+						 android:id="@+id/FragmentEndPoint"
+						 android:name="com.google.android.gms.location.places.ui.PlaceAutocompleteFragment"
+						 android:layout_width="0dp"
+						 android:layout_height="wrap_content"
+						 android:layout_gravity="center|start"
+						 android:layout_weight="1"
+						 android:textColorHint="@color/home_color" />
+
+			   </LinearLayout>
+
 
 			   <!--		  <EditText-->
 			   <!--			   android:id="@+id/editText_endPoint"-->
@@ -168,7 +218,6 @@
 					android:layout_width="0dp"
 					android:layout_height="wrap_content"
 					android:layout_marginStart="10dp"
-					android:layout_marginTop="7dp"
 					android:layout_marginEnd="17dp"
 					android:ems="10"
 					android:hint="@string/startdate"
@@ -178,10 +227,10 @@
 					android:textSize="18sp"
 					app:layout_constraintEnd_toEndOf="parent"
 					app:layout_constraintStart_toStartOf="parent"
-					app:layout_constraintTop_toBottomOf="@+id/editText_startPoint" />
+					app:layout_constraintTop_toBottomOf="@+id/EndPoint" />
 
 			   <EditText
-					android:id="@+id/editText6"
+					android:id="@+id/editText_startTime"
 					android:layout_width="0dp"
 					android:layout_height="wrap_content"
 					android:layout_marginStart="10dp"
@@ -208,29 +257,28 @@
 					android:textSize="18sp"
 					android:visibility="visible"
 					app:layout_constraintStart_toStartOf="parent"
-					app:layout_constraintTop_toBottomOf="@+id/editText6" />
+					app:layout_constraintTop_toBottomOf="@+id/editText_startTime" />
 
 			   <LinearLayout
 					android:id="@+id/linearLayout"
 					android:layout_width="0dp"
-					android:layout_height="25dp"
+					android:layout_height="wrap_content"
 					android:layout_marginStart="24dp"
-					android:layout_marginTop="14dp"
 					android:layout_marginEnd="17dp"
 					android:orientation="horizontal"
 					android:visibility="visible"
 					app:layout_constraintEnd_toEndOf="parent"
 					app:layout_constraintStart_toEndOf="@+id/textView4"
-					app:layout_constraintTop_toBottomOf="@+id/editText6">
+					app:layout_constraintTop_toTopOf="@+id/textView4">
 
 
 					<RadioGroup
 						 android:layout_width="match_parent"
 						 android:layout_height="match_parent"
-						 android:orientation="horizontal">
+						 android:orientation="vertical">
 
 						 <RadioButton
-							  android:id="@+id/radioBtn_daily"
+							  android:id="@+id/radioBtnDaily"
 							  android:layout_width="wrap_content"
 							  android:layout_height="wrap_content"
 							  android:layout_weight="1"
@@ -240,7 +288,7 @@
 							  android:textSize="18sp" />
 
 						 <RadioButton
-							  android:id="@+id/radioBtnweakly"
+							  android:id="@+id/radioBtnWeakly"
 							  android:layout_width="wrap_content"
 							  android:layout_height="wrap_content"
 							  android:layout_weight="1"
@@ -265,20 +313,16 @@
 			   </LinearLayout>
 
 			   <LinearLayout
-					android:id="@+id/linearLayout4"
+					android:id="@+id/linearLayoutDays"
 					android:layout_width="wrap_content"
 					android:layout_height="wrap_content"
-					android:layout_marginStart="200dp"
-					android:layout_marginTop="8dp"
-					android:layout_marginEnd="16dp"
 					android:orientation="vertical"
 					android:visibility="gone"
-					app:layout_constraintEnd_toEndOf="@+id/linearLayout"
 					app:layout_constraintStart_toStartOf="@+id/linearLayout"
 					app:layout_constraintTop_toBottomOf="@+id/linearLayout">
 
 					<CheckBox
-						 android:id="@+id/checkBox_saturday"
+						 android:id="@+id/checkBoxSaturday"
 						 android:layout_width="match_parent"
 						 android:layout_height="wrap_content"
 						 android:text="@string/saturday"
@@ -287,7 +331,7 @@
 						 android:textSize="14sp" />
 
 					<CheckBox
-						 android:id="@+id/checkBox_Sunday"
+						 android:id="@+id/checkBoxSunday"
 						 android:layout_width="match_parent"
 						 android:layout_height="wrap_content"
 						 android:text="@string/sunday"
@@ -296,7 +340,7 @@
 						 android:textSize="14sp" />
 
 					<CheckBox
-						 android:id="@+id/checkBox_monday"
+						 android:id="@+id/checkBoxMonday"
 						 android:layout_width="match_parent"
 						 android:layout_height="wrap_content"
 						 android:text="@string/monday"
@@ -305,7 +349,7 @@
 						 android:textSize="14sp" />
 
 					<CheckBox
-						 android:id="@+id/checkBox_Tuesday"
+						 android:id="@+id/checkBoxTuesday"
 						 android:layout_width="match_parent"
 						 android:layout_height="wrap_content"
 						 android:text="@string/tuesday"
@@ -314,7 +358,7 @@
 						 android:textSize="14sp" />
 
 					<CheckBox
-						 android:id="@+id/checkBox_wednesday"
+						 android:id="@+id/checkBoxWednesday"
 						 android:layout_width="match_parent"
 						 android:layout_height="wrap_content"
 						 android:text="@string/wednesday"
@@ -323,7 +367,7 @@
 						 android:textSize="14sp" />
 
 					<CheckBox
-						 android:id="@+id/checkBox_Thursday"
+						 android:id="@+id/checkBoxThursday"
 						 android:layout_width="match_parent"
 						 android:layout_height="wrap_content"
 						 android:text="@string/thursday"
@@ -332,7 +376,7 @@
 						 android:textSize="14sp" />
 
 					<CheckBox
-						 android:id="@+id/checkBox_Friday"
+						 android:id="@+id/checkBoxFriday"
 						 android:layout_width="match_parent"
 						 android:layout_height="wrap_content"
 						 android:text="@string/friday"
@@ -352,24 +396,24 @@
 					android:textColorHint="@color/colorAccent"
 					android:textSize="18sp"
 					app:layout_constraintStart_toStartOf="parent"
-					app:layout_constraintTop_toBottomOf="@+id/linearLayout4" />
+					app:layout_constraintTop_toBottomOf="@+id/linearLayoutDays" />
 
 			   <LinearLayout
 					android:id="@+id/linearLayout5"
 					android:layout_width="0dp"
-					android:layout_height="30dp"
+					android:layout_height="wrap_content"
 					android:layout_marginStart="24dp"
-					android:layout_marginTop="14dp"
 					android:layout_marginEnd="17dp"
-					android:orientation="horizontal"
+					android:orientation="vertical"
 					app:layout_constraintEnd_toEndOf="parent"
 					app:layout_constraintStart_toEndOf="@+id/textView7"
-					app:layout_constraintTop_toBottomOf="@+id/linearLayout">
+					app:layout_constraintTop_toTopOf="@+id/textView7">
 
 					<RadioGroup
 						 android:layout_width="match_parent"
-						 android:layout_height="match_parent"
-						 android:orientation="horizontal">
+						 android:layout_height="0dp"
+						 android:layout_weight="1"
+						 android:orientation="vertical">
 
 						 <RadioButton
 							  android:id="@+id/radioBtnOneDirection"
@@ -382,7 +426,7 @@
 							  android:textSize="18sp" />
 
 						 <RadioButton
-							  android:id="@+id/radioButton5"
+							  android:id="@+id/radioBtnRoundTrip"
 							  android:layout_width="wrap_content"
 							  android:layout_height="wrap_content"
 							  android:layout_weight="1"
@@ -394,7 +438,7 @@
 			   </LinearLayout>
 
 			   <EditText
-					android:id="@+id/editText_Note"
+					android:id="@+id/editTextNote"
 					android:layout_width="0dp"
 					android:layout_height="wrap_content"
 					android:layout_marginStart="10dp"
@@ -415,38 +459,39 @@
 					app:layout_constraintTop_toBottomOf="@+id/linearLayout5" />
 
 			   <Button
-					android:id="@+id/btn_add"
+					android:id="@+id/btnAdd"
 					android:layout_width="wrap_content"
 					android:layout_height="wrap_content"
 					android:layout_marginStart="50dp"
-					android:layout_marginTop="8dp"
-					android:layout_marginBottom="32dp"
+					android:layout_marginTop="20dp"
+					android:layout_marginBottom="100dp"
 					android:background="@drawable/gradient_btn_signin"
 					android:text="@string/add"
 					android:textColor="@color/background_offwhite"
 					app:layout_constraintBottom_toBottomOf="parent"
-					app:layout_constraintStart_toStartOf="@+id/editText_Note"
-					app:layout_constraintTop_toBottomOf="@+id/editText_Note" />
+					app:layout_constraintStart_toStartOf="@+id/editTextNote"
+					app:layout_constraintTop_toBottomOf="@+id/editTextNote" />
 
 			   <Button
-					android:id="@+id/btn_cancel"
+					android:id="@+id/btnCancel"
 					android:layout_width="wrap_content"
 					android:layout_height="wrap_content"
-					android:layout_marginTop="8dp"
+					android:layout_marginTop="20dp"
 					android:layout_marginEnd="50dp"
-					android:layout_marginBottom="32dp"
+					android:layout_marginBottom="100dp"
 					android:background="@drawable/gradient_btn_signup"
 					android:text="@string/cancel"
 					android:textColor="@color/background_offwhite"
 					app:layout_constraintBottom_toBottomOf="parent"
-					app:layout_constraintEnd_toEndOf="@+id/editText_Note"
-					app:layout_constraintTop_toBottomOf="@+id/editText_Note" />
+					app:layout_constraintEnd_toEndOf="@+id/editTextNote"
+					app:layout_constraintTop_toBottomOf="@+id/editTextNote" />
 
 
 		  </androidx.constraintlayout.widget.ConstraintLayout>
-	 </androidx.core.widget.NestedScrollView>
+	 </ScrollView>
 
 	 <androidx.constraintlayout.widget.ConstraintLayout
+		  android:id="@+id/constraintLayout"
 		  android:layout_width="match_parent"
 		  android:layout_height="60dp"
 		  android:background="@drawable/bar"
