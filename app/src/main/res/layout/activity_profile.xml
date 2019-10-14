@@ -7,46 +7,66 @@
 	 android:background="@color/background_offwhite"
 	 tools:context=".view.ProfileActivity">
 
-	 <ScrollView
+	 <androidx.constraintlayout.widget.ConstraintLayout
+		  android:id="@+id/constraintLayout2"
 		  android:layout_width="match_parent"
-		  android:layout_height="match_parent"
-		  android:layout_marginBottom="50dp"
-		  app:layout_constraintBottom_toTopOf="@+id/constraintLayout"
+		  android:layout_height="wrap_content"
 		  app:layout_constraintEnd_toEndOf="parent"
 		  app:layout_constraintStart_toStartOf="parent"
 		  app:layout_constraintTop_toTopOf="parent">
 
+		  <ImageView
+			   android:id="@+id/id_SplashIcon"
+			   android:layout_width="30dp"
+			   android:layout_height="30dp"
+			   android:layout_marginBottom="36dp"
+			   android:src="@drawable/planeicon"
+			   app:layout_constraintBottom_toBottomOf="@+id/id_name_app4"
+			   app:layout_constraintEnd_toEndOf="@+id/id_name_app4"
+			   app:layout_constraintHorizontal_bias="1.0"
+			   app:layout_constraintStart_toStartOf="@+id/id_name_app4" />
+
+		  <TextView
+			   android:id="@+id/id_name_app4"
+			   android:layout_width="wrap_content"
+			   android:layout_height="wrap_content"
+			   android:layout_marginTop="16dp"
+			   android:fontFamily="@font/betterfontlogo"
+			   android:text="@string/app_name"
+			   android:textColor="@color/home_color"
+			   android:textSize="20sp"
+			   android:textStyle="bold"
+			   app:layout_constraintEnd_toEndOf="parent"
+			   app:layout_constraintHorizontal_bias="0.498"
+			   app:layout_constraintStart_toStartOf="parent"
+			   app:layout_constraintTop_toTopOf="parent" />
+
+		  <View
+			   android:id="@+id/divider"
+			   android:layout_width="match_parent"
+			   android:layout_height="1dp"
+			   android:layout_marginTop="8dp"
+			   android:background="@color/colorPrimaryDark"
+			   android:outlineSpotShadowColor="@color/text_shadow"
+			   android:shadowDx="1"
+			   android:shadowDy="1"
+			   app:layout_constraintEnd_toEndOf="parent"
+			   app:layout_constraintStart_toStartOf="parent"
+			   app:layout_constraintTop_toBottomOf="@+id/id_name_app4" />
+	 </androidx.constraintlayout.widget.ConstraintLayout>
+
+	 <ScrollView
+		  android:layout_width="match_parent"
+		  android:layout_height="wrap_content"
+		  android:layout_marginBottom="50dp"
+		  app:layout_constraintBottom_toTopOf="@+id/constraintLayout"
+		  app:layout_constraintEnd_toEndOf="parent"
+		  app:layout_constraintStart_toStartOf="parent"
+		  app:layout_constraintTop_toBottomOf="@+id/constraintLayout2">
+
 		  <androidx.constraintlayout.widget.ConstraintLayout
 			   android:layout_width="match_parent"
 			   android:layout_height="wrap_content">
-
-			   <TextView
-					android:id="@+id/id_name_app4"
-					android:layout_width="wrap_content"
-					android:layout_height="wrap_content"
-					android:layout_marginTop="16dp"
-					android:fontFamily="@font/betterfontlogo"
-					android:text="@string/app_name"
-					android:textColor="@color/home_color"
-					android:textSize="20sp"
-					android:textStyle="bold"
-					app:layout_constraintEnd_toEndOf="parent"
-					app:layout_constraintHorizontal_bias="0.498"
-					app:layout_constraintStart_toStartOf="parent"
-					app:layout_constraintTop_toTopOf="parent" />
-
-			   <View
-					android:id="@+id/divider"
-					android:layout_width="match_parent"
-					android:layout_height="1dp"
-					android:layout_marginTop="8dp"
-					android:background="@color/colorPrimaryDark"
-					android:outlineSpotShadowColor="@color/text_shadow"
-					android:shadowDx="1"
-					android:shadowDy="1"
-					app:layout_constraintEnd_toEndOf="parent"
-					app:layout_constraintStart_toStartOf="parent"
-					app:layout_constraintTop_toBottomOf="@+id/id_name_app4" />
 
 
 			   <TextView
@@ -54,13 +74,12 @@
 					android:layout_width="wrap_content"
 					android:layout_height="wrap_content"
 					android:layout_marginStart="16dp"
-					android:layout_marginTop="8dp"
 					android:text="@string/profile"
 					android:textColor="@color/home_color"
 					android:textSize="18sp"
 					android:textStyle="bold"
 					app:layout_constraintStart_toStartOf="parent"
-					app:layout_constraintTop_toBottomOf="@+id/divider" />
+					app:layout_constraintTop_toTopOf="parent" />
 
 
 			   <de.hdodenhof.circleimageview.CircleImageView
@@ -81,6 +100,7 @@
 					android:layout_width="wrap_content"
 					android:layout_height="wrap_content"
 					android:layout_marginTop="16dp"
+					android:fontFamily="@font/boutfont"
 					android:text="@string/username"
 					android:textSize="18sp"
 					app:layout_constraintStart_toStartOf="@+id/textView2"
@@ -96,6 +116,7 @@
 					android:layout_marginEnd="17dp"
 					android:autoLink="none"
 					android:ems="10"
+					android:fontFamily="@font/boutfont"
 					android:hint="@string/username"
 					android:inputType="textEmailAddress"
 					android:textColor="@color/colorAccent"
@@ -110,6 +131,7 @@
 					android:layout_width="wrap_content"
 					android:layout_height="wrap_content"
 					android:layout_marginTop="8dp"
+					android:fontFamily="@font/boutfont"
 					android:text="@string/email"
 					android:textSize="18sp"
 					app:layout_constraintStart_toStartOf="@+id/textViewPofileUsername"
@@ -123,6 +145,7 @@
 					android:layout_marginTop="8dp"
 					android:layout_marginEnd="17dp"
 					android:ems="10"
+					android:fontFamily="@font/boutfont"
 					android:hint="@string/email"
 					android:inputType="textEmailAddress"
 					android:textColor="@color/colorAccent"
@@ -138,8 +161,10 @@
 					android:layout_marginTop="8dp"
 					android:layout_marginEnd="17dp"
 					android:background="@drawable/gradient_btn_signin"
+					android:fontFamily="@font/boutfont"
 					android:text="@string/edit"
 					android:textColor="@color/background_offwhite"
+					android:textSize="18sp"
 					android:visibility="visible"
 					app:layout_constraintEnd_toEndOf="parent"
 					app:layout_constraintTop_toBottomOf="@+id/editTextPofileEmail" />
@@ -151,9 +176,11 @@
 					android:layout_marginStart="100dp"
 					android:layout_marginEnd="100dp"
 					android:layout_marginBottom="100dp"
-					android:background="@drawable/gradient_btn_signup"
+					android:background="@drawable/gradient_btn_sigup"
+					android:fontFamily="@font/boutfont"
 					android:text="@string/logout"
 					android:textColor="@color/background_offwhite"
+					android:textSize="18sp"
 					android:visibility="visible"
 					app:layout_constraintBottom_toBottomOf="parent"
 					app:layout_constraintEnd_toEndOf="parent"
@@ -166,7 +193,9 @@
 					android:layout_width="wrap_content"
 					android:layout_height="wrap_content"
 					android:layout_marginTop="5dp"
+					android:fontFamily="@font/boutfont"
 					android:text="@string/wehope"
+					android:textSize="16sp"
 					android:visibility="visible"
 					app:layout_constraintEnd_toEndOf="parent"
 					app:layout_constraintStart_toStartOf="parent"
@@ -178,8 +207,9 @@
 					android:layout_width="wrap_content"
 					android:layout_height="wrap_content"
 					android:layout_marginTop="8dp"
+					android:fontFamily="@font/boutfont"
 					android:text="@string/password"
-					android:textSize="16sp"
+					android:textSize="18sp"
 					android:visibility="gone"
 					app:layout_constraintStart_toStartOf="@+id/textViewPofileEmail"
 					app:layout_constraintTop_toBottomOf="@+id/editTextPofileEmail" />
@@ -191,9 +221,10 @@
 					android:layout_marginTop="8dp"
 					android:layout_marginEnd="17dp"
 					android:ems="10"
+					android:fontFamily="@font/boutfont"
 					android:hint="@string/password"
 					android:inputType="textPassword"
-					android:textSize="16sp"
+					android:textSize="18sp"
 					android:visibility="gone"
 					app:layout_constraintEnd_toEndOf="parent"
 					app:layout_constraintStart_toStartOf="@+id/editTextPofileEmail"
@@ -204,8 +235,9 @@
 					android:layout_width="wrap_content"
 					android:layout_height="wrap_content"
 					android:layout_marginTop="8dp"
+					android:fontFamily="@font/boutfont"
 					android:text="@string/confirmPassword"
-					android:textSize="16sp"
+					android:textSize="18sp"
 					android:visibility="gone"
 					app:layout_constraintStart_toStartOf="@+id/textViewPofilePassword"
 					app:layout_constraintTop_toBottomOf="@+id/editTextPofilePassword" />
@@ -217,9 +249,10 @@
 					android:layout_marginTop="8dp"
 					android:layout_marginEnd="17dp"
 					android:ems="10"
+					android:fontFamily="@font/boutfont"
 					android:hint="@string/confirmPassword"
 					android:inputType="textPassword"
-					android:textSize="16sp"
+					android:textSize="18sp"
 					android:visibility="gone"
 					app:layout_constraintEnd_toEndOf="parent"
 					app:layout_constraintStart_toStartOf="@+id/editTextPofilePassword"
@@ -233,8 +266,10 @@
 					android:layout_marginEnd="17dp"
 					android:layout_marginBottom="70dp"
 					android:background="@drawable/gradient_btn_signin"
+					android:fontFamily="@font/boutfont"
 					android:text="@string/update"
 					android:textColor="@color/background_offwhite"
+					android:textSize="18sp"
 					android:visibility="gone"
 					app:layout_constraintBottom_toBottomOf="parent"
 					app:layout_constraintEnd_toEndOf="parent"
@@ -263,6 +298,7 @@
 			   android:layout_height="wrap_content"
 			   android:layout_marginStart="30dp"
 			   android:src="@drawable/home_yellow"
+			   android:background="@drawable/gradient_btn_profile"
 			   app:layout_constraintBottom_toBottomOf="parent"
 			   app:layout_constraintStart_toStartOf="parent"
 			   app:layout_constraintTop_toTopOf="parent"
@@ -276,6 +312,7 @@
 			   android:layout_height="wrap_content"
 			   android:layout_marginTop="36dp"
 			   android:text="@string/home"
+			   android:fontFamily="@font/boutfont"
 			   android:textColor="@color/colorAccent"
 			   app:layout_constraintEnd_toEndOf="@+id/imageBtnHome"
 			   app:layout_constraintStart_toStartOf="@+id/imageBtnHome"
@@ -289,6 +326,7 @@
 			   android:layout_height="wrap_content"
 			   android:layout_marginEnd="30dp"
 			   android:src="@drawable/user"
+			   android:background="@drawable/gradient_btn_home"
 			   app:layout_constraintBottom_toBottomOf="parent"
 			   app:layout_constraintEnd_toEndOf="parent"
 			   app:layout_constraintTop_toTopOf="parent"
@@ -300,6 +338,7 @@
 			   android:layout_height="wrap_content"
 			   android:layout_marginTop="36dp"
 			   android:text="@string/user"
+			   android:fontFamily="@font/boutfont"
 			   android:textColor="@color/colorPrimary"
 			   app:layout_constraintEnd_toEndOf="@+id/imageBtnProfile"
 			   app:layout_constraintStart_toStartOf="@+id/imageBtnProfile"
@@ -320,6 +359,7 @@
 		  android:layout_marginBottom="24dp"
 		  android:clickable="true"
 		  app:backgroundTint="@color/colorPrimary"
+		  app:rippleColor="@color/colorAccent"
 		  app:layout_constraintBottom_toBottomOf="parent"
 		  app:layout_constraintEnd_toEndOf="parent"
 		  app:layout_constraintStart_toStartOf="parent"
