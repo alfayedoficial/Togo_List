@@ -44,7 +44,7 @@ public class LoginViewModel extends ViewModel {
     public void signIn(String username, String password){
         if(username != null && !username.isEmpty() && password != null && !password.isEmpty()){
             firebaseHandler.signIn(username,password);
-            //user = User.getUserInstance(username,password,databaseHandler.getTrips());
+            user = User.getUserInstance(username,username,password);
         }
         else {
             Toast.makeText(loginActivity, "Please Enter your Username and Password", Toast.LENGTH_SHORT).show();
@@ -60,7 +60,7 @@ public class LoginViewModel extends ViewModel {
             loginActivity.startActivity(loginIntent);
         }else{
             Toast.makeText(loginActivity, "Your Email or Password is incorrect", Toast.LENGTH_SHORT).show();
-            //user = null;
+            user = null;
         }
     }
 
