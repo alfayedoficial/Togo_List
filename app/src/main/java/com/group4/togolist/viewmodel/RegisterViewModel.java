@@ -6,6 +6,7 @@ import android.widget.Toast;
 
 import androidx.lifecycle.ViewModel;
 
+import com.group4.togolist.model.User;
 import com.group4.togolist.view.HomeActivity;
 import com.group4.togolist.repository.FirebaseHandler;
 import com.group4.togolist.view.FirstActivity;
@@ -19,6 +20,7 @@ public class RegisterViewModel extends ViewModel {
 
     private Activity registerActivity;
     private FirebaseHandler firebaseHandler;
+    private User user;
 
     /**
      * RegisterViewModel Constructor Method, it takes Activity as its input parameter
@@ -38,6 +40,7 @@ public class RegisterViewModel extends ViewModel {
         password != null && !password.isEmpty() &&
         repeatedPassword != null && !repeatedPassword.isEmpty()){
             if(password.equals(repeatedPassword)){
+                user = User.getUserInstance(username,username,password);
                 firebaseHandler.signUp(email,password);
 
             }
@@ -61,6 +64,7 @@ public class RegisterViewModel extends ViewModel {
         }
         else{
             Toast.makeText(registerActivity, "Please Try Again with different Email and Password", Toast.LENGTH_SHORT).show();
+            user = null;
         }
     }
 
