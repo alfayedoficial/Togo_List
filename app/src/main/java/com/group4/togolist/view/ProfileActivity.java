@@ -72,4 +72,12 @@ public class ProfileActivity extends AppCompatActivity  implements View.OnClickL
        btnLogout.setVisibility(View.VISIBLE);
        txtHopeComeBack.setVisibility(View.VISIBLE);
     }
+
+    public void setUserName(String userName){
+        eTxtUserName.setText(userName);
+    }
+
+    public void setEmail(String email){
+        eTxtEmail.setText(email);
+    }
 }
