@@ -59,7 +59,6 @@
 	 <string name="update">Update</string>
 	 <string name="logout">Log Out</string>
 	 <string name="wehope">We Hope You Will Come Back Again</string>
-
 	 <!--	 Google API Key-->
 	 <string name="google_maps_key" templateMergeStrategy="preserve" translatable="false">AIzaSyB4PIv_KoqOvbbtOgLUTBDCG0b1aampKcE</string>
 	 <!--Dialog Activity-->
