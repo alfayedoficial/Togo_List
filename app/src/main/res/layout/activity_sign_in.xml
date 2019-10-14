@@ -133,7 +133,7 @@
 			   android:layout_marginEnd="16dp"
 			   android:ems="10"
 			   android:hint="@string/password"
-
+			   android:textColor="@color/colorAccent"
 			   android:inputType="textPassword"
 			   app:layout_constraintEnd_toEndOf="parent"
 			   app:layout_constraintStart_toStartOf="parent"
