@@ -80,4 +80,11 @@ public class ProfileActivity extends AppCompatActivity  implements View.OnClickL
     public void setEmail(String email){
         eTxtEmail.setText(email);
     }
+    public void setPassword(String password){
+        eTxtPassword.setText(password);
+    }
+
+    public void setConfirmedPassword(String confirmedPassword){
+        eTxtConfirmPassword.setText(confirmedPassword);
+    }
 }
