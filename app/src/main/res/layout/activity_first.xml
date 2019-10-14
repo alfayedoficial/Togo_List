@@ -129,4 +129,12 @@
 		  app:layout_constraintStart_toStartOf="parent"
 		  app:layout_constraintTop_toBottomOf="@+id/textView" />
 
+	 <Button
+		  android:id="@+id/buttontestdialog"
+		  android:layout_width="wrap_content"
+		  android:layout_height="wrap_content"
+		  android:text="@string/details"
+		  tools:layout_editor_absoluteX="146dp"
+		  tools:layout_editor_absoluteY="276dp" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>
