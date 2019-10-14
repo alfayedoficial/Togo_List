@@ -1,6 +1,10 @@
 package com.group4.togolist.viewmodel;
 
 import android.app.Activity;
+import android.app.AlarmManager;
+import android.app.PendingIntent;
+import android.content.Context;
+import android.content.Intent;
 import android.os.AsyncTask;
 
 import androidx.lifecycle.ViewModel;
@@ -9,6 +13,7 @@ import com.group4.togolist.db.DatabaseHandler;
 import com.group4.togolist.db.TripDao;
 import com.group4.togolist.db.TripDatabase;
 import com.group4.togolist.model.Trip;
+import com.group4.togolist.repository.TripAlarm;
 
 import java.util.Calendar;
 
@@ -37,5 +42,15 @@ public class AddFormViewModel extends ViewModel{
     public void createNewTrip(String tripName, double startLocationLongitude, double startLocationLatitude, double endLocationLongitude, double endLocationLatitude, Calendar startDate, int repetition, boolean isRoundTrip, String notes){
         Trip newTrip = new Trip(tripName, startLocationLongitude, startLocationLatitude, endLocationLongitude, endLocationLatitude,startDate, Trip.UPCOMING, repetition, isRoundTrip, notes);
         databaseHandler.addTrip(newTrip);
+        AlarmManager alarmManager = (AlarmManager) activity.getSystemService(Context.ALARM_SERVICE);
+        Intent intent = new Intent(activity, TripAlarm.class);
+        intent.putExtra(TripAlarm.TRIP_NAME,newTrip.getTripName());
+        PendingIntent pendingIntent = PendingIntent.getBroadcast(activity, 1, intent, 0);
+
+        if (startDate.before(Calendar.getInstance())) {
+            startDate.add(Calendar.DATE, 1);
+        }
+
+        alarmManager.setExact(AlarmManager.RTC_WAKEUP, startDate.getTimeInMillis(), pendingIntent);
     }
 }
