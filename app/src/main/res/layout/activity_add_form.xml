@@ -129,7 +129,7 @@
 
 					<fragment
 						 android:id="@+id/FragmentStartPoint"
-						 android:name="com.google.android.gms.location.places.ui.PlaceAutocompleteFragment"
+						 android:name="com.google.android.libraries.places.widget.AutocompleteSupportFragment"
 						 android:layout_width="0dp"
 						 android:layout_height="wrap_content"
 						 android:layout_gravity="center|start"
@@ -182,7 +182,7 @@
 					<fragment
 
 						 android:id="@+id/FragmentEndPoint"
-						 android:name="com.google.android.gms.location.places.ui.PlaceAutocompleteFragment"
+						 android:name="com.google.android.libraries.places.widget.AutocompleteSupportFragment"
 						 android:layout_width="0dp"
 						 android:layout_height="wrap_content"
 						 android:layout_gravity="center|start"
