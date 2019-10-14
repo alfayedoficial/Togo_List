@@ -54,6 +54,10 @@ public class DatabaseHandler {
         return new GetTripByName(tripName).execute().get();
     }
 
+    public void updateTrip(Trip trip){
+        new UpdateTrip(trip).execute();
+    }
+
 
     /**
      * Inner class AddTrip used to create a Thread to add Trip to database
@@ -93,6 +97,21 @@ public class DatabaseHandler {
         protected Trip doInBackground(Void...voids) {
 
             return daoInstance.getTripByName(tripName);
+        }
+    }
+
+    class UpdateTrip extends AsyncTask<Void,Void,Void>{
+
+        Trip trip;
+        public UpdateTrip(Trip trip){
+            super();
+            this.trip = trip;
+        }
+
+        @Override
+        protected Void doInBackground(Void... voids) {
+            daoInstance.updateTrip(trip);
+            return null;
         }
     }
 

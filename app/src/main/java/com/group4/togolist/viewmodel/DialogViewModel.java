@@ -17,6 +17,7 @@ import androidx.lifecycle.ViewModel;
 import com.group4.togolist.R;
 import com.group4.togolist.db.DatabaseHandler;
 import com.group4.togolist.model.Trip;
+import com.group4.togolist.repository.TripAlarm;
 
 import java.util.Locale;
 import java.util.concurrent.ExecutionException;
@@ -30,9 +31,10 @@ public class DialogViewModel extends ViewModel {
     DatabaseHandler databaseHandler;
 
     Activity activity;
-    public DialogViewModel(Activity activity,String tripName){
+    public DialogViewModel(Activity activity){
         this.activity = activity;
         databaseHandler = new DatabaseHandler(activity);
+        String tripName = activity.getIntent().getExtras().getString(TripAlarm.TRIP_NAME);
         try {
             currentTrip = databaseHandler.getTripByName(tripName);
         } catch (ExecutionException e) {
@@ -65,6 +67,8 @@ public class DialogViewModel extends ViewModel {
     }
 
     public void cancelTrip(){
+        currentTrip.setStatus(Trip.CANCELED);
+        databaseHandler.updateTrip(currentTrip);
         activity.finish();
     }
 
