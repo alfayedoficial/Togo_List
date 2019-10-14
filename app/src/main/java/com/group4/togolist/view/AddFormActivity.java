@@ -5,19 +5,24 @@ import android.app.DatePickerDialog;
 import android.app.TimePickerDialog;
 import android.graphics.Color;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.RadioButton;
+import android.widget.TextView;
 import android.widget.TimePicker;
 import android.widget.Toast;
 
 import com.google.android.gms.common.api.Status;
-import com.google.android.gms.location.places.Place;
-import com.google.android.gms.location.places.ui.PlaceAutocompleteFragment;
-import com.google.android.gms.location.places.ui.PlaceSelectionListener;
 import com.google.android.gms.maps.model.LatLng;
+import com.google.android.libraries.places.api.Places;
+import com.google.android.libraries.places.api.model.Place;
+import com.google.android.libraries.places.api.model.TypeFilter;
+import com.google.android.libraries.places.widget.AutocompleteSupportFragment;
+import com.google.android.libraries.places.widget.listener.PlaceSelectionListener;
+
 import com.group4.togolist.R;
 import com.group4.togolist.model.Trip;
 import com.group4.togolist.viewmodel.AddFormViewModel;
@@ -28,11 +33,14 @@ import androidx.lifecycle.ViewModelProvider;
 import androidx.lifecycle.ViewModelProviders;
 
 import java.text.SimpleDateFormat;
+import java.util.Arrays;
 import java.util.Calendar;
+import java.util.List;
 import java.util.Locale;
 
 public class AddFormActivity extends AppCompatActivity implements View.OnClickListener , View.OnFocusChangeListener{
-   private LatLng latLangStartPoint;
+   private List<Place.Field> fields;
+    private LatLng latLangStartPoint;
    private LatLng latLangEndPoint;
    private Double latStartPoint;
     private Double latEndPoint;
@@ -48,6 +56,7 @@ public class AddFormActivity extends AppCompatActivity implements View.OnClickLi
     private Button btnAdd , btnCancel ;
     private RadioButton rdnBtnDaily , rdnBtnWeekly , rdnBtnDays , rdnBtnOneDirection , rdnBtnRoundTrip;
     private EditText eTxtTripName  , eTxtStartDate , eTxtStartTime , eTxtNotes;
+    private TextView txtViewStartPoint , txtViewEndPoint ;
     private    final Calendar myCalendar = Calendar.getInstance();
 
 
@@ -61,65 +70,30 @@ public class AddFormActivity extends AppCompatActivity implements View.OnClickLi
 
         initComponent();
 
+        autocompletePlace();
 
-        final PlaceAutocompleteFragment autocompleteFragment1 = (PlaceAutocompleteFragment)
-                getFragmentManager().findFragmentById(R.id.editText_startPoint);
-        autocompleteFragment1.getView().setBackgroundColor(getResources().getColor(R.color.background_offwhite));
-//        autocompleteFragment1.setText("Start Point");
-        autocompleteFragment1.setOnPlaceSelectedListener(new PlaceSelectionListener() {
-            @Override
-            public void onPlaceSelected(Place place) {
-                latLangStartPoint = place.getLatLng();
-                placeStartPoint = (String) place.getName();
-                longStartPoint = latLangStartPoint.longitude;
-                latStartPoint = latLangStartPoint.latitude;
-             //   Toast.makeText(AddFormActivity.this, placeStartPoint + ":" + longStartPoint + ":" + latStartPoint, Toast.LENGTH_SHORT).show();
-            }
-
-            @Override
-            public void onError(Status status) {
-                System.out.println(status.toString());
-            }
-        });
-
-
-        final PlaceAutocompleteFragment autocompleteFragment2 = (PlaceAutocompleteFragment)
-                getFragmentManager().findFragmentById(R.id.editText_endPoint);
-        autocompleteFragment2.getView().setBackgroundColor(getResources().getColor(R.color.background_offwhite));
-//                autocompleteFragment2.setText("End Point");
-        autocompleteFragment2.setOnPlaceSelectedListener(new PlaceSelectionListener() {
-            @Override
-            public void onPlaceSelected(Place place) {
-                // TODO: Get info about the selected place.
-                latLangEndPoint = place.getLatLng();
-                placeEndPoint = (String) place.getName();
-                longEndPoint = latLangEndPoint.longitude;
-                latEndPoint = latLangEndPoint.latitude;
-              //  Toast.makeText(AddFormActivity.this, " Dest "+placeEndPoint + ":" + longEndPoint + ":" + latEndPoint, Toast.LENGTH_SHORT).show();
-            }
-
-            @Override
-            public void onError(Status status) {
-                System.out.println(status.toString());
-            }
-        });
     }
+
+
 
 
     private void initComponent() {
         eTxtTripName = findViewById(R.id.editText_nameTrip);
         eTxtStartDate =findViewById(R.id.editText_startDate);
-        eTxtStartTime = findViewById(R.id.editText6);
-        eTxtNotes = findViewById(R.id.editText_Note);
+        eTxtStartTime = findViewById(R.id.editText_startTime);
+        eTxtNotes = findViewById(R.id.editTextNote);
 
-        btnAdd = findViewById(R.id.btn_add);
-        btnCancel = findViewById(R.id.btn_cancel);
+        txtViewStartPoint = findViewById(R.id.TextViewStartPoint);
+        txtViewEndPoint = findViewById(R.id.TextViewEndPoint);
 
-        rdnBtnDaily = findViewById(R.id.radioBtn_daily);
-        rdnBtnWeekly = findViewById(R.id.radioBtnweakly);
+        btnAdd = findViewById(R.id.btnAdd);
+        btnCancel = findViewById(R.id.btnCancel);
+
+        rdnBtnDaily = findViewById(R.id.radioBtnDaily);
+        rdnBtnWeekly = findViewById(R.id.radioBtnWeakly);
         rdnBtnDays = findViewById(R.id.radioBtnDays);
         rdnBtnOneDirection = findViewById(R.id.radioBtnOneDirection);
-        rdnBtnRoundTrip = findViewById(R.id.radioButton5);
+        rdnBtnRoundTrip = findViewById(R.id.radioBtnRoundTrip);
 
        eTxtStartDate.setOnFocusChangeListener(this);
        eTxtStartTime.setOnFocusChangeListener(this);
@@ -139,18 +113,14 @@ public class AddFormActivity extends AppCompatActivity implements View.OnClickLi
     public void onClick(View v) {
 
         switch (v.getId()){
-            case R.id.editText_startPoint:
-                break;
-            case R.id.editText_endPoint:
-                break;
 
-            case R.id.radioBtn_daily:
+            case R.id.radioBtnDaily:
                 boolean checked = ((RadioButton) v).isChecked();
                 if (checked){
                     repetition = Trip.DAILY;
                 }
                 break;
-            case R.id.radioBtnweakly:
+            case R.id.radioBtnWeakly:
                 boolean checked1 = ((RadioButton) v).isChecked();
                 if (checked1){
                     repetition = Trip.WEEKLY;
@@ -168,17 +138,17 @@ public class AddFormActivity extends AppCompatActivity implements View.OnClickLi
                     roundTrip = false ;
                 }
                 break;
-            case R.id.radioButton5:    // RoundTrip radioButton
+            case R.id.radioBtnRoundTrip:
                 boolean checked4 = ((RadioButton) v).isChecked();
                 if (checked4){
                     roundTrip = true ;
                 }
                 break;
-            case R.id.btn_add:
+            case R.id.btnAdd:
                 addTrip();
                 break;
 
-            case R.id.btn_cancel:
+            case R.id.btnCancel:
                 break;
 
 
@@ -194,7 +164,7 @@ public class AddFormActivity extends AppCompatActivity implements View.OnClickLi
                 case R.id.editText_startDate:
                     showDate();
                     break;
-                case R.id.editText6:
+                case R.id.editText_startTime:
                     showTime();
                     break;
             }
@@ -211,6 +181,9 @@ public class AddFormActivity extends AppCompatActivity implements View.OnClickLi
         String startDate = eTxtStartDate.getText().toString();
         String startTime = eTxtStartTime.getText().toString();
 
+        /**
+         *  getting date and time from editText and split them to the required data
+         */
         if (startDate != null ) {
              if(!startDate.isEmpty()) {
               String[] startDateArr = startDate.split("/");
@@ -252,8 +225,6 @@ public class AddFormActivity extends AppCompatActivity implements View.OnClickLi
         }, 0, 0, false);
         timePickerDialog.show();
     }
-
-
     private void showDate() {
         final DatePickerDialog.OnDateSetListener date = new DatePickerDialog.OnDateSetListener() {
 
@@ -280,12 +251,101 @@ public class AddFormActivity extends AppCompatActivity implements View.OnClickLi
                         myCalendar.get(Calendar.DAY_OF_MONTH)).show();
 
     }
+    private void autocompletePlace() {
 
+        if (!Places.isInitialized()) {
+            Places.initialize(AddFormActivity.this, "AIzaSyB4PIv_KoqOvbbtOgLUTBDCG0b1aampKcE");
+        }
+
+        fields = Arrays.asList(Place.Field.ID, Place.Field.NAME, Place.Field.LAT_LNG);
+
+        /**
+         * Initialize the AutocompleteSupportFragment start point.
+         */
+
+        AutocompleteSupportFragment autocompleteFragStartPoint = (AutocompleteSupportFragment)
+                getSupportFragmentManager().findFragmentById((R.id.FragmentStartPoint));
+
+        /**
+         * Specify the types of place data to return.
+         */
+
+            autocompleteFragStartPoint.setPlaceFields(fields);
+
+            autocompleteFragStartPoint.setCountry("EG");
+            autocompleteFragStartPoint.setTypeFilter(TypeFilter.ADDRESS);
+
+            /**
+             * Set up a PlaceSelectionListener to handle the response.
+             */
+            autocompleteFragStartPoint.setOnPlaceSelectedListener(new com.google.android.libraries.places.widget.listener.PlaceSelectionListener() {
+                @Override
+                public void onPlaceSelected(com.google.android.libraries.places.api.model.Place place) {
+                    // TODO: Get info about the selected place.
+
+                    latLangStartPoint = place.getLatLng();
+                    placeStartPoint = (String) place.getName();
+                    longStartPoint = latLangStartPoint.longitude;
+                    latStartPoint = latLangStartPoint.latitude;
+                    txtViewStartPoint.setText(placeStartPoint);
+                    Toast.makeText(AddFormActivity.this, placeStartPoint + ":" + longStartPoint + ":" + latStartPoint, Toast.LENGTH_SHORT).show();
+                }
+
+
+                @Override
+                public void onError(Status status) {
+                    // TODO: Handle the error.
+                    System.out.println(status.toString());
+                }
+            });
+
+            /**
+             * Initialize the AutocompleteSupportFragment End point.
+             */
+            AutocompleteSupportFragment autocompleteFragEndPoint = (AutocompleteSupportFragment)
+                    getSupportFragmentManager().findFragmentById((R.id.FragmentEndPoint));
+
+            /**
+             * Specify the types of place data to return.
+             */
+
+            autocompleteFragEndPoint.setPlaceFields(fields);
+
+            autocompleteFragEndPoint.setCountry("EG");
+            autocompleteFragEndPoint.setTypeFilter(TypeFilter.ADDRESS);
+
+            /**
+             * Set up a PlaceSelectionListener to handle the response.
+             */
+
+            autocompleteFragEndPoint.setOnPlaceSelectedListener(new com.google.android.libraries.places.widget.listener.PlaceSelectionListener() {
+                @Override
+                public void onPlaceSelected(com.google.android.libraries.places.api.model.Place place) {
+                    // TODO: Get info about the selected place.
+
+                    latLangEndPoint = place.getLatLng();
+                    placeEndPoint = (String) place.getName();
+                    longEndPoint = latLangEndPoint.longitude;
+                    latEndPoint = latLangEndPoint.latitude;
+
+                    txtViewEndPoint.setText(placeEndPoint);
+                    Toast.makeText(AddFormActivity.this, " Dest " + placeEndPoint + ":" + longEndPoint + ":" + latEndPoint, Toast.LENGTH_SHORT).show();
+                }
+
+
+                @Override
+                public void onError(Status status) {
+                    // TODO: Handle the error.
+                    System.out.println(status.toString());
+                }
+            });
+
+    }
 
 
     /**
- *
- */
+     *  AddFormViewModelFactory
+     */
 
     class MyViewModelFactory implements ViewModelProvider.Factory {
         private Activity mActivity;
