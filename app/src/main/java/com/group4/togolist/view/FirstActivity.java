@@ -68,7 +68,8 @@ public class FirstActivity extends AppCompatActivity implements View.OnClickList
         buttontestdialog.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(FirstActivity.this, DialogActivity.class);
+//                Intent intent = new Intent(FirstActivity.this, DialogActivity.class);
+                Intent intent = new Intent(FirstActivity.this, DetailsTripActivity.class);
                 startActivity(intent);
             }
         });
