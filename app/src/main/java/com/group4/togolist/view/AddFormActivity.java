@@ -58,6 +58,8 @@ public class AddFormActivity extends AppCompatActivity implements View.OnClickLi
     private EditText eTxtTripName  , eTxtStartDate , eTxtStartTime , eTxtNotes;
     private TextView txtViewStartPoint , txtViewEndPoint ;
     private    final Calendar myCalendar = Calendar.getInstance();
+    private Calendar currentCalendar = Calendar.getInstance();
+    private Calendar tripCalendar = Calendar.getInstance();
 
 
     @Override
@@ -67,6 +69,8 @@ public class AddFormActivity extends AppCompatActivity implements View.OnClickLi
 
         addFormViewModel = ViewModelProviders.of(this , new MyViewModelFactory(AddFormActivity.this)).get(AddFormViewModel.class);
 
+        myCalendar.setTimeInMillis(System.currentTimeMillis());
+        currentCalendar.setTimeInMillis(System.currentTimeMillis());
 
         initComponent();
 
@@ -98,6 +102,9 @@ public class AddFormActivity extends AppCompatActivity implements View.OnClickLi
        eTxtStartDate.setOnFocusChangeListener(this);
        eTxtStartTime.setOnFocusChangeListener(this);
 
+        eTxtStartDate.setOnClickListener(this);
+        eTxtStartTime.setOnClickListener(this);
+
 
         rdnBtnDaily.setOnClickListener(this);
        rdnBtnWeekly.setOnClickListener(this);
@@ -114,6 +121,12 @@ public class AddFormActivity extends AppCompatActivity implements View.OnClickLi
 
         switch (v.getId()){
 
+            case R.id.editText_startDate:
+                showDate();
+                break;
+            case R.id.editText_startTime:
+                showTime();
+                break;
             case R.id.radioBtnDaily:
                 boolean checked = ((RadioButton) v).isChecked();
                 if (checked){
@@ -200,9 +213,9 @@ public class AddFormActivity extends AppCompatActivity implements View.OnClickLi
              }
         }
 
-        myCalendar.set(year , month , day , hour , minute);
+        tripCalendar.set(year , month , day , hour , minute);
 
-      //  addFormViewModel.createNewTrip(eTxtTripName.getText().toString() , longStartPoint, latStartPoint, longEndPoint, latEndPoint, myCalendar, repetition, roundTrip, eTxtNotes.getText().toString());
+      //  addFormViewModel.createNewTrip(eTxtTripName.getText().toString() , longStartPoint, latStartPoint, longEndPoint, latEndPoint, tripCalendar, repetition, roundTrip, eTxtNotes.getText().toString());
 
     }
 
