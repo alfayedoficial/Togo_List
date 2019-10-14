@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-	 package="com.group4.togolist">
+    xmlns:tools="http://schemas.android.com/tools"
+    package="com.group4.togolist">
 
 	 <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
 	 <uses-permission android:name="android.permission.INTERNET" />
@@ -16,6 +17,10 @@
 		  <activity
 			   android:name=".view.DialogActivity"
 			   android:theme="@style/AppTheme.NoActionBar" />
+
+		 <meta-data
+			 android:name="com.google.android.geo.API_KEY"
+			 android:value="@string/google_maps_key" />
 		  <activity
 			   android:name=".view.ProfileActivity"
 			   android:theme="@style/AppTheme.NoActionBar" />
@@ -47,9 +52,7 @@
 			   </intent-filter>
 		  </activity>
 
-		  <meta-data
-			   android:name="com.google.android.geo.API_KEY"
-			   android:value="AIzaSyB4PIv_KoqOvbbtOgLUTBDCG0b1aampKcE" />
+
 	 </application>
 
 </manifest>

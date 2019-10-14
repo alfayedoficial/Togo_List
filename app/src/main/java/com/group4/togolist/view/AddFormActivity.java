@@ -21,6 +21,8 @@ import com.google.android.libraries.places.api.model.TypeFilter;
 import com.google.android.libraries.places.widget.AutocompleteSupportFragment;
 import com.google.android.libraries.places.widget.listener.PlaceSelectionListener;
 
+import com.google.android.gms.common.api.ApiException;
+
 import com.group4.togolist.R;
 import com.group4.togolist.model.Trip;
 import com.group4.togolist.viewmodel.AddFormViewModel;
@@ -211,7 +213,7 @@ public class AddFormActivity extends AppCompatActivity implements View.OnClickLi
 
         tripCalendar.set(year , month , day , hour , minute);
 
-      //  addFormViewModel.createNewTrip(eTxtTripName.getText().toString() , longStartPoint, latStartPoint, longEndPoint, latEndPoint, tripCalendar, repetition, roundTrip, eTxtNotes.getText().toString());
+       addFormViewModel.createNewTrip(eTxtTripName.getText().toString() , longStartPoint, latStartPoint, longEndPoint, latEndPoint, tripCalendar, repetition, roundTrip, eTxtNotes.getText().toString());
 
     }
 
@@ -264,7 +266,7 @@ public class AddFormActivity extends AppCompatActivity implements View.OnClickLi
     private void autocompletePlace() {
 
         if (!Places.isInitialized()) {
-            Places.initialize(AddFormActivity.this, "AIzaSyB4PIv_KoqOvbbtOgLUTBDCG0b1aampKcE");
+            Places.initialize(AddFormActivity.this, "AIzaSyDZ8gkXKHtKldCAlLSm4Aau0y-SmzYw7M0");
         }
 
         fields = Arrays.asList(Place.Field.ID, Place.Field.NAME, Place.Field.LAT_LNG);
@@ -288,9 +290,9 @@ public class AddFormActivity extends AppCompatActivity implements View.OnClickLi
             /**
              * Set up a PlaceSelectionListener to handle the response.
              */
-            autocompleteFragStartPoint.setOnPlaceSelectedListener(new com.google.android.libraries.places.widget.listener.PlaceSelectionListener() {
+            autocompleteFragStartPoint.setOnPlaceSelectedListener(new PlaceSelectionListener() {
                 @Override
-                public void onPlaceSelected(com.google.android.libraries.places.api.model.Place place) {
+                public void onPlaceSelected(Place place) {
                     // TODO: Get info about the selected place.
 
                     latLangStartPoint = place.getLatLng();
@@ -298,13 +300,14 @@ public class AddFormActivity extends AppCompatActivity implements View.OnClickLi
                     longStartPoint = latLangStartPoint.longitude;
                     latStartPoint = latLangStartPoint.latitude;
                     txtViewStartPoint.setText(placeStartPoint);
-                    Toast.makeText(AddFormActivity.this, placeStartPoint + ":" + longStartPoint + ":" + latStartPoint, Toast.LENGTH_SHORT).show();
+
                 }
 
 
                 @Override
                 public void onError(Status status) {
                     // TODO: Handle the error.
+                  //  txtViewStartPoint.setText(status.toString());
                     System.out.println(status.toString());
                 }
             });
@@ -328,9 +331,9 @@ public class AddFormActivity extends AppCompatActivity implements View.OnClickLi
              * Set up a PlaceSelectionListener to handle the response.
              */
 
-            autocompleteFragEndPoint.setOnPlaceSelectedListener(new com.google.android.libraries.places.widget.listener.PlaceSelectionListener() {
+            autocompleteFragEndPoint.setOnPlaceSelectedListener(new PlaceSelectionListener() {
                 @Override
-                public void onPlaceSelected(com.google.android.libraries.places.api.model.Place place) {
+                public void onPlaceSelected(Place place) {
                     // TODO: Get info about the selected place.
 
                     latLangEndPoint = place.getLatLng();
@@ -339,7 +342,7 @@ public class AddFormActivity extends AppCompatActivity implements View.OnClickLi
                     latEndPoint = latLangEndPoint.latitude;
 
                     txtViewEndPoint.setText(placeEndPoint);
-                    Toast.makeText(AddFormActivity.this, " Dest " + placeEndPoint + ":" + longEndPoint + ":" + latEndPoint, Toast.LENGTH_SHORT).show();
+
                 }
 
 
