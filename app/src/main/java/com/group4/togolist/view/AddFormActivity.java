@@ -211,7 +211,7 @@ public class AddFormActivity extends AppCompatActivity implements View.OnClickLi
 
         tripCalendar.set(year , month , day , hour , minute);
 
-      //  addFormViewModel.createNewTrip(eTxtTripName.getText().toString() , longStartPoint, latStartPoint, longEndPoint, latEndPoint, tripCalendar, repetition, roundTrip, eTxtNotes.getText().toString());
+       addFormViewModel.createNewTrip(eTxtTripName.getText().toString() , longStartPoint, latStartPoint, longEndPoint, latEndPoint, tripCalendar, repetition, roundTrip, eTxtNotes.getText().toString());
 
     }
 
@@ -298,13 +298,14 @@ public class AddFormActivity extends AppCompatActivity implements View.OnClickLi
                     longStartPoint = latLangStartPoint.longitude;
                     latStartPoint = latLangStartPoint.latitude;
                     txtViewStartPoint.setText(placeStartPoint);
-                    Toast.makeText(AddFormActivity.this, placeStartPoint + ":" + longStartPoint + ":" + latStartPoint, Toast.LENGTH_SHORT).show();
+
                 }
 
 
                 @Override
                 public void onError(Status status) {
                     // TODO: Handle the error.
+                  //  txtViewStartPoint.setText(status.toString());
                     System.out.println(status.toString());
                 }
             });
@@ -339,7 +340,7 @@ public class AddFormActivity extends AppCompatActivity implements View.OnClickLi
                     latEndPoint = latLangEndPoint.latitude;
 
                     txtViewEndPoint.setText(placeEndPoint);
-                    Toast.makeText(AddFormActivity.this, " Dest " + placeEndPoint + ":" + longEndPoint + ":" + latEndPoint, Toast.LENGTH_SHORT).show();
+
                 }
 
 
