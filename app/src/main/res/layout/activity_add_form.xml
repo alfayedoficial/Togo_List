@@ -83,6 +83,7 @@
 					android:layout_marginTop="8dp"
 					android:text="@string/add_new_trip"
 					android:textColor="@color/home_color"
+					android:textSize="18sp"
 					android:textStyle="bold"
 					app:layout_constraintStart_toStartOf="parent"
 					app:layout_constraintTop_toBottomOf="@+id/divider" />
@@ -468,6 +469,7 @@
 					android:background="@drawable/gradient_btn_signin"
 					android:text="@string/add"
 					android:textColor="@color/background_offwhite"
+					android:textSize="18sp"
 					app:layout_constraintBottom_toBottomOf="parent"
 					app:layout_constraintStart_toStartOf="@+id/editTextNote"
 					app:layout_constraintTop_toBottomOf="@+id/editTextNote" />
@@ -482,6 +484,7 @@
 					android:background="@drawable/gradient_btn_signup"
 					android:text="@string/cancel"
 					android:textColor="@color/background_offwhite"
+					android:textSize="18sp"
 					app:layout_constraintBottom_toBottomOf="parent"
 					app:layout_constraintEnd_toEndOf="@+id/editTextNote"
 					app:layout_constraintTop_toBottomOf="@+id/editTextNote" />
