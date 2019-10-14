@@ -13,7 +13,9 @@
 		  android:roundIcon="@mipmap/ic_launcher_round"
 		  android:supportsRtl="true"
 		  android:theme="@style/AppTheme">
-		  <activity android:name=".view.ProfileActivity"></activity>
+		  <activity
+			   android:name=".view.ProfileActivity"
+			   android:theme="@style/AppTheme.NoActionBar" />
 		  <activity
 			   android:name=".view.AddFormActivity"
 			   android:theme="@style/AppTheme.NoActionBar" />
@@ -41,9 +43,10 @@
 					<category android:name="android.intent.category.LAUNCHER" />
 			   </intent-filter>
 		  </activity>
-         <meta-data
-             android:name="com.google.android.geo.API_KEY"
-             android:value="AIzaSyB4PIv_KoqOvbbtOgLUTBDCG0b1aampKcE" />
+
+		  <meta-data
+			   android:name="com.google.android.geo.API_KEY"
+			   android:value="AIzaSyB4PIv_KoqOvbbtOgLUTBDCG0b1aampKcE" />
 	 </application>
 
 </manifest>
