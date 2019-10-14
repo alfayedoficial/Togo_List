@@ -1,10 +1,12 @@
 package com.group4.togolist.viewmodel;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.widget.Toast;
 
 import com.group4.togolist.model.User;
 import com.group4.togolist.repository.FirebaseHandler;
+import com.group4.togolist.view.FirstActivity;
 import com.group4.togolist.view.ProfileActivity;
 
 public class ProfileViewModel {
@@ -16,6 +18,8 @@ public class ProfileViewModel {
     public ProfileViewModel(ProfileActivity activity){
         this.activity = activity;
         user = User.getUserInstance();
+        activity.setUserName(user.getName());
+        activity.setEmail(user.getEmail());
         firebaseHandler = new FirebaseHandler(activity,this);
     }
 
@@ -32,6 +36,11 @@ public class ProfileViewModel {
         else{
             Toast.makeText(activity, "Please Enter New Password", Toast.LENGTH_SHORT).show();
         }
+    }
+
+    public void logOut(){
+        firebaseHandler.logOut();
+        activity.startActivity(new Intent(activity, FirstActivity.class));
     }
 
 }

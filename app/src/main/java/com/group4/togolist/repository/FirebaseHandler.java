@@ -169,6 +169,9 @@ public class FirebaseHandler {
     }
 
 
+    public void logOut(){
+        mAuth.signOut();
+    }
 
 
 
