@@ -3,9 +3,7 @@ package com.group4.togolist.view;
 import android.app.Activity;
 import android.app.DatePickerDialog;
 import android.app.TimePickerDialog;
-import android.graphics.Color;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.DatePicker;
@@ -57,6 +55,7 @@ public class AddFormActivity extends AppCompatActivity implements View.OnClickLi
     private RadioButton rdnBtnDaily , rdnBtnWeekly , rdnBtnDays , rdnBtnOneDirection , rdnBtnRoundTrip;
     private EditText eTxtTripName  , eTxtStartDate , eTxtStartTime , eTxtNotes;
     private TextView txtViewStartPoint , txtViewEndPoint ;
+
     private    final Calendar myCalendar = Calendar.getInstance();
     private Calendar currentCalendar = Calendar.getInstance();
     private Calendar tripCalendar = Calendar.getInstance();
@@ -77,9 +76,6 @@ public class AddFormActivity extends AppCompatActivity implements View.OnClickLi
         autocompletePlace();
 
     }
-
-
-
 
     private void initComponent() {
         eTxtTripName = findViewById(R.id.editText_nameTrip);
@@ -264,6 +260,7 @@ public class AddFormActivity extends AppCompatActivity implements View.OnClickLi
                         myCalendar.get(Calendar.DAY_OF_MONTH)).show();
 
     }
+
     private void autocompletePlace() {
 
         if (!Places.isInitialized()) {
@@ -354,6 +351,7 @@ public class AddFormActivity extends AppCompatActivity implements View.OnClickLi
             });
 
     }
+
 
 
     /**
