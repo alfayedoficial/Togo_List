@@ -89,6 +89,7 @@
 					android:id="@+id/editTextPofileUsername"
 					android:layout_width="0dp"
 					android:layout_height="wrap_content"
+					android:layout_marginStart="16dp"
 					android:layout_marginTop="8dp"
 					android:layout_marginEnd="17dp"
 					android:autoLink="none"
@@ -98,7 +99,7 @@
 					android:textColor="@color/colorAccent"
 					android:textSize="14sp"
 					app:layout_constraintEnd_toEndOf="parent"
-					app:layout_constraintStart_toStartOf="@+id/textViewPofileUsername"
+					app:layout_constraintStart_toStartOf="parent"
 					app:layout_constraintTop_toBottomOf="@+id/textViewPofileUsername" />
 
 			   <TextView
@@ -115,14 +116,16 @@
 					android:id="@+id/editText4"
 					android:layout_width="0dp"
 					android:layout_height="wrap_content"
+					android:layout_marginStart="16dp"
 					android:layout_marginTop="8dp"
 					android:layout_marginEnd="17dp"
 					android:ems="10"
 					android:hint="@string/email"
 					android:inputType="textEmailAddress"
 					android:textColor="@color/colorAccent"
+					android:textSize="14sp"
 					app:layout_constraintEnd_toEndOf="parent"
-					app:layout_constraintStart_toStartOf="@+id/editTextPofileUsername"
+					app:layout_constraintStart_toStartOf="parent"
 					app:layout_constraintTop_toBottomOf="@+id/textViewPofileEmail" />
 
 			   <Button
