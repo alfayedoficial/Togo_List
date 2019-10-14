@@ -50,11 +50,15 @@
 	 <string name="round_trip">Round Trip</string>
 	 <string name="addnote">Add Note</string>
 	 <string name="add">Add</string>
+	 <!--	 button bar-->
 	 <string name="home">Home</string>
 	 <string name="user">User</string>
-
-
-	<!--	 Google API Key-->
-	<string name="google_maps_key" templateMergeStrategy="preserve" translatable="false">AIzaSyB4PIv_KoqOvbbtOgLUTBDCG0b1aampKcE</string>
+	 <!--	 profile activity-->
+	 <string name="profile">Profile</string>
+	 <string name="edit">Edit</string>
+	 <string name="logout">Log Out</string>
+	 <string name="wehope">We Hope You Will Come Back Again</string>
+	 <!--	 Google API Key-->
+	 <string name="google_maps_key" templateMergeStrategy="preserve" translatable="false">AIzaSyB4PIv_KoqOvbbtOgLUTBDCG0b1aampKcE</string>
 
 </resources>
