@@ -26,18 +26,12 @@ public interface TripDao {
     @Query("select * from Trip")
     LiveData<List<Trip>> getTrips();
 
-    // get List of Upcoming Trips
-    @Query("select * from Trip where status = 'upcoming'")
-    LiveData<List<Trip>> getUpcomingTrips();
-    // get List of Ended Trips
-    @Query("select * from Trip where status = 'Ended'")
-    LiveData<List<Trip>> getEndedTrips();
-    // get List of Delayed Trips
-    @Query("select * from Trip where status = 'Delayed'")
-    LiveData<List<Trip>> getDelayedTrips();
-    // get List of Canceled Trips
-    @Query("select * from Trip where status = 'Canceled'")
-    LiveData<List<Trip>> getCanceledTrips();
+    // get List of Trips by trip Status
+    @Query("select * from Trip where status = :tripStatus")
+    LiveData<List<Trip>> getTripsByStatus(String tripStatus);
+
+    @Query("select * from Trip where tripName = :tripByName")
+    Trip getTripByName(String tripByName);
 
     //update Trip
     @Update

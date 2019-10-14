@@ -13,6 +13,7 @@ import com.group4.togolist.viewmodel.LoginViewModel;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.concurrent.ExecutionException;
 
 /**
  * This class is used to handle access to SQLite database
@@ -49,6 +50,14 @@ public class DatabaseHandler {
         return trips;
     }
 
+    public Trip getTripByName(String tripName) throws ExecutionException, InterruptedException {
+        return new GetTripByName(tripName).execute().get();
+    }
+
+    public void updateTrip(Trip trip){
+        new UpdateTrip(trip).execute();
+    }
+
 
     /**
      * Inner class AddTrip used to create a Thread to add Trip to database
@@ -72,6 +81,37 @@ public class DatabaseHandler {
         protected void onPostExecute(LiveData<List<Trip>> listLiveData) {
             super.onPostExecute(listLiveData);
             trips = listLiveData;
+        }
+    }
+
+    class GetTripByName extends AsyncTask<Void,Void,Trip>{
+
+        String tripName;
+
+        public GetTripByName(String tripName) {
+            super();
+            this.tripName = tripName;
+        }
+
+        @Override
+        protected Trip doInBackground(Void...voids) {
+
+            return daoInstance.getTripByName(tripName);
+        }
+    }
+
+    class UpdateTrip extends AsyncTask<Void,Void,Void>{
+
+        Trip trip;
+        public UpdateTrip(Trip trip){
+            super();
+            this.trip = trip;
+        }
+
+        @Override
+        protected Void doInBackground(Void... voids) {
+            daoInstance.updateTrip(trip);
+            return null;
         }
     }
 
