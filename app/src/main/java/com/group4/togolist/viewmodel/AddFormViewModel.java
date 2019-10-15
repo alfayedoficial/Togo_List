@@ -14,6 +14,9 @@ import com.group4.togolist.db.TripDao;
 import com.group4.togolist.db.TripDatabase;
 import com.group4.togolist.model.Trip;
 import com.group4.togolist.repository.TripAlarm;
+import com.group4.togolist.view.AddFormActivity;
+import com.group4.togolist.view.HomeActivity;
+import com.group4.togolist.view.ProfileActivity;
 
 import java.util.Calendar;
 
@@ -53,4 +56,17 @@ public class AddFormViewModel extends ViewModel{
 
         alarmManager.setExact(AlarmManager.RTC_WAKEUP, startDate.getTimeInMillis(), pendingIntent);
     }
+
+
+    /**
+     * SnakeBarHandler
+     */
+    public void goToHome(){
+        activity.startActivity(new Intent(activity, HomeActivity.class));
+    }
+
+    public void goToProfile(){
+        activity.startActivity(new Intent(activity, ProfileActivity.class));
+    }
+
 }

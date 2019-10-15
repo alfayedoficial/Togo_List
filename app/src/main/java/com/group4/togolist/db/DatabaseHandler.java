@@ -58,6 +58,14 @@ public class DatabaseHandler {
         new UpdateTrip(trip).execute();
     }
 
+    public LiveData<List<Trip>> getTripsByStatus(String status) throws ExecutionException, InterruptedException {
+        return new GetTripByStatus(status).execute().get();
+    }
+
+    public void deleteTrip(Trip trip){
+
+    }
+
 
     /**
      * Inner class AddTrip used to create a Thread to add Trip to database
@@ -114,5 +122,32 @@ public class DatabaseHandler {
             return null;
         }
     }
+
+    class GetTripByStatus extends AsyncTask<Void,Void,LiveData<List<Trip>>>{
+        String status;
+        public GetTripByStatus(String status){
+            this.status = status;
+        }
+
+        @Override
+        protected LiveData<List<Trip>> doInBackground(Void... voids) {
+            return daoInstance.getTripsByStatus(status);
+        }
+    }
+
+    class DeleteTrip extends AsyncTask<Void,Void,Void>{
+        Trip trip;
+        public DeleteTrip(Trip trip){
+            this.trip = trip;
+        }
+
+        @Override
+        protected Void doInBackground(Void... voids) {
+            daoInstance.delete(trip);
+            return null;
+        }
+    }
+
+
 
 }

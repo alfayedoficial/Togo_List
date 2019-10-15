@@ -6,7 +6,9 @@ import android.widget.Toast;
 
 import com.group4.togolist.model.User;
 import com.group4.togolist.repository.FirebaseHandler;
+import com.group4.togolist.view.AddFormActivity;
 import com.group4.togolist.view.FirstActivity;
+import com.group4.togolist.view.HomeActivity;
 import com.group4.togolist.view.ProfileActivity;
 
 public class ProfileViewModel {
@@ -41,6 +43,19 @@ public class ProfileViewModel {
     public void logOut(){
         firebaseHandler.logOut();
         activity.startActivity(new Intent(activity, FirstActivity.class));
+    }
+
+    /**
+     * SnakeBarHandler
+     */
+    public void goToHome(){
+        activity.startActivity(new Intent(activity, HomeActivity.class));
+    }
+
+
+
+    public void goToAddForm(){
+        activity.startActivity(new Intent(activity, AddFormActivity.class));
     }
 
 }
