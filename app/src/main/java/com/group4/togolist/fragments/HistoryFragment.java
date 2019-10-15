@@ -1,24 +1,34 @@
 package com.group4.togolist.fragments;
 
 
+import android.content.Context;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
 import com.group4.togolist.R;
+import com.group4.togolist.model.HistoryAdapter;
+import com.group4.togolist.model.Trip;
+
+import java.util.ArrayList;
 
 /**
  * A simple {@link Fragment} subclass.
  */
 public class HistoryFragment extends Fragment {
 
-
-    public HistoryFragment() {
+    ArrayList<Trip> pastTrips;
+    Context context;
+    public HistoryFragment(Context context,ArrayList<Trip> trips) {
         // Required empty public constructor
+        this.context = context;
+        pastTrips = trips;
     }
 
 
@@ -26,7 +36,16 @@ public class HistoryFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_history, container, false);
+        View view = inflater.inflate(R.layout.fragment_history, container, false);
+        RecyclerView pastTripRecyclerView = view.findViewById(R.id.RecyclePastTrip);
+        LinearLayoutManager lm = new LinearLayoutManager(context);
+        pastTripRecyclerView.setLayoutManager(lm);
+
+        HistoryAdapter historyAdapter = new HistoryAdapter(context,pastTrips);
+        pastTripRecyclerView.setAdapter(historyAdapter);
+        return view;
     }
+
+
 
 }
