@@ -19,12 +19,14 @@ import java.util.Locale;
 
 public class HistoryAdapter extends RecyclerView.Adapter<HistoryAdapter.HistoryHolder> {
 
+    private OnItemListener onItemListener;
     private List<Trip> pastTrips;
-    Context context;
+    private Context context;
 
-    public HistoryAdapter(Context context,List<Trip> pastTrips){
+    public HistoryAdapter(Context context,List<Trip> pastTrips,OnItemListener onItemListener){
         this.context = context;
         this.pastTrips = pastTrips;
+        this.onItemListener = onItemListener;
     }
 
 
@@ -34,7 +36,7 @@ public class HistoryAdapter extends RecyclerView.Adapter<HistoryAdapter.HistoryH
 
         LayoutInflater inflater =LayoutInflater.from(parent.getContext());
         View view = inflater.inflate(R.layout.cardrecyclerview_pasttrip,parent,false);
-        HistoryHolder historyHolder =new HistoryHolder(view);
+        HistoryHolder historyHolder =new HistoryHolder(view,onItemListener);
         return historyHolder;
     }
 
@@ -60,16 +62,19 @@ public class HistoryAdapter extends RecyclerView.Adapter<HistoryAdapter.HistoryH
         return pastTrips.size();
     }
 
-    public class HistoryHolder extends RecyclerView.ViewHolder{
+    public class HistoryHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
 
         TextView txtTripName, txtTripPlace, txtTripDate, txtTripTime;
+        OnItemListener onItemListener;
 
-        public HistoryHolder(@NonNull View itemView) {
+        public HistoryHolder(@NonNull View itemView, OnItemListener onItemListener) {
             super(itemView);
             txtTripName = itemView.findViewById(R.id.textViewPastTripName);
             txtTripPlace = itemView.findViewById(R.id.textViewPastTripPlace);
             txtTripDate = itemView.findViewById(R.id.textViewPastTripCalender);
             txtTripTime = itemView.findViewById(R.id.textViewPastTripTime);
+            this.onItemListener = onItemListener;
+            itemView.setOnClickListener(this);
         }
 
         public TextView getTxtTripName() {
@@ -87,5 +92,14 @@ public class HistoryAdapter extends RecyclerView.Adapter<HistoryAdapter.HistoryH
         public TextView getTxtTripTime() {
             return txtTripTime;
         }
+
+        @Override
+        public void onClick(View v) {
+            onItemListener.onItemClick(getAdapterPosition());
+        }
+    }
+
+    public interface OnItemListener{
+        void onItemClick(int position);
     }
 }

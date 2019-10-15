@@ -34,7 +34,7 @@ public class HomeActivity extends AppCompatActivity implements View.OnClickListe
    private ViewPager viewPager;
    private MyViewPagerAdapter myViewPagerAdapter;
     private List<Trip> upcomingTrip ;
-
+    private List<Trip> pastTrips;
 
 
     @Override
@@ -54,15 +54,16 @@ public class HomeActivity extends AppCompatActivity implements View.OnClickListe
         Fragment[] fragments = new Fragment[2];
         UpcomingFragment upcomingFragment = new UpcomingFragment();
         fragments[0] = upcomingFragment;
-       //  fragments[1] = new HistoryFragment();
 
         try {
             upcomingTrip = homeViewModel.getUpcomingTrip();
+            pastTrips = homeViewModel.getEndedTrip();
         } catch (InterruptedException e) {
             e.printStackTrace();
         } catch (ExecutionException e) {
             e.printStackTrace();
         }
+        fragments[1] = new HistoryFragment(this,pastTrips,homeViewModel);
 
         upcomingFragment.setUpcomingTrip(upcomingTrip);
 

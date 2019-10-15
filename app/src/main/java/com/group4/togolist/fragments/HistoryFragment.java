@@ -15,17 +15,20 @@ import android.view.ViewGroup;
 import com.group4.togolist.R;
 import com.group4.togolist.model.HistoryAdapter;
 import com.group4.togolist.model.Trip;
+import com.group4.togolist.viewmodel.HomeViewModel;
 
 import java.util.ArrayList;
+import java.util.List;
 
 /**
  * A simple {@link Fragment} subclass.
  */
-public class HistoryFragment extends Fragment {
+public class HistoryFragment extends Fragment  implements HistoryAdapter.OnItemListener {
 
-    ArrayList<Trip> pastTrips;
+    List<Trip> pastTrips;
     Context context;
-    public HistoryFragment(Context context,ArrayList<Trip> trips) {
+    HomeViewModel homeViewModel;
+    public HistoryFragment(Context context, List<Trip> trips, HomeViewModel homeViewModel) {
         // Required empty public constructor
         this.context = context;
         pastTrips = trips;
@@ -41,11 +44,14 @@ public class HistoryFragment extends Fragment {
         LinearLayoutManager lm = new LinearLayoutManager(context);
         pastTripRecyclerView.setLayoutManager(lm);
 
-        HistoryAdapter historyAdapter = new HistoryAdapter(context,pastTrips);
+        HistoryAdapter historyAdapter = new HistoryAdapter(context,pastTrips,this);
         pastTripRecyclerView.setAdapter(historyAdapter);
         return view;
     }
 
 
-
+    @Override
+    public void onItemClick(int position) {
+        homeViewModel.endedTripItemClicked(position);
+    }
 }
