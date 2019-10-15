@@ -60,7 +60,7 @@
 	 <string name="logout">Log Out</string>
 	 <string name="wehope">We Hope You Will Come Back Again</string>
 	 <!--	 Google API Key-->
-	<!-- <string name="google_maps_key" templateMergeStrategy="preserve" translatable="false">AIzaSyDZ8gkXKHtKldCAlLSm4Aau0y-SmzYw7M0</string> -->
+	 <!-- <string name="google_maps_key" templateMergeStrategy="preserve" translatable="false">AIzaSyDZ8gkXKHtKldCAlLSm4Aau0y-SmzYw7M0</string> -->
 	 <!--Dialog Activity-->
 	 <string name="details">Details</string>
 	 <string name="tripplace">Trip Place</string>
@@ -73,4 +73,6 @@
 	 <string name="your_trip_details">Your Trip Details</string>
 	 <string name="status">Status</string>
 	 <string name="delete">Delete</string>
+	 <string name="your_trips">Your Trips</string>
+	 <string name="past_trips">Past Trips</string>
 </resources>
