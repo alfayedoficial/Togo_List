@@ -1,5 +1,8 @@
 package com.group4.togolist.viewmodel;
 
+import android.app.AlarmManager;
+import android.app.PendingIntent;
+import android.content.Context;
 import android.content.Intent;
 import android.net.Uri;
 
@@ -7,6 +10,7 @@ import androidx.lifecycle.ViewModel;
 
 import com.group4.togolist.repository.DatabaseHandler;
 import com.group4.togolist.model.Trip;
+import com.group4.togolist.repository.TripAlarm;
 import com.group4.togolist.view.AddFormActivity;
 import com.group4.togolist.view.DetailsTripActivity;
 import com.group4.togolist.view.HomeActivity;
@@ -69,6 +73,29 @@ public class DetailsTripViewModel extends ViewModel {
 //        currentTrip.setRoundTrip(isRoundTrip);
         currentTrip.setNotes(notes);
         databaseHandler.updateTrip(currentTrip);
+        cancelAlarm();
+        startAlarm(startDate);
+    }
+
+
+    private void startAlarm(Calendar c) {
+        AlarmManager alarmManager = (AlarmManager) activity.getSystemService(Context.ALARM_SERVICE);
+        Intent intent = new Intent(activity, TripAlarm.class);
+        PendingIntent pendingIntent = PendingIntent.getBroadcast(activity, 1, intent, 0);
+
+        if (c.before(Calendar.getInstance())) {
+            c.add(Calendar.DATE, 1);
+        }
+
+        alarmManager.setExact(AlarmManager.RTC_WAKEUP, c.getTimeInMillis(), pendingIntent);
+    }
+
+    private void cancelAlarm() {
+        AlarmManager alarmManager = (AlarmManager) activity.getSystemService(Context.ALARM_SERVICE);
+        Intent intent = new Intent(activity, TripAlarm.class);
+        PendingIntent pendingIntent = PendingIntent.getBroadcast(activity, currentTrip.getId(), intent, 0);
+
+        alarmManager.cancel(pendingIntent);
     }
 
     /**
