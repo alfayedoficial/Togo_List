@@ -10,6 +10,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageButton;
 import android.widget.TextView;
 
 import com.group4.togolist.R;
@@ -23,6 +24,9 @@ public class ProfileActivity extends AppCompatActivity  implements View.OnClickL
     private Button btnEdit , btnLogout , btnUpdate;
     private TextView txtHopeComeBack , textViewPofilePassword , textViewPofileConfirmPassword;
     private ProfileViewModel profileViewModel ;
+
+    private ImageButton imgBtnHome , imgBtnProfile;
+    private com.google.android.material.floatingactionbutton.FloatingActionButton fltBtnAdd;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -46,9 +50,18 @@ public class ProfileActivity extends AppCompatActivity  implements View.OnClickL
         btnLogout = findViewById(R.id.btnLogout);
         btnUpdate = findViewById(R.id.btnProfileUpdate);
 
+        imgBtnHome = findViewById(R.id.imageBtnHome);
+        imgBtnProfile = findViewById(R.id.imageBtnProfile);
+        fltBtnAdd = findViewById(R.id.fABtnAddNote);
+
+        imgBtnProfile.setEnabled(false);
+
         btnEdit.setOnClickListener(this);
         btnUpdate.setOnClickListener(this);
         btnLogout.setOnClickListener(this);
+
+        imgBtnHome.setOnClickListener(this);
+        fltBtnAdd.setOnClickListener(this);
 
     }
 
@@ -75,6 +88,13 @@ public class ProfileActivity extends AppCompatActivity  implements View.OnClickL
             case R.id.btnLogout:
                 profileViewModel.logOut();
 
+                break;
+            case R.id.imageBtnHome:
+                profileViewModel.goToHome();
+                break;
+
+            case R.id.fABtnAddNote:
+                profileViewModel.goToAddForm();
                 break;
         }
     }
