@@ -5,16 +5,12 @@ import android.app.AlarmManager;
 import android.app.PendingIntent;
 import android.content.Context;
 import android.content.Intent;
-import android.os.AsyncTask;
 
 import androidx.lifecycle.ViewModel;
 
-import com.group4.togolist.db.DatabaseHandler;
-import com.group4.togolist.db.TripDao;
-import com.group4.togolist.db.TripDatabase;
+import com.group4.togolist.repository.DatabaseHandler;
 import com.group4.togolist.model.Trip;
 import com.group4.togolist.repository.TripAlarm;
-import com.group4.togolist.view.AddFormActivity;
 import com.group4.togolist.view.HomeActivity;
 import com.group4.togolist.view.ProfileActivity;
 

@@ -1,13 +1,11 @@
 package com.group4.togolist.viewmodel;
 
-import android.app.Activity;
 import android.content.Intent;
 import android.net.Uri;
 
 import androidx.lifecycle.ViewModel;
 
-import com.google.android.gms.location.DetectedActivity;
-import com.group4.togolist.db.DatabaseHandler;
+import com.group4.togolist.repository.DatabaseHandler;
 import com.group4.togolist.model.Trip;
 import com.group4.togolist.view.AddFormActivity;
 import com.group4.togolist.view.DetailsTripActivity;

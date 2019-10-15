@@ -4,7 +4,7 @@ import android.content.Intent;
 
 import androidx.lifecycle.ViewModel;
 
-import com.group4.togolist.db.DatabaseHandler;
+import com.group4.togolist.repository.DatabaseHandler;
 import com.group4.togolist.model.Trip;
 import com.group4.togolist.view.AddFormActivity;
 import com.group4.togolist.view.HomeActivity;

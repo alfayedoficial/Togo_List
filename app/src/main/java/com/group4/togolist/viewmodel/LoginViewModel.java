@@ -2,13 +2,11 @@ package com.group4.togolist.viewmodel;
 
 import android.app.Activity;
 import android.content.Intent;
-import android.provider.ContactsContract;
 import android.widget.Toast;
 
 import androidx.lifecycle.ViewModel;
-import androidx.room.Database;
 
-import com.group4.togolist.db.DatabaseHandler;
+import com.group4.togolist.repository.DatabaseHandler;
 import com.group4.togolist.model.User;
 import com.group4.togolist.view.ForgetPasswordActivity;
 import com.group4.togolist.view.HomeActivity;
