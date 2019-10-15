@@ -57,15 +57,15 @@ public class DetailsTripViewModel extends ViewModel {
         activity.startActivity(new Intent(activity, HomeActivity.class));
     }
 
-    public void editTrip(String tripName, double startLocationLongitude, double startLocationLatitude, double endLocationLongitude, double endLocationLatitude, Calendar startDate, int repetition, boolean isRoundTrip, String notes){
+    public void editTrip(String tripName, Calendar startDate, String notes){
         currentTrip.setTripName(tripName);
-        currentTrip.setStartLocationLongitude(startLocationLongitude);
-        currentTrip.setStartLocationLatitude(startLocationLatitude);
-        currentTrip.setEndLocationLongitude(endLocationLongitude);
-        currentTrip.setEndLocationLatitude(endLocationLatitude);
+//        currentTrip.setStartLocationLongitude(startLocationLongitude);
+//        currentTrip.setStartLocationLatitude(startLocationLatitude);
+//        currentTrip.setEndLocationLongitude(endLocationLongitude);
+//        currentTrip.setEndLocationLatitude(endLocationLatitude);
         currentTrip.setStartTime(startDate);
-        currentTrip.setRepetition(repetition);
-        currentTrip.setRoundTrip(isRoundTrip);
+//        currentTrip.setRepetition(repetition);
+//        currentTrip.setRoundTrip(isRoundTrip);
         currentTrip.setNotes(notes);
         databaseHandler.updateTrip(currentTrip);
     }
