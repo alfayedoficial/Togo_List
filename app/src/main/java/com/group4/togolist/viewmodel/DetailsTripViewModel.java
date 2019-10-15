@@ -16,11 +16,19 @@ import java.util.Calendar;
 import java.util.Locale;
 import java.util.concurrent.ExecutionException;
 
+/**
+ * Class created to handle Details Activity
+ */
+
 public class DetailsTripViewModel extends ViewModel {
     DetailsTripActivity activity;
     DatabaseHandler databaseHandler;
     Trip currentTrip;
 
+
+    /**
+     * Class Constructor
+     */
     public DetailsTripViewModel(DetailsTripActivity activity){
         this.activity = activity;
         String tripName = activity.getIntent().getExtras().getString(HomeViewModel.TRIP_NAME);
@@ -41,6 +49,7 @@ public class DetailsTripViewModel extends ViewModel {
         Intent tripIntent = new Intent(Intent.ACTION_VIEW, Uri.parse(uri));
         tripIntent.setPackage("com.google.android.apps.maps");
         activity.startActivity(tripIntent);
+        currentTrip.setStatus(Trip.ENDED);
     }
 
     public void deleteTrip(){

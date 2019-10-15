@@ -18,7 +18,9 @@ import com.group4.togolist.R;
 import com.group4.togolist.repository.DatabaseHandler;
 import com.group4.togolist.model.Trip;
 import com.group4.togolist.repository.TripAlarm;
+import com.group4.togolist.view.DetailsTripActivity;
 import com.group4.togolist.view.DialogActivity;
+import com.group4.togolist.view.HomeActivity;
 
 import java.io.IOException;
 import java.util.List;
@@ -34,6 +36,10 @@ public class DialogViewModel extends ViewModel {
     DatabaseHandler databaseHandler;
 
     DialogActivity activity;
+
+    /**
+     * Class Consturcotr
+     */
     public DialogViewModel(DialogActivity activity){
         this.activity = activity;
         databaseHandler = new DatabaseHandler(activity);
@@ -54,16 +60,28 @@ public class DialogViewModel extends ViewModel {
         }
     }
 
+    /**
+     * Send Dialog to Details Trip Activity
+     */
     public void showDetails(){
-
+        Intent intent = new Intent(activity, DetailsTripActivity.class);
+        intent.putExtra(HomeViewModel.TRIP_NAME,currentTrip.getTripName());
+        activity.startActivity(intent);
     }
 
+    /**
+     *  Set Dialog to Notification Bar
+     */
     public void waitForLater(){
         NotificationHelper notificationHelper = new NotificationHelper(activity);
         NotificationCompat.Builder nb = notificationHelper.getChannelNotification();
         notificationHelper.getManager().notify(1, nb.build());
     }
 
+    /**
+     * sent Activity to Google Maps with Location
+     * still need to open notes on widget
+     */
     public void startTrip(){
         // Create a String Uri Use the result to create an Intent.
         String uri = String.format(Locale.ENGLISH, "geo:%f,%f", currentTrip.getEndLocationLatitude(), currentTrip.getEndLocationLongitude());
@@ -71,16 +89,23 @@ public class DialogViewModel extends ViewModel {
         Intent tripIntent = new Intent(Intent.ACTION_VIEW, Uri.parse(uri));
         // Make the Intent explicit by setting the Google Maps package
         tripIntent.setPackage("com.google.android.apps.maps");
-
+        currentTrip.setStatus(Trip.ENDED);
         // Attempt to start an activity that can handle the Intent
         activity.startActivity(tripIntent);
     }
 
+    /**
+     * Cancel Trip and finish Dialog Activity
+     */
     public void cancelTrip(){
         currentTrip.setStatus(Trip.CANCELED);
         databaseHandler.updateTrip(currentTrip);
         activity.finish();
     }
+
+    /**
+     * Class Created to handle the creation of Notification
+     */
 
     class NotificationHelper extends ContextWrapper {
         public static final String channelID = "channelID";
