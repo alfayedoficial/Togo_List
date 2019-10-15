@@ -26,11 +26,11 @@ public interface TripDao {
 
     // get List for all Trips in SQLite Trip Table
     @Query("select * from Trip")
-    ArrayList<Trip> getTrips();
+    List<Trip> getTrips();
 
     // get List of Trips by trip Status
     @Query("select * from Trip where status = :tripStatus")
-    ArrayList<Trip> getTripsByStatus(String tripStatus);
+    List<Trip> getTripsByStatus(String tripStatus);
 
     @Query("select * from Trip where tripName = :tripByName")
     Trip getTripByName(String tripByName);

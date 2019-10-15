@@ -52,14 +52,14 @@ public class HomeViewModel extends ViewModel {
     /**
      * get an ArrayList of UpComing Trips
      */
-    public ArrayList<Trip> getUpcomingTrip() throws ExecutionException, InterruptedException {
+    public List<Trip> getUpcomingTrip() throws ExecutionException, InterruptedException {
         return databaseHandler.getTripsByStatus(Trip.UPCOMING);
     }
 
     /**
      * get an ArrayList of EndedTrips
      */
-    public ArrayList<Trip> getEndedTrip() throws ExecutionException, InterruptedException {
+    public List<Trip> getEndedTrip() throws ExecutionException, InterruptedException {
         return databaseHandler.getTripsByStatus(Trip.ENDED);
     }
 
@@ -68,7 +68,7 @@ public class HomeViewModel extends ViewModel {
      */
     public void upcomingTripItemClicked(int position){
         try {
-            ArrayList<Trip> trips = databaseHandler.getTripsByStatus(Trip.UPCOMING);
+            List<Trip> trips = databaseHandler.getTripsByStatus(Trip.UPCOMING);
             Intent detailsIntent = new Intent(activity, DetailsTripActivity.class);
             detailsIntent.putExtra(TRIP_NAME,trips.get(position).getTripName());
             activity.startActivity(detailsIntent);
@@ -85,7 +85,7 @@ public class HomeViewModel extends ViewModel {
 
     public void endedTripItemClicked (int position){
         try {
-            ArrayList<Trip> trips = databaseHandler.getTripsByStatus(Trip.ENDED);
+            List<Trip> trips = databaseHandler.getTripsByStatus(Trip.ENDED);
             Intent pastDetailsIntent = new Intent(activity, PastTripDetailsActivity.class);
             pastDetailsIntent.putExtra(TRIP_NAME,trips.get(position).getTripName());
             activity.startActivity(pastDetailsIntent);

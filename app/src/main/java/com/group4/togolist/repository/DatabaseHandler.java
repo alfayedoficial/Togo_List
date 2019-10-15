@@ -56,7 +56,7 @@ public class DatabaseHandler {
         new UpdateTrip(trip).execute();
     }
 
-    public ArrayList<Trip> getTripsByStatus(String status) throws ExecutionException, InterruptedException {
+    public List<Trip> getTripsByStatus(String status) throws ExecutionException, InterruptedException {
         return new GetTripByStatus(status).execute().get();
     }
 
@@ -110,14 +110,14 @@ public class DatabaseHandler {
         }
     }
 
-    class GetTripByStatus extends AsyncTask<Void,Void,ArrayList<Trip>>{
+    class GetTripByStatus extends AsyncTask<Void,Void,List<Trip>>{
         String status;
         public GetTripByStatus(String status){
             this.status = status;
         }
 
         @Override
-        protected ArrayList<Trip> doInBackground(Void... voids) {
+        protected List<Trip> doInBackground(Void... voids) {
             return daoInstance.getTripsByStatus(status);
         }
     }
