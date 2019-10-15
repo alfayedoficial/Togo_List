@@ -74,6 +74,6 @@
 	 <string name="status">Status</string>
 	 <string name="delete">Delete</string>
 	 <string name="your_trips">Your Trips</string>
-	 <string name="past_trips">Past Trips</string>
+	 <string name="past_trips">Your Past Trips</string>
 	 <string name="note">Note</string>
 </resources>

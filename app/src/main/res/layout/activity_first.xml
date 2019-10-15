@@ -106,43 +106,4 @@
 		  app:layout_constraintStart_toStartOf="parent"
 		  app:layout_constraintTop_toBottomOf="@+id/btnSignIn" />
 
-	 <Button
-		  android:id="@+id/buttontest"
-		  android:layout_width="wrap_content"
-		  android:layout_height="wrap_content"
-		  android:layout_marginStart="157dp"
-		  android:layout_marginTop="241dp"
-		  android:layout_marginEnd="167dp"
-		  android:text="@string/add_new_trip"
-		  app:layout_constraintEnd_toEndOf="parent"
-		  app:layout_constraintStart_toStartOf="parent"
-		  app:layout_constraintTop_toBottomOf="@+id/textView" />
-
-	 <Button
-		  android:id="@+id/buttontest2"
-		  android:layout_width="wrap_content"
-		  android:layout_height="wrap_content"
-		  android:layout_marginStart="157dp"
-		  android:layout_marginTop="180dp"
-		  android:layout_marginEnd="167dp"
-		  android:text="@string/profile"
-		  app:layout_constraintEnd_toEndOf="parent"
-		  app:layout_constraintHorizontal_bias="0.484"
-		  app:layout_constraintStart_toStartOf="parent"
-		  app:layout_constraintTop_toBottomOf="@+id/textView" />
-
-	 <Button
-		  android:id="@+id/buttontestdialog"
-		  android:layout_width="wrap_content"
-		  android:layout_height="wrap_content"
-		  android:layout_marginStart="146dp"
-		  android:layout_marginTop="106dp"
-		  android:layout_marginEnd="177dp"
-		  android:layout_marginBottom="26dp"
-		  android:text="@string/details"
-		  app:layout_constraintBottom_toTopOf="@+id/buttontest2"
-		  app:layout_constraintEnd_toEndOf="parent"
-		  app:layout_constraintStart_toStartOf="parent"
-		  app:layout_constraintTop_toBottomOf="@+id/textView" />
-
 </androidx.constraintlayout.widget.ConstraintLayout>
