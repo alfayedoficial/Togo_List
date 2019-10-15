@@ -7,86 +7,79 @@
 	 android:background="@color/background_offwhite"
 	 tools:context=".view.AddFormActivity">
 
-	 <ScrollView
+	 <androidx.constraintlayout.widget.ConstraintLayout
+		  android:id="@+id/constraintLayout2"
 		  android:layout_width="match_parent"
-		  android:layout_height="match_parent"
-		  android:layout_marginBottom="50dp"
-		  app:layout_constraintBottom_toTopOf="@+id/constraintLayout"
+		  android:layout_height="wrap_content"
 		  app:layout_constraintEnd_toEndOf="parent"
 		  app:layout_constraintStart_toStartOf="parent"
 		  app:layout_constraintTop_toTopOf="parent">
 
+		  <ImageView
+			   android:id="@+id/id_SplashIcon"
+			   android:layout_width="30dp"
+			   android:layout_height="30dp"
+			   android:layout_marginBottom="36dp"
+			   android:src="@drawable/planeicon"
+			   app:layout_constraintBottom_toBottomOf="@+id/id_name_app4"
+			   app:layout_constraintEnd_toEndOf="@+id/id_name_app4"
+			   app:layout_constraintHorizontal_bias="1.0"
+			   app:layout_constraintStart_toStartOf="@+id/id_name_app4" />
+
+		  <TextView
+			   android:id="@+id/id_name_app4"
+			   android:layout_width="wrap_content"
+			   android:layout_height="wrap_content"
+			   android:layout_marginTop="16dp"
+			   android:fontFamily="@font/betterfontlogo"
+			   android:text="@string/app_name"
+			   android:textColor="@color/home_color"
+			   android:textSize="20sp"
+			   android:textStyle="bold"
+			   app:layout_constraintEnd_toEndOf="parent"
+			   app:layout_constraintHorizontal_bias="0.498"
+			   app:layout_constraintStart_toStartOf="parent"
+			   app:layout_constraintTop_toTopOf="parent" />
+
+		  <View
+			   android:id="@+id/divider"
+			   android:layout_width="match_parent"
+			   android:layout_height="1dp"
+			   android:layout_marginTop="8dp"
+			   android:background="@color/colorPrimaryDark"
+			   android:outlineSpotShadowColor="@color/text_shadow"
+			   android:shadowDx="1"
+			   android:shadowDy="1"
+			   app:layout_constraintEnd_toEndOf="parent"
+			   app:layout_constraintStart_toStartOf="parent"
+			   app:layout_constraintTop_toBottomOf="@+id/id_name_app4" />
+	 </androidx.constraintlayout.widget.ConstraintLayout>
+
+	 <ScrollView
+		  android:layout_width="match_parent"
+		  android:layout_height="0dp"
+		  android:layout_marginBottom="50dp"
+		  app:layout_constraintBottom_toBottomOf="@+id/constraintLayout"
+		  app:layout_constraintEnd_toEndOf="parent"
+		  app:layout_constraintStart_toStartOf="parent"
+		  app:layout_constraintTop_toBottomOf="@+id/constraintLayout2">
+
 		  <androidx.constraintlayout.widget.ConstraintLayout
 			   android:layout_width="match_parent"
 			   android:layout_height="wrap_content">
-
-			   <ImageView
-					android:id="@+id/id_SplashIcon"
-					android:layout_width="30dp"
-					android:layout_height="30dp"
-					android:layout_marginBottom="36dp"
-					android:src="@drawable/planeicon"
-					app:layout_constraintBottom_toBottomOf="@+id/id_name_app4"
-					app:layout_constraintEnd_toEndOf="@+id/id_name_app4"
-					app:layout_constraintHorizontal_bias="1.0"
-					app:layout_constraintStart_toStartOf="@+id/id_name_app4" />
-
-			   <TextView
-					android:id="@+id/id_name_app4"
-					android:layout_width="wrap_content"
-					android:layout_height="wrap_content"
-					android:layout_marginTop="16dp"
-					android:fontFamily="@font/betterfontlogo"
-					android:text="@string/app_name"
-					android:textColor="@color/home_color"
-					android:textSize="20sp"
-					android:textStyle="bold"
-					app:layout_constraintEnd_toEndOf="parent"
-					app:layout_constraintHorizontal_bias="0.498"
-					app:layout_constraintStart_toStartOf="parent"
-					app:layout_constraintTop_toTopOf="parent" />
-
-			   <View
-					android:id="@+id/divider"
-					android:layout_width="match_parent"
-					android:layout_height="1dp"
-					android:layout_marginTop="8dp"
-					android:background="@color/colorPrimaryDark"
-					android:outlineSpotShadowColor="@color/text_shadow"
-					android:shadowDx="1"
-					android:shadowDy="1"
-					app:layout_constraintEnd_toEndOf="parent"
-					app:layout_constraintStart_toStartOf="parent"
-					app:layout_constraintTop_toBottomOf="@+id/id_name_app4" />
-
-			   <ImageButton
-					android:id="@+id/btn_back_addform"
-					style="@style/Widget.AppCompat.Button.Borderless.Colored"
-					android:layout_width="70sp"
-					android:layout_height="wrap_content"
-					android:layout_marginTop="16dp"
-					android:shadowColor="#000000"
-					android:shadowRadius="1"
-					android:src="@drawable/ic_back"
-					android:textSize="12sp"
-					android:visibility="gone"
-					app:layout_constraintEnd_toStartOf="@+id/id_name_app4"
-					app:layout_constraintHorizontal_bias="0.0"
-					app:layout_constraintStart_toStartOf="parent"
-					app:layout_constraintTop_toTopOf="parent" />
 
 			   <TextView
 					android:id="@+id/textView2"
 					android:layout_width="wrap_content"
 					android:layout_height="wrap_content"
 					android:layout_marginStart="16dp"
-					android:layout_marginTop="8dp"
+					android:layout_marginTop="4dp"
 					android:text="@string/add_new_trip"
 					android:textColor="@color/home_color"
 					android:textSize="18sp"
 					android:textStyle="bold"
 					app:layout_constraintStart_toStartOf="parent"
-					app:layout_constraintTop_toBottomOf="@+id/divider" />
+					app:layout_constraintTop_toTopOf="parent" />
 
 			   <EditText
 					android:id="@+id/editText_nameTrip"
@@ -96,11 +89,12 @@
 					android:layout_marginTop="10dp"
 					android:layout_marginEnd="17dp"
 					android:ems="10"
+					android:fontFamily="@font/boutfont"
 					android:hint="@string/trip_name"
 					android:inputType="textPersonName"
 					android:textColor="@color/colorAccent"
 					android:textColorHint="@color/editText"
-					android:textSize="16sp"
+					android:textSize="18sp"
 					app:layout_constraintEnd_toEndOf="parent"
 					app:layout_constraintStart_toStartOf="parent"
 					app:layout_constraintTop_toBottomOf="@+id/textView2" />
@@ -123,10 +117,11 @@
 						 android:layout_height="wrap_content"
 						 android:layout_gravity="center"
 						 android:layout_weight="1"
+						 android:fontFamily="@font/boutfont"
 						 android:gravity="center"
 						 android:text="@string/start_pint"
 						 android:textColor="@color/editText"
-						 android:textSize="16sp" />
+						 android:textSize="18sp" />
 
 					<fragment
 						 android:id="@+id/FragmentStartPoint"
@@ -175,10 +170,11 @@
 						 android:layout_height="wrap_content"
 						 android:layout_gravity="center"
 						 android:layout_weight="1"
+						 android:fontFamily="@font/boutfont"
 						 android:gravity="center"
 						 android:text="@string/end_point"
 						 android:textColor="@color/editText"
-						 android:textSize="16sp" />
+						 android:textSize="18sp" />
 
 					<fragment
 
@@ -221,11 +217,12 @@
 					android:layout_marginStart="10dp"
 					android:layout_marginEnd="17dp"
 					android:ems="10"
+					android:fontFamily="@font/boutfont"
 					android:hint="@string/startdate"
 					android:inputType="datetime"
 					android:textColor="@color/colorAccent"
 					android:textColorHint="@color/editText"
-					android:textSize="16sp"
+					android:textSize="18sp"
 					app:layout_constraintEnd_toEndOf="parent"
 					app:layout_constraintStart_toStartOf="parent"
 					app:layout_constraintTop_toBottomOf="@+id/EndPoint" />
@@ -238,11 +235,12 @@
 					android:layout_marginTop="8dp"
 					android:layout_marginEnd="17dp"
 					android:ems="10"
+					android:fontFamily="@font/boutfont"
 					android:hint="@string/starttime"
 					android:inputType="time"
 					android:textColor="@color/colorAccent"
 					android:textColorHint="@color/editText"
-					android:textSize="16sp"
+					android:textSize="18sp"
 					app:layout_constraintEnd_toEndOf="parent"
 					app:layout_constraintStart_toStartOf="parent"
 					app:layout_constraintTop_toBottomOf="@+id/editText_startDate" />
@@ -253,9 +251,10 @@
 					android:layout_height="wrap_content"
 					android:layout_marginStart="16dp"
 					android:layout_marginTop="16dp"
+					android:fontFamily="@font/boutfont"
 					android:text="@string/repetition"
 					android:textColor="@color/colorPrimary"
-					android:textSize="16sp"
+					android:textSize="18sp"
 					android:visibility="visible"
 					app:layout_constraintStart_toStartOf="parent"
 					app:layout_constraintTop_toBottomOf="@+id/editText_startTime" />
@@ -283,30 +282,33 @@
 							  android:layout_width="wrap_content"
 							  android:layout_height="wrap_content"
 							  android:layout_weight="1"
+							  android:fontFamily="@font/boutfont"
 							  android:text="@string/daily"
 							  android:textColor="@color/editText"
 							  android:textColorHint="@color/colorAccent"
-							  android:textSize="16sp" />
+							  android:textSize="18sp" />
 
 						 <RadioButton
 							  android:id="@+id/radioBtnWeakly"
 							  android:layout_width="wrap_content"
 							  android:layout_height="wrap_content"
 							  android:layout_weight="1"
+							  android:fontFamily="@font/boutfont"
 							  android:text="@string/weakly"
 							  android:textColor="@color/editText"
 							  android:textColorHint="@color/colorAccent"
-							  android:textSize="16sp" />
+							  android:textSize="18sp" />
 
 						 <RadioButton
 							  android:id="@+id/radioBtnDays"
 							  android:layout_width="wrap_content"
 							  android:layout_height="wrap_content"
 							  android:layout_weight="1"
+							  android:fontFamily="@font/boutfont"
 							  android:text="@string/days"
 							  android:textColor="@color/editText"
 							  android:textColorHint="@color/colorAccent"
-							  android:textSize="16sp" />
+							  android:textSize="18sp" />
 
 
 					</RadioGroup>
@@ -392,10 +394,11 @@
 					android:layout_height="wrap_content"
 					android:layout_marginStart="16dp"
 					android:layout_marginTop="16dp"
+					android:fontFamily="@font/boutfont"
 					android:text="@string/trip_type"
 					android:textColor="@color/colorPrimary"
 					android:textColorHint="@color/colorAccent"
-					android:textSize="16sp"
+					android:textSize="18sp"
 					app:layout_constraintStart_toStartOf="parent"
 					app:layout_constraintTop_toBottomOf="@+id/linearLayoutDays" />
 
@@ -421,20 +424,22 @@
 							  android:layout_width="wrap_content"
 							  android:layout_height="wrap_content"
 							  android:layout_weight="1"
+							  android:fontFamily="@font/boutfont"
 							  android:text="@string/one_direction"
 							  android:textColor="@color/editText"
 							  android:textColorHint="@color/colorAccent"
-							  android:textSize="16sp" />
+							  android:textSize="18sp" />
 
 						 <RadioButton
 							  android:id="@+id/radioBtnRoundTrip"
 							  android:layout_width="wrap_content"
 							  android:layout_height="wrap_content"
 							  android:layout_weight="1"
+							  android:fontFamily="@font/boutfont"
 							  android:text="@string/round_trip"
 							  android:textColor="@color/editText"
 							  android:textColorHint="@color/colorAccent"
-							  android:textSize="16sp" />
+							  android:textSize="18sp" />
 					</RadioGroup>
 			   </LinearLayout>
 
@@ -446,6 +451,7 @@
 					android:layout_marginTop="8dp"
 					android:layout_marginEnd="17dp"
 					android:ems="10"
+					android:fontFamily="@font/boutfont"
 					android:hint="@string/addnote"
 					android:inputType="textMultiLine"
 					android:overScrollMode="always"
@@ -454,7 +460,7 @@
 					android:singleLine="false"
 					android:textColor="@color/colorAccent"
 					android:textColorHint="@color/editText"
-					android:textSize="16sp"
+					android:textSize="18sp"
 					app:layout_constraintEnd_toEndOf="parent"
 					app:layout_constraintStart_toStartOf="parent"
 					app:layout_constraintTop_toBottomOf="@+id/linearLayout5" />
@@ -467,9 +473,10 @@
 					android:layout_marginTop="20dp"
 					android:layout_marginBottom="100dp"
 					android:background="@drawable/gradient_btn_signin"
+					android:fontFamily="@font/boutfont"
 					android:text="@string/add"
 					android:textColor="@color/background_offwhite"
-					android:textSize="16sp"
+					android:textSize="18sp"
 					app:layout_constraintBottom_toBottomOf="parent"
 					app:layout_constraintStart_toStartOf="@+id/editTextNote"
 					app:layout_constraintTop_toBottomOf="@+id/editTextNote" />
@@ -481,10 +488,11 @@
 					android:layout_marginTop="20dp"
 					android:layout_marginEnd="50dp"
 					android:layout_marginBottom="100dp"
-					android:background="@drawable/gradient_btn_signup"
+					android:background="@drawable/gradient_btn_sigup"
+					android:fontFamily="@font/boutfont"
 					android:text="@string/cancel"
 					android:textColor="@color/background_offwhite"
-					android:textSize="16sp"
+					android:textSize="18sp"
 					app:layout_constraintBottom_toBottomOf="parent"
 					app:layout_constraintEnd_toEndOf="@+id/editTextNote"
 					app:layout_constraintTop_toBottomOf="@+id/editTextNote" />
@@ -523,6 +531,8 @@
 			   android:layout_height="wrap_content"
 			   android:layout_marginTop="36dp"
 			   android:text="@string/home"
+			  android:background="@drawable/gradient_btn_profile"
+			   android:fontFamily="@font/boutfont"
 			   android:textColor="@color/colorAccent"
 			   app:layout_constraintEnd_toEndOf="@+id/imageBtnHome"
 			   app:layout_constraintStart_toStartOf="@+id/imageBtnHome"
@@ -536,6 +546,8 @@
 			   android:layout_height="wrap_content"
 			   android:layout_marginEnd="30dp"
 			   android:src="@drawable/user"
+			   android:background="@drawable/gradient_btn_home"
+			   android:fontFamily="@font/boutfont"
 			   app:layout_constraintBottom_toBottomOf="parent"
 			   app:layout_constraintEnd_toEndOf="parent"
 			   app:layout_constraintTop_toTopOf="parent"
@@ -566,6 +578,7 @@
 		  android:layout_height="wrap_content"
 		  android:layout_marginBottom="24dp"
 		  android:clickable="true"
+		  app:rippleColor="@color/colorAccent"
 		  app:backgroundTint="@color/colorPrimary"
 		  app:layout_constraintBottom_toBottomOf="parent"
 		  app:layout_constraintEnd_toEndOf="parent"
