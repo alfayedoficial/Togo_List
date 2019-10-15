@@ -31,6 +31,7 @@ public class PastTripsDetailsViewModel extends ViewModel {
         databaseHandler = new DatabaseHandler(activity);
         try {
             currentTrip = databaseHandler.getTripByName(tripName);
+            this.activity.setTripDetails(currentTrip);
         } catch (ExecutionException e) {
             e.printStackTrace();
         } catch (InterruptedException e) {
