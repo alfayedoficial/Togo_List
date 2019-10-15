@@ -5,6 +5,8 @@ import androidx.lifecycle.ViewModel;
 import androidx.lifecycle.ViewModelProvider;
 import androidx.lifecycle.ViewModelProviders;
 
+import android.location.Address;
+import android.location.Geocoder;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -13,8 +15,13 @@ import android.widget.ImageButton;
 import android.widget.TextView;
 
 import com.group4.togolist.R;
+import com.group4.togolist.model.Trip;
 import com.group4.togolist.viewmodel.DetailsTripViewModel;
 import com.group4.togolist.viewmodel.PastTripsDetailsViewModel;
+
+import java.io.IOException;
+import java.util.List;
+import java.util.Locale;
 
 public class PastTripDetailsActivity extends AppCompatActivity  implements View.OnClickListener {
 
@@ -76,6 +83,53 @@ public class PastTripDetailsActivity extends AppCompatActivity  implements View.
     }
 
 
+    public  void setTripDetails(Trip trip){
+
+        txtTripName.setText(trip.getTripName());
+        String repetitionString = "" ;
+
+        switch (trip.getRepetition()){
+            case Trip.NOT_REPEATED:
+                repetitionString   = "NOT_REPEATED" ;
+                break;
+
+            case Trip.DAILY:
+                repetitionString = "DAILY";
+                break;
+            case Trip.WEEKLY:
+                repetitionString = "WEEKLY";
+                break;
+            case Trip.MONTHLY:
+                break;
+        }
+        txtRepetition.setText(repetitionString);
+
+        if (trip.isRoundTrip()){
+            txtTripType.setText("Round Trip");
+        }else
+            txtTripType.setText("One Direction");
+
+        txtStartPoint.setText(getTripPlace(trip.getStartLocationLatitude() , trip.getStartLocationLongitude()));
+        txtEndPoint.setText(getTripPlace(trip.getEndLocationLatitude() , trip.getEndLocationLongitude()));
+
+        txtStartDate.setText(trip.getTripDate());
+        txtStartTime.setText(trip.getTripTime());
+        txtNotes.setText(trip.getNotes());
+    }
+
+
+    private String getTripPlace( double latitude , double longitude) {
+        String tripLocation = "";
+        try {
+            Geocoder geocoder = new Geocoder(this, Locale.getDefault());
+            List<Address> address = geocoder.getFromLocation(latitude, longitude, 1);
+            tripLocation = address.get(0).getAddressLine(0);
+
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        return tripLocation;
+    }
 
 
     /**
