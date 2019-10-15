@@ -45,9 +45,7 @@ public class DialogViewModel extends ViewModel {
             Geocoder geocoder = new Geocoder(activity, Locale.getDefault());
             List<Address> address = geocoder.getFromLocation(currentTrip.getEndLocationLatitude(),currentTrip.getEndLocationLongitude(),1);
             String tripLocation =address.get(0).getAddressLine(0);
-            String tripDate = currentTrip.getStartDateDay() + "/" + currentTrip.getStartDateMonth() + "/"+ currentTrip.getStartDateYear();
-            String tripTime = currentTrip.getStartDateHours() + ":" + currentTrip.getStartDateMinutes();
-            activity.setDialogTripData(currentTrip.getTripName(),tripLocation,tripDate,tripTime);
+            activity.setDialogTripData(currentTrip.getTripName(),tripLocation,currentTrip.getTripDate(),currentTrip.getTripTime());
 
         } catch (ExecutionException e) {
             e.printStackTrace();

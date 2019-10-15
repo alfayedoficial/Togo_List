@@ -213,5 +213,13 @@ public class Trip {
     public void setNotes(String notes) {
         this.notes = notes;
     }
+
+    public String getTripDate(){
+        return startDateDay + "/" + startDateMonth + "/" + startDateYear;
+    }
+
+    public String getTripTime(){
+        return startDateHours + "/" + startDateMinutes;
+    }
 }
 
