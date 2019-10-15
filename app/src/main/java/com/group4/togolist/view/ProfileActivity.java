@@ -14,7 +14,7 @@ public class ProfileActivity extends AppCompatActivity  implements View.OnClickL
 
     private EditText eTxtUserName , eTxtEmail  , eTxtPassword , eTxtConfirmPassword;
     private Button btnEdit , btnLogout , btnUpdate;
-    private TextView txtHopeComeBack;
+    private TextView txtHopeComeBack , textViewPofilePassword , textViewPofileConfirmPassword;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -31,6 +31,8 @@ public class ProfileActivity extends AppCompatActivity  implements View.OnClickL
         eTxtPassword = findViewById(R.id.editTextPofilePassword);
         eTxtConfirmPassword = findViewById(R.id.editTextPofileConfirmPassword);
         txtHopeComeBack = findViewById(R.id.textView10);
+        textViewPofilePassword  = findViewById(R.id.textViewPofilePassword);
+        textViewPofileConfirmPassword = findViewById(R.id.textViewPofileConfirmPassword);
 
         btnEdit = findViewById(R.id.btnEdit);
         btnLogout = findViewById(R.id.btnLogout);
@@ -50,6 +52,8 @@ public class ProfileActivity extends AppCompatActivity  implements View.OnClickL
                 eTxtPassword.setVisibility(View.VISIBLE);
                 eTxtConfirmPassword.setVisibility(View.VISIBLE);
                 btnUpdate.setVisibility(View.VISIBLE);
+                textViewPofilePassword.setVisibility(View.VISIBLE);
+                textViewPofileConfirmPassword.setVisibility(View.VISIBLE);
                 btnEdit.setVisibility(View.GONE);
                 btnLogout.setVisibility(View.GONE);
                 txtHopeComeBack.setVisibility(View.GONE);
@@ -67,6 +71,8 @@ public class ProfileActivity extends AppCompatActivity  implements View.OnClickL
        eTxtPassword.setVisibility(View.GONE);
        eTxtConfirmPassword.setVisibility(View.GONE);
        btnUpdate.setVisibility(View.GONE);
+       textViewPofilePassword.setVisibility(View.GONE);
+       textViewPofileConfirmPassword.setVisibility(View.GONE);
 
        btnEdit.setVisibility(View.VISIBLE);
        btnLogout.setVisibility(View.VISIBLE);

@@ -73,7 +73,7 @@
 					android:id="@+id/btnUpcoming"
 					android:layout_width="wrap_content"
 					android:layout_height="40dp"
-					android:layout_marginTop="3dp"
+					android:layout_marginTop="8dp"
 					android:background="@drawable/buttonbarhome"
 					android:elevation="6dp"
 					android:fontFamily="@font/boutfont"
@@ -176,89 +176,68 @@
 					android:id="@+id/textView19"
 					android:layout_width="wrap_content"
 					android:layout_height="wrap_content"
-					android:layout_marginStart="19dp"
 					android:fontFamily="@font/boutfont"
 					android:text="TextView"
 					android:textColor="@color/colorPrimary"
 					android:textSize="18sp"
-					app:layout_constraintStart_toEndOf="@+id/textViewStatusTripType"
+					app:layout_constraintStart_toStartOf="@+id/textViewStatusShow"
 					app:layout_constraintTop_toTopOf="@+id/textViewStatusTripType" />
 
-			   <LinearLayout
-					android:id="@+id/StartPoint"
+			   <TextView
+					android:id="@+id/TextViewStartPoint"
 					android:layout_width="0dp"
 					android:layout_height="wrap_content"
-					android:layout_marginStart="13dp"
+					android:layout_gravity="center"
 					android:layout_marginTop="10dp"
-					android:layout_marginEnd="17dp"
-					android:orientation="horizontal"
-					app:layout_constraintEnd_toEndOf="parent"
-					app:layout_constraintStart_toStartOf="parent"
-					app:layout_constraintTop_toBottomOf="@+id/textViewStatusTripType">
-
-					<TextView
-						 android:id="@+id/TextViewStartPoint"
-						 android:layout_width="0dp"
-						 android:layout_height="wrap_content"
-						 android:layout_gravity="center"
-						 android:layout_weight="1"
-						 android:fontFamily="@font/boutfont"
-						 android:gravity="center|start"
-						 android:text="@string/start_pint"
-						 android:textColor="@color/editText"
-						 android:textSize="18sp" />
-
-					<TextView
-						 android:id="@+id/textViewStatusStartPoint"
-						 android:layout_width="0dp"
-						 android:layout_height="wrap_content"
-						 android:layout_gravity="center"
-						 android:layout_weight="1"
-						 android:fontFamily="@font/boutfont"
-						 android:text="TextView"
-						 android:textColor="@color/colorPrimary"
-						 android:textSize="18sp" />
-
-
-			   </LinearLayout>
-
-			   <LinearLayout
-					android:id="@+id/EndPoint"
-					android:layout_width="0dp"
-					android:layout_height="wrap_content"
-					android:layout_marginStart="13dp"
-					android:layout_marginTop="10dp"
-					android:layout_marginEnd="17dp"
 					android:layout_weight="1"
-					app:layout_constraintEnd_toEndOf="parent"
-					app:layout_constraintHorizontal_bias="0.0"
-					app:layout_constraintStart_toStartOf="parent"
-					app:layout_constraintTop_toBottomOf="@+id/StartPoint">
+					android:fontFamily="@font/boutfont"
+					android:gravity="center|start"
+					android:text="@string/start_pint"
+					android:textColor="@color/editText"
+					android:textSize="18sp"
+					app:layout_constraintStart_toStartOf="@+id/textViewStatusTripType"
+					app:layout_constraintTop_toBottomOf="@+id/textViewStatusTripType" />
 
-					<TextView
-						 android:id="@+id/TextViewEndPoint"
-						 android:layout_width="0dp"
-						 android:layout_height="wrap_content"
-						 android:layout_gravity="center"
-						 android:layout_weight="1"
-						 android:fontFamily="@font/boutfont"
-						 android:gravity="center|start"
-						 android:text="@string/end_point"
-						 android:textColor="@color/editText"
-						 android:textSize="18sp" />
+			   <TextView
+					android:id="@+id/textViewStatusStartPoint"
+					android:layout_width="0dp"
+					android:layout_height="wrap_content"
+					android:layout_gravity="center"
+					android:layout_weight="2"
+					android:fontFamily="@font/boutfont"
+					android:text="TextView"
+					android:textColor="@color/colorPrimary"
+					android:textSize="18sp"
+					app:layout_constraintStart_toStartOf="@+id/textViewStatusShow"
+					app:layout_constraintTop_toTopOf="@+id/TextViewStartPoint" />
 
-					<TextView
-						 android:id="@+id/textViewStatusEndPoint"
-						 android:layout_width="0dp"
-						 android:layout_height="wrap_content"
-						 android:layout_gravity="center"
-						 android:layout_weight="1"
-						 android:fontFamily="@font/boutfont"
-						 android:text="TextView"
-						 android:textColor="@color/colorPrimary"
-						 android:textSize="18sp" />
+			   <TextView
+					android:id="@+id/textViewStatusEndPoint"
+					android:layout_width="0dp"
+					android:layout_height="wrap_content"
+					android:layout_gravity="center"
+					android:layout_weight="2"
+					android:fontFamily="@font/boutfont"
+					android:text="TextView"
+					android:textColor="@color/colorPrimary"
+					android:textSize="18sp"
+					app:layout_constraintStart_toStartOf="@+id/textViewStatusShow"
+					app:layout_constraintTop_toTopOf="@+id/TextViewEndPoint" />
 
-			   </LinearLayout>
+			   <TextView
+					android:id="@+id/TextViewEndPoint"
+					android:layout_width="0dp"
+					android:layout_height="wrap_content"
+					android:layout_gravity="center"
+					android:layout_marginTop="10dp"
+					android:layout_weight="1"
+					android:fontFamily="@font/boutfont"
+					android:gravity="center|start"
+					android:text="@string/end_point"
+					android:textColor="@color/editText"
+					android:textSize="18sp"
+					app:layout_constraintStart_toStartOf="@+id/textViewStatusTripType"
+					app:layout_constraintTop_toBottomOf="@+id/TextViewStartPoint" />
 
 			   <EditText
 					android:id="@+id/editTextStatusStartTime"
@@ -302,7 +281,7 @@
 					android:textSize="18sp"
 					app:layout_constraintEnd_toEndOf="parent"
 					app:layout_constraintStart_toStartOf="parent"
-					app:layout_constraintTop_toBottomOf="@+id/EndPoint" />
+					app:layout_constraintTop_toBottomOf="@+id/TextViewEndPoint" />
 
 			   <EditText
 					android:id="@+id/editTextStatusNote"
@@ -384,7 +363,7 @@
 					android:id="@+id/textViewStatusShow"
 					android:layout_width="wrap_content"
 					android:layout_height="wrap_content"
-					android:layout_marginStart="40dp"
+					android:layout_marginStart="80dp"
 					android:fontFamily="@font/boutfont"
 					android:text="TextView"
 					android:textColor="@color/colorPrimary"
@@ -396,12 +375,11 @@
 					android:id="@+id/textView17"
 					android:layout_width="wrap_content"
 					android:layout_height="wrap_content"
-					android:layout_marginStart="13dp"
 					android:fontFamily="@font/boutfont"
 					android:text="TextView"
 					android:textColor="@color/colorPrimary"
 					android:textSize="18sp"
-					app:layout_constraintStart_toEndOf="@+id/textViewStatusRepetition"
+					app:layout_constraintStart_toStartOf="@+id/textViewStatusShow"
 					app:layout_constraintTop_toTopOf="@+id/textViewStatusRepetition" />
 
 

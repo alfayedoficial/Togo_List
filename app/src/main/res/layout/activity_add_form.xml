@@ -72,7 +72,7 @@
 					android:id="@+id/textView2"
 					android:layout_width="wrap_content"
 					android:layout_height="wrap_content"
-					android:layout_marginStart="16dp"
+					android:layout_marginStart="13dp"
 					android:layout_marginTop="4dp"
 					android:text="@string/add_new_trip"
 					android:textColor="@color/home_color"
@@ -99,41 +99,61 @@
 					app:layout_constraintStart_toStartOf="parent"
 					app:layout_constraintTop_toBottomOf="@+id/textView2" />
 
-			   <LinearLayout
-					android:id="@+id/StartPoint"
+			   <TextView
+					android:id="@+id/TextViewStartPoint"
 					android:layout_width="0dp"
 					android:layout_height="wrap_content"
-					android:layout_marginStart="13dp"
-					android:layout_marginTop="8dp"
-					android:layout_marginEnd="17dp"
-					android:orientation="horizontal"
-					app:layout_constraintEnd_toEndOf="parent"
-					app:layout_constraintStart_toStartOf="parent"
-					app:layout_constraintTop_toBottomOf="@+id/editText_nameTrip">
+					android:layout_gravity="center"
+					android:layout_marginTop="4dp"
+					android:layout_weight="1"
+					android:fontFamily="@font/boutfont"
+					android:gravity="center"
+					android:text="@string/start_pint"
+					android:textColor="@color/editText"
+					android:textSize="18sp"
+					app:layout_constraintStart_toStartOf="@+id/textView2"
+					app:layout_constraintTop_toBottomOf="@+id/editText_nameTrip" />
 
-					<TextView
-						 android:id="@+id/TextViewStartPoint"
-						 android:layout_width="0dp"
-						 android:layout_height="wrap_content"
-						 android:layout_gravity="center"
-						 android:layout_weight="1"
-						 android:fontFamily="@font/boutfont"
-						 android:gravity="center"
-						 android:text="@string/start_pint"
-						 android:textColor="@color/editText"
-						 android:textSize="18sp" />
+			   <TextView
+					android:id="@+id/textViewEndPoint"
+					android:layout_width="0dp"
+					android:layout_height="wrap_content"
+					android:layout_gravity="center"
+					android:layout_marginTop="10dp"
+					android:layout_weight="1"
+					android:fontFamily="@font/boutfont"
+					android:gravity="center"
+					android:text="@string/end_point"
+					android:textColor="@color/editText"
+					android:textSize="18sp"
+					app:layout_constraintStart_toStartOf="@+id/TextViewStartPoint"
+					app:layout_constraintTop_toBottomOf="@+id/divider3" />
 
-					<fragment
-						 android:id="@+id/FragmentStartPoint"
-						 android:name="com.google.android.libraries.places.widget.AutocompleteSupportFragment"
-						 android:layout_width="0dp"
-						 android:layout_height="wrap_content"
-						 android:layout_gravity="center|start"
-						 android:layout_weight="1"
-						 android:textColorHint="@color/home_color" />
+			   <fragment
+					android:id="@+id/FragmentStartPoint"
+					android:name="com.google.android.libraries.places.widget.AutocompleteSupportFragment"
+					android:layout_width="0dp"
+					android:layout_height="wrap_content"
+					android:layout_gravity="center|start"
+					android:layout_marginStart="30dp"
+					android:layout_weight="1"
+					android:textColorHint="@color/home_color"
+					app:layout_constraintBottom_toBottomOf="@+id/TextViewStartPoint"
+					app:layout_constraintStart_toEndOf="@+id/TextViewStartPoint"
+					app:layout_constraintTop_toTopOf="@+id/TextViewStartPoint" />
 
+			   <fragment
 
-			   </LinearLayout>
+					android:id="@+id/FragmentEndPoint"
+					android:name="com.google.android.libraries.places.widget.AutocompleteSupportFragment"
+					android:layout_width="0dp"
+					android:layout_height="wrap_content"
+					android:layout_gravity="center|start"
+					android:layout_weight="1"
+					android:textColorHint="@color/home_color"
+					app:layout_constraintBottom_toBottomOf="@+id/textViewEndPoint"
+					app:layout_constraintStart_toStartOf="@+id/FragmentStartPoint"
+					app:layout_constraintTop_toTopOf="@+id/textViewEndPoint" />
 
 			   <!--		  <EditText-->
 			   <!--			   android:id="@+id/editText_startPoint"-->
@@ -152,41 +172,6 @@
 			   <!--			   android:textSize="14sp"-->
 			   <!--			   app:layout_constraintStart_toStartOf="parent"-->
 			   <!--			   app:layout_constraintTop_toBottomOf="@+id/editText_nameTrip" />-->
-			   <LinearLayout
-					android:id="@+id/EndPoint"
-					android:layout_width="0dp"
-					android:layout_height="wrap_content"
-					android:layout_marginStart="13dp"
-					android:layout_marginTop="8dp"
-					android:layout_marginEnd="17dp"
-					app:layout_constraintEnd_toEndOf="parent"
-					app:layout_constraintHorizontal_bias="0.0"
-					app:layout_constraintStart_toStartOf="parent"
-					app:layout_constraintTop_toBottomOf="@+id/StartPoint">
-
-					<TextView
-						 android:id="@+id/TextViewEndPoint"
-						 android:layout_width="0dp"
-						 android:layout_height="wrap_content"
-						 android:layout_gravity="center"
-						 android:layout_weight="1"
-						 android:fontFamily="@font/boutfont"
-						 android:gravity="center"
-						 android:text="@string/end_point"
-						 android:textColor="@color/editText"
-						 android:textSize="18sp" />
-
-					<fragment
-
-						 android:id="@+id/FragmentEndPoint"
-						 android:name="com.google.android.libraries.places.widget.AutocompleteSupportFragment"
-						 android:layout_width="0dp"
-						 android:layout_height="wrap_content"
-						 android:layout_gravity="center|start"
-						 android:layout_weight="1"
-						 android:textColorHint="@color/home_color" />
-
-			   </LinearLayout>
 
 
 			   <!--		  <EditText-->
@@ -225,14 +210,13 @@
 					android:textSize="18sp"
 					app:layout_constraintEnd_toEndOf="parent"
 					app:layout_constraintStart_toStartOf="parent"
-					app:layout_constraintTop_toBottomOf="@+id/EndPoint" />
+					app:layout_constraintTop_toBottomOf="@+id/textViewEndPoint" />
 
 			   <EditText
 					android:id="@+id/editText_startTime"
 					android:layout_width="0dp"
 					android:layout_height="wrap_content"
 					android:layout_marginStart="10dp"
-					android:layout_marginTop="8dp"
 					android:layout_marginEnd="17dp"
 					android:ems="10"
 					android:fontFamily="@font/boutfont"
@@ -250,7 +234,7 @@
 					android:layout_width="wrap_content"
 					android:layout_height="wrap_content"
 					android:layout_marginStart="16dp"
-					android:layout_marginTop="16dp"
+					android:layout_marginTop="8dp"
 					android:fontFamily="@font/boutfont"
 					android:text="@string/repetition"
 					android:textColor="@color/colorPrimary"
@@ -263,12 +247,11 @@
 					android:id="@+id/linearLayout"
 					android:layout_width="0dp"
 					android:layout_height="wrap_content"
-					android:layout_marginStart="24dp"
 					android:layout_marginEnd="17dp"
 					android:orientation="horizontal"
 					android:visibility="visible"
 					app:layout_constraintEnd_toEndOf="parent"
-					app:layout_constraintStart_toEndOf="@+id/textView4"
+					app:layout_constraintStart_toStartOf="@+id/FragmentEndPoint"
 					app:layout_constraintTop_toTopOf="@+id/textView4">
 
 
@@ -393,7 +376,7 @@
 					android:layout_width="wrap_content"
 					android:layout_height="wrap_content"
 					android:layout_marginStart="16dp"
-					android:layout_marginTop="16dp"
+					android:layout_marginTop="8dp"
 					android:fontFamily="@font/boutfont"
 					android:text="@string/trip_type"
 					android:textColor="@color/colorPrimary"
@@ -406,11 +389,10 @@
 					android:id="@+id/linearLayout5"
 					android:layout_width="0dp"
 					android:layout_height="wrap_content"
-					android:layout_marginStart="24dp"
 					android:layout_marginEnd="17dp"
 					android:orientation="vertical"
 					app:layout_constraintEnd_toEndOf="parent"
-					app:layout_constraintStart_toEndOf="@+id/textView7"
+					app:layout_constraintStart_toStartOf="@+id/linearLayout"
 					app:layout_constraintTop_toTopOf="@+id/textView7">
 
 					<RadioGroup
@@ -448,7 +430,7 @@
 					android:layout_width="0dp"
 					android:layout_height="wrap_content"
 					android:layout_marginStart="10dp"
-					android:layout_marginTop="8dp"
+					android:layout_marginTop="4dp"
 					android:layout_marginEnd="17dp"
 					android:ems="10"
 					android:fontFamily="@font/boutfont"
@@ -497,6 +479,17 @@
 					app:layout_constraintEnd_toEndOf="@+id/editTextNote"
 					app:layout_constraintTop_toBottomOf="@+id/editTextNote" />
 
+			   <View
+					android:id="@+id/divider3"
+					android:layout_width="0dp"
+					android:layout_height="1dp"
+					android:layout_marginTop="10dp"
+					android:layout_marginEnd="17dp"
+					android:background="@color/editText"
+					app:layout_constraintEnd_toEndOf="parent"
+					app:layout_constraintStart_toStartOf="@+id/editText_nameTrip"
+					app:layout_constraintTop_toBottomOf="@+id/TextViewStartPoint" />
+
 
 		  </androidx.constraintlayout.widget.ConstraintLayout>
 	 </ScrollView>
@@ -518,6 +511,8 @@
 			   android:layout_height="wrap_content"
 			   android:layout_marginStart="30dp"
 			   android:src="@drawable/home_yellow"
+			   android:background="@drawable/gradient_btn_profile"
+			   android:elevation="6dp"
 			   app:layout_constraintBottom_toBottomOf="parent"
 			   app:layout_constraintStart_toStartOf="parent"
 			   app:layout_constraintTop_toTopOf="parent"
@@ -547,7 +542,7 @@
 			   android:layout_marginEnd="30dp"
 			   android:src="@drawable/user"
 			   android:background="@drawable/gradient_btn_home"
-			   android:fontFamily="@font/boutfont"
+			   android:elevation="6dp"
 			   app:layout_constraintBottom_toBottomOf="parent"
 			   app:layout_constraintEnd_toEndOf="parent"
 			   app:layout_constraintTop_toTopOf="parent"
@@ -559,16 +554,11 @@
 			   android:layout_height="wrap_content"
 			   android:layout_marginTop="36dp"
 			   android:text="@string/user"
+			   android:fontFamily="@font/boutfont"
 			   android:textColor="@color/colorPrimary"
 			   app:layout_constraintEnd_toEndOf="@+id/imageBtnProfile"
 			   app:layout_constraintStart_toStartOf="@+id/imageBtnProfile"
 			   app:layout_constraintTop_toTopOf="@+id/imageBtnProfile" />
-
-
-
-
-
-
 
 	 </androidx.constraintlayout.widget.ConstraintLayout>
 
@@ -579,6 +569,7 @@
 		  android:layout_marginBottom="24dp"
 		  android:clickable="true"
 		  app:rippleColor="@color/colorAccent"
+		  android:elevation="6dp"
 		  app:backgroundTint="@color/colorPrimary"
 		  app:layout_constraintBottom_toBottomOf="parent"
 		  app:layout_constraintEnd_toEndOf="parent"

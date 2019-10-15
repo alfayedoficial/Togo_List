@@ -22,7 +22,7 @@ public class SignUpActivity extends AppCompatActivity  implements View.OnClickLi
      */
 
     private RegisterViewModel registerViewModel;
-    private Button btnSignUp , btnSignUpWithGoogle , btnCancelSignUp , btnTermsAndConditions , btnPrivacyPolicy;
+    private Button btnSignUp , btnSignUpWithGoogle  , btnTermsAndConditions , btnPrivacyPolicy;
     private EditText eTxtUserName , eTxtEmail , eTxtPassword , eTxtConfirmPassword;
 
     @Override
@@ -53,7 +53,6 @@ public class SignUpActivity extends AppCompatActivity  implements View.OnClickLi
 
         btnSignUp.setOnClickListener(this);
         btnSignUpWithGoogle.setOnClickListener(this);
-        btnCancelSignUp.setOnClickListener(this);
         btnTermsAndConditions.setOnClickListener(this);
         btnPrivacyPolicy.setOnClickListener(this);
     }
