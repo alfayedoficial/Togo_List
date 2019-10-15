@@ -1,10 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".view.HomeActivity"
+	 xmlns:app="http://schemas.android.com/apk/res-auto"
+	 xmlns:tools="http://schemas.android.com/tools"
+	 android:layout_width="match_parent"
+	 android:layout_height="match_parent"
 	 android:background="@color/background_offwhite">
 	 <androidx.constraintlayout.widget.ConstraintLayout
 		  android:id="@+id/constraintLayout2"
@@ -72,13 +71,13 @@
 					android:layout_width="wrap_content"
 					android:layout_height="40dp"
 					android:layout_marginTop="8dp"
-					android:background="@drawable/buttonbarhome"
+					android:background="@drawable/buttonbarhome2right"
 					android:elevation="6dp"
 					android:fontFamily="@font/boutfont"
 					android:paddingBottom="3dp"
 					android:text="@string/upcoming"
 					android:textAllCaps="false"
-					android:textColor="@color/background_offwhite"
+					android:textColor="@color/colorPrimary"
 					android:textSize="20sp"
 					app:layout_constraintEnd_toEndOf="parent"
 					app:layout_constraintHorizontal_bias="0.365"
@@ -90,13 +89,13 @@
 					android:layout_width="wrap_content"
 					android:layout_height="40dp"
 					android:layout_marginStart="88dp"
-					android:background="@drawable/buttonbarhome2"
+					android:background="@drawable/buttonbarhomeright"
 					android:elevation="6dp"
 					android:fontFamily="@font/boutfont"
 					android:paddingBottom="3dp"
 					android:text="@string/past_trip"
 					android:textAllCaps="false"
-					android:textColor="@color/colorPrimary"
+					android:textColor="@color/background_offwhite"
 					android:textSize="20sp"
 					app:layout_constraintStart_toStartOf="@+id/btnUpcoming"
 					app:layout_constraintTop_toTopOf="@+id/btnUpcoming" />
@@ -107,7 +106,7 @@
 					android:layout_height="wrap_content"
 					android:layout_marginStart="16dp"
 					android:layout_marginTop="10dp"
-					android:text="@string/your_trips"
+					android:text="@string/past_trips"
 					android:textColor="@color/home_color"
 					android:textSize="18sp"
 					android:textStyle="bold"
@@ -210,6 +209,4 @@
 		  app:layout_constraintEnd_toEndOf="parent"
 		  app:layout_constraintStart_toStartOf="parent"
 		  app:srcCompat="@drawable/add" />
-
-
 </androidx.constraintlayout.widget.ConstraintLayout>
