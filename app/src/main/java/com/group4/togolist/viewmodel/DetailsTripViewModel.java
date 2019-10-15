@@ -4,6 +4,8 @@ import android.app.Activity;
 import android.content.Intent;
 import android.net.Uri;
 
+import androidx.lifecycle.ViewModel;
+
 import com.google.android.gms.location.DetectedActivity;
 import com.group4.togolist.db.DatabaseHandler;
 import com.group4.togolist.model.Trip;
@@ -13,7 +15,7 @@ import java.util.Calendar;
 import java.util.Locale;
 import java.util.concurrent.ExecutionException;
 
-public class DetailsTripViewModel {
+public class DetailsTripViewModel extends ViewModel {
     DetailsTripActivity activity;
     DatabaseHandler databaseHandler;
     Trip currentTrip;
