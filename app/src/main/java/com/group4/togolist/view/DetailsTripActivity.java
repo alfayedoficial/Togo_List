@@ -14,7 +14,9 @@ import android.widget.TextView;
 
 import com.group4.togolist.R;
 import com.group4.togolist.viewmodel.AddFormViewModel;
+import com.group4.togolist.viewmodel.DetailsTripViewModel;
 import com.group4.togolist.viewmodel.HomeViewModel;
+import com.group4.togolist.viewmodel.LoginViewModel;
 
 public class DetailsTripActivity extends AppCompatActivity implements View.OnClickListener {
 
@@ -22,6 +24,7 @@ public class DetailsTripActivity extends AppCompatActivity implements View.OnCli
     private EditText eTxtTripName  , eTxtStartDate , eTxtStartTime , eTxtNotes;
     private Button btnEdit , btnStart , btnDelete ;
     private TextView txtStatus , txtRepetition , txtTripType , txtStartPoint , txtEndPoint ;
+    private DetailsTripViewModel detailsTripViewModel;
 
 
 
@@ -30,7 +33,7 @@ public class DetailsTripActivity extends AppCompatActivity implements View.OnCli
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_details_trip);
 
-
+        detailsTripViewModel = ViewModelProviders.of(this , new MyViewModelFactory(DetailsTripActivity.this)).get(DetailsTripViewModel.class);
         initComponent();
     }
 
@@ -41,10 +44,12 @@ public class DetailsTripActivity extends AppCompatActivity implements View.OnCli
         eTxtStartDate = findViewById(R.id.editTextStatusStartDate);
         eTxtStartTime = findViewById(R.id.editTextStatusStartTime);
         eTxtNotes = findViewById(R.id.editTextStatusNote);
-
         txtStatus = findViewById(R.id.textViewStatusShow);
-        //txtRepetition = findViewById(R.id.txtViewStatusRepetitionShow);
-        //txtTripType = findViewById(R.id.textViewStatusTripTypeShow);
+
+
+        txtRepetition = findViewById(R.id.TextViewStatusRepetitionShow);
+        txtTripType = findViewById(R.id.textViewStatusTripTypeShow);
+
         txtStartPoint = findViewById(R.id.textViewStatusStartPoint);
         txtEndPoint = findViewById(R.id.textViewStatusEndPoint);
 
@@ -72,5 +77,19 @@ public class DetailsTripActivity extends AppCompatActivity implements View.OnCli
         }
     }
 
+    class MyViewModelFactory implements ViewModelProvider.Factory {
+        private DetailsTripActivity mActivity;
+
+
+        public MyViewModelFactory(DetailsTripActivity activity) {
+            mActivity = activity;
+        }
+
+
+        @Override
+        public <T extends ViewModel> T create(Class<T> modelClass) {
+            return (T) new DetailsTripViewModel(mActivity);
+        }
+    }
 
 }
