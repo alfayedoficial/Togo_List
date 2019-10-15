@@ -27,7 +27,7 @@ import java.util.List;
 public class UpcomingFragment extends Fragment {
 
     private RecyclerView recyclerViewUpcomingTrip;
-    private LiveData<List<Trip>> upcomingTrip ;
+    private List<Trip> upcomingTrip ;
 
     public UpcomingFragment() {
         // Required empty public constructor
@@ -50,7 +50,7 @@ public class UpcomingFragment extends Fragment {
     }
 
 
-    public void setUpcomingTrip(LiveData<List<Trip>> upcomingTrip) {
+    public void setUpcomingTrip(List<Trip> upcomingTrip) {
         this.upcomingTrip = upcomingTrip;
     }
 
