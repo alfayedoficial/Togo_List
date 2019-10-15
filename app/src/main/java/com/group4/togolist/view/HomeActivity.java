@@ -32,6 +32,9 @@ public class HomeActivity extends AppCompatActivity implements View.OnClickListe
         btn1 = findViewById(R.id.btnUpcoming);
         btn2 = findViewById(R.id.btnPastTrip);
 
+        btn1.setOnClickListener(this);
+        btn2.setOnClickListener(this);
+
         viewPager = findViewById(R.id.viewPager);
         Fragment[] fragments = new Fragment[2];
         fragments[0] = new UpcomingFragment();

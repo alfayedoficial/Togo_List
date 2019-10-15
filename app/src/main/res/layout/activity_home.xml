@@ -11,11 +11,9 @@
 		  android:id="@+id/constraintLayout2"
 		  android:layout_width="match_parent"
 		  android:layout_height="wrap_content"
-		  app:layout_constraintBottom_toTopOf="@+id/constraintLayout"
 		  app:layout_constraintEnd_toEndOf="parent"
 		  app:layout_constraintStart_toStartOf="parent"
-		  app:layout_constraintTop_toTopOf="parent"
-		  app:layout_constraintVertical_bias="0.0">
+		  app:layout_constraintTop_toTopOf="parent">
 
 		  <ImageView
 			   android:id="@+id/id_SplashIcon"
@@ -56,64 +54,41 @@
 			   app:layout_constraintStart_toStartOf="parent"
 			   app:layout_constraintTop_toBottomOf="@+id/id_name_app4" />
 
-		  <androidx.constraintlayout.widget.ConstraintLayout
-			   android:id="@+id/constraintLayout3"
-			   android:layout_width="match_parent"
-			   android:layout_height="match_parent"
-			   android:layout_marginTop="4dp"
+		  <Button
+			   android:id="@+id/btnUpcoming"
+			   android:layout_width="wrap_content"
+			   android:layout_height="40dp"
+			   android:layout_marginTop="15dp"
+			   android:layout_marginBottom="15dp"
+			   android:background="@drawable/buttonbarhome"
+			   android:elevation="6dp"
+			   android:fontFamily="@font/boutfont"
+			   android:paddingBottom="3dp"
+			   android:text="@string/upcoming"
+			   android:textAllCaps="false"
+			   android:textColor="@color/background_offwhite"
+			   android:textSize="20sp"
+			   app:layout_constraintBottom_toBottomOf="parent"
 			   app:layout_constraintEnd_toEndOf="parent"
+			   app:layout_constraintHorizontal_bias="0.365"
 			   app:layout_constraintStart_toStartOf="parent"
-			   app:layout_constraintTop_toBottomOf="@+id/divider">
+			   app:layout_constraintTop_toBottomOf="@+id/divider" />
 
-			   <Button
-					android:id="@+id/btnUpcoming"
-					android:layout_width="wrap_content"
-					android:layout_height="40dp"
-					android:layout_marginTop="8dp"
-					android:layout_marginBottom="4dp"
-					android:background="@drawable/buttonbarhome"
-					android:elevation="6dp"
-					android:fontFamily="@font/boutfont"
-					android:paddingBottom="3dp"
-					android:text="@string/upcoming"
-					android:textAllCaps="false"
-					android:textColor="@color/background_offwhite"
-					android:textSize="20sp"
-					app:layout_constraintBottom_toBottomOf="parent"
-					app:layout_constraintEnd_toEndOf="parent"
-					app:layout_constraintHorizontal_bias="0.365"
-					app:layout_constraintStart_toStartOf="parent"
-					app:layout_constraintTop_toTopOf="parent" />
+		  <Button
+			   android:id="@+id/btnPastTrip"
+			   android:layout_width="wrap_content"
+			   android:layout_height="40dp"
+			   android:background="@drawable/buttonbarhome2"
+			   android:elevation="6dp"
+			   android:fontFamily="@font/boutfont"
+			   android:paddingBottom="3dp"
+			   android:text="@string/past_trip"
+			   android:textAllCaps="false"
+			   android:textColor="@color/colorPrimary"
+			   android:textSize="20sp"
+			   app:layout_constraintStart_toEndOf="@+id/btnUpcoming"
+			   app:layout_constraintTop_toTopOf="@+id/btnUpcoming" />
 
-			   <Button
-					android:id="@+id/btnPastTrip"
-					android:layout_width="wrap_content"
-					android:layout_height="40dp"
-					android:layout_marginStart="88dp"
-					android:background="@drawable/buttonbarhome2"
-					android:elevation="6dp"
-					android:fontFamily="@font/boutfont"
-					android:paddingBottom="3dp"
-					android:text="@string/past_trip"
-					android:textAllCaps="false"
-					android:textColor="@color/colorPrimary"
-					android:textSize="20sp"
-					app:layout_constraintStart_toStartOf="@+id/btnUpcoming"
-					app:layout_constraintTop_toTopOf="@+id/btnUpcoming" />
-
-
-		  </androidx.constraintlayout.widget.ConstraintLayout>
-
-         <androidx.viewpager.widget.ViewPager
-             android:id="@+id/viewPager"
-             android:layout_width="0dp"
-             android:layout_height="500dp"
-             app:layout_constraintBottom_toBottomOf="parent"
-             app:layout_constraintEnd_toEndOf="parent"
-             app:layout_constraintStart_toStartOf="parent"
-             app:layout_constraintTop_toBottomOf="@+id/constraintLayout3">
-
-         </androidx.viewpager.widget.ViewPager>
 	 </androidx.constraintlayout.widget.ConstraintLayout>
 
 	 <androidx.constraintlayout.widget.ConstraintLayout
@@ -198,6 +173,44 @@
 		  app:layout_constraintEnd_toEndOf="parent"
 		  app:layout_constraintStart_toStartOf="parent"
 		  app:srcCompat="@drawable/add" />
+
+	 <ScrollView
+		  android:layout_width="409dp"
+		  android:layout_height="499dp"
+		  android:layout_marginStart="1dp"
+		  android:layout_marginTop="30dp"
+		  android:layout_marginEnd="1dp"
+		  android:layout_marginBottom="1dp"
+		  app:layout_constraintBottom_toTopOf="@+id/fABtnAddNote"
+		  app:layout_constraintEnd_toEndOf="parent"
+		  app:layout_constraintStart_toStartOf="parent"
+		  app:layout_constraintTop_toBottomOf="@+id/constraintLayout2">
+
+		  <androidx.constraintlayout.widget.ConstraintLayout
+			   android:id="@+id/constraintLayout3"
+			   android:layout_width="match_parent"
+			   android:layout_height="wrap_content"
+			   android:layout_marginStart="1dp"
+			   android:layout_marginTop="1dp"
+			   android:layout_marginEnd="1dp"
+			   android:layout_marginBottom="1dp"
+			   app:layout_constraintBottom_toTopOf="@+id/fABtnAddNote"
+			   app:layout_constraintEnd_toEndOf="parent"
+			   app:layout_constraintStart_toStartOf="parent"
+			   app:layout_constraintTop_toBottomOf="@+id/constraintLayout2">
+
+			   <androidx.viewpager.widget.ViewPager
+					android:id="@+id/viewPager"
+					android:layout_width="0dp"
+					android:layout_height="match_parent"
+					app:layout_constraintBottom_toBottomOf="parent"
+					app:layout_constraintEnd_toEndOf="parent"
+					app:layout_constraintStart_toStartOf="parent"
+					app:layout_constraintTop_toTopOf="parent">
+
+			   </androidx.viewpager.widget.ViewPager>
+		  </androidx.constraintlayout.widget.ConstraintLayout>
+	 </ScrollView>
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
