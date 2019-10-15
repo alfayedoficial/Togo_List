@@ -68,4 +68,9 @@
 	 <string name="triptime">Trip Time</string>
 	 <string name="later">Later</string>
 	 <string name="start">Start</string>
+	 <string name="past_trip">Past Trip</string>
+	 <string name="upcoming">Upcoming</string>
+	 <string name="your_trip_details">Your Trip Details</string>
+	 <string name="status">Status</string>
+	 <string name="delete">Delete</string>
 </resources>

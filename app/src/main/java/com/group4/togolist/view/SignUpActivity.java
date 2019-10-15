@@ -43,7 +43,6 @@ public class SignUpActivity extends AppCompatActivity  implements View.OnClickLi
 
         btnSignUp = findViewById(R.id.btn_sign_up);
         btnSignUpWithGoogle = findViewById(R.id.btn_sign_up_with_google);
-        btnCancelSignUp = findViewById(R.id.btn_Cancel_SignUp);
         btnTermsAndConditions = findViewById(R.id.btn_Terms_And_Conditions);
         btnPrivacyPolicy = findViewById(R.id.btn_Privacy_Policy);
 
@@ -75,10 +74,6 @@ public class SignUpActivity extends AppCompatActivity  implements View.OnClickLi
 
                 break;
 
-            case R.id.btn_Cancel_SignUp:
-
-                registerViewModel.cancel();
-                break;
 
             case R.id.btn_Terms_And_Conditions:
 
