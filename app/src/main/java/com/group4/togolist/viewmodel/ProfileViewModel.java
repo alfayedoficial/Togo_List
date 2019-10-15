@@ -4,12 +4,14 @@ import android.app.Activity;
 import android.content.Intent;
 import android.widget.Toast;
 
+import androidx.lifecycle.ViewModel;
+
 import com.group4.togolist.model.User;
 import com.group4.togolist.repository.FirebaseHandler;
 import com.group4.togolist.view.FirstActivity;
 import com.group4.togolist.view.ProfileActivity;
 
-public class ProfileViewModel {
+public class ProfileViewModel extends ViewModel {
 
     private User user;
     private ProfileActivity activity;
