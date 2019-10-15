@@ -72,7 +72,7 @@ public class DetailsTripActivity extends AppCompatActivity implements View.OnCli
         txtStatus = findViewById(R.id.textViewStatusShow);
 
 
-       txtRepetition = findViewById(R.id.TextViewStatusRepetitionShow);
+        txtRepetition = findViewById(R.id.TextViewStatusRepetitionShow);
         txtTripType = findViewById(R.id.textViewStatusTripTypeShow);
 
         txtStartPoint = findViewById(R.id.textViewStatusStartPoint);
