@@ -4,9 +4,8 @@
 	 xmlns:tools="http://schemas.android.com/tools"
 	 android:layout_width="match_parent"
 	 android:layout_height="match_parent"
-	 android:background="@color/background_offwhite"
-	 tools:context=".view.DetailsTripActivity">
-
+	 tools:context=".view.PastTripDetailsActivity"
+	 android:background="@color/background_offwhite">
 	 <androidx.constraintlayout.widget.ConstraintLayout
 		  android:id="@+id/constraintLayout2"
 		  android:layout_width="match_parent"
@@ -115,75 +114,53 @@
 					app:layout_constraintStart_toStartOf="parent"
 					app:layout_constraintTop_toBottomOf="@+id/btnUpcoming" />
 
-			   <EditText
-					android:id="@+id/editText_nameTrip2"
+			   <androidx.cardview.widget.CardView
+					android:id="@+id/cardView"
 					android:layout_width="0dp"
 					android:layout_height="wrap_content"
-					android:layout_marginStart="10dp"
-					android:layout_marginTop="10dp"
+					android:layout_marginTop="8dp"
 					android:layout_marginEnd="17dp"
-					android:clickable="false"
-					android:cursorVisible="false"
-					android:ems="10"
-					android:focusable="false"
-					android:focusableInTouchMode="false"
-					android:fontFamily="@font/boutfont"
-					android:hint="@string/trip_name"
-					android:inputType="textPersonName"
-					android:textColor="@color/colorAccent"
-					android:textColorHint="@color/colorPrimary"
-					android:textSize="18sp"
+					android:elevation="20dp"
+					app:cardBackgroundColor="@color/background_offwhite"
+					app:cardCornerRadius="20dp"
+					app:cardElevation="20dp"
 					app:layout_constraintEnd_toEndOf="parent"
-					app:layout_constraintStart_toStartOf="parent"
-					app:layout_constraintTop_toBottomOf="@+id/textView2" />
+					app:layout_constraintStart_toStartOf="@+id/textView2"
+					app:layout_constraintTop_toBottomOf="@+id/textView2">
+
+					<ImageView
+						 android:id="@+id/imageView4"
+						 android:layout_width="match_parent"
+						 android:layout_height="match_parent"
+						 android:src="@drawable/maptest" />
+			   </androidx.cardview.widget.CardView>
 
 			   <TextView
-					android:id="@+id/textViewStatus"
+					android:id="@+id/textViewPTDNameTrip"
 					android:layout_width="wrap_content"
 					android:layout_height="wrap_content"
-					android:layout_marginStart="14dp"
-					android:layout_marginTop="10dp"
+					android:layout_marginStart="16dp"
+					android:layout_marginTop="16dp"
 					android:fontFamily="@font/boutfont"
-					android:text="@string/status"
+					android:text="@string/trip_name"
 					android:textSize="18sp"
-					app:layout_constraintStart_toStartOf="parent"
-					app:layout_constraintTop_toBottomOf="@+id/editText_nameTrip2" />
+					app:layout_constraintStart_toStartOf="@+id/cardView"
+					app:layout_constraintTop_toBottomOf="@+id/cardView" />
 
 			   <TextView
-					android:id="@+id/textViewStatusRepetition"
+					android:id="@+id/textViewPTDStatusNameTrip"
 					android:layout_width="wrap_content"
 					android:layout_height="wrap_content"
-					android:layout_marginTop="10dp"
-					android:fontFamily="@font/boutfont"
-					android:text="@string/repetition"
-					android:textSize="18sp"
-					app:layout_constraintStart_toStartOf="@+id/textViewStatus"
-					app:layout_constraintTop_toBottomOf="@+id/textViewStatus" />
-
-			   <TextView
-					android:id="@+id/textViewStatusTripType"
-					android:layout_width="wrap_content"
-					android:layout_height="wrap_content"
-					android:layout_marginTop="10dp"
-					android:fontFamily="@font/boutfont"
-					android:text="@string/trip_type"
-					android:textSize="18sp"
-					app:layout_constraintStart_toStartOf="@+id/textViewStatusRepetition"
-					app:layout_constraintTop_toBottomOf="@+id/textViewStatusRepetition" />
-
-			   <TextView
-					android:id="@+id/textViewStatusTripTypeShow"
-					android:layout_width="wrap_content"
-					android:layout_height="wrap_content"
+					android:layout_marginStart="80dp"
 					android:fontFamily="@font/boutfont"
 					android:text="TextView"
 					android:textColor="@color/colorPrimary"
 					android:textSize="18sp"
-					app:layout_constraintStart_toStartOf="@+id/textViewStatusShow"
-					app:layout_constraintTop_toTopOf="@+id/textViewStatusTripType" />
+					app:layout_constraintStart_toEndOf="@+id/textViewPTDNameTrip"
+					app:layout_constraintTop_toTopOf="@+id/textViewPTDNameTrip" />
 
 			   <TextView
-					android:id="@+id/TextViewStartPoint"
+					android:id="@+id/TextViewPTDStartPoint"
 					android:layout_width="0dp"
 					android:layout_height="wrap_content"
 					android:layout_gravity="center"
@@ -194,11 +171,11 @@
 					android:text="@string/start_pint"
 					android:textColor="@color/editText"
 					android:textSize="18sp"
-					app:layout_constraintStart_toStartOf="@+id/textViewStatusTripType"
-					app:layout_constraintTop_toBottomOf="@+id/textViewStatusTripType" />
+					app:layout_constraintStart_toStartOf="@+id/textViewPTDNameTrip"
+					app:layout_constraintTop_toBottomOf="@+id/textViewPTDNameTrip" />
 
 			   <TextView
-					android:id="@+id/textViewStatusStartPoint"
+					android:id="@+id/textViewPTDStatusStartPoint"
 					android:layout_width="0dp"
 					android:layout_height="wrap_content"
 					android:layout_gravity="center"
@@ -207,11 +184,11 @@
 					android:text="TextView"
 					android:textColor="@color/colorPrimary"
 					android:textSize="18sp"
-					app:layout_constraintStart_toStartOf="@+id/textViewStatusShow"
-					app:layout_constraintTop_toTopOf="@+id/TextViewStartPoint" />
+					app:layout_constraintStart_toStartOf="@+id/textViewPTDStatusNameTrip"
+					app:layout_constraintTop_toTopOf="@+id/TextViewPTDStartPoint" />
 
 			   <TextView
-					android:id="@+id/textViewStatusEndPoint"
+					android:id="@+id/textViewPTDStatusEndPoint"
 					android:layout_width="0dp"
 					android:layout_height="wrap_content"
 					android:layout_gravity="center"
@@ -220,11 +197,11 @@
 					android:text="TextView"
 					android:textColor="@color/colorPrimary"
 					android:textSize="18sp"
-					app:layout_constraintStart_toStartOf="@+id/textViewStatusShow"
-					app:layout_constraintTop_toTopOf="@+id/TextViewEndPoint" />
+					app:layout_constraintStart_toStartOf="@+id/textViewPTDStatusNameTrip"
+					app:layout_constraintTop_toTopOf="@+id/TextViewPTDEndPoint" />
 
 			   <TextView
-					android:id="@+id/TextViewEndPoint"
+					android:id="@+id/TextViewPTDEndPoint"
 					android:layout_width="0dp"
 					android:layout_height="wrap_content"
 					android:layout_gravity="center"
@@ -235,151 +212,171 @@
 					android:text="@string/end_point"
 					android:textColor="@color/editText"
 					android:textSize="18sp"
-					app:layout_constraintStart_toStartOf="@+id/textViewStatusTripType"
-					app:layout_constraintTop_toBottomOf="@+id/TextViewStartPoint" />
+					app:layout_constraintStart_toStartOf="@+id/textViewPTDNameTrip"
+					app:layout_constraintTop_toBottomOf="@+id/TextViewPTDStartPoint" />
 
-			   <EditText
-					android:id="@+id/editTextStatusStartTime"
-					android:layout_width="0dp"
+			   <TextView
+					android:id="@+id/textViewPTDStatusDate"
+					android:layout_width="wrap_content"
 					android:layout_height="wrap_content"
-					android:layout_marginStart="10dp"
 					android:layout_marginTop="10dp"
-					android:layout_marginEnd="17dp"
-					android:clickable="false"
-					android:cursorVisible="false"
-					android:ems="10"
-					android:focusable="false"
-					android:focusableInTouchMode="false"
 					android:fontFamily="@font/boutfont"
-					android:hint="@string/starttime"
-					android:inputType="time"
-					android:textColor="@color/colorAccent"
-					android:textColorHint="@color/colorPrimary"
+					android:text="@string/startdate"
 					android:textSize="18sp"
-					app:layout_constraintEnd_toEndOf="parent"
-					app:layout_constraintStart_toStartOf="parent"
-					app:layout_constraintTop_toBottomOf="@+id/editTextStatusStartDate" />
+					app:layout_constraintStart_toStartOf="@+id/textViewPTDNameTrip"
+					app:layout_constraintTop_toBottomOf="@+id/TextViewPTDEndPoint" />
 
-			   <EditText
-					android:id="@+id/editTextStatusStartDate"
-					android:layout_width="0dp"
+			   <TextView
+					android:id="@+id/textViewPTDStatusStartDate"
+					android:layout_width="wrap_content"
 					android:layout_height="wrap_content"
-					android:layout_marginStart="10dp"
-					android:layout_marginTop="10dp"
-					android:layout_marginEnd="17dp"
-					android:clickable="false"
-					android:cursorVisible="false"
-					android:ems="10"
-					android:focusable="false"
-					android:focusableInTouchMode="false"
 					android:fontFamily="@font/boutfont"
-					android:hint="@string/startdate"
-					android:inputType="datetime"
-					android:textColor="@color/colorAccent"
-					android:textColorHint="@color/colorPrimary"
+					android:text="TextView"
+					android:textColor="@color/colorPrimary"
 					android:textSize="18sp"
-					app:layout_constraintEnd_toEndOf="parent"
-					app:layout_constraintStart_toStartOf="parent"
-					app:layout_constraintTop_toBottomOf="@+id/TextViewEndPoint" />
+					app:layout_constraintStart_toStartOf="@+id/textViewPTDStatusNameTrip"
+					app:layout_constraintTop_toTopOf="@+id/textViewPTDStatusDate" />
 
-			   <EditText
-					android:id="@+id/editTextStatusNote"
-					android:layout_width="0dp"
+			   <TextView
+					android:id="@+id/textViewPTDStatusTime"
+					android:layout_width="wrap_content"
 					android:layout_height="wrap_content"
-					android:layout_marginStart="10dp"
 					android:layout_marginTop="10dp"
-					android:layout_marginEnd="17dp"
-					android:clickable="false"
-					android:cursorVisible="false"
-					android:ems="10"
-					android:focusable="false"
-					android:focusableInTouchMode="false"
 					android:fontFamily="@font/boutfont"
-					android:hint="@string/addnote"
-					android:inputType="textMultiLine"
-					android:overScrollMode="always"
-					android:scrollbarStyle="insideInset"
-					android:scrollbars="vertical"
-					android:singleLine="false"
-					android:textColor="@color/colorAccent"
-					android:textColorHint="@color/colorPrimary"
+					android:text="@string/starttime"
 					android:textSize="18sp"
+					app:layout_constraintStart_toStartOf="@+id/textViewPTDNameTrip"
+					app:layout_constraintTop_toBottomOf="@+id/textViewPTDStatusDate" />
+
+			   <TextView
+					android:id="@+id/textViewPTDStatusStartTime"
+					android:layout_width="wrap_content"
+					android:layout_height="wrap_content"
+					android:fontFamily="@font/boutfont"
+					android:text="TextView"
+					android:textColor="@color/colorPrimary"
+					android:textSize="18sp"
+					app:layout_constraintStart_toStartOf="@+id/textViewPTDStatusNameTrip"
+					app:layout_constraintTop_toTopOf="@+id/textViewPTDStatusTime" />
+
+			   <TextView
+					android:id="@+id/textViewPTDRepetition"
+					android:layout_width="wrap_content"
+					android:layout_height="wrap_content"
+					android:layout_marginTop="10dp"
+					android:fontFamily="@font/boutfont"
+					android:text="@string/repetition"
+					android:textSize="18sp"
+					app:layout_constraintStart_toStartOf="@+id/textViewPTDNameTrip"
+					app:layout_constraintTop_toBottomOf="@+id/textViewPTDStatusTime" />
+
+			   <TextView
+					android:id="@+id/textViewPTDStatusRepetition"
+					android:layout_width="wrap_content"
+					android:layout_height="wrap_content"
+					android:fontFamily="@font/boutfont"
+					android:text="TextView"
+					android:textColor="@color/colorPrimary"
+					android:textSize="18sp"
+					app:layout_constraintStart_toStartOf="@+id/textViewPTDStatusNameTrip"
+					app:layout_constraintTop_toTopOf="@+id/textViewPTDRepetition" />
+
+			   <TextView
+					android:id="@+id/textViewPTDTripType"
+					android:layout_width="wrap_content"
+					android:layout_height="wrap_content"
+					android:layout_marginTop="10dp"
+					android:fontFamily="@font/boutfont"
+					android:text="@string/trip_type"
+					android:textSize="18sp"
+					app:layout_constraintStart_toStartOf="@+id/textViewPTDNameTrip"
+					app:layout_constraintTop_toBottomOf="@+id/textViewPTDRepetition" />
+
+			   <TextView
+					android:id="@+id/textViewPTDStatusNote"
+					android:layout_width="wrap_content"
+					android:layout_height="wrap_content"
+					android:layout_marginEnd="17dp"
+					android:layout_marginBottom="40dp"
+					android:fontFamily="@font/boutfont"
+					android:text="TextView"
+					android:textColor="@color/colorPrimary"
+					android:textSize="18sp"
+					app:layout_constraintBottom_toTopOf="@+id/btnStatusStart"
 					app:layout_constraintEnd_toEndOf="parent"
-					app:layout_constraintStart_toStartOf="parent"
-					app:layout_constraintTop_toBottomOf="@+id/editTextStatusStartTime" />
+					app:layout_constraintHorizontal_bias="0.0"
+					app:layout_constraintStart_toStartOf="@+id/textViewPTDStatusNameTrip"
+					app:layout_constraintTop_toTopOf="@+id/textViewPTDNote" />
+
+			   <TextView
+					android:id="@+id/textViewPTDStatusTripType"
+					android:layout_width="wrap_content"
+					android:layout_height="wrap_content"
+					android:fontFamily="@font/boutfont"
+					android:text="TextView"
+					android:textColor="@color/colorPrimary"
+					android:textSize="18sp"
+					app:layout_constraintStart_toStartOf="@+id/textViewPTDStatusNameTrip"
+					app:layout_constraintTop_toTopOf="@+id/textViewPTDTripType" />
+
+			   <TextView
+					android:id="@+id/textViewPTDNote"
+					android:layout_width="wrap_content"
+					android:layout_height="wrap_content"
+					android:layout_marginTop="10dp"
+					android:fontFamily="@font/boutfont"
+					android:text="@string/note"
+					android:textSize="18sp"
+					app:layout_constraintStart_toStartOf="@+id/textViewPTDNameTrip"
+					app:layout_constraintTop_toBottomOf="@+id/textViewPTDTripType" />
 
 			   <Button
 					android:id="@+id/btnStatusLater"
 					android:layout_width="0dp"
 					android:layout_height="35dp"
-					android:layout_marginStart="10dp"
+					android:layout_marginStart="17dp"
 					android:layout_marginTop="20dp"
-					android:layout_marginBottom="100dp"
+					android:layout_marginBottom="20dp"
 					android:background="@drawable/gradient_btn_signin"
 					android:fontFamily="@font/boutfont"
 					android:text="@string/edit"
 					android:textColor="@color/background_offwhite"
 					android:textSize="18sp"
 					app:layout_constraintBottom_toBottomOf="parent"
-					app:layout_constraintStart_toStartOf="@+id/editTextStatusNote"
-					app:layout_constraintTop_toBottomOf="@+id/editTextStatusNote" />
+					app:layout_constraintStart_toStartOf="parent"
+					app:layout_constraintTop_toBottomOf="@+id/textViewPTDNote" />
 
 			   <Button
 					android:id="@+id/btnStatusStart"
 					android:layout_width="0dp"
 					android:layout_height="35dp"
 					android:layout_marginStart="10dp"
-					android:layout_marginTop="20dp"
 					android:layout_marginEnd="10dp"
-					android:layout_marginBottom="100dp"
 					android:background="@drawable/gradient_btn_signin"
 					android:fontFamily="@font/boutfont"
 					android:text="@string/start"
 					android:textColor="@color/background_offwhite"
 					android:textSize="18sp"
-					app:layout_constraintBottom_toBottomOf="parent"
+					app:layout_constraintBottom_toBottomOf="@+id/btnStatusDelete"
 					app:layout_constraintEnd_toStartOf="@+id/btnStatusDelete"
 					app:layout_constraintStart_toEndOf="@+id/btnStatusLater"
-					app:layout_constraintTop_toBottomOf="@+id/editTextStatusNote" />
+					app:layout_constraintTop_toTopOf="@+id/btnStatusLater" />
 
 			   <Button
 					android:id="@+id/btnStatusDelete"
 					android:layout_width="0dp"
 					android:layout_height="35dp"
 					android:layout_marginTop="20dp"
-					android:layout_marginEnd="10dp"
-					android:layout_marginBottom="100dp"
+					android:layout_marginEnd="17dp"
+					android:layout_marginBottom="20dp"
 					android:background="@drawable/gradient_btn_signup"
 					android:fontFamily="@font/boutfont"
 					android:text="@string/delete"
 					android:textColor="@color/background_offwhite"
 					android:textSize="18sp"
 					app:layout_constraintBottom_toBottomOf="parent"
-					app:layout_constraintEnd_toEndOf="@+id/editTextStatusNote"
-					app:layout_constraintTop_toBottomOf="@+id/editTextNote" />
-
-			   <TextView
-					android:id="@+id/textViewStatusShow"
-					android:layout_width="wrap_content"
-					android:layout_height="wrap_content"
-					android:layout_marginStart="80dp"
-					android:fontFamily="@font/boutfont"
-					android:text="TextView"
-					android:textColor="@color/colorPrimary"
-					android:textSize="18sp"
-					app:layout_constraintStart_toEndOf="@+id/textViewStatus"
-					app:layout_constraintTop_toTopOf="@+id/textViewStatus" />
-
-			   <TextView
-					android:id="@+id/TextViewStatusRepetitionShow"
-					android:layout_width="wrap_content"
-					android:layout_height="wrap_content"
-					android:fontFamily="@font/boutfont"
-					android:text="TextView"
-					android:textColor="@color/colorPrimary"
-					android:textSize="18sp"
-					app:layout_constraintStart_toStartOf="@+id/textViewStatusShow"
-					app:layout_constraintTop_toTopOf="@+id/textViewStatusRepetition" />
+					app:layout_constraintEnd_toEndOf="parent"
+					app:layout_constraintTop_toBottomOf="@+id/textViewPTDNote" />
 
 
 		  </androidx.constraintlayout.widget.ConstraintLayout>
@@ -467,6 +464,5 @@
 		  app:layout_constraintEnd_toEndOf="parent"
 		  app:layout_constraintStart_toStartOf="parent"
 		  app:srcCompat="@drawable/add" />
-
 
 </androidx.constraintlayout.widget.ConstraintLayout>
