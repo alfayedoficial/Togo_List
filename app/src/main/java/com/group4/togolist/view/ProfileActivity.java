@@ -1,7 +1,11 @@
 package com.group4.togolist.view;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.lifecycle.ViewModel;
+import androidx.lifecycle.ViewModelProvider;
+import androidx.lifecycle.ViewModelProviders;
 
+import android.app.Activity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -9,18 +13,22 @@ import android.widget.EditText;
 import android.widget.TextView;
 
 import com.group4.togolist.R;
+import com.group4.togolist.viewmodel.AddFormViewModel;
+import com.group4.togolist.viewmodel.LoginViewModel;
+import com.group4.togolist.viewmodel.ProfileViewModel;
 
 public class ProfileActivity extends AppCompatActivity  implements View.OnClickListener {
 
     private EditText eTxtUserName , eTxtEmail  , eTxtPassword , eTxtConfirmPassword;
     private Button btnEdit , btnLogout , btnUpdate;
-    private TextView txtHopeComeBack;
+    private TextView txtHopeComeBack , textViewPofilePassword , textViewPofileConfirmPassword;
+    private ProfileViewModel profileViewModel ;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_profile);
-
+        profileViewModel = ViewModelProviders.of(this, new MyViewModelFactory(ProfileActivity.this)).get(ProfileViewModel.class);
         initComponent();
     }
 
@@ -31,6 +39,8 @@ public class ProfileActivity extends AppCompatActivity  implements View.OnClickL
         eTxtPassword = findViewById(R.id.editTextPofilePassword);
         eTxtConfirmPassword = findViewById(R.id.editTextPofileConfirmPassword);
         txtHopeComeBack = findViewById(R.id.textView10);
+        textViewPofilePassword  = findViewById(R.id.textViewPofilePassword);
+        textViewPofileConfirmPassword = findViewById(R.id.textViewPofileConfirmPassword);
 
         btnEdit = findViewById(R.id.btnEdit);
         btnLogout = findViewById(R.id.btnLogout);
@@ -50,16 +60,21 @@ public class ProfileActivity extends AppCompatActivity  implements View.OnClickL
                 eTxtPassword.setVisibility(View.VISIBLE);
                 eTxtConfirmPassword.setVisibility(View.VISIBLE);
                 btnUpdate.setVisibility(View.VISIBLE);
+                textViewPofilePassword.setVisibility(View.VISIBLE);
+                textViewPofileConfirmPassword.setVisibility(View.VISIBLE);
                 btnEdit.setVisibility(View.GONE);
                 btnLogout.setVisibility(View.GONE);
                 txtHopeComeBack.setVisibility(View.GONE);
                 break;
             case R.id.btnProfileUpdate:
-                // updte code
+
+                profileViewModel.updateUser(eTxtPassword.getText().toString() , eTxtConfirmPassword.getText().toString());
                 afterUpdate();
                 break;
+
             case R.id.btnLogout:
-                // Logout code
+                profileViewModel.logOut();
+
                 break;
         }
     }
@@ -67,6 +82,8 @@ public class ProfileActivity extends AppCompatActivity  implements View.OnClickL
        eTxtPassword.setVisibility(View.GONE);
        eTxtConfirmPassword.setVisibility(View.GONE);
        btnUpdate.setVisibility(View.GONE);
+       textViewPofilePassword.setVisibility(View.GONE);
+       textViewPofileConfirmPassword.setVisibility(View.GONE);
 
        btnEdit.setVisibility(View.VISIBLE);
        btnLogout.setVisibility(View.VISIBLE);
@@ -86,5 +103,24 @@ public class ProfileActivity extends AppCompatActivity  implements View.OnClickL
 
     public void setConfirmedPassword(String confirmedPassword){
         eTxtConfirmPassword.setText(confirmedPassword);
+    }
+
+    /**
+     *  ProfileViewModelFactory
+     */
+
+    class MyViewModelFactory implements ViewModelProvider.Factory {
+        private ProfileActivity mActivity;
+
+
+        public MyViewModelFactory(ProfileActivity activity) {
+            mActivity = activity;
+        }
+
+
+        @Override
+        public <T extends ViewModel> T create(Class<T> modelClass) {
+            return (T) new ProfileViewModel(mActivity);
+        }
     }
 }

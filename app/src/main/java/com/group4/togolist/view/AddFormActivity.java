@@ -27,6 +27,7 @@ import com.group4.togolist.R;
 import com.group4.togolist.model.Trip;
 import com.group4.togolist.viewmodel.AddFormViewModel;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.lifecycle.ViewModel;
 import androidx.lifecycle.ViewModelProvider;
@@ -38,14 +39,15 @@ import java.util.Calendar;
 import java.util.List;
 import java.util.Locale;
 
-public class AddFormActivity extends AppCompatActivity implements View.OnClickListener , View.OnFocusChangeListener{
+public class AddFormActivity extends AppCompatActivity implements View.OnClickListener , View.OnFocusChangeListener {
    private List<Place.Field> fields;
+    private List<Place.Field> fieldsEnd;
     private LatLng latLangStartPoint;
    private LatLng latLangEndPoint;
-   private Double latStartPoint;
-    private Double latEndPoint;
-   private Double longStartPoint;
-   private Double longEndPoint;
+   private Double latStartPoint = 0.0;
+    private Double latEndPoint = 0.0;
+   private Double longStartPoint = 0.0;
+   private Double longEndPoint = 0.0;
    private String placeEndPoint;
    private String placeStartPoint;
    private String strMinute = "";
@@ -266,7 +268,7 @@ public class AddFormActivity extends AppCompatActivity implements View.OnClickLi
     private void autocompletePlace() {
 
         if (!Places.isInitialized()) {
-            Places.initialize(AddFormActivity.this, "AIzaSyDZ8gkXKHtKldCAlLSm4Aau0y-SmzYw7M0");
+            Places.initialize(AddFormActivity.this, "AIzaSyDZYB_DYK3-5xAkI1c3ioMAZ6I_Gm_wqX8");
         }
 
         fields = Arrays.asList(Place.Field.ID, Place.Field.NAME, Place.Field.LAT_LNG);
@@ -281,15 +283,13 @@ public class AddFormActivity extends AppCompatActivity implements View.OnClickLi
         /**
          * Specify the types of place data to return.
          */
-
-            autocompleteFragStartPoint.setPlaceFields(fields);
-
+             autocompleteFragStartPoint.setPlaceFields(fields);
             autocompleteFragStartPoint.setCountry("EG");
-            autocompleteFragStartPoint.setTypeFilter(TypeFilter.ADDRESS);
-
+           autocompleteFragStartPoint.setTypeFilter(TypeFilter.ADDRESS);
             /**
              * Set up a PlaceSelectionListener to handle the response.
              */
+
             autocompleteFragStartPoint.setOnPlaceSelectedListener(new PlaceSelectionListener() {
                 @Override
                 public void onPlaceSelected(Place place) {
@@ -300,7 +300,7 @@ public class AddFormActivity extends AppCompatActivity implements View.OnClickLi
                     longStartPoint = latLangStartPoint.longitude;
                     latStartPoint = latLangStartPoint.latitude;
                     txtViewStartPoint.setText(placeStartPoint);
-
+                    Toast.makeText(AddFormActivity.this, placeStartPoint + ": " + longStartPoint + " : " + latStartPoint, Toast.LENGTH_SHORT).show();
                 }
 
 
@@ -309,8 +309,15 @@ public class AddFormActivity extends AppCompatActivity implements View.OnClickLi
                     // TODO: Handle the error.
                   //  txtViewStartPoint.setText(status.toString());
                     System.out.println(status.toString());
+                    Toast.makeText(AddFormActivity.this, status.toString(), Toast.LENGTH_SHORT).show();
                 }
             });
+
+        if (!Places.isInitialized()) {
+            Places.initialize(AddFormActivity.this, "AIzaSyDZYB_DYK3-5xAkI1c3ioMAZ6I_Gm_wqX8");
+        }
+
+        fieldsEnd = Arrays.asList(Place.Field.ID, Place.Field.NAME, Place.Field.LAT_LNG);
 
             /**
              * Initialize the AutocompleteSupportFragment End point.
@@ -322,7 +329,7 @@ public class AddFormActivity extends AppCompatActivity implements View.OnClickLi
              * Specify the types of place data to return.
              */
 
-            autocompleteFragEndPoint.setPlaceFields(fields);
+            autocompleteFragEndPoint.setPlaceFields(fieldsEnd);
 
             autocompleteFragEndPoint.setCountry("EG");
             autocompleteFragEndPoint.setTypeFilter(TypeFilter.ADDRESS);
@@ -333,27 +340,30 @@ public class AddFormActivity extends AppCompatActivity implements View.OnClickLi
 
             autocompleteFragEndPoint.setOnPlaceSelectedListener(new PlaceSelectionListener() {
                 @Override
-                public void onPlaceSelected(Place place) {
+                public void onPlaceSelected(Place placeÈnd) {
                     // TODO: Get info about the selected place.
 
-                    latLangEndPoint = place.getLatLng();
-                    placeEndPoint = (String) place.getName();
+                    latLangEndPoint = placeÈnd.getLatLng();
+                    placeEndPoint = (String) placeÈnd.getName();
                     longEndPoint = latLangEndPoint.longitude;
                     latEndPoint = latLangEndPoint.latitude;
 
                     txtViewEndPoint.setText(placeEndPoint);
 
-                }
+                    Toast.makeText(AddFormActivity.this, placeEndPoint + ": " + longEndPoint + " : " + latEndPoint, Toast.LENGTH_SHORT).show();
 
+                }
 
                 @Override
                 public void onError(Status status) {
                     // TODO: Handle the error.
                     System.out.println(status.toString());
+                    Toast.makeText(AddFormActivity.this, status.toString(), Toast.LENGTH_SHORT).show();
                 }
             });
 
     }
+
 
 
 

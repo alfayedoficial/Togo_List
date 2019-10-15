@@ -18,9 +18,10 @@
 			   android:name=".view.DialogActivity"
 			   android:theme="@style/AppTheme.NoActionBar" />
 
-		 <meta-data
-			 android:name="com.google.android.geo.API_KEY"
-			 android:value="@string/google_maps_key" />
+		  <meta-data
+			   android:name="com.google.android.geo.API_KEY"
+			   android:value="@string/google_maps_key" />
+
 		  <activity
 			   android:name=".view.ProfileActivity"
 			   android:theme="@style/AppTheme.NoActionBar" />

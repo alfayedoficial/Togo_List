@@ -22,7 +22,7 @@ public class SignUpActivity extends AppCompatActivity  implements View.OnClickLi
      */
 
     private RegisterViewModel registerViewModel;
-    private Button btnSignUp , btnSignUpWithGoogle , btnCancelSignUp , btnTermsAndConditions , btnPrivacyPolicy;
+    private Button btnSignUp , btnSignUpWithGoogle  , btnTermsAndConditions , btnPrivacyPolicy;
     private EditText eTxtUserName , eTxtEmail , eTxtPassword , eTxtConfirmPassword;
 
     @Override
@@ -43,7 +43,6 @@ public class SignUpActivity extends AppCompatActivity  implements View.OnClickLi
 
         btnSignUp = findViewById(R.id.btn_sign_up);
         btnSignUpWithGoogle = findViewById(R.id.btn_sign_up_with_google);
-        btnCancelSignUp = findViewById(R.id.btn_Cancel_SignUp);
         btnTermsAndConditions = findViewById(R.id.btn_Terms_And_Conditions);
         btnPrivacyPolicy = findViewById(R.id.btn_Privacy_Policy);
 
@@ -54,7 +53,6 @@ public class SignUpActivity extends AppCompatActivity  implements View.OnClickLi
 
         btnSignUp.setOnClickListener(this);
         btnSignUpWithGoogle.setOnClickListener(this);
-        btnCancelSignUp.setOnClickListener(this);
         btnTermsAndConditions.setOnClickListener(this);
         btnPrivacyPolicy.setOnClickListener(this);
     }
@@ -75,10 +73,6 @@ public class SignUpActivity extends AppCompatActivity  implements View.OnClickLi
 
                 break;
 
-            case R.id.btn_Cancel_SignUp:
-
-                registerViewModel.cancel();
-                break;
 
             case R.id.btn_Terms_And_Conditions:
 
