@@ -10,6 +10,7 @@ import com.google.android.gms.location.DetectedActivity;
 import com.group4.togolist.db.DatabaseHandler;
 import com.group4.togolist.model.Trip;
 import com.group4.togolist.view.DetailsTripActivity;
+import com.group4.togolist.view.HomeActivity;
 
 import java.util.Calendar;
 import java.util.Locale;
@@ -45,6 +46,7 @@ public class DetailsTripViewModel extends ViewModel {
 
     public void deleteTrip(){
         databaseHandler.deleteTrip(currentTrip);
+        activity.startActivity(new Intent(activity, HomeActivity.class));
     }
 
     public void editTrip(String tripName, double startLocationLongitude, double startLocationLatitude, double endLocationLongitude, double endLocationLatitude, Calendar startDate, int repetition, boolean isRoundTrip, String notes){
