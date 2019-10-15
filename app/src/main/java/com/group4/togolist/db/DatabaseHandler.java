@@ -21,7 +21,6 @@ import java.util.concurrent.ExecutionException;
 
 public class DatabaseHandler {
     private TripDao daoInstance;
-    private LiveData<List<Trip>> trips;
 
     /**
      * class Constructor
@@ -45,10 +44,7 @@ public class DatabaseHandler {
         new AddTrip().execute(trip);
     }
 
-    public LiveData<List<Trip>> getTrips(){
-        new GetTrips().execute();
-        return trips;
-    }
+
 
     public Trip getTripByName(String tripName) throws ExecutionException, InterruptedException {
         return new GetTripByName(tripName).execute().get();
@@ -58,7 +54,7 @@ public class DatabaseHandler {
         new UpdateTrip(trip).execute();
     }
 
-    public LiveData<List<Trip>> getTripsByStatus(String status) throws ExecutionException, InterruptedException {
+    public ArrayList<Trip> getTripsByStatus(String status) throws ExecutionException, InterruptedException {
         return new GetTripByStatus(status).execute().get();
     }
 
@@ -79,18 +75,7 @@ public class DatabaseHandler {
         }
     }
 
-    class GetTrips extends AsyncTask<Void,Void,LiveData<List<Trip>>>{
-        @Override
-        protected LiveData<List<Trip>> doInBackground(Void... voids) {
-            return daoInstance.getTrips();
-        }
 
-        @Override
-        protected void onPostExecute(LiveData<List<Trip>> listLiveData) {
-            super.onPostExecute(listLiveData);
-            trips = listLiveData;
-        }
-    }
 
     class GetTripByName extends AsyncTask<Void,Void,Trip>{
 
@@ -123,14 +108,14 @@ public class DatabaseHandler {
         }
     }
 
-    class GetTripByStatus extends AsyncTask<Void,Void,LiveData<List<Trip>>>{
+    class GetTripByStatus extends AsyncTask<Void,Void,ArrayList<Trip>>{
         String status;
         public GetTripByStatus(String status){
             this.status = status;
         }
 
         @Override
-        protected LiveData<List<Trip>> doInBackground(Void... voids) {
+        protected ArrayList<Trip> doInBackground(Void... voids) {
             return daoInstance.getTripsByStatus(status);
         }
     }
