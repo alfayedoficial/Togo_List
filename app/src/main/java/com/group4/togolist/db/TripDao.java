@@ -9,6 +9,8 @@ import androidx.room.Update;
 
 
 import com.group4.togolist.model.Trip;
+
+import java.util.ArrayList;
 import java.util.List;
 
 @Dao
@@ -24,11 +26,11 @@ public interface TripDao {
 
     // get List for all Trips in SQLite Trip Table
     @Query("select * from Trip")
-    LiveData<List<Trip>> getTrips();
+    ArrayList<Trip> getTrips();
 
     // get List of Trips by trip Status
     @Query("select * from Trip where status = :tripStatus")
-    LiveData<List<Trip>> getTripsByStatus(String tripStatus);
+    ArrayList<Trip> getTripsByStatus(String tripStatus);
 
     @Query("select * from Trip where tripName = :tripByName")
     Trip getTripByName(String tripByName);

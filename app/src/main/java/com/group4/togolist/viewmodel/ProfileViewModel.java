@@ -13,12 +13,20 @@ import com.group4.togolist.view.FirstActivity;
 import com.group4.togolist.view.HomeActivity;
 import com.group4.togolist.view.ProfileActivity;
 
+/**
+ * Class Created to handle Profile Activity
+ */
+
 public class ProfileViewModel extends ViewModel {
 
     private User user;
     private ProfileActivity activity;
     private FirebaseHandler firebaseHandler;
 
+
+    /**
+     * Class Constructor
+     */
     public ProfileViewModel(ProfileActivity activity){
         this.activity = activity;
         user = User.getUserInstance();
@@ -28,6 +36,9 @@ public class ProfileViewModel extends ViewModel {
     }
 
 
+    /**
+     * update User Password
+     */
     public void updateUser(String password, String confirmPassword){
         if(password != null && !password.isEmpty()){
             if(password.equals(confirmPassword)){
@@ -42,6 +53,9 @@ public class ProfileViewModel extends ViewModel {
         }
     }
 
+    /**
+     * User Logout
+     */
     public void logOut(){
         firebaseHandler.logOut();
         activity.startActivity(new Intent(activity, FirstActivity.class));
