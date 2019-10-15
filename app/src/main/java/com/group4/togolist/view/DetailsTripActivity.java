@@ -18,7 +18,7 @@ import com.group4.togolist.viewmodel.HomeViewModel;
 
 public class DetailsTripActivity extends AppCompatActivity implements View.OnClickListener {
 
-    private HomeViewModel homeViewModel;
+
     private EditText eTxtTripName  , eTxtStartDate , eTxtStartTime , eTxtNotes;
     private Button btnEdit , btnStart , btnDelete ;
     private TextView txtStatus , txtRepetition , txtTripType , txtStartPoint , txtEndPoint ;
@@ -30,7 +30,6 @@ public class DetailsTripActivity extends AppCompatActivity implements View.OnCli
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_details_trip);
 
-        homeViewModel = ViewModelProviders.of(this, new MyViewModelFactory(DetailsTripActivity.this)).get(HomeViewModel.class);
 
         initComponent();
     }
@@ -68,27 +67,10 @@ public class DetailsTripActivity extends AppCompatActivity implements View.OnCli
             case R.id.btnStatusStart:
                 break;
             case R.id.btnStatusDelete:
-                homeViewModel.deleteTrip(eTxtTripName.getText().toString());
+              //  homeViewModel.deleteTrip(eTxtTripName.getText().toString());
                 break;
         }
     }
 
-    /**
-     *  HomeViewModelFactory
-     */
 
-    class MyViewModelFactory implements ViewModelProvider.Factory {
-        private Activity mActivity;
-
-
-        public MyViewModelFactory(Activity activity) {
-            mActivity = activity;
-        }
-
-
-        @Override
-        public <T extends ViewModel> T create(Class<T> modelClass) {
-            return (T) new HomeViewModel(mActivity);
-        }
-    }
 }
