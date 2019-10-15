@@ -13,6 +13,7 @@ import android.app.Activity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageButton;
 
 import com.group4.togolist.R;
 import com.group4.togolist.fragments.UpcomingFragment;
@@ -35,6 +36,9 @@ public class HomeActivity extends AppCompatActivity implements View.OnClickListe
    private MyViewPagerAdapter myViewPagerAdapter;
     private List<Trip> upcomingTrip ;
     private List<Trip> pastTrips;
+
+    private ImageButton imgBtnHome , imgBtnProfile;
+    private com.google.android.material.floatingactionbutton.FloatingActionButton fltBtnAdd;
 
 
     @Override
@@ -96,7 +100,19 @@ public class HomeActivity extends AppCompatActivity implements View.OnClickListe
             }
         });
 
+        initcomponent();
+    }
 
+    private void initcomponent() {
+        imgBtnHome = findViewById(R.id.imageBtnHome);
+        imgBtnProfile = findViewById(R.id.imageBtnProfile);
+        fltBtnAdd = findViewById(R.id.fABtnAddNote);
+
+        imgBtnHome.setEnabled(false);
+
+
+        imgBtnProfile.setOnClickListener(this);
+        fltBtnAdd.setOnClickListener(this);
     }
 
     @Override
@@ -111,6 +127,12 @@ public class HomeActivity extends AppCompatActivity implements View.OnClickListe
                 viewPager.setCurrentItem(1);
                 btnUpcoming.setEnabled(true);
                 btnPastTrip.setEnabled(false);
+                break;
+            case R.id.imageBtnProfile:
+                homeViewModel.goToProfile();
+                break;
+            case R.id.fABtnAddNote:
+                homeViewModel.goToAddForm();
                 break;
         }
     }
