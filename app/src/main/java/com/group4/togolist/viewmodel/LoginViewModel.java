@@ -74,6 +74,9 @@ public class LoginViewModel extends ViewModel {
 
     }
 
+    /**
+     * go to Forget Password Activity
+     */
     public void forgetPassword(){
         Intent intent = new Intent(loginActivity, ForgetPasswordActivity.class);
         loginActivity.startActivity(intent);

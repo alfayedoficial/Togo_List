@@ -13,11 +13,18 @@ import com.group4.togolist.view.ProfileActivity;
 
 import java.util.concurrent.ExecutionException;
 
+/**
+ * Class Created to handle Past Trips Activity
+ */
+
 public class PastTripsDetailsViewModel extends ViewModel {
     private PastTripDetailsActivity activity;
     DatabaseHandler databaseHandler;
     Trip currentTrip;
 
+    /**
+     * class Constructor
+     */
     public PastTripsDetailsViewModel(PastTripDetailsActivity activity){
         this.activity = activity;
         String tripName = activity.getIntent().getExtras().getString(HomeViewModel.TRIP_NAME);
@@ -33,6 +40,9 @@ public class PastTripsDetailsViewModel extends ViewModel {
 
     }
 
+    /**
+     * delete Ended Trip
+     */
     public void deleteTrip(){
         databaseHandler.deleteTrip(currentTrip);
         activity.startActivity(new Intent(activity, HomeActivity.class));

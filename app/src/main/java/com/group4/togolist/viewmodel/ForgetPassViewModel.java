@@ -28,12 +28,16 @@ public class ForgetPassViewModel extends ViewModel {
     }
 
     /**
-     * class send Email using firebase handler to reset password
+     * method send Email using firebase handler to reset password
      */
     public void sendEmail(String email){
         firebaseHandler.resetPassword(email);
     }
 
+
+    /**
+     * check is the Email sent or not
+     */
     public void onResult(int result){
         switch(result){
             case FirebaseHandler.RESET_EMAIL_SENT:
@@ -45,6 +49,9 @@ public class ForgetPassViewModel extends ViewModel {
         }
     }
 
+    /**
+     * Go Back to Login Activity
+     */
     public void cancel(){
         Intent intent = new Intent(activity, LoginViewModel.class);
         activity.startActivity(intent);
