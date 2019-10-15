@@ -96,10 +96,10 @@ public class DialogActivity extends AppCompatActivity implements View.OnClickLis
      */
 
     class MyViewModelFactory implements ViewModelProvider.Factory {
-        private Activity mActivity;
+        private DialogActivity mActivity;
 
 
-        public MyViewModelFactory(Activity activity) {
+        public MyViewModelFactory(DialogActivity activity) {
             mActivity = activity;
         }
 

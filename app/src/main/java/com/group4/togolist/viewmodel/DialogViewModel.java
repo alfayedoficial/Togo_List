@@ -7,6 +7,8 @@ import android.app.NotificationManager;
 import android.content.Context;
 import android.content.ContextWrapper;
 import android.content.Intent;
+import android.location.Address;
+import android.location.Geocoder;
 import android.location.Location;
 import android.net.Uri;
 import android.os.Build;
@@ -18,7 +20,10 @@ import com.group4.togolist.R;
 import com.group4.togolist.db.DatabaseHandler;
 import com.group4.togolist.model.Trip;
 import com.group4.togolist.repository.TripAlarm;
+import com.group4.togolist.view.DialogActivity;
 
+import java.io.IOException;
+import java.util.List;
 import java.util.Locale;
 import java.util.concurrent.ExecutionException;
 
@@ -30,16 +35,25 @@ public class DialogViewModel extends ViewModel {
 
     DatabaseHandler databaseHandler;
 
-    Activity activity;
-    public DialogViewModel(Activity activity){
+    DialogActivity activity;
+    public DialogViewModel(DialogActivity activity){
         this.activity = activity;
         databaseHandler = new DatabaseHandler(activity);
         String tripName = activity.getIntent().getExtras().getString(TripAlarm.TRIP_NAME);
         try {
             currentTrip = databaseHandler.getTripByName(tripName);
+            Geocoder geocoder = new Geocoder(activity, Locale.getDefault());
+            List<Address> address = geocoder.getFromLocation(currentTrip.getEndLocationLatitude(),currentTrip.getEndLocationLongitude(),1);
+            String tripLocation =address.get(0).getAddressLine(0);
+            String tripDate = currentTrip.getStartDateDay() + "/" + currentTrip.getStartDateMonth() + "/"+ currentTrip.getStartDateYear();
+            String tripTime = currentTrip.getStartDateHours() + ":" + currentTrip.getStartDateMinutes();
+            activity.setDialogTripData(currentTrip.getTripName(),tripLocation,tripDate,tripTime);
+
         } catch (ExecutionException e) {
             e.printStackTrace();
         } catch (InterruptedException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
             e.printStackTrace();
         }
     }
