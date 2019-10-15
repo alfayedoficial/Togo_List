@@ -273,24 +273,14 @@ public class AddFormActivity extends AppCompatActivity implements View.OnClickLi
 
         fields = Arrays.asList(Place.Field.ID, Place.Field.NAME, Place.Field.LAT_LNG);
 
-        /**
-         * Initialize the AutocompleteSupportFragment start point.
-         */
-
         AutocompleteSupportFragment autocompleteFragStartPoint = (AutocompleteSupportFragment)
                 getSupportFragmentManager().findFragmentById((R.id.FragmentStartPoint));
 
-        /**
-         * Specify the types of place data to return.
-         */
-             autocompleteFragStartPoint.setPlaceFields(fields);
-            autocompleteFragStartPoint.setCountry("EG");
-           autocompleteFragStartPoint.setTypeFilter(TypeFilter.ADDRESS);
-            /**
-             * Set up a PlaceSelectionListener to handle the response.
-             */
+        autocompleteFragStartPoint.setPlaceFields(fields);
+        autocompleteFragStartPoint.setCountry("EG");
+        autocompleteFragStartPoint.setTypeFilter(TypeFilter.ADDRESS);
 
-            autocompleteFragStartPoint.setOnPlaceSelectedListener(new PlaceSelectionListener() {
+        autocompleteFragStartPoint.setOnPlaceSelectedListener(new PlaceSelectionListener() {
                 @Override
                 public void onPlaceSelected(Place place) {
                     // TODO: Get info about the selected place.
@@ -302,8 +292,6 @@ public class AddFormActivity extends AppCompatActivity implements View.OnClickLi
                     txtViewStartPoint.setText(placeStartPoint);
                     Toast.makeText(AddFormActivity.this, placeStartPoint + ": " + longStartPoint + " : " + latStartPoint, Toast.LENGTH_SHORT).show();
                 }
-
-
                 @Override
                 public void onError(Status status) {
                     // TODO: Handle the error.
