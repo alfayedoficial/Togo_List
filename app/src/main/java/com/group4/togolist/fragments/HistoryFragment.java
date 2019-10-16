@@ -25,9 +25,10 @@ import java.util.List;
  */
 public class HistoryFragment extends Fragment  implements HistoryAdapter.OnItemListener {
 
-    List<Trip> pastTrips;
-    Context context;
-    HomeViewModel homeViewModel;
+   private List<Trip> pastTrips;
+   private Context context;
+   private HomeViewModel homeViewModel;
+
     public HistoryFragment(Context context, List<Trip> trips, HomeViewModel homeViewModel) {
         // Required empty public constructor
         this.context = context;
@@ -42,10 +43,10 @@ public class HistoryFragment extends Fragment  implements HistoryAdapter.OnItemL
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_history, container, false);
         RecyclerView pastTripRecyclerView = view.findViewById(R.id.RecyclePastTrip);
-        LinearLayoutManager lm = new LinearLayoutManager(context);
-        pastTripRecyclerView.setLayoutManager(lm);
+        LinearLayoutManager linearLayoutManager = new LinearLayoutManager(context);
+        pastTripRecyclerView.setLayoutManager(linearLayoutManager);
 
-        HistoryAdapter historyAdapter = new HistoryAdapter(context,pastTrips,this);
+        HistoryAdapter historyAdapter = new HistoryAdapter(context, pastTrips,this);
         pastTripRecyclerView.setAdapter(historyAdapter);
         return view;
     }
