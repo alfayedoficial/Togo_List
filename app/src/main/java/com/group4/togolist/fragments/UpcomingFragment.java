@@ -1,6 +1,8 @@
 package com.group4.togolist.fragments;
 
+import android.app.AlertDialog;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -13,6 +15,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.group4.togolist.R;
 import com.group4.togolist.model.Trip;
 import com.group4.togolist.view.HomeRecyclerViewAdapter;
+import com.group4.togolist.view.PastTripDetailsActivity;
 import com.group4.togolist.viewmodel.HomeViewModel;
 
 import java.util.List;
@@ -62,6 +65,52 @@ public class UpcomingFragment extends Fragment implements HomeRecyclerViewAdapte
     @Override
     public void onItemClick(int position) {
         homeViewModel.upcomingTripItemClicked(position);
+    }
+
+    @Override
+    public void onItemDeleteClick(int deleteTripPosition) {
+            deleteTrip(upcomingTrip.get(deleteTripPosition).getTripName());
+    }
+    private void deleteTrip(String tripNam) {
+       final String  tripName = tripNam ;
+        AlertDialog.Builder builder = new AlertDialog.Builder(
+                context);
+        /**
+         * set message
+         */
+
+        builder.setMessage("Are you Sure you want to Delete Trip?");
+        builder.setCancelable(false);
+        builder.setPositiveButton("Yes",
+                new DialogInterface.OnClickListener() {
+
+                    public void onClick(DialogInterface dialog,
+                                        int which) {
+                        homeViewModel.deleteTrip(tripName);
+                    }
+                });
+
+        builder.setNegativeButton("No",
+                new DialogInterface.OnClickListener() {
+
+                    public void onClick(DialogInterface dialog,
+                                        int which) {
+                        // TODO Auto-generated method stub
+                        // close the dialog box
+                        dialog.cancel();
+                    }
+                });
+/**
+ * create instance of alert dialog and assign configuration of builder to alert dialog instance
+ */
+
+        AlertDialog alert = builder.create();
+        alert.setCanceledOnTouchOutside(false);
+        /**
+         * Show Alert Dialog
+         */
+
+        alert.show();
     }
 
 }

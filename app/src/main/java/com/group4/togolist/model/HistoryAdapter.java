@@ -6,6 +6,8 @@ import android.location.Geocoder;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageButton;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -64,8 +66,10 @@ public class HistoryAdapter extends RecyclerView.Adapter<HistoryAdapter.HistoryH
 
     public class HistoryHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
 
-        TextView txtTripName, txtTripPlace, txtTripDate, txtTripTime;
-        OnItemListener onItemListener;
+        private TextView txtTripName, txtTripPlace, txtTripDate, txtTripTime;
+        private OnItemListener onItemListener;
+        private ImageButton imgBtnDetails;
+        private ImageView imgViewDelete ;
 
         public HistoryHolder(@NonNull View itemView, OnItemListener onItemListener) {
             super(itemView);
@@ -73,8 +77,15 @@ public class HistoryAdapter extends RecyclerView.Adapter<HistoryAdapter.HistoryH
             txtTripPlace = itemView.findViewById(R.id.textViewPastTripPlace);
             txtTripDate = itemView.findViewById(R.id.textViewPastTripCalender);
             txtTripTime = itemView.findViewById(R.id.textViewPastTripTime);
+
+            imgBtnDetails = itemView.findViewById(R.id.imageBtnDetails);
+            imgViewDelete = itemView.findViewById(R.id.imageView3);
+
             this.onItemListener = onItemListener;
-            itemView.setOnClickListener(this);
+            imgViewDelete.setOnClickListener(this);
+            imgBtnDetails.setOnClickListener(this);
+
+           // itemView.setOnClickListener(this);
         }
 
         public TextView getTxtTripName() {
@@ -95,11 +106,21 @@ public class HistoryAdapter extends RecyclerView.Adapter<HistoryAdapter.HistoryH
 
         @Override
         public void onClick(View v) {
-            onItemListener.onItemClick(getAdapterPosition());
+
+            switch (v.getId()){
+                case R.id.imageView3:
+                    onItemListener.onItemDeleteClick(getAdapterPosition());
+                    break;
+                case R.id.imageBtnDetails:
+                    onItemListener.onItemClick(getAdapterPosition());
+                    break;
+
+            }
         }
     }
 
     public interface OnItemListener{
         void onItemClick(int position);
+        void onItemDeleteClick( int position);
     }
 }

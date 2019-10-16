@@ -1,10 +1,13 @@
 package com.group4.togolist.view;
 
 import android.content.Context;
+import android.location.Address;
+import android.location.Geocoder;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageButton;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -14,6 +17,7 @@ import com.group4.togolist.R;
 import com.group4.togolist.model.Trip;
 
 import java.util.List;
+import java.util.Locale;
 
 public class HomeRecyclerViewAdapter extends RecyclerView.Adapter {
 
@@ -56,6 +60,7 @@ public class HomeRecyclerViewAdapter extends RecyclerView.Adapter {
 
         private TextView txtTripPlace , txtTripName , txtTripDate , txtTripTime;
         private ImageButton imgBtnDetails;
+        private ImageView imgViewDelete ;
         OnItemListener onItemListener;
 
         public MyViewHolder(@NonNull View itemView , OnItemListener onclickLis) {
@@ -66,10 +71,13 @@ public class HomeRecyclerViewAdapter extends RecyclerView.Adapter {
             txtTripDate = itemView.findViewById(R.id.textViewTripCalender);
             txtTripTime = itemView.findViewById(R.id.textViewPastTripTime);
             imgBtnDetails = itemView.findViewById(R.id.imageBtnDetails);
+            imgViewDelete = itemView.findViewById(R.id.imageView3);
 
+            imgViewDelete.setOnClickListener(this);
 
             this.onItemListener = onclickLis;
-            itemView.setOnClickListener(this);
+            //itemView.setOnClickListener(this);
+            imgBtnDetails.setOnClickListener(this);
         }
 
         public TextView getTxtTripName() {
@@ -91,7 +99,16 @@ public class HomeRecyclerViewAdapter extends RecyclerView.Adapter {
         @Override
         public void onClick(View v) {
 
-            onItemListener.onItemClick(getAdapterPosition());
+
+            switch (v.getId()){
+                case R.id.imageView3:
+                    onItemListener.onItemDeleteClick(getAdapterPosition());
+                    break;
+                case R.id.imageBtnDetails:
+                    onItemListener.onItemClick(getAdapterPosition());
+                    break;
+
+            }
         }
     }
 
@@ -100,14 +117,15 @@ public class HomeRecyclerViewAdapter extends RecyclerView.Adapter {
     }
     public interface OnItemListener{
         void onItemClick(int position);
+        void onItemDeleteClick( int position);
     }
 
     private String getTripPlace(Trip currentTrip){
         String tripLocation = "";
         try{
-//        Geocoder geocoder = new Geocoder(context, Locale.getDefault());
-//        List<Address> address = geocoder.getFromLocation(currentTrip.getEndLocationLatitude(),currentTrip.getEndLocationLongitude(),1);
-//        tripLocation =address.get(0).getAddressLine(0);
+        Geocoder geocoder = new Geocoder(context, Locale.getDefault());
+        List<Address> address = geocoder.getFromLocation(currentTrip.getEndLocationLatitude(),currentTrip.getEndLocationLongitude(),1);
+        tripLocation =address.get(0).getAddressLine(0);
 
         } catch (Exception e) {
             e.printStackTrace();

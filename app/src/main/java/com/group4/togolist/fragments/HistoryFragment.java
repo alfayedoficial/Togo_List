@@ -1,7 +1,9 @@
 package com.group4.togolist.fragments;
 
 
+import android.app.AlertDialog;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
@@ -55,5 +57,51 @@ public class HistoryFragment extends Fragment  implements HistoryAdapter.OnItemL
     @Override
     public void onItemClick(int position) {
         homeViewModel.endedTripItemClicked(position);
+    }
+
+    @Override
+    public void onItemDeleteClick(int deleteTripPosition) {
+        deleteTrip(pastTrips.get(deleteTripPosition).getTripName());
+    }
+    private void deleteTrip(String tripNam) {
+        final String  tripName = tripNam ;
+        AlertDialog.Builder builder = new AlertDialog.Builder(
+                context);
+        /**
+         * set message
+         */
+
+        builder.setMessage("Are you Sure you want to Delete Trip?");
+        builder.setCancelable(false);
+        builder.setPositiveButton("Yes",
+                new DialogInterface.OnClickListener() {
+
+                    public void onClick(DialogInterface dialog,
+                                        int which) {
+                        homeViewModel.deleteTrip(tripName);
+                    }
+                });
+
+        builder.setNegativeButton("No",
+                new DialogInterface.OnClickListener() {
+
+                    public void onClick(DialogInterface dialog,
+                                        int which) {
+                        // TODO Auto-generated method stub
+                        // close the dialog box
+                        dialog.cancel();
+                    }
+                });
+/**
+ * create instance of alert dialog and assign configuration of builder to alert dialog instance
+ */
+
+        AlertDialog alert = builder.create();
+        alert.setCanceledOnTouchOutside(false);
+        /**
+         * Show Alert Dialog
+         */
+
+        alert.show();
     }
 }
