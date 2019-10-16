@@ -32,8 +32,8 @@ public class ProfileActivity extends AppCompatActivity  implements View.OnClickL
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_profile);
-        profileViewModel = ViewModelProviders.of(this, new MyViewModelFactory(ProfileActivity.this)).get(ProfileViewModel.class);
         initComponent();
+        profileViewModel = ViewModelProviders.of(this, new MyViewModelFactory(this)).get(ProfileViewModel.class);
     }
 
     private void initComponent() {
