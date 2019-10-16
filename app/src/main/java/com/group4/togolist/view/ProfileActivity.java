@@ -24,7 +24,11 @@ public class ProfileActivity extends AppCompatActivity  implements View.OnClickL
     private Button btnEdit , btnLogout , btnUpdate;
     private TextView txtHopeComeBack , textViewPofilePassword , textViewPofileConfirmPassword;
     private ProfileViewModel profileViewModel ;
-    private boolean editFlag = false ;
+    /**
+     *  1- define flag and set default value true
+     */
+    private boolean editFlag = true ;
+
     private ImageButton imgBtnHome , imgBtnProfile;
     private com.google.android.material.floatingactionbutton.FloatingActionButton fltBtnAdd;
 
@@ -54,6 +58,9 @@ public class ProfileActivity extends AppCompatActivity  implements View.OnClickL
         imgBtnProfile = findViewById(R.id.imageBtnProfile);
         fltBtnAdd = findViewById(R.id.fABtnAddNote);
 
+        /**
+         *  - set userName and Password EditText enable( false)
+         */
         setUserAndMailEtxtViewDisable();
 
         imgBtnProfile.setEnabled(false);
@@ -72,9 +79,12 @@ public class ProfileActivity extends AppCompatActivity  implements View.OnClickL
 
         switch (v.getId()){
             case R.id.btnEdit:
-                if(!editFlag) {
+                /**
+                 * 2 - when flag is true ( state edit button) , so  Enable Views and change flag to false (update button)
+                 */
+                if(editFlag) {
 
-                    setUserAndMailEtxtViewEnable();
+                    setUserAndMailEtxtViewEnable();  // set enable (true )
 
                     eTxtPassword.setVisibility(View.VISIBLE);
                     eTxtConfirmPassword.setVisibility(View.VISIBLE);
@@ -86,16 +96,21 @@ public class ProfileActivity extends AppCompatActivity  implements View.OnClickL
                     btnEdit.setVisibility(View.GONE);
                     btnLogout.setVisibility(View.GONE);
                     txtHopeComeBack.setVisibility(View.GONE);
-                    editFlag = true ;
+
+                    // setting flag false
+                    editFlag = false ;
                 }
                       break;
             case R.id.btnProfileUpdate:
 
-                if (editFlag){
+                /**
+                 * 3 - when flag is false (  update button) , so  disable Views and change flag to true (Edit button state)
+                 */
+                if (!editFlag){
                     profileViewModel.updateUser(eTxtPassword.getText().toString() , eTxtConfirmPassword.getText().toString());
                     afterUpdate();
                     setUserAndMailEtxtViewDisable();
-                    editFlag = false ;
+                    editFlag = true ;
                 }
 
                 break;
