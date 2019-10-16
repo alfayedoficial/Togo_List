@@ -64,7 +64,7 @@ public class HomeActivity extends AppCompatActivity implements View.OnClickListe
         UpcomingFragment upcomingFragment = new UpcomingFragment(this ,upcomingTrip ,homeViewModel);
         fragments[0] = upcomingFragment;
 
-        fragments[1] = new HistoryFragment(this,pastTrips,homeViewModel);
+        fragments[1] = new HistoryFragment(this, pastTrips, homeViewModel);
 
 
         FragmentManager fm = getSupportFragmentManager();
