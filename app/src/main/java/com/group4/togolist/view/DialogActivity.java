@@ -6,6 +6,8 @@ import androidx.lifecycle.ViewModelProvider;
 import androidx.lifecycle.ViewModelProviders;
 
 import android.app.Activity;
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -29,12 +31,8 @@ public class DialogActivity extends AppCompatActivity implements View.OnClickLis
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_dialog);
 
-
-
         initComponent();
         dialogViewModel = ViewModelProviders.of(this, new MyViewModelFactory(DialogActivity.this)).get(DialogViewModel.class);
-
-
 
     }
 
@@ -69,7 +67,7 @@ public class DialogActivity extends AppCompatActivity implements View.OnClickLis
                 dialogViewModel.waitForLater();
                 break;
             case R.id.btnDialogCancel:
-                dialogViewModel.cancelTrip();
+                cancelTrip();
                 break;
             case R.id.imageBtnDetails:
                 dialogViewModel.showDetails();
@@ -78,6 +76,46 @@ public class DialogActivity extends AppCompatActivity implements View.OnClickLis
 
     }
 
+    private void cancelTrip() {
+        AlertDialog.Builder builder = new AlertDialog.Builder(
+                DialogActivity.this);
+        /**
+         * set message
+         */
+
+        builder.setMessage("Are you Sure you want to Cancel the Trip?");
+        builder.setCancelable(false);
+        builder.setPositiveButton("Yes",
+                new DialogInterface.OnClickListener() {
+
+                    public void onClick(DialogInterface dialog,
+                                        int which) {
+                        dialogViewModel.cancelTrip();
+                    }
+                });
+
+        builder.setNegativeButton("No",
+                new DialogInterface.OnClickListener() {
+
+                    public void onClick(DialogInterface dialog,
+                                        int which) {
+                        // TODO Auto-generated method stub
+                        // close the dialog box
+                        dialog.cancel();
+                    }
+                });
+/**
+ * create instance of alert dialog and assign configuration of builder to alert dialog instance
+ */
+
+        AlertDialog alert = builder.create();
+        alert.setCanceledOnTouchOutside(false);
+        /**
+         * Show Alert Dialog
+         */
+
+        alert.show();
+    }
     /**
      *
      * @param tripName assign Trip Name to textView for TripName
