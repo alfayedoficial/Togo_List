@@ -54,6 +54,9 @@ public class ProfileActivity extends AppCompatActivity  implements View.OnClickL
         imgBtnProfile = findViewById(R.id.imageBtnProfile);
         fltBtnAdd = findViewById(R.id.fABtnAddNote);
 
+        eTxtUserName.setEnabled(false);
+        eTxtEmail.setEnabled(false);
+
         imgBtnProfile.setEnabled(false);
 
         btnEdit.setOnClickListener(this);
@@ -76,19 +79,9 @@ public class ProfileActivity extends AppCompatActivity  implements View.OnClickL
                 textViewPofilePassword.setVisibility(View.VISIBLE);
                 textViewPofileConfirmPassword.setVisibility(View.VISIBLE);
 //                can edit
-                eTxtPassword.setClickable(true);
-                eTxtPassword.setFocusable(true);
-                eTxtPassword.setFocusableInTouchMode(true);
-                eTxtConfirmPassword.setClickable(true);
-                eTxtConfirmPassword.setFocusable(true);
-                eTxtConfirmPassword.setFocusableInTouchMode(true);
-                textViewPofilePassword.setClickable(true);
-                textViewPofilePassword.setFocusable(true);
-                textViewPofilePassword.setFocusableInTouchMode(true);
-                textViewPofileConfirmPassword.setClickable(true);
-                textViewPofileConfirmPassword.setFocusable(true);
-                textViewPofileConfirmPassword.setFocusableInTouchMode(true);
-
+                eTxtUserName.setEnabled(true);
+                eTxtEmail.setEnabled(true);
+//TODo Add Flag Reset Enable False to can not edit
                 btnEdit.setVisibility(View.GONE);
                 btnLogout.setVisibility(View.GONE);
                 txtHopeComeBack.setVisibility(View.GONE);

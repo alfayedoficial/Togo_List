@@ -1,22 +1,16 @@
 package com.group4.togolist.fragments;
 
-
 import android.content.Context;
 import android.os.Bundle;
-
-import androidx.fragment.app.Fragment;
-import androidx.lifecycle.LiveData;
-import androidx.recyclerview.widget.DividerItemDecoration;
-import androidx.recyclerview.widget.LinearLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
-
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.TextView;
+
+import androidx.fragment.app.Fragment;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import com.group4.togolist.R;
-import com.group4.togolist.model.HistoryAdapter;
 import com.group4.togolist.model.Trip;
 import com.group4.togolist.view.HomeRecyclerViewAdapter;
 import com.group4.togolist.viewmodel.HomeViewModel;
@@ -26,7 +20,7 @@ import java.util.List;
 /**
  * A simple {@link Fragment} subclass.
  */
-public class UpcomingFragment extends Fragment  implements HomeRecyclerViewAdapter.OnItemListener {
+public class UpcomingFragment extends Fragment implements HomeRecyclerViewAdapter.OnItemListener {
 
     private RecyclerView recyclerViewUpcomingTrip;
     private List<Trip> upcomingTrip ;
@@ -39,6 +33,7 @@ public class UpcomingFragment extends Fragment  implements HomeRecyclerViewAdapt
         this.homeViewModel = homeViewModel;
         this.context = context;
         upcomingTrip = trips;
+        this.homeViewModel = homeViewModel ;
     }
 
 

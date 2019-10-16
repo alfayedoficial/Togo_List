@@ -16,9 +16,10 @@ import android.widget.Button;
 import android.widget.ImageButton;
 
 import com.group4.togolist.R;
-import com.group4.togolist.fragments.UpcomingFragment;
+
 import com.group4.togolist.fragments.HistoryFragment;
 import com.group4.togolist.fragments.MyViewPagerAdapter;
+import com.group4.togolist.fragments.UpcomingFragment;
 import com.group4.togolist.model.Trip;
 import com.group4.togolist.viewmodel.HomeViewModel;
 
@@ -45,7 +46,6 @@ public class HomeActivity extends AppCompatActivity implements View.OnClickListe
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
-
         initcomponent();
         homeViewModel = ViewModelProviders.of(this , new MyViewModelFactory(HomeActivity.this)).get(HomeViewModel.class);
 
@@ -55,7 +55,8 @@ public class HomeActivity extends AppCompatActivity implements View.OnClickListe
         btnUpcoming.setOnClickListener(this);
         btnPastTrip.setOnClickListener(this);
 
-
+        viewPager = findViewById(R.id.viewPager);
+        Fragment[] fragments = new Fragment[2];
 
         try {
             upcomingTrip = homeViewModel.getUpcomingTrip();
@@ -66,9 +67,7 @@ public class HomeActivity extends AppCompatActivity implements View.OnClickListe
             e.printStackTrace();
         }
 
-        UpcomingFragment upcomingFragment = new UpcomingFragment(this , upcomingTrip ,homeViewModel);
-        viewPager = findViewById(R.id.viewPager);
-        Fragment[] fragments = new Fragment[2];
+        UpcomingFragment upcomingFragment = new UpcomingFragment(this ,upcomingTrip ,homeViewModel);
         fragments[0] = upcomingFragment;
 
         fragments[1] = new HistoryFragment(this,pastTrips,homeViewModel);

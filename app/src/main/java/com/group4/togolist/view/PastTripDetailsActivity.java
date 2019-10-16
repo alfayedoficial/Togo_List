@@ -38,6 +38,7 @@ public class PastTripDetailsActivity extends AppCompatActivity  implements View.
         setContentView(R.layout.activity_past_trip_details);
         initComponent();
 
+        initComponent();
         pastTripsDetailsViewModel = ViewModelProviders.of(this , new MyViewModelFactory(PastTripDetailsActivity.this)).get(PastTripsDetailsViewModel.class);
 
     }

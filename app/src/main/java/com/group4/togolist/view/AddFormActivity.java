@@ -23,13 +23,10 @@ import com.google.android.libraries.places.api.net.PlacesClient;
 import com.google.android.libraries.places.widget.AutocompleteSupportFragment;
 import com.google.android.libraries.places.widget.listener.PlaceSelectionListener;
 
-import com.google.android.gms.common.api.ApiException;
-
 import com.group4.togolist.R;
 import com.group4.togolist.model.Trip;
 import com.group4.togolist.viewmodel.AddFormViewModel;
 
-import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.lifecycle.ViewModel;
 import androidx.lifecycle.ViewModelProvider;
@@ -74,14 +71,13 @@ public class AddFormActivity extends AppCompatActivity implements View.OnClickLi
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_add_form);
 
+        initComponent();
+        autocompletePlace();
+
         addFormViewModel = ViewModelProviders.of(this , new MyViewModelFactory(AddFormActivity.this)).get(AddFormViewModel.class);
 
         myCalendar.setTimeInMillis(System.currentTimeMillis());
         currentCalendar.setTimeInMillis(System.currentTimeMillis());
-
-        initComponent();
-
-        autocompletePlace();
 
     }
 
@@ -150,10 +146,10 @@ public class AddFormActivity extends AppCompatActivity implements View.OnClickLi
                     repetition = Trip.WEEKLY;
                 }
                 break;
-            case R.id.radioBtnDays:
+            case R.id.radioBtnDays:   // monthly
                 boolean checked2 = ((RadioButton) v).isChecked();
                 if (checked2){
-                    // upComing handling
+                    repetition = Trip.MONTHLY;
                 }
                 break;
             case R.id.radioBtnOneDirection:
@@ -173,6 +169,7 @@ public class AddFormActivity extends AppCompatActivity implements View.OnClickLi
                 break;
 
             case R.id.btnCancel:
+                addFormViewModel.goToHome();
                 break;
 
             case R.id.imageBtnHome:
@@ -182,8 +179,6 @@ public class AddFormActivity extends AppCompatActivity implements View.OnClickLi
             case R.id.imageBtnProfile:
                 addFormViewModel.goToProfile();
                 break;
-
-
 
         }
     }
@@ -216,6 +211,7 @@ public class AddFormActivity extends AppCompatActivity implements View.OnClickLi
         /**
          *  getting date and time from editText and split them to the required data
          */
+
         if (startDate != null ) {
              if(!startDate.isEmpty()) {
               String[] startDateArr = startDate.split("/");
@@ -339,8 +335,8 @@ public class AddFormActivity extends AppCompatActivity implements View.OnClickLi
 
             autocompleteFragEndPoint.setPlaceFields(fieldsEnd);
 
-//            autocompleteFragEndPoint.setCountry("EG");
-//            autocompleteFragEndPoint.setTypeFilter(TypeFilter.ADDRESS);
+            autocompleteFragEndPoint.setCountry("EG");
+           autocompleteFragEndPoint.setTypeFilter(TypeFilter.ADDRESS);
 
             /**
              * Set up a PlaceSelectionListener to handle the response.
@@ -371,8 +367,6 @@ public class AddFormActivity extends AppCompatActivity implements View.OnClickLi
             });
 
     }
-
-
 
 
     /**
