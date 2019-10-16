@@ -28,10 +28,10 @@ public class DialogActivity extends AppCompatActivity implements View.OnClickLis
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_dialog);
+        initComponent();
 
         dialogViewModel = ViewModelProviders.of(this, new MyViewModelFactory(DialogActivity.this)).get(DialogViewModel.class);
 
-        initComponent();
 
     }
 

@@ -19,6 +19,7 @@ import com.google.android.gms.maps.model.LatLng;
 import com.google.android.libraries.places.api.Places;
 import com.google.android.libraries.places.api.model.Place;
 import com.google.android.libraries.places.api.model.TypeFilter;
+import com.google.android.libraries.places.api.net.PlacesClient;
 import com.google.android.libraries.places.widget.AutocompleteSupportFragment;
 import com.google.android.libraries.places.widget.listener.PlaceSelectionListener;
 
@@ -286,7 +287,8 @@ public class AddFormActivity extends AppCompatActivity implements View.OnClickLi
     private void autocompletePlace() {
 
         if (!Places.isInitialized()) {
-            Places.initialize(AddFormActivity.this, "AIzaSyDZYB_DYK3-5xAkI1c3ioMAZ6I_Gm_wqX8");
+            Places.initialize(AddFormActivity.this, "AIzaSyDZYB_DYK3-5xAkI1c3ioMAZ6I_Gm_wqX8",Locale.getDefault());
+            PlacesClient placesClient = Places.createClient(AddFormActivity.this);
         }
 
         fields = Arrays.asList(Place.Field.ID, Place.Field.NAME, Place.Field.LAT_LNG);
@@ -320,7 +322,7 @@ public class AddFormActivity extends AppCompatActivity implements View.OnClickLi
             });
 
         if (!Places.isInitialized()) {
-            Places.initialize(AddFormActivity.this, "AIzaSyDZYB_DYK3-5xAkI1c3ioMAZ6I_Gm_wqX8");
+            Places.initialize(AddFormActivity.this, getString(R.string.google_maps_key));
         }
 
         fieldsEnd = Arrays.asList(Place.Field.ID, Place.Field.NAME, Place.Field.LAT_LNG);
@@ -337,8 +339,8 @@ public class AddFormActivity extends AppCompatActivity implements View.OnClickLi
 
             autocompleteFragEndPoint.setPlaceFields(fieldsEnd);
 
-            autocompleteFragEndPoint.setCountry("EG");
-            autocompleteFragEndPoint.setTypeFilter(TypeFilter.ADDRESS);
+//            autocompleteFragEndPoint.setCountry("EG");
+//            autocompleteFragEndPoint.setTypeFilter(TypeFilter.ADDRESS);
 
             /**
              * Set up a PlaceSelectionListener to handle the response.

@@ -53,11 +53,10 @@ public class DetailsTripActivity extends AppCompatActivity implements View.OnCli
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_details_trip);
-
+        initComponent();
         detailsTripViewModel = ViewModelProviders.of(this , new MyViewModelFactory(DetailsTripActivity.this)).get(DetailsTripViewModel.class);
         myCalendar.setTimeInMillis(System.currentTimeMillis());
 
-        initComponent();
     }
 
 

@@ -46,6 +46,7 @@ public class HomeActivity extends AppCompatActivity implements View.OnClickListe
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
 
+        initcomponent();
         homeViewModel = ViewModelProviders.of(this , new MyViewModelFactory(HomeActivity.this)).get(HomeViewModel.class);
 
         btnUpcoming = findViewById(R.id.btnUpcoming);
@@ -54,8 +55,7 @@ public class HomeActivity extends AppCompatActivity implements View.OnClickListe
         btnUpcoming.setOnClickListener(this);
         btnPastTrip.setOnClickListener(this);
 
-        viewPager = findViewById(R.id.viewPager);
-        Fragment[] fragments = new Fragment[2];
+
 
         try {
             upcomingTrip = homeViewModel.getUpcomingTrip();
@@ -67,6 +67,8 @@ public class HomeActivity extends AppCompatActivity implements View.OnClickListe
         }
 
         UpcomingFragment upcomingFragment = new UpcomingFragment(this , upcomingTrip ,homeViewModel);
+        viewPager = findViewById(R.id.viewPager);
+        Fragment[] fragments = new Fragment[2];
         fragments[0] = upcomingFragment;
 
         fragments[1] = new HistoryFragment(this,pastTrips,homeViewModel);
@@ -101,7 +103,7 @@ public class HomeActivity extends AppCompatActivity implements View.OnClickListe
             }
         });
 
-        initcomponent();
+
     }
 
     private void initcomponent() {

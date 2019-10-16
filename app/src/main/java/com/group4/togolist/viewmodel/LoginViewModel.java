@@ -2,6 +2,7 @@ package com.group4.togolist.viewmodel;
 
 import android.app.Activity;
 import android.content.Intent;
+import android.util.Log;
 import android.widget.Toast;
 
 import androidx.lifecycle.ViewModel;
@@ -56,6 +57,7 @@ public class LoginViewModel extends ViewModel {
         if(loginResult == FirebaseHandler.ACCESS_GRANTED){
             Intent loginIntent = new Intent(loginActivity, HomeActivity.class);
             loginActivity.startActivity(loginIntent);
+            Log.i("user",user.getEmail());
         }else{
             Toast.makeText(loginActivity, "Your Email or Password is incorrect", Toast.LENGTH_SHORT).show();
             user = null;

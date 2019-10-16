@@ -2,6 +2,7 @@ package com.group4.togolist.viewmodel;
 
 import android.app.Activity;
 import android.content.Intent;
+import android.util.Log;
 import android.widget.Toast;
 
 import androidx.lifecycle.ViewModel;
@@ -30,9 +31,13 @@ public class ProfileViewModel extends ViewModel {
     public ProfileViewModel(ProfileActivity activity){
         this.activity = activity;
         user = User.getUserInstance();
-        activity.setUserName(user.getName());
-        activity.setEmail(user.getEmail());
-        firebaseHandler = new FirebaseHandler(activity,this);
+        Log.i("ProfileViewModel",user.getEmail());
+        firebaseHandler = new FirebaseHandler(activity, this);
+
+        if(user != null) {
+            this.activity.setUserName(user.getName());
+            this.activity.setEmail(user.getEmail());
+        }
     }
 
 

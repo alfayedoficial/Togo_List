@@ -36,6 +36,7 @@ public class UpcomingFragment extends Fragment  implements HomeRecyclerViewAdapt
 
     public UpcomingFragment(Context context, List<Trip> trips, HomeViewModel homeViewModel) {
         // Required empty public constructor
+        this.homeViewModel = homeViewModel;
         this.context = context;
         upcomingTrip = trips;
     }
@@ -66,7 +67,7 @@ public class UpcomingFragment extends Fragment  implements HomeRecyclerViewAdapt
 
     @Override
     public void onItemClick(int position) {
-        homeViewModel.endedTripItemClicked(position);
+        homeViewModel.upcomingTripItemClicked(position);
     }
 
 }

@@ -112,9 +112,9 @@ public class HomeRecyclerViewAdapter extends RecyclerView.Adapter {
     private String getTripPlace(Trip currentTrip){
         String tripLocation = "";
      try{
-//        Geocoder geocoder = new Geocoder(context, Locale.getDefault());
-//        List<Address> address = geocoder.getFromLocation(currentTrip.getEndLocationLatitude(),currentTrip.getEndLocationLongitude(),1);
-//        tripLocation =address.get(0).getAddressLine(0);
+        Geocoder geocoder = new Geocoder(context, Locale.getDefault());
+        List<Address> address = geocoder.getFromLocation(currentTrip.getEndLocationLatitude(),currentTrip.getEndLocationLongitude(),1);
+        tripLocation =address.get(0).getAddressLine(0);
 
      } catch (Exception e) {
          e.printStackTrace();

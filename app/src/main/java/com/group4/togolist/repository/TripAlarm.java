@@ -3,6 +3,7 @@ package com.group4.togolist.repository;
 import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
+import android.util.Log;
 
 import com.group4.togolist.view.DialogActivity;
 
@@ -15,6 +16,7 @@ public class TripAlarm extends BroadcastReceiver {
         String tripName = intent.getExtras().getString(TRIP_NAME);
         Intent dialogIntent = new Intent(context, DialogActivity.class);
         dialogIntent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+        Log.i("BrodcastReceiver","Recieve Request");
         dialogIntent.putExtra(TRIP_NAME,tripName);
         context.startActivity(dialogIntent);
     }
