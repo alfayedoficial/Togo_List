@@ -28,6 +28,11 @@ public class HomeRecyclerViewAdapter extends RecyclerView.Adapter {
     private List<Trip> upcomingTrip;
     private Context context;
 
+    public HomeRecyclerViewAdapter(OnItemListener onItemListener, Context context) {
+        this.onItemListener = onItemListener;
+        this.context = context;
+    }
+
     @NonNull
     @Override
     public RecyclerView.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
