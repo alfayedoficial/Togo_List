@@ -24,9 +24,8 @@ public class UpcomingFragment extends Fragment implements HomeRecyclerViewAdapte
 
     private RecyclerView recyclerViewUpcomingTrip;
     private List<Trip> upcomingTrip ;
-
-    Context context;
-    HomeViewModel homeViewModel;
+    private Context context;
+    private HomeViewModel homeViewModel;
 
     public UpcomingFragment(Context context, List<Trip> trips, HomeViewModel homeViewModel) {
         // Required empty public constructor
@@ -44,8 +43,8 @@ public class UpcomingFragment extends Fragment implements HomeRecyclerViewAdapte
 
         recyclerViewUpcomingTrip = view.findViewById(R.id.RecycleUpcoming);
 
-        LinearLayoutManager lm = new LinearLayoutManager(context);
-        recyclerViewUpcomingTrip.setLayoutManager(lm);
+        LinearLayoutManager linearLayoutManager = new LinearLayoutManager(context);
+        recyclerViewUpcomingTrip.setLayoutManager(linearLayoutManager);
         HomeRecyclerViewAdapter adapter = new HomeRecyclerViewAdapter(this , context);
 
         adapter.setUpcomingTrip(upcomingTrip);
@@ -56,7 +55,7 @@ public class UpcomingFragment extends Fragment implements HomeRecyclerViewAdapte
     }
 
 
-    public void setUpcomingTrip(List<Trip> upcomingTrip) {
+   public void setUpcomingTrip(List<Trip> upcomingTrip) {
         this.upcomingTrip = upcomingTrip;
     }
 
