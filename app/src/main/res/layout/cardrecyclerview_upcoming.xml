@@ -4,7 +4,8 @@
 	 xmlns:tools="http://schemas.android.com/tools"
 	 android:layout_width="match_parent"
 	 android:layout_height="wrap_content"
-	 tools:context=".view.DialogActivity">
+	 tools:context=".view.DialogActivity"
+	 android:background="@android:color/transparent">
 
 	 <androidx.constraintlayout.widget.ConstraintLayout
 		  android:layout_width="match_parent"
@@ -87,6 +88,7 @@
 			   android:layout_height="wrap_content"
 			   android:layout_marginStart="10dp"
 			   android:text="@string/trip_name"
+			   android:textColor="@color/colorPrimary"
 			   android:textSize="18sp"
 			   android:fontFamily="@font/boutfont"
 			   app:layout_constraintBottom_toBottomOf="@+id/imageView"
@@ -99,6 +101,7 @@
 			   android:layout_height="wrap_content"
 			   android:layout_marginStart="10dp"
 			   android:text="@string/tripplace"
+			   android:textColor="@color/colorPrimary"
 			   android:textSize="18sp"
 			   android:fontFamily="@font/boutfont"
 			   app:layout_constraintBottom_toBottomOf="@+id/imageView2"
@@ -111,6 +114,7 @@
 			   android:layout_height="wrap_content"
 			   android:layout_marginStart="10dp"
 			   android:text="@string/tripcalender"
+			   android:textColor="@color/colorPrimary"
 			   android:textSize="18sp"
 			   android:fontFamily="@font/boutfont"
 			   app:layout_constraintBottom_toBottomOf="@+id/imageView5"
@@ -123,6 +127,7 @@
 			   android:layout_height="wrap_content"
 			   android:layout_marginStart="10dp"
 			   android:text="@string/triptime"
+			   android:textColor="@color/colorPrimary"
 			   android:textSize="18sp"
 			   android:fontFamily="@font/boutfont"
 			   app:layout_constraintBottom_toBottomOf="@+id/imageView6"
