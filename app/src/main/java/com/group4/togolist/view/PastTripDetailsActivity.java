@@ -5,6 +5,8 @@ import androidx.lifecycle.ViewModel;
 import androidx.lifecycle.ViewModelProvider;
 import androidx.lifecycle.ViewModelProviders;
 
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.location.Address;
 import android.location.Geocoder;
 import android.os.Bundle;
@@ -29,6 +31,7 @@ public class PastTripDetailsActivity extends AppCompatActivity  implements View.
     private com.google.android.material.floatingactionbutton.FloatingActionButton fltBtnAdd;
     private PastTripsDetailsViewModel pastTripsDetailsViewModel;
 
+    private Button btnDelete ;
     private TextView txtTripName  , txtStartDate , txtStartTime , txtNotes;
     private TextView   txtRepetition , txtTripType , txtStartPoint , txtEndPoint ;
 
@@ -48,8 +51,7 @@ public class PastTripDetailsActivity extends AppCompatActivity  implements View.
         txtTripName = findViewById(R.id.textViewPTDStatusNameTrip);
         txtStartPoint = findViewById(R.id.textViewPTDStatusStartPoint);
         txtEndPoint = findViewById(R.id.textViewPTDStatusEndPoint);
-
-        txtStartDate = findViewById(R.id.textViewPTDStatusStartDate);
+       txtStartDate = findViewById(R.id.textViewPTDStatusStartDate);
         txtStartTime = findViewById(R.id.textViewPTDStatusStartTime);
 
         txtRepetition = findViewById(R.id.textViewPTDStatusRepetition);
@@ -57,11 +59,12 @@ public class PastTripDetailsActivity extends AppCompatActivity  implements View.
 
         txtNotes = findViewById(R.id.textViewPTDStatusNote);;
 
+        btnDelete = findViewById(R.id.btnStatusDelete);
+
         imgBtnHome = findViewById(R.id.imageBtnHome);
         imgBtnProfile = findViewById(R.id.imageBtnProfile);
         fltBtnAdd = findViewById(R.id.fABtnAddNote);
-
-
+        btnDelete.setOnClickListener(this);
         imgBtnHome.setOnClickListener(this);
         imgBtnProfile.setOnClickListener(this);
         fltBtnAdd.setOnClickListener(this);
@@ -70,7 +73,8 @@ public class PastTripDetailsActivity extends AppCompatActivity  implements View.
     @Override
     public void onClick(View v) {
         switch (v.getId()){
-
+            case R.id.btnStatusDelete:
+                deleteTrip();
             case R.id.imageBtnHome:
                 pastTripsDetailsViewModel.goToHome();
                 break;
@@ -81,6 +85,47 @@ public class PastTripDetailsActivity extends AppCompatActivity  implements View.
                 pastTripsDetailsViewModel.goToAddForm();
                 break;
         }
+    }
+
+    private void deleteTrip() {
+        AlertDialog.Builder builder = new AlertDialog.Builder(
+                PastTripDetailsActivity.this);
+        /**
+         * set message
+         */
+
+        builder.setMessage("Are you Sure you want to Delete Trip?");
+        builder.setCancelable(false);
+        builder.setPositiveButton("Yes",
+                new DialogInterface.OnClickListener() {
+
+                    public void onClick(DialogInterface dialog,
+                                        int which) {
+                        pastTripsDetailsViewModel.deleteTrip();
+                    }
+                });
+
+        builder.setNegativeButton("No",
+                new DialogInterface.OnClickListener() {
+
+                    public void onClick(DialogInterface dialog,
+                                        int which) {
+                        // TODO Auto-generated method stub
+                        // close the dialog box
+                        dialog.cancel();
+                    }
+                });
+/**
+ * create instance of alert dialog and assign configuration of builder to alert dialog instance
+ */
+
+        AlertDialog alert = builder.create();
+        alert.setCanceledOnTouchOutside(false);
+        /**
+         * Show Alert Dialog
+         */
+
+        alert.show();
     }
 
 
