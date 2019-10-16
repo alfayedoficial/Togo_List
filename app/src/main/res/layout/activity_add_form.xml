@@ -76,7 +76,7 @@
 					android:layout_marginTop="4dp"
 					android:text="@string/add_new_trip"
 					android:textColor="@color/home_color"
-					android:textSize="18sp"
+					android:textSize="14sp"
 					android:textStyle="bold"
 					app:layout_constraintStart_toStartOf="parent"
 					app:layout_constraintTop_toTopOf="parent" />
@@ -94,7 +94,7 @@
 					android:inputType="textPersonName"
 					android:textColor="@color/colorAccent"
 					android:textColorHint="@color/editText"
-					android:textSize="18sp"
+					android:textSize="14sp"
 					app:layout_constraintEnd_toEndOf="parent"
 					app:layout_constraintStart_toStartOf="parent"
 					app:layout_constraintTop_toBottomOf="@+id/textView2" />
@@ -110,7 +110,7 @@
 					android:gravity="center"
 					android:text="@string/start_pint"
 					android:textColor="@color/editText"
-					android:textSize="18sp"
+					android:textSize="14sp"
 					app:layout_constraintStart_toStartOf="@+id/textView2"
 					app:layout_constraintTop_toBottomOf="@+id/editText_nameTrip" />
 
@@ -125,7 +125,7 @@
 					android:gravity="center"
 					android:text="@string/end_point"
 					android:textColor="@color/editText"
-					android:textSize="18sp"
+					android:textSize="14sp"
 					app:layout_constraintStart_toStartOf="@+id/TextViewStartPoint"
 					app:layout_constraintTop_toBottomOf="@+id/divider3" />
 
@@ -207,7 +207,7 @@
 					android:inputType="datetime"
 					android:textColor="@color/colorAccent"
 					android:textColorHint="@color/editText"
-					android:textSize="18sp"
+					android:textSize="14sp"
 					app:layout_constraintEnd_toEndOf="parent"
 					app:layout_constraintStart_toStartOf="parent"
 					app:layout_constraintTop_toBottomOf="@+id/textViewEndPoint" />
@@ -224,7 +224,7 @@
 					android:inputType="time"
 					android:textColor="@color/colorAccent"
 					android:textColorHint="@color/editText"
-					android:textSize="18sp"
+					android:textSize="14sp"
 					app:layout_constraintEnd_toEndOf="parent"
 					app:layout_constraintStart_toStartOf="parent"
 					app:layout_constraintTop_toBottomOf="@+id/editText_startDate" />
@@ -238,7 +238,7 @@
 					android:fontFamily="@font/boutfont"
 					android:text="@string/repetition"
 					android:textColor="@color/colorPrimary"
-					android:textSize="18sp"
+					android:textSize="14sp"
 					android:visibility="visible"
 					app:layout_constraintStart_toStartOf="parent"
 					app:layout_constraintTop_toBottomOf="@+id/editText_startTime" />
@@ -269,7 +269,7 @@
 							  android:text="@string/daily"
 							  android:textColor="@color/editText"
 							  android:textColorHint="@color/colorAccent"
-							  android:textSize="18sp" />
+							  android:textSize="14sp" />
 
 						 <RadioButton
 							  android:id="@+id/radioBtnWeakly"
@@ -280,7 +280,7 @@
 							  android:text="@string/weakly"
 							  android:textColor="@color/editText"
 							  android:textColorHint="@color/colorAccent"
-							  android:textSize="18sp" />
+							  android:textSize="14sp" />
 
 						 <RadioButton
 							  android:id="@+id/radioBtnDays"
@@ -288,10 +288,10 @@
 							  android:layout_height="wrap_content"
 							  android:layout_weight="1"
 							  android:fontFamily="@font/boutfont"
-							  android:text="@string/days"
+							  android:text="@string/months"
 							  android:textColor="@color/editText"
 							  android:textColorHint="@color/colorAccent"
-							  android:textSize="18sp" />
+							  android:textSize="14sp" />
 
 
 					</RadioGroup>
@@ -381,7 +381,7 @@
 					android:text="@string/trip_type"
 					android:textColor="@color/colorPrimary"
 					android:textColorHint="@color/colorAccent"
-					android:textSize="18sp"
+					android:textSize="14sp"
 					app:layout_constraintStart_toStartOf="parent"
 					app:layout_constraintTop_toBottomOf="@+id/linearLayoutDays" />
 
@@ -410,7 +410,7 @@
 							  android:text="@string/one_direction"
 							  android:textColor="@color/editText"
 							  android:textColorHint="@color/colorAccent"
-							  android:textSize="18sp" />
+							  android:textSize="14sp" />
 
 						 <RadioButton
 							  android:id="@+id/radioBtnRoundTrip"
@@ -421,7 +421,7 @@
 							  android:text="@string/round_trip"
 							  android:textColor="@color/editText"
 							  android:textColorHint="@color/colorAccent"
-							  android:textSize="18sp" />
+							  android:textSize="14sp" />
 					</RadioGroup>
 			   </LinearLayout>
 
@@ -442,7 +442,7 @@
 					android:singleLine="false"
 					android:textColor="@color/colorAccent"
 					android:textColorHint="@color/editText"
-					android:textSize="18sp"
+					android:textSize="14sp"
 					app:layout_constraintEnd_toEndOf="parent"
 					app:layout_constraintStart_toStartOf="parent"
 					app:layout_constraintTop_toBottomOf="@+id/linearLayout5" />
@@ -458,7 +458,7 @@
 					android:fontFamily="@font/boutfont"
 					android:text="@string/add"
 					android:textColor="@color/background_offwhite"
-					android:textSize="18sp"
+					android:textSize="14sp"
 					app:layout_constraintBottom_toBottomOf="parent"
 					app:layout_constraintStart_toStartOf="@+id/editTextNote"
 					app:layout_constraintTop_toBottomOf="@+id/editTextNote" />
@@ -474,7 +474,7 @@
 					android:fontFamily="@font/boutfont"
 					android:text="@string/cancel"
 					android:textColor="@color/background_offwhite"
-					android:textSize="18sp"
+					android:textSize="14sp"
 					app:layout_constraintBottom_toBottomOf="parent"
 					app:layout_constraintEnd_toEndOf="@+id/editTextNote"
 					app:layout_constraintTop_toBottomOf="@+id/editTextNote" />

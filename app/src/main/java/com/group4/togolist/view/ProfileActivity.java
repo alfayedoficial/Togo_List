@@ -75,6 +75,20 @@ public class ProfileActivity extends AppCompatActivity  implements View.OnClickL
                 btnUpdate.setVisibility(View.VISIBLE);
                 textViewPofilePassword.setVisibility(View.VISIBLE);
                 textViewPofileConfirmPassword.setVisibility(View.VISIBLE);
+//                can edit
+                eTxtPassword.setClickable(true);
+                eTxtPassword.setFocusable(true);
+                eTxtPassword.setFocusableInTouchMode(true);
+                eTxtConfirmPassword.setClickable(true);
+                eTxtConfirmPassword.setFocusable(true);
+                eTxtConfirmPassword.setFocusableInTouchMode(true);
+                textViewPofilePassword.setClickable(true);
+                textViewPofilePassword.setFocusable(true);
+                textViewPofilePassword.setFocusableInTouchMode(true);
+                textViewPofileConfirmPassword.setClickable(true);
+                textViewPofileConfirmPassword.setFocusable(true);
+                textViewPofileConfirmPassword.setFocusableInTouchMode(true);
+
                 btnEdit.setVisibility(View.GONE);
                 btnLogout.setVisibility(View.GONE);
                 txtHopeComeBack.setVisibility(View.GONE);
