@@ -32,7 +32,7 @@ public class HistoryFragment extends Fragment  implements HistoryAdapter.OnItemL
         // Required empty public constructor
         this.context = context;
         pastTrips = trips;
-        this.homeViewModel = homeViewModel;
+        this.homeViewModel = homeViewModel ;
     }
 
 

@@ -30,10 +30,10 @@ public class ForgetPasswordActivity extends AppCompatActivity implements View.On
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_forget_password);
-
+        initComponent();
         forgetPassViewModel = ViewModelProviders.of(this , new MyViewModelFactory(ForgetPasswordActivity.this)).get(ForgetPassViewModel.class);
 
-        initComponent();
+
     }
 
     private void initComponent() {
