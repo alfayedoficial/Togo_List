@@ -68,52 +68,18 @@
 			   android:layout_width="match_parent"
 			   android:layout_height="match_parent">
 
-			   <Button
-					android:id="@+id/btnUpcoming"
-					android:layout_width="wrap_content"
-					android:layout_height="40dp"
-					android:layout_marginTop="8dp"
-					android:background="@drawable/buttonbarhome"
-					android:elevation="6dp"
-					android:fontFamily="@font/boutfont"
-					android:paddingBottom="3dp"
-					android:text="@string/upcoming"
-					android:textAllCaps="false"
-					android:textColor="@color/background_offwhite"
-					android:textSize="20sp"
-					app:layout_constraintEnd_toEndOf="parent"
-					app:layout_constraintHorizontal_bias="0.365"
-					app:layout_constraintStart_toStartOf="parent"
-					app:layout_constraintTop_toTopOf="parent" />
-
-			   <Button
-					android:id="@+id/btnPastTrip"
-					android:layout_width="wrap_content"
-					android:layout_height="40dp"
-					android:layout_marginStart="88dp"
-					android:background="@drawable/buttonbarhome2"
-					android:elevation="6dp"
-					android:fontFamily="@font/boutfont"
-					android:paddingBottom="3dp"
-					android:text="@string/past_trip"
-					android:textAllCaps="false"
-					android:textColor="@color/colorPrimary"
-					android:textSize="20sp"
-					app:layout_constraintStart_toStartOf="@+id/btnUpcoming"
-					app:layout_constraintTop_toTopOf="@+id/btnUpcoming" />
-
 			   <TextView
 					android:id="@+id/textView2"
 					android:layout_width="wrap_content"
 					android:layout_height="wrap_content"
 					android:layout_marginStart="16dp"
-					android:layout_marginTop="10dp"
+					android:layout_marginTop="8dp"
 					android:text="@string/your_trip_details"
 					android:textColor="@color/home_color"
 					android:textSize="18sp"
 					android:textStyle="bold"
 					app:layout_constraintStart_toStartOf="parent"
-					app:layout_constraintTop_toBottomOf="@+id/btnUpcoming" />
+					app:layout_constraintTop_toTopOf="parent" />
 
 			   <EditText
 					android:id="@+id/editText_nameTrip2"
@@ -130,8 +96,9 @@
 					android:fontFamily="@font/boutfont"
 					android:hint="@string/trip_name"
 					android:inputType="textPersonName"
-					android:textColor="@color/colorAccent"
+					android:textColor="@color/colorPrimary"
 					android:textColorHint="@color/colorPrimary"
+					android:textColorLink="@color/colorPrimary"
 					android:textSize="14sp"
 					app:layout_constraintEnd_toEndOf="parent"
 					app:layout_constraintStart_toStartOf="parent"
@@ -182,6 +149,8 @@
 					android:text="TextView"
 					android:textColor="@color/colorPrimary"
 					android:textSize="14sp"
+					app:layout_constraintEnd_toEndOf="parent"
+					app:layout_constraintHorizontal_bias="0.0"
 					app:layout_constraintStart_toStartOf="@+id/textViewStatusShow"
 					app:layout_constraintTop_toTopOf="@+id/textViewStatusTripType" />
 
@@ -203,7 +172,7 @@
 
 			   <TextView
 					android:id="@+id/textViewStatusStartPoint"
-					android:layout_width="0dp"
+					android:layout_width="wrap_content"
 					android:layout_height="wrap_content"
 					android:layout_gravity="center"
 					android:layout_weight="2"
@@ -211,12 +180,14 @@
 					android:text="TextView"
 					android:textColor="@color/colorPrimary"
 					android:textSize="14sp"
+					app:layout_constraintEnd_toEndOf="parent"
+					app:layout_constraintHorizontal_bias="0.0"
 					app:layout_constraintStart_toStartOf="@+id/textViewStatusShow"
 					app:layout_constraintTop_toTopOf="@+id/TextViewStartPoint" />
 
 			   <TextView
 					android:id="@+id/textViewStatusEndPoint"
-					android:layout_width="0dp"
+					android:layout_width="wrap_content"
 					android:layout_height="wrap_content"
 					android:layout_gravity="center"
 					android:layout_weight="2"
@@ -224,6 +195,8 @@
 					android:text="TextView"
 					android:textColor="@color/colorPrimary"
 					android:textSize="14sp"
+					app:layout_constraintEnd_toEndOf="parent"
+					app:layout_constraintHorizontal_bias="0.0"
 					app:layout_constraintStart_toStartOf="@+id/textViewStatusShow"
 					app:layout_constraintTop_toTopOf="@+id/TextViewEndPoint" />
 
@@ -258,8 +231,9 @@
 					android:fontFamily="@font/boutfont"
 					android:hint="@string/starttime"
 					android:inputType="time"
-					android:textColor="@color/colorAccent"
+					android:textColor="@color/colorPrimary"
 					android:textColorHint="@color/colorPrimary"
+					android:textColorLink="@color/colorPrimary"
 					android:textSize="14sp"
 					app:layout_constraintEnd_toEndOf="parent"
 					app:layout_constraintStart_toStartOf="parent"
@@ -280,8 +254,9 @@
 					android:fontFamily="@font/boutfont"
 					android:hint="@string/startdate"
 					android:inputType="datetime"
-					android:textColor="@color/colorAccent"
+					android:textColor="@color/colorPrimary"
 					android:textColorHint="@color/colorPrimary"
+					android:textColorLink="@color/colorPrimary"
 					android:textSize="14sp"
 					app:layout_constraintEnd_toEndOf="parent"
 					app:layout_constraintStart_toStartOf="parent"
@@ -306,8 +281,9 @@
 					android:scrollbarStyle="insideInset"
 					android:scrollbars="vertical"
 					android:singleLine="false"
-					android:textColor="@color/colorAccent"
+					android:textColor="@color/colorPrimary"
 					android:textColorHint="@color/colorPrimary"
+					android:textColorLink="@color/colorPrimary"
 					android:textSize="14sp"
 					app:layout_constraintEnd_toEndOf="parent"
 					app:layout_constraintStart_toStartOf="parent"
@@ -367,11 +343,13 @@
 					android:id="@+id/textViewStatusShow"
 					android:layout_width="wrap_content"
 					android:layout_height="wrap_content"
-					android:layout_marginStart="80dp"
+					android:layout_marginStart="50dp"
 					android:fontFamily="@font/boutfont"
 					android:text="TextView"
 					android:textColor="@color/colorPrimary"
 					android:textSize="14sp"
+					app:layout_constraintEnd_toEndOf="parent"
+					app:layout_constraintHorizontal_bias="0.0"
 					app:layout_constraintStart_toEndOf="@+id/textViewStatus"
 					app:layout_constraintTop_toTopOf="@+id/textViewStatus" />
 
@@ -383,6 +361,8 @@
 					android:text="TextView"
 					android:textColor="@color/colorPrimary"
 					android:textSize="14sp"
+					app:layout_constraintEnd_toEndOf="parent"
+					app:layout_constraintHorizontal_bias="0.0"
 					app:layout_constraintStart_toStartOf="@+id/textViewStatusShow"
 					app:layout_constraintTop_toTopOf="@+id/textViewStatusRepetition" />
 

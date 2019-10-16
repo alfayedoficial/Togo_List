@@ -220,7 +220,7 @@
 					android:layout_width="0dp"
 					android:layout_height="wrap_content"
 					android:layout_marginStart="40dp"
-					android:layout_marginTop="20dp"
+					android:layout_marginTop="50dp"
 					android:layout_marginEnd="40dp"
 					android:background="@drawable/gradient_btn_signin"
 					android:fontFamily="@font/boutfont"
@@ -233,42 +233,17 @@
 					app:layout_constraintStart_toStartOf="parent"
 					app:layout_constraintTop_toBottomOf=" @+id/editText_confirmPassword" />
 
-			   <Button
-					android:id="@+id/btn_sign_up_with_google"
-					android:layout_width="0dp"
-					android:layout_height="wrap_content"
-					android:layout_marginStart="40dp"
-					android:layout_marginTop="10dp"
-					android:layout_marginEnd="40dp"
-					android:background="@drawable/gradient_btn_sigup"
-					android:drawableStart="@drawable/icon_google"
-					android:drawableLeft="@drawable/icon_google"
-					android:fontFamily="@font/boutfont"
-					android:paddingStart="6dp"
-					android:paddingLeft="6dp"
-					android:paddingEnd="6dp"
-					android:paddingRight="6dp"
-					android:text="@string/sign_up_with_google"
-					android:textColor="@color/background_offwhite"
-					android:textSize="14sp"
-					android:textStyle="bold"
-					app:layout_constraintEnd_toEndOf="parent"
-					app:layout_constraintHorizontal_bias="0.0"
-					app:layout_constraintStart_toStartOf="parent"
-					app:layout_constraintTop_toBottomOf="@+id/btn_sign_up" />
-
 			   <androidx.constraintlayout.widget.ConstraintLayout
 					android:id="@+id/ConstraintLayout3"
 					android:layout_width="0dp"
 					android:layout_height="wrap_content"
 					android:layout_marginStart="1dp"
-					android:layout_marginTop="5dp"
 					android:layout_marginEnd="1dp"
 					android:layout_marginBottom="40dp"
 					app:layout_constraintBottom_toBottomOf="parent"
 					app:layout_constraintEnd_toEndOf="parent"
 					app:layout_constraintStart_toStartOf="parent"
-					app:layout_constraintTop_toBottomOf="@+id/btn_sign_up_with_google">
+					app:layout_constraintTop_toBottomOf="@+id/btn_sign_up">
 
 					<TextView
 						 android:id="@+id/Policy"

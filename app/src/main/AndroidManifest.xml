@@ -20,9 +20,6 @@
 		  <activity android:name=".view.PastTripDetailsActivity"
 			   android:theme="@style/AppTheme.NoActionBar" />
 		  <activity
-			   android:name=".view.PastTripActivity"
-			   android:theme="@style/AppTheme.NoActionBar" />
-		  <activity
 			   android:name=".view.DialogActivity"
 			   android:theme="@style/Theme.AppCompat.Dialog"/>
 

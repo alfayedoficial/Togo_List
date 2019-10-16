@@ -35,7 +35,7 @@
 
 	 <View
 		  android:id="@+id/divider"
-		  android:layout_width="match_parent"
+		  android:layout_width="0dp"
 		  android:layout_height="1dp"
 		  android:layout_marginTop="8dp"
 		  android:background="@color/colorPrimaryDark"
@@ -63,7 +63,7 @@
 
 	 <View
 		  android:id="@+id/divider2"
-		  android:layout_width="409dp"
+		  android:layout_width="0dp"
 		  android:layout_height="1dp"
 		  android:layout_marginBottom="170dp"
 		  android:background="@color/background_offwhite"

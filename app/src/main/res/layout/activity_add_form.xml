@@ -92,8 +92,9 @@
 					android:fontFamily="@font/boutfont"
 					android:hint="@string/trip_name"
 					android:inputType="textPersonName"
-					android:textColor="@color/colorAccent"
+					android:textColor="@color/colorPrimary"
 					android:textColorHint="@color/editText"
+					android:textColorLink="@color/colorPrimary"
 					android:textSize="14sp"
 					app:layout_constraintEnd_toEndOf="parent"
 					app:layout_constraintStart_toStartOf="parent"
@@ -109,7 +110,7 @@
 					android:fontFamily="@font/boutfont"
 					android:gravity="center"
 					android:text="@string/start_pint"
-					android:textColor="@color/colorPrimary"
+					android:textColor="@color/editText"
 					android:textSize="14sp"
 					android:textStyle="bold"
 					app:layout_constraintStart_toStartOf="@+id/textView2"
@@ -125,7 +126,7 @@
 					android:fontFamily="@font/boutfont"
 					android:gravity="center"
 					android:text="@string/end_point"
-					android:textColor="@color/colorPrimary"
+					android:textColor="@color/editText"
 					android:textSize="14sp"
 					android:textStyle="bold"
 					app:layout_constraintStart_toStartOf="@+id/TextViewStartPoint"
@@ -231,8 +232,9 @@
 					android:fontFamily="@font/boutfont"
 					android:hint="@string/startdate"
 					android:inputType="datetime"
-					android:textColor="@color/colorAccent"
+					android:textColor="@color/colorPrimary"
 					android:textColorHint="@color/editText"
+					android:textColorLink="@color/colorPrimary"
 					android:textSize="14sp"
 					app:layout_constraintEnd_toEndOf="parent"
 					app:layout_constraintStart_toStartOf="parent"
@@ -249,8 +251,9 @@
 					android:fontFamily="@font/boutfont"
 					android:hint="@string/starttime"
 					android:inputType="time"
-					android:textColor="@color/colorAccent"
+					android:textColor="@color/colorPrimary"
 					android:textColorHint="@color/editText"
+					android:textColorLink="@color/colorPrimary"
 					android:textSize="14sp"
 					app:layout_constraintEnd_toEndOf="parent"
 					app:layout_constraintStart_toStartOf="parent"
@@ -264,7 +267,7 @@
 					android:layout_marginTop="8dp"
 					android:fontFamily="@font/boutfont"
 					android:text="@string/repetition"
-					android:textColor="@color/colorPrimary"
+					android:textColor="@color/editText"
 					android:textSize="14sp"
 					android:textStyle="bold"
 					android:visibility="visible"
@@ -296,7 +299,8 @@
 							  android:fontFamily="@font/boutfont"
 							  android:text="@string/daily"
 							  android:textColor="@color/editText"
-							  android:textColorHint="@color/colorAccent"
+							  android:textColorHint="@color/colorPrimary"
+							  android:textColorLink="@color/colorPrimary"
 							  android:textSize="14sp" />
 
 						 <RadioButton
@@ -307,7 +311,8 @@
 							  android:fontFamily="@font/boutfont"
 							  android:text="@string/weakly"
 							  android:textColor="@color/editText"
-							  android:textColorHint="@color/colorAccent"
+							  android:textColorHint="@color/colorPrimary"
+							  android:textColorLink="@color/colorPrimary"
 							  android:textSize="14sp" />
 
 						 <RadioButton
@@ -318,7 +323,8 @@
 							  android:fontFamily="@font/boutfont"
 							  android:text="@string/months"
 							  android:textColor="@color/editText"
-							  android:textColorHint="@color/colorAccent"
+							  android:textColorHint="@color/colorPrimary"
+							  android:textColorLink="@color/colorPrimary"
 							  android:textSize="14sp" />
 
 
@@ -334,7 +340,7 @@
 					android:layout_marginTop="8dp"
 					android:fontFamily="@font/boutfont"
 					android:text="@string/trip_type"
-					android:textColor="@color/colorPrimary"
+					android:textColor="@color/editText"
 					android:textColorHint="@color/colorAccent"
 					android:textSize="14sp"
 					android:textStyle="bold"
@@ -365,7 +371,8 @@
 							  android:fontFamily="@font/boutfont"
 							  android:text="@string/one_direction"
 							  android:textColor="@color/editText"
-							  android:textColorHint="@color/colorAccent"
+							  android:textColorHint="@color/colorPrimary"
+							  android:textColorLink="@color/colorPrimary"
 							  android:textSize="14sp" />
 
 						 <RadioButton
@@ -376,7 +383,8 @@
 							  android:fontFamily="@font/boutfont"
 							  android:text="@string/round_trip"
 							  android:textColor="@color/editText"
-							  android:textColorHint="@color/colorAccent"
+							  android:textColorHint="@color/colorPrimary"
+							  android:textColorLink="@color/colorPrimary"
 							  android:textSize="14sp" />
 					</RadioGroup>
 			   </LinearLayout>
@@ -396,8 +404,9 @@
 					android:scrollbarStyle="insideInset"
 					android:scrollbars="vertical"
 					android:singleLine="false"
-					android:textColor="@color/colorAccent"
+					android:textColor="@color/colorPrimary"
 					android:textColorHint="@color/editText"
+					android:textColorLink="@color/colorPrimary"
 					android:textSize="14sp"
 					app:layout_constraintEnd_toEndOf="parent"
 					app:layout_constraintStart_toStartOf="parent"
