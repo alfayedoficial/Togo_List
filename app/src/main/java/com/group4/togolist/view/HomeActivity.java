@@ -25,7 +25,7 @@ import com.group4.togolist.viewmodel.HomeViewModel;
 import java.util.List;
 import java.util.concurrent.ExecutionException;
 
-public class HomeActivity extends AppCompatActivity implements View.OnClickListener , HomeRecyclerViewAdapter.OnClickLisenter{
+public class HomeActivity extends AppCompatActivity implements View.OnClickListener {
     /**
      * Class do :
      * Created by Group 4 ITI (Eng/Bassen - Eng Fatma - Eng Ali)
@@ -56,8 +56,6 @@ public class HomeActivity extends AppCompatActivity implements View.OnClickListe
 
         viewPager = findViewById(R.id.viewPager);
         Fragment[] fragments = new Fragment[2];
-        UpcomingFragment upcomingFragment = new UpcomingFragment();
-        fragments[0] = upcomingFragment;
 
         try {
             upcomingTrip = homeViewModel.getUpcomingTrip();
@@ -67,9 +65,12 @@ public class HomeActivity extends AppCompatActivity implements View.OnClickListe
         } catch (ExecutionException e) {
             e.printStackTrace();
         }
+
+        UpcomingFragment upcomingFragment = new UpcomingFragment(this , upcomingTrip ,homeViewModel);
+        fragments[0] = upcomingFragment;
+
         fragments[1] = new HistoryFragment(this,pastTrips,homeViewModel);
 
-        upcomingFragment.setUpcomingTrip(upcomingTrip);
 
         FragmentManager fm = getSupportFragmentManager();
         myViewPagerAdapter = new MyViewPagerAdapter(fm,0,fragments);
@@ -137,11 +138,6 @@ public class HomeActivity extends AppCompatActivity implements View.OnClickListe
         }
     }
 
-    @Override
-    public void onDetailClick(String tripName) {
-
-
-    }
 
     /**
      *  HomeViewModelFactory
