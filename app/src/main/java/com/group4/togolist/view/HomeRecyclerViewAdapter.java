@@ -14,6 +14,7 @@ import androidx.lifecycle.LiveData;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.group4.togolist.R;
+import com.group4.togolist.model.HistoryAdapter;
 import com.group4.togolist.model.Trip;
 
 import java.io.IOException;
@@ -23,18 +24,16 @@ import java.util.concurrent.ExecutionException;
 
 public class HomeRecyclerViewAdapter extends RecyclerView.Adapter {
 
-    private OnClickLisenter adptOnClickLisenter;
-    private Context context ;
-    private List<Trip> upcomingTrip ;
-
-
+    private OnItemListener onItemListener;
+    private List<Trip> upcomingTrip;
+    private Context context;
 
     @NonNull
     @Override
     public RecyclerView.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
 
         View itemView = LayoutInflater.from(parent.getContext()).inflate(R.layout.cardrecyclerview_upcoming , parent,false);
-        return  new MyViewHolder(itemView , adptOnClickLisenter);
+        return  new MyViewHolder(itemView , onItemListener);
     }
 
     @Override
@@ -59,9 +58,9 @@ public class HomeRecyclerViewAdapter extends RecyclerView.Adapter {
 
        private TextView txtTripPlace , txtTripName , txtTripDate , txtTripTime;
        private ImageButton imgBtnDetails;
-        OnClickLisenter onClickLisenter;
+        OnItemListener onItemListener;
 
-        public MyViewHolder(@NonNull View itemView , OnClickLisenter onclickLis) {
+        public MyViewHolder(@NonNull View itemView , OnItemListener onclickLis) {
             super(itemView);
 
             txtTripName = itemView.findViewById(R.id.textViewTripName);
@@ -71,23 +70,38 @@ public class HomeRecyclerViewAdapter extends RecyclerView.Adapter {
             imgBtnDetails = itemView.findViewById(R.id.imageBtnDetails);
 
 
-            onClickLisenter = onclickLis;
-            imgBtnDetails.setOnClickListener(this);
+            this.onItemListener = onclickLis;
+            itemView.setOnClickListener(this);
+        }
+
+        public TextView getTxtTripName() {
+            return txtTripName;
+        }
+
+        public TextView getTxtTripPlace() {
+            return txtTripPlace;
+        }
+
+        public TextView getTxtTripDate() {
+            return txtTripDate;
+        }
+
+        public TextView getTxtTripTime() {
+            return txtTripTime;
         }
 
         @Override
         public void onClick(View v) {
 
-            onClickLisenter.onDetailClick(upcomingTrip.get(getAdapterPosition()).getTripName());
+            onItemListener.onItemClick(getAdapterPosition());
         }
     }
 
     public void setUpcomingTrip(List<Trip> upcomingTrip) {
         this.upcomingTrip = upcomingTrip;
     }
-    public interface OnClickLisenter{
-
-        public  void onDetailClick(String tripName);
+    public interface OnItemListener{
+        void onItemClick(int position);
     }
 
     private String getTripPlace(Trip currentTrip){
