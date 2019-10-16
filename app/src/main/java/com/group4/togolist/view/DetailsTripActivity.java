@@ -6,8 +6,10 @@ import androidx.lifecycle.ViewModelProvider;
 import androidx.lifecycle.ViewModelProviders;
 
 import android.app.Activity;
+import android.app.AlertDialog;
 import android.app.DatePickerDialog;
 import android.app.TimePickerDialog;
+import android.content.DialogInterface;
 import android.location.Address;
 import android.location.Geocoder;
 import android.os.Bundle;
@@ -18,6 +20,7 @@ import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.TextView;
 import android.widget.TimePicker;
+import android.widget.Toast;
 
 import com.group4.togolist.R;
 import com.group4.togolist.model.Trip;
@@ -44,7 +47,7 @@ public class DetailsTripActivity extends AppCompatActivity implements View.OnCli
     private String strMinute = "";
     private String strHour = "";
     private boolean editBtnEnable = true ;
-
+;
     private    final Calendar myCalendar = Calendar.getInstance();
     private Calendar tripCalendar = Calendar.getInstance();
 
@@ -53,7 +56,9 @@ public class DetailsTripActivity extends AppCompatActivity implements View.OnCli
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_details_trip);
+
         initComponent();
+
         detailsTripViewModel = ViewModelProviders.of(this , new MyViewModelFactory(DetailsTripActivity.this)).get(DetailsTripViewModel.class);
         myCalendar.setTimeInMillis(System.currentTimeMillis());
 
@@ -80,6 +85,8 @@ public class DetailsTripActivity extends AppCompatActivity implements View.OnCli
         btnEdit = findViewById(R.id.btnStatusLater);
         btnStart = findViewById(R.id.btnStatusStart);
         btnDelete = findViewById(R.id.btnStatusDelete);
+
+
 
         imgBtnHome = findViewById(R.id.imageBtnHome);
         imgBtnProfile = findViewById(R.id.imageBtnProfile);
@@ -124,7 +131,8 @@ public class DetailsTripActivity extends AppCompatActivity implements View.OnCli
                 detailsTripViewModel.startTrip();
                 break;
             case R.id.btnStatusDelete:
-              detailsTripViewModel.deleteTrip();
+                 deleteTrip();
+
                 break;
 
             case R.id.imageBtnHome:
@@ -148,6 +156,41 @@ public class DetailsTripActivity extends AppCompatActivity implements View.OnCli
                 }
                 break;
         }
+    }
+
+    private void deleteTrip(){
+        AlertDialog.Builder builder = new AlertDialog.Builder(
+                DetailsTripActivity.this);
+        // set message
+        builder.setMessage("Are you Sure you want to Delete Trip?");
+        builder.setCancelable(false);
+        builder.setPositiveButton("Yes",
+                new DialogInterface.OnClickListener() {
+
+                    public void onClick(DialogInterface dialog,
+                                        int which) {
+                        detailsTripViewModel.deleteTrip();
+                    }
+                });
+
+        builder.setNegativeButton("No",
+                new DialogInterface.OnClickListener() {
+
+                    public void onClick(DialogInterface dialog,
+                                        int which) {
+                        // TODO Auto-generated method stub
+                        // close the dialog box
+                        dialog.cancel();
+                    }
+                });
+
+        //create instance of alert dialogand assign configuration of
+        //builderto alert dialog instance
+
+        AlertDialog alert = builder.create();
+        alert.setCanceledOnTouchOutside(false);
+        // Show Alert Dialog
+        alert.show();
     }
 
     private void setUpCalender() {
