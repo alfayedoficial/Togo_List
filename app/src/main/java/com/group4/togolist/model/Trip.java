@@ -219,7 +219,7 @@ public class Trip {
     }
 
     public String getTripTime(){
-        return startDateHours + "/" + startDateMinutes;
+        return startDateHours + ":" + startDateMinutes;
     }
 }
 
