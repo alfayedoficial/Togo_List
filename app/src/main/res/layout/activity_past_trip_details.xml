@@ -72,10 +72,10 @@
 					android:layout_width="wrap_content"
 					android:layout_height="wrap_content"
 					android:layout_marginStart="16dp"
-					android:layout_marginTop="16dp"
+					android:layout_marginTop="8dp"
 					android:text="@string/your_trip_details"
 					android:textColor="@color/home_color"
-					android:textSize="14sp"
+					android:textSize="18sp"
 					android:textStyle="bold"
 					app:layout_constraintStart_toStartOf="parent"
 					app:layout_constraintTop_toTopOf="parent" />
@@ -110,6 +110,7 @@
 					android:fontFamily="@font/boutfont"
 					android:text="@string/trip_name"
 					android:textSize="14sp"
+					android:textStyle="bold"
 					app:layout_constraintStart_toStartOf="@+id/cardView"
 					app:layout_constraintTop_toBottomOf="@+id/cardView" />
 
@@ -139,6 +140,7 @@
 					android:text="@string/start_pint"
 					android:textColor="@color/editText"
 					android:textSize="14sp"
+					android:textStyle="bold"
 					app:layout_constraintStart_toStartOf="@+id/textViewPTDNameTrip"
 					app:layout_constraintTop_toBottomOf="@+id/textViewPTDNameTrip" />
 
@@ -180,6 +182,7 @@
 					android:text="@string/end_point"
 					android:textColor="@color/editText"
 					android:textSize="14sp"
+					android:textStyle="bold"
 					app:layout_constraintStart_toStartOf="@+id/textViewPTDNameTrip"
 					app:layout_constraintTop_toBottomOf="@+id/TextViewPTDStartPoint" />
 
@@ -191,6 +194,7 @@
 					android:fontFamily="@font/boutfont"
 					android:text="@string/startdate"
 					android:textSize="14sp"
+					android:textStyle="bold"
 					app:layout_constraintStart_toStartOf="@+id/textViewPTDNameTrip"
 					app:layout_constraintTop_toBottomOf="@+id/TextViewPTDEndPoint" />
 
@@ -213,6 +217,7 @@
 					android:fontFamily="@font/boutfont"
 					android:text="@string/starttime"
 					android:textSize="14sp"
+					android:textStyle="bold"
 					app:layout_constraintStart_toStartOf="@+id/textViewPTDNameTrip"
 					app:layout_constraintTop_toBottomOf="@+id/textViewPTDStatusDate" />
 
@@ -235,6 +240,7 @@
 					android:fontFamily="@font/boutfont"
 					android:text="@string/repetition"
 					android:textSize="14sp"
+					android:textStyle="bold"
 					app:layout_constraintStart_toStartOf="@+id/textViewPTDNameTrip"
 					app:layout_constraintTop_toBottomOf="@+id/textViewPTDStatusTime" />
 
@@ -257,6 +263,7 @@
 					android:fontFamily="@font/boutfont"
 					android:text="@string/trip_type"
 					android:textSize="14sp"
+					android:textStyle="bold"
 					app:layout_constraintStart_toStartOf="@+id/textViewPTDNameTrip"
 					app:layout_constraintTop_toBottomOf="@+id/textViewPTDRepetition" />
 
@@ -293,6 +300,7 @@
 					android:fontFamily="@font/boutfont"
 					android:text="@string/note"
 					android:textSize="14sp"
+					android:textStyle="bold"
 					app:layout_constraintStart_toStartOf="@+id/textViewPTDNameTrip"
 					app:layout_constraintTop_toBottomOf="@+id/textViewPTDTripType" />
 
