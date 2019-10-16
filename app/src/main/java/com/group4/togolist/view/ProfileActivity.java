@@ -24,7 +24,7 @@ public class ProfileActivity extends AppCompatActivity  implements View.OnClickL
     private Button btnEdit , btnLogout , btnUpdate;
     private TextView txtHopeComeBack , textViewPofilePassword , textViewPofileConfirmPassword;
     private ProfileViewModel profileViewModel ;
-
+    private boolean editFlag = false ;
     private ImageButton imgBtnHome , imgBtnProfile;
     private com.google.android.material.floatingactionbutton.FloatingActionButton fltBtnAdd;
 
@@ -54,8 +54,7 @@ public class ProfileActivity extends AppCompatActivity  implements View.OnClickL
         imgBtnProfile = findViewById(R.id.imageBtnProfile);
         fltBtnAdd = findViewById(R.id.fABtnAddNote);
 
-        eTxtUserName.setEnabled(false);
-        eTxtEmail.setEnabled(false);
+        setUserAndMailEtxtViewDisable();
 
         imgBtnProfile.setEnabled(false);
 
@@ -73,23 +72,32 @@ public class ProfileActivity extends AppCompatActivity  implements View.OnClickL
 
         switch (v.getId()){
             case R.id.btnEdit:
-                eTxtPassword.setVisibility(View.VISIBLE);
-                eTxtConfirmPassword.setVisibility(View.VISIBLE);
-                btnUpdate.setVisibility(View.VISIBLE);
-                textViewPofilePassword.setVisibility(View.VISIBLE);
-                textViewPofileConfirmPassword.setVisibility(View.VISIBLE);
-//                can edit
-                eTxtUserName.setEnabled(true);
-                eTxtEmail.setEnabled(true);
-//TODo Add Flag Reset Enable False to can not edit
-                btnEdit.setVisibility(View.GONE);
-                btnLogout.setVisibility(View.GONE);
-                txtHopeComeBack.setVisibility(View.GONE);
-                break;
+                if(!editFlag) {
+
+                    setUserAndMailEtxtViewEnable();
+
+                    eTxtPassword.setVisibility(View.VISIBLE);
+                    eTxtConfirmPassword.setVisibility(View.VISIBLE);
+                    btnUpdate.setVisibility(View.VISIBLE);
+                    textViewPofilePassword.setVisibility(View.VISIBLE);
+                    textViewPofileConfirmPassword.setVisibility(View.VISIBLE);
+
+
+                    btnEdit.setVisibility(View.GONE);
+                    btnLogout.setVisibility(View.GONE);
+                    txtHopeComeBack.setVisibility(View.GONE);
+                    editFlag = true ;
+                }
+                      break;
             case R.id.btnProfileUpdate:
 
-                profileViewModel.updateUser(eTxtPassword.getText().toString() , eTxtConfirmPassword.getText().toString());
-                afterUpdate();
+                if (editFlag){
+                    profileViewModel.updateUser(eTxtPassword.getText().toString() , eTxtConfirmPassword.getText().toString());
+                    afterUpdate();
+                    setUserAndMailEtxtViewDisable();
+                    editFlag = false ;
+                }
+
                 break;
 
             case R.id.btnLogout:
@@ -117,6 +125,15 @@ public class ProfileActivity extends AppCompatActivity  implements View.OnClickL
        txtHopeComeBack.setVisibility(View.VISIBLE);
     }
 
+    private void setUserAndMailEtxtViewDisable(){
+        eTxtUserName.setEnabled(false);
+        eTxtEmail.setEnabled(false);
+    }
+
+    private void setUserAndMailEtxtViewEnable(){
+        eTxtUserName.setEnabled(true);
+        eTxtEmail.setEnabled(true);
+    }
     public void setUserName(String userName){
         eTxtUserName.setText(userName);
     }
