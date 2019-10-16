@@ -8,6 +8,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.EditText;
+import android.widget.ImageButton;
 import android.widget.RadioButton;
 import android.widget.TextView;
 import android.widget.TimePicker;
@@ -44,13 +45,13 @@ public class AddFormActivity extends AppCompatActivity implements View.OnClickLi
     private List<Place.Field> fieldsEnd;
     private LatLng latLangStartPoint;
    private LatLng latLangEndPoint;
-   private Double latStartPoint = 0.0;
-    private Double latEndPoint = 0.0;
-   private Double longStartPoint = 0.0;
-   private Double longEndPoint = 0.0;
+   private Double latStartPoint = 20.0;
+    private Double latEndPoint = 30.0;
+   private Double longStartPoint = 20.0;
+   private Double longEndPoint = 30.0;
    private String placeEndPoint;
    private String placeStartPoint;
-   private String strMinute = "";
+    private String strMinute = "";
     private String strHour = "";
     private int repetition = Trip.NOT_REPEATED;
     private boolean roundTrip = false;
@@ -64,6 +65,8 @@ public class AddFormActivity extends AppCompatActivity implements View.OnClickLi
     private Calendar currentCalendar = Calendar.getInstance();
     private Calendar tripCalendar = Calendar.getInstance();
 
+    private ImageButton imgBtnHome , imgBtnProfile;
+    private com.google.android.material.floatingactionbutton.FloatingActionButton fltBtnAdd;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -105,12 +108,19 @@ public class AddFormActivity extends AppCompatActivity implements View.OnClickLi
         eTxtStartDate.setOnClickListener(this);
         eTxtStartTime.setOnClickListener(this);
 
+        imgBtnHome = findViewById(R.id.imageBtnHome);
+        imgBtnProfile = findViewById(R.id.imageBtnProfile);
+        fltBtnAdd = findViewById(R.id.fABtnAddNote);
+
 
         rdnBtnDaily.setOnClickListener(this);
        rdnBtnWeekly.setOnClickListener(this);
        rdnBtnDays.setOnClickListener(this);
        rdnBtnOneDirection.setOnClickListener(this);
        rdnBtnRoundTrip.setOnClickListener(this);
+
+        imgBtnHome.setOnClickListener(this);
+        imgBtnProfile.setOnClickListener(this);
 
        btnAdd.setOnClickListener(this);
        btnCancel.setOnClickListener(this);
@@ -162,6 +172,14 @@ public class AddFormActivity extends AppCompatActivity implements View.OnClickLi
                 break;
 
             case R.id.btnCancel:
+                break;
+
+            case R.id.imageBtnHome:
+                addFormViewModel.goToHome();
+                break;
+
+            case R.id.imageBtnProfile:
+                addFormViewModel.goToProfile();
                 break;
 
 
