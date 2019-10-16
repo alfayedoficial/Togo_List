@@ -67,52 +67,18 @@
 			   android:layout_width="match_parent"
 			   android:layout_height="match_parent">
 
-			   <Button
-					android:id="@+id/btnUpcoming"
-					android:layout_width="wrap_content"
-					android:layout_height="40dp"
-					android:layout_marginTop="8dp"
-					android:background="@drawable/buttonbarhome"
-					android:elevation="6dp"
-					android:fontFamily="@font/boutfont"
-					android:paddingBottom="3dp"
-					android:text="@string/upcoming"
-					android:textAllCaps="false"
-					android:textColor="@color/background_offwhite"
-					android:textSize="20sp"
-					app:layout_constraintEnd_toEndOf="parent"
-					app:layout_constraintHorizontal_bias="0.365"
-					app:layout_constraintStart_toStartOf="parent"
-					app:layout_constraintTop_toTopOf="parent" />
-
-			   <Button
-					android:id="@+id/btnPastTrip"
-					android:layout_width="wrap_content"
-					android:layout_height="40dp"
-					android:layout_marginStart="88dp"
-					android:background="@drawable/buttonbarhome2"
-					android:elevation="6dp"
-					android:fontFamily="@font/boutfont"
-					android:paddingBottom="3dp"
-					android:text="@string/past_trip"
-					android:textAllCaps="false"
-					android:textColor="@color/colorPrimary"
-					android:textSize="20sp"
-					app:layout_constraintStart_toStartOf="@+id/btnUpcoming"
-					app:layout_constraintTop_toTopOf="@+id/btnUpcoming" />
-
 			   <TextView
 					android:id="@+id/textView2"
 					android:layout_width="wrap_content"
 					android:layout_height="wrap_content"
 					android:layout_marginStart="16dp"
-					android:layout_marginTop="10dp"
+					android:layout_marginTop="8dp"
 					android:text="@string/your_trip_details"
 					android:textColor="@color/home_color"
 					android:textSize="18sp"
 					android:textStyle="bold"
 					app:layout_constraintStart_toStartOf="parent"
-					app:layout_constraintTop_toBottomOf="@+id/btnUpcoming" />
+					app:layout_constraintTop_toTopOf="parent" />
 
 			   <androidx.cardview.widget.CardView
 					android:id="@+id/cardView"
@@ -143,7 +109,8 @@
 					android:layout_marginTop="16dp"
 					android:fontFamily="@font/boutfont"
 					android:text="@string/trip_name"
-					android:textSize="18sp"
+					android:textSize="14sp"
+					android:textStyle="bold"
 					app:layout_constraintStart_toStartOf="@+id/cardView"
 					app:layout_constraintTop_toBottomOf="@+id/cardView" />
 
@@ -151,11 +118,13 @@
 					android:id="@+id/textViewPTDStatusNameTrip"
 					android:layout_width="wrap_content"
 					android:layout_height="wrap_content"
-					android:layout_marginStart="80dp"
+					android:layout_marginStart="10dp"
+					android:layout_marginEnd="10dp"
 					android:fontFamily="@font/boutfont"
 					android:text="TextView"
 					android:textColor="@color/colorPrimary"
-					android:textSize="18sp"
+					android:textSize="14sp"
+					app:layout_constraintEnd_toEndOf="parent"
 					app:layout_constraintStart_toEndOf="@+id/textViewPTDNameTrip"
 					app:layout_constraintTop_toTopOf="@+id/textViewPTDNameTrip" />
 
@@ -170,7 +139,8 @@
 					android:gravity="center|start"
 					android:text="@string/start_pint"
 					android:textColor="@color/editText"
-					android:textSize="18sp"
+					android:textSize="14sp"
+					android:textStyle="bold"
 					app:layout_constraintStart_toStartOf="@+id/textViewPTDNameTrip"
 					app:layout_constraintTop_toBottomOf="@+id/textViewPTDNameTrip" />
 
@@ -183,7 +153,7 @@
 					android:fontFamily="@font/boutfont"
 					android:text="TextView"
 					android:textColor="@color/colorPrimary"
-					android:textSize="18sp"
+					android:textSize="14sp"
 					app:layout_constraintStart_toStartOf="@+id/textViewPTDStatusNameTrip"
 					app:layout_constraintTop_toTopOf="@+id/TextViewPTDStartPoint" />
 
@@ -196,7 +166,7 @@
 					android:fontFamily="@font/boutfont"
 					android:text="TextView"
 					android:textColor="@color/colorPrimary"
-					android:textSize="18sp"
+					android:textSize="14sp"
 					app:layout_constraintStart_toStartOf="@+id/textViewPTDStatusNameTrip"
 					app:layout_constraintTop_toTopOf="@+id/TextViewPTDEndPoint" />
 
@@ -211,7 +181,8 @@
 					android:gravity="center|start"
 					android:text="@string/end_point"
 					android:textColor="@color/editText"
-					android:textSize="18sp"
+					android:textSize="14sp"
+					android:textStyle="bold"
 					app:layout_constraintStart_toStartOf="@+id/textViewPTDNameTrip"
 					app:layout_constraintTop_toBottomOf="@+id/TextViewPTDStartPoint" />
 
@@ -222,7 +193,8 @@
 					android:layout_marginTop="10dp"
 					android:fontFamily="@font/boutfont"
 					android:text="@string/startdate"
-					android:textSize="18sp"
+					android:textSize="14sp"
+					android:textStyle="bold"
 					app:layout_constraintStart_toStartOf="@+id/textViewPTDNameTrip"
 					app:layout_constraintTop_toBottomOf="@+id/TextViewPTDEndPoint" />
 
@@ -233,7 +205,7 @@
 					android:fontFamily="@font/boutfont"
 					android:text="TextView"
 					android:textColor="@color/colorPrimary"
-					android:textSize="18sp"
+					android:textSize="14sp"
 					app:layout_constraintStart_toStartOf="@+id/textViewPTDStatusNameTrip"
 					app:layout_constraintTop_toTopOf="@+id/textViewPTDStatusDate" />
 
@@ -244,7 +216,8 @@
 					android:layout_marginTop="10dp"
 					android:fontFamily="@font/boutfont"
 					android:text="@string/starttime"
-					android:textSize="18sp"
+					android:textSize="14sp"
+					android:textStyle="bold"
 					app:layout_constraintStart_toStartOf="@+id/textViewPTDNameTrip"
 					app:layout_constraintTop_toBottomOf="@+id/textViewPTDStatusDate" />
 
@@ -255,7 +228,7 @@
 					android:fontFamily="@font/boutfont"
 					android:text="TextView"
 					android:textColor="@color/colorPrimary"
-					android:textSize="18sp"
+					android:textSize="14sp"
 					app:layout_constraintStart_toStartOf="@+id/textViewPTDStatusNameTrip"
 					app:layout_constraintTop_toTopOf="@+id/textViewPTDStatusTime" />
 
@@ -266,7 +239,8 @@
 					android:layout_marginTop="10dp"
 					android:fontFamily="@font/boutfont"
 					android:text="@string/repetition"
-					android:textSize="18sp"
+					android:textSize="14sp"
+					android:textStyle="bold"
 					app:layout_constraintStart_toStartOf="@+id/textViewPTDNameTrip"
 					app:layout_constraintTop_toBottomOf="@+id/textViewPTDStatusTime" />
 
@@ -277,7 +251,7 @@
 					android:fontFamily="@font/boutfont"
 					android:text="TextView"
 					android:textColor="@color/colorPrimary"
-					android:textSize="18sp"
+					android:textSize="14sp"
 					app:layout_constraintStart_toStartOf="@+id/textViewPTDStatusNameTrip"
 					app:layout_constraintTop_toTopOf="@+id/textViewPTDRepetition" />
 
@@ -288,7 +262,8 @@
 					android:layout_marginTop="10dp"
 					android:fontFamily="@font/boutfont"
 					android:text="@string/trip_type"
-					android:textSize="18sp"
+					android:textSize="14sp"
+					android:textStyle="bold"
 					app:layout_constraintStart_toStartOf="@+id/textViewPTDNameTrip"
 					app:layout_constraintTop_toBottomOf="@+id/textViewPTDRepetition" />
 
@@ -297,12 +272,10 @@
 					android:layout_width="wrap_content"
 					android:layout_height="wrap_content"
 					android:layout_marginEnd="17dp"
-					android:layout_marginBottom="40dp"
 					android:fontFamily="@font/boutfont"
 					android:text="TextView"
 					android:textColor="@color/colorPrimary"
-					android:textSize="18sp"
-					app:layout_constraintBottom_toTopOf="@+id/btnStatusStart"
+					android:textSize="14sp"
 					app:layout_constraintEnd_toEndOf="parent"
 					app:layout_constraintHorizontal_bias="0.0"
 					app:layout_constraintStart_toStartOf="@+id/textViewPTDStatusNameTrip"
@@ -315,7 +288,7 @@
 					android:fontFamily="@font/boutfont"
 					android:text="TextView"
 					android:textColor="@color/colorPrimary"
-					android:textSize="18sp"
+					android:textSize="14sp"
 					app:layout_constraintStart_toStartOf="@+id/textViewPTDStatusNameTrip"
 					app:layout_constraintTop_toTopOf="@+id/textViewPTDTripType" />
 
@@ -326,56 +299,27 @@
 					android:layout_marginTop="10dp"
 					android:fontFamily="@font/boutfont"
 					android:text="@string/note"
-					android:textSize="18sp"
+					android:textSize="14sp"
+					android:textStyle="bold"
 					app:layout_constraintStart_toStartOf="@+id/textViewPTDNameTrip"
 					app:layout_constraintTop_toBottomOf="@+id/textViewPTDTripType" />
-
-			   <Button
-					android:id="@+id/btnStatusLater"
-					android:layout_width="0dp"
-					android:layout_height="35dp"
-					android:layout_marginStart="17dp"
-					android:layout_marginTop="20dp"
-					android:layout_marginBottom="20dp"
-					android:background="@drawable/gradient_btn_signin"
-					android:fontFamily="@font/boutfont"
-					android:text="@string/edit"
-					android:textColor="@color/background_offwhite"
-					android:textSize="18sp"
-					app:layout_constraintBottom_toBottomOf="parent"
-					app:layout_constraintStart_toStartOf="parent"
-					app:layout_constraintTop_toBottomOf="@+id/textViewPTDNote" />
-
-			   <Button
-					android:id="@+id/btnStatusStart"
-					android:layout_width="0dp"
-					android:layout_height="35dp"
-					android:layout_marginStart="10dp"
-					android:layout_marginEnd="10dp"
-					android:background="@drawable/gradient_btn_signin"
-					android:fontFamily="@font/boutfont"
-					android:text="@string/start"
-					android:textColor="@color/background_offwhite"
-					android:textSize="18sp"
-					app:layout_constraintBottom_toBottomOf="@+id/btnStatusDelete"
-					app:layout_constraintEnd_toStartOf="@+id/btnStatusDelete"
-					app:layout_constraintStart_toEndOf="@+id/btnStatusLater"
-					app:layout_constraintTop_toTopOf="@+id/btnStatusLater" />
 
 			   <Button
 					android:id="@+id/btnStatusDelete"
 					android:layout_width="0dp"
 					android:layout_height="35dp"
+					android:layout_marginStart="20dp"
 					android:layout_marginTop="20dp"
-					android:layout_marginEnd="17dp"
+					android:layout_marginEnd="20dp"
 					android:layout_marginBottom="20dp"
 					android:background="@drawable/gradient_btn_signup"
 					android:fontFamily="@font/boutfont"
 					android:text="@string/delete"
 					android:textColor="@color/background_offwhite"
-					android:textSize="18sp"
+					android:textSize="14sp"
 					app:layout_constraintBottom_toBottomOf="parent"
 					app:layout_constraintEnd_toEndOf="parent"
+					app:layout_constraintStart_toStartOf="parent"
 					app:layout_constraintTop_toBottomOf="@+id/textViewPTDNote" />
 
 

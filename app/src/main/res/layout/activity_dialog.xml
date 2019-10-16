@@ -4,11 +4,12 @@
 	 xmlns:tools="http://schemas.android.com/tools"
 	 android:layout_width="match_parent"
 	 android:layout_height="wrap_content"
-	 tools:context=".view.DialogActivity">
+	 tools:context=".view.DialogActivity"
+	 android:background="@android:color/transparent">
 
 	 <androidx.constraintlayout.widget.ConstraintLayout
 		  android:layout_width="match_parent"
-		  android:layout_height="170dp"
+		  android:layout_height="wrap_content"
 		  android:layout_margin="10dp"
 		  android:background="@drawable/cardbackground"
 		  android:elevation="6dp"
@@ -20,19 +21,20 @@
 			   android:layout_width="wrap_content"
 			   android:layout_height="wrap_content"
 			   android:layout_marginStart="16dp"
+			   android:layout_marginTop="10dp"
+			   android:background="@drawable/gradient_btn_home"
 			   app:layout_constraintBottom_toBottomOf="parent"
 			   app:layout_constraintStart_toStartOf="parent"
 			   app:layout_constraintTop_toTopOf="parent"
 			   app:layout_constraintVertical_bias="0.060000002"
-			   app:srcCompat="@drawable/details"
-			   android:background="@drawable/gradient_btn_home"/>
+			   app:srcCompat="@drawable/details" />
 
 		  <TextView
 			   android:id="@+id/textViewBtnDetails"
 			   android:layout_width="wrap_content"
 			   android:layout_height="wrap_content"
 			   android:text="@string/details"
-			   android:textSize="18sp"
+			   android:textSize="14sp"
 			   android:fontFamily="@font/boutfont"
 			   android:textColor="@color/background_offwhite"
 			   app:layout_constraintBottom_toBottomOf="@+id/imageBtnDetails"
@@ -85,7 +87,8 @@
 			   android:layout_height="wrap_content"
 			   android:layout_marginStart="10dp"
 			   android:text="@string/trip_name"
-			   android:textSize="18sp"
+			   android:textColor="@color/editText"
+			   android:textSize="14sp"
 			   android:fontFamily="@font/boutfont"
 			   app:layout_constraintBottom_toBottomOf="@+id/imageView"
 			   app:layout_constraintStart_toEndOf="@+id/imageView"
@@ -97,7 +100,8 @@
 			   android:layout_height="wrap_content"
 			   android:layout_marginStart="10dp"
 			   android:text="@string/tripplace"
-			   android:textSize="18sp"
+			   android:textColor="@color/editText"
+			   android:textSize="14sp"
 			   android:fontFamily="@font/boutfont"
 			   app:layout_constraintBottom_toBottomOf="@+id/imageView2"
 			   app:layout_constraintStart_toEndOf="@+id/imageView2"
@@ -109,7 +113,8 @@
 			   android:layout_height="wrap_content"
 			   android:layout_marginStart="10dp"
 			   android:text="@string/tripcalender"
-			   android:textSize="18sp"
+			   android:textSize="14sp"
+			   android:textColor="@color/editText"
 			   android:fontFamily="@font/boutfont"
 			   app:layout_constraintBottom_toBottomOf="@+id/imageView5"
 			   app:layout_constraintStart_toEndOf="@+id/imageView5"
@@ -121,7 +126,7 @@
 			   android:layout_height="wrap_content"
 			   android:layout_marginStart="10dp"
 			   android:text="@string/triptime"
-			   android:textSize="18sp"
+			   android:textSize="14sp"
 			   android:fontFamily="@font/boutfont"
 			   app:layout_constraintBottom_toBottomOf="@+id/imageView6"
 			   app:layout_constraintStart_toEndOf="@+id/imageView6"
@@ -129,11 +134,11 @@
 
 		  <LinearLayout
 			   android:layout_width="0dp"
-			   android:layout_height="60dp"
-			   android:layout_marginStart="30dp"
-			   android:layout_marginTop="20dp"
-			   android:layout_marginEnd="30dp"
-			   android:layout_marginBottom="20dp"
+			   android:layout_height="40dp"
+			   android:layout_marginStart="8dp"
+			   android:layout_marginTop="10dp"
+			   android:layout_marginEnd="8dp"
+			   android:layout_marginBottom="10dp"
 			   android:orientation="horizontal"
 			   app:layout_constraintBottom_toBottomOf="parent"
 			   app:layout_constraintEnd_toEndOf="parent"
@@ -145,41 +150,41 @@
 			   <Button
 					android:id="@+id/btnDialogLater"
 					android:layout_width="wrap_content"
-					android:layout_height="wrap_content"
+					android:layout_height="35dp"
 					android:layout_gravity="center"
 					android:layout_margin="10dp"
 					android:layout_weight="1"
 					android:background="@drawable/gradient_btn_signin"
 					android:text="@string/later"
-					android:textSize="18sp"
+					android:textSize="14sp"
 					android:fontFamily="@font/boutfont"
 					android:textColor="@color/background_offwhite" />
 
 			   <Button
 					android:id="@+id/btnDialogStart"
 					android:layout_width="wrap_content"
-					android:layout_height="wrap_content"
+					android:layout_height="35dp"
 					android:layout_gravity="center"
 					android:layout_margin="10dp"
 					android:layout_weight="1"
 					android:background="@drawable/gradient_btn_signin"
 					android:text="@string/start"
-					android:textSize="18sp"
+					android:textSize="14sp"
 					android:fontFamily="@font/boutfont"
 					android:textColor="@color/background_offwhite" />
 
 			   <Button
 					android:id="@+id/btnDialogCancel"
 					android:layout_width="wrap_content"
-					android:layout_height="wrap_content"
+					android:layout_height="35dp"
 					android:layout_gravity="center"
-					android:layout_margin="10dp"
+					android:layout_margin="4dp"
 					android:layout_weight="1"
 					android:background="@drawable/gradient_btn_sigup"
-					android:text="@string/cancel"
-					android:textSize="18sp"
 					android:fontFamily="@font/boutfont"
-					android:textColor="@color/background_offwhite" />
+					android:text="@string/cancel"
+					android:textColor="@color/background_offwhite"
+					android:textSize="14sp" />
 		  </LinearLayout>
 
 	 </androidx.constraintlayout.widget.ConstraintLayout>

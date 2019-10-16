@@ -73,7 +73,7 @@
 					android:layout_width="wrap_content"
 					android:layout_height="wrap_content"
 					android:layout_marginStart="13dp"
-					android:layout_marginTop="4dp"
+					android:layout_marginTop="8dp"
 					android:text="@string/add_new_trip"
 					android:textColor="@color/home_color"
 					android:textSize="18sp"
@@ -94,7 +94,7 @@
 					android:inputType="textPersonName"
 					android:textColor="@color/colorAccent"
 					android:textColorHint="@color/editText"
-					android:textSize="18sp"
+					android:textSize="14sp"
 					app:layout_constraintEnd_toEndOf="parent"
 					app:layout_constraintStart_toStartOf="parent"
 					app:layout_constraintTop_toBottomOf="@+id/textView2" />
@@ -109,8 +109,9 @@
 					android:fontFamily="@font/boutfont"
 					android:gravity="center"
 					android:text="@string/start_pint"
-					android:textColor="@color/editText"
-					android:textSize="18sp"
+					android:textColor="@color/colorPrimary"
+					android:textSize="14sp"
+					android:textStyle="bold"
 					app:layout_constraintStart_toStartOf="@+id/textView2"
 					app:layout_constraintTop_toBottomOf="@+id/editText_nameTrip" />
 
@@ -124,8 +125,9 @@
 					android:fontFamily="@font/boutfont"
 					android:gravity="center"
 					android:text="@string/end_point"
-					android:textColor="@color/editText"
-					android:textSize="18sp"
+					android:textColor="@color/colorPrimary"
+					android:textSize="14sp"
+					android:textStyle="bold"
 					app:layout_constraintStart_toStartOf="@+id/TextViewStartPoint"
 					app:layout_constraintTop_toBottomOf="@+id/divider3" />
 
@@ -195,11 +197,35 @@
 			   <!--			   app:layout_constraintStart_toEndOf="@+id/editText_startPoint"-->
 			   <!--			   app:layout_constraintTop_toBottomOf="@+id/editText_nameTrip" />-->
 
+			   <View
+					android:id="@+id/divider3"
+					android:layout_width="0dp"
+					android:layout_height="1dp"
+					android:layout_marginTop="8dp"
+					android:layout_marginEnd="17dp"
+					android:background="@color/editText"
+					app:layout_constraintEnd_toEndOf="parent"
+					app:layout_constraintHorizontal_bias="1.0"
+					app:layout_constraintStart_toStartOf="@+id/editText_nameTrip"
+					app:layout_constraintTop_toBottomOf="@+id/TextViewStartPoint" />
+
+			   <View
+					android:id="@+id/divider4"
+					android:layout_width="0dp"
+					android:layout_height="1dp"
+					android:layout_marginTop="8dp"
+					android:layout_marginEnd="17dp"
+					android:background="@color/editText"
+					app:layout_constraintEnd_toEndOf="parent"
+					app:layout_constraintStart_toStartOf="@+id/editText_nameTrip"
+					app:layout_constraintTop_toBottomOf="@+id/textViewEndPoint" />
+
 			   <EditText
 					android:id="@+id/editText_startDate"
 					android:layout_width="0dp"
 					android:layout_height="wrap_content"
 					android:layout_marginStart="10dp"
+					android:layout_marginTop="8dp"
 					android:layout_marginEnd="17dp"
 					android:ems="10"
 					android:fontFamily="@font/boutfont"
@@ -207,16 +233,17 @@
 					android:inputType="datetime"
 					android:textColor="@color/colorAccent"
 					android:textColorHint="@color/editText"
-					android:textSize="18sp"
+					android:textSize="14sp"
 					app:layout_constraintEnd_toEndOf="parent"
 					app:layout_constraintStart_toStartOf="parent"
-					app:layout_constraintTop_toBottomOf="@+id/textViewEndPoint" />
+					app:layout_constraintTop_toBottomOf="@+id/divider4" />
 
 			   <EditText
 					android:id="@+id/editText_startTime"
 					android:layout_width="0dp"
 					android:layout_height="wrap_content"
 					android:layout_marginStart="10dp"
+					android:layout_marginTop="8dp"
 					android:layout_marginEnd="17dp"
 					android:ems="10"
 					android:fontFamily="@font/boutfont"
@@ -224,7 +251,7 @@
 					android:inputType="time"
 					android:textColor="@color/colorAccent"
 					android:textColorHint="@color/editText"
-					android:textSize="18sp"
+					android:textSize="14sp"
 					app:layout_constraintEnd_toEndOf="parent"
 					app:layout_constraintStart_toStartOf="parent"
 					app:layout_constraintTop_toBottomOf="@+id/editText_startDate" />
@@ -238,7 +265,8 @@
 					android:fontFamily="@font/boutfont"
 					android:text="@string/repetition"
 					android:textColor="@color/colorPrimary"
-					android:textSize="18sp"
+					android:textSize="14sp"
+					android:textStyle="bold"
 					android:visibility="visible"
 					app:layout_constraintStart_toStartOf="parent"
 					app:layout_constraintTop_toBottomOf="@+id/editText_startTime" />
@@ -269,7 +297,7 @@
 							  android:text="@string/daily"
 							  android:textColor="@color/editText"
 							  android:textColorHint="@color/colorAccent"
-							  android:textSize="18sp" />
+							  android:textSize="14sp" />
 
 						 <RadioButton
 							  android:id="@+id/radioBtnWeakly"
@@ -280,7 +308,7 @@
 							  android:text="@string/weakly"
 							  android:textColor="@color/editText"
 							  android:textColorHint="@color/colorAccent"
-							  android:textSize="18sp" />
+							  android:textSize="14sp" />
 
 						 <RadioButton
 							  android:id="@+id/radioBtnDays"
@@ -288,87 +316,14 @@
 							  android:layout_height="wrap_content"
 							  android:layout_weight="1"
 							  android:fontFamily="@font/boutfont"
-							  android:text="@string/days"
+							  android:text="@string/months"
 							  android:textColor="@color/editText"
 							  android:textColorHint="@color/colorAccent"
-							  android:textSize="18sp" />
+							  android:textSize="14sp" />
 
 
 					</RadioGroup>
 
-			   </LinearLayout>
-
-			   <LinearLayout
-					android:id="@+id/linearLayoutDays"
-					android:layout_width="wrap_content"
-					android:layout_height="wrap_content"
-					android:orientation="vertical"
-					android:visibility="gone"
-					app:layout_constraintStart_toStartOf="@+id/linearLayout"
-					app:layout_constraintTop_toBottomOf="@+id/linearLayout">
-
-					<CheckBox
-						 android:id="@+id/checkBoxSaturday"
-						 android:layout_width="match_parent"
-						 android:layout_height="wrap_content"
-						 android:text="@string/saturday"
-						 android:textColor="@color/editText"
-						 android:textColorHint="@color/colorAccent"
-						 android:textSize="14sp" />
-
-					<CheckBox
-						 android:id="@+id/checkBoxSunday"
-						 android:layout_width="match_parent"
-						 android:layout_height="wrap_content"
-						 android:text="@string/sunday"
-						 android:textColor="@color/editText"
-						 android:textColorHint="@color/colorAccent"
-						 android:textSize="14sp" />
-
-					<CheckBox
-						 android:id="@+id/checkBoxMonday"
-						 android:layout_width="match_parent"
-						 android:layout_height="wrap_content"
-						 android:text="@string/monday"
-						 android:textColor="@color/editText"
-						 android:textColorHint="@color/colorAccent"
-						 android:textSize="14sp" />
-
-					<CheckBox
-						 android:id="@+id/checkBoxTuesday"
-						 android:layout_width="match_parent"
-						 android:layout_height="wrap_content"
-						 android:text="@string/tuesday"
-						 android:textColor="@color/editText"
-						 android:textColorHint="@color/colorAccent"
-						 android:textSize="14sp" />
-
-					<CheckBox
-						 android:id="@+id/checkBoxWednesday"
-						 android:layout_width="match_parent"
-						 android:layout_height="wrap_content"
-						 android:text="@string/wednesday"
-						 android:textColor="@color/editText"
-						 android:textColorHint="@color/colorAccent"
-						 android:textSize="14sp" />
-
-					<CheckBox
-						 android:id="@+id/checkBoxThursday"
-						 android:layout_width="match_parent"
-						 android:layout_height="wrap_content"
-						 android:text="@string/thursday"
-						 android:textColor="@color/editText"
-						 android:textColorHint="@color/colorAccent"
-						 android:textSize="14sp" />
-
-					<CheckBox
-						 android:id="@+id/checkBoxFriday"
-						 android:layout_width="match_parent"
-						 android:layout_height="wrap_content"
-						 android:text="@string/friday"
-						 android:textColor="@color/editText"
-						 android:textColorHint="@color/colorAccent"
-						 android:textSize="14sp" />
 			   </LinearLayout>
 
 			   <TextView
@@ -381,9 +336,10 @@
 					android:text="@string/trip_type"
 					android:textColor="@color/colorPrimary"
 					android:textColorHint="@color/colorAccent"
-					android:textSize="18sp"
+					android:textSize="14sp"
+					android:textStyle="bold"
 					app:layout_constraintStart_toStartOf="parent"
-					app:layout_constraintTop_toBottomOf="@+id/linearLayoutDays" />
+					app:layout_constraintTop_toBottomOf="@+id/linearLayout" />
 
 			   <LinearLayout
 					android:id="@+id/linearLayout5"
@@ -410,7 +366,7 @@
 							  android:text="@string/one_direction"
 							  android:textColor="@color/editText"
 							  android:textColorHint="@color/colorAccent"
-							  android:textSize="18sp" />
+							  android:textSize="14sp" />
 
 						 <RadioButton
 							  android:id="@+id/radioBtnRoundTrip"
@@ -421,7 +377,7 @@
 							  android:text="@string/round_trip"
 							  android:textColor="@color/editText"
 							  android:textColorHint="@color/colorAccent"
-							  android:textSize="18sp" />
+							  android:textSize="14sp" />
 					</RadioGroup>
 			   </LinearLayout>
 
@@ -442,7 +398,7 @@
 					android:singleLine="false"
 					android:textColor="@color/colorAccent"
 					android:textColorHint="@color/editText"
-					android:textSize="18sp"
+					android:textSize="14sp"
 					app:layout_constraintEnd_toEndOf="parent"
 					app:layout_constraintStart_toStartOf="parent"
 					app:layout_constraintTop_toBottomOf="@+id/linearLayout5" />
@@ -452,16 +408,15 @@
 					android:layout_width="wrap_content"
 					android:layout_height="wrap_content"
 					android:layout_marginStart="50dp"
-					android:layout_marginTop="20dp"
 					android:layout_marginBottom="100dp"
 					android:background="@drawable/gradient_btn_signin"
 					android:fontFamily="@font/boutfont"
 					android:text="@string/add"
 					android:textColor="@color/background_offwhite"
-					android:textSize="18sp"
+					android:textSize="14sp"
 					app:layout_constraintBottom_toBottomOf="parent"
 					app:layout_constraintStart_toStartOf="@+id/editTextNote"
-					app:layout_constraintTop_toBottomOf="@+id/editTextNote" />
+					app:layout_constraintTop_toTopOf="@+id/btnCancel" />
 
 			   <Button
 					android:id="@+id/btnCancel"
@@ -474,21 +429,10 @@
 					android:fontFamily="@font/boutfont"
 					android:text="@string/cancel"
 					android:textColor="@color/background_offwhite"
-					android:textSize="18sp"
+					android:textSize="14sp"
 					app:layout_constraintBottom_toBottomOf="parent"
 					app:layout_constraintEnd_toEndOf="@+id/editTextNote"
 					app:layout_constraintTop_toBottomOf="@+id/editTextNote" />
-
-			   <View
-					android:id="@+id/divider3"
-					android:layout_width="0dp"
-					android:layout_height="1dp"
-					android:layout_marginTop="10dp"
-					android:layout_marginEnd="17dp"
-					android:background="@color/editText"
-					app:layout_constraintEnd_toEndOf="parent"
-					app:layout_constraintStart_toStartOf="@+id/editText_nameTrip"
-					app:layout_constraintTop_toBottomOf="@+id/TextViewStartPoint" />
 
 
 		  </androidx.constraintlayout.widget.ConstraintLayout>
@@ -499,7 +443,7 @@
 		  android:layout_width="match_parent"
 		  android:layout_height="60dp"
 		  android:background="@drawable/bar"
-		  app:elevation="8dp"
+		  app:elevation="20dp"
 		  app:layout_constraintBottom_toBottomOf="parent"
 		  app:layout_constraintEnd_toEndOf="parent"
 		  app:layout_constraintStart_toStartOf="parent">
@@ -510,9 +454,9 @@
 			   android:layout_width="wrap_content"
 			   android:layout_height="wrap_content"
 			   android:layout_marginStart="30dp"
-			   android:src="@drawable/home_yellow"
 			   android:background="@drawable/gradient_btn_profile"
 			   android:elevation="6dp"
+			   android:src="@drawable/home_yellow"
 			   app:layout_constraintBottom_toBottomOf="parent"
 			   app:layout_constraintStart_toStartOf="parent"
 			   app:layout_constraintTop_toTopOf="parent"
@@ -525,9 +469,9 @@
 			   android:layout_width="wrap_content"
 			   android:layout_height="wrap_content"
 			   android:layout_marginTop="36dp"
-			   android:text="@string/home"
-			  android:background="@drawable/gradient_btn_profile"
+			   android:background="@drawable/gradient_btn_profile"
 			   android:fontFamily="@font/boutfont"
+			   android:text="@string/home"
 			   android:textColor="@color/colorAccent"
 			   app:layout_constraintEnd_toEndOf="@+id/imageBtnHome"
 			   app:layout_constraintStart_toStartOf="@+id/imageBtnHome"
@@ -540,9 +484,9 @@
 			   android:layout_width="wrap_content"
 			   android:layout_height="wrap_content"
 			   android:layout_marginEnd="30dp"
-			   android:src="@drawable/user"
 			   android:background="@drawable/gradient_btn_home"
 			   android:elevation="6dp"
+			   android:src="@drawable/user"
 			   app:layout_constraintBottom_toBottomOf="parent"
 			   app:layout_constraintEnd_toEndOf="parent"
 			   app:layout_constraintTop_toTopOf="parent"
@@ -553,8 +497,8 @@
 			   android:layout_width="wrap_content"
 			   android:layout_height="wrap_content"
 			   android:layout_marginTop="36dp"
-			   android:text="@string/user"
 			   android:fontFamily="@font/boutfont"
+			   android:text="@string/user"
 			   android:textColor="@color/colorPrimary"
 			   app:layout_constraintEnd_toEndOf="@+id/imageBtnProfile"
 			   app:layout_constraintStart_toStartOf="@+id/imageBtnProfile"

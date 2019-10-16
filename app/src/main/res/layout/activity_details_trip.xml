@@ -132,7 +132,7 @@
 					android:inputType="textPersonName"
 					android:textColor="@color/colorAccent"
 					android:textColorHint="@color/colorPrimary"
-					android:textSize="18sp"
+					android:textSize="14sp"
 					app:layout_constraintEnd_toEndOf="parent"
 					app:layout_constraintStart_toStartOf="parent"
 					app:layout_constraintTop_toBottomOf="@+id/textView2" />
@@ -145,7 +145,8 @@
 					android:layout_marginTop="10dp"
 					android:fontFamily="@font/boutfont"
 					android:text="@string/status"
-					android:textSize="18sp"
+					android:textSize="14sp"
+					android:textStyle="bold"
 					app:layout_constraintStart_toStartOf="parent"
 					app:layout_constraintTop_toBottomOf="@+id/editText_nameTrip2" />
 
@@ -156,7 +157,8 @@
 					android:layout_marginTop="10dp"
 					android:fontFamily="@font/boutfont"
 					android:text="@string/repetition"
-					android:textSize="18sp"
+					android:textSize="14sp"
+					android:textStyle="bold"
 					app:layout_constraintStart_toStartOf="@+id/textViewStatus"
 					app:layout_constraintTop_toBottomOf="@+id/textViewStatus" />
 
@@ -167,7 +169,8 @@
 					android:layout_marginTop="10dp"
 					android:fontFamily="@font/boutfont"
 					android:text="@string/trip_type"
-					android:textSize="18sp"
+					android:textSize="14sp"
+					android:textStyle="bold"
 					app:layout_constraintStart_toStartOf="@+id/textViewStatusRepetition"
 					app:layout_constraintTop_toBottomOf="@+id/textViewStatusRepetition" />
 
@@ -178,7 +181,7 @@
 					android:fontFamily="@font/boutfont"
 					android:text="TextView"
 					android:textColor="@color/colorPrimary"
-					android:textSize="18sp"
+					android:textSize="14sp"
 					app:layout_constraintStart_toStartOf="@+id/textViewStatusShow"
 					app:layout_constraintTop_toTopOf="@+id/textViewStatusTripType" />
 
@@ -193,7 +196,8 @@
 					android:gravity="center|start"
 					android:text="@string/start_pint"
 					android:textColor="@color/editText"
-					android:textSize="18sp"
+					android:textSize="14sp"
+					android:textStyle="bold"
 					app:layout_constraintStart_toStartOf="@+id/textViewStatusTripType"
 					app:layout_constraintTop_toBottomOf="@+id/textViewStatusTripType" />
 
@@ -206,7 +210,7 @@
 					android:fontFamily="@font/boutfont"
 					android:text="TextView"
 					android:textColor="@color/colorPrimary"
-					android:textSize="18sp"
+					android:textSize="14sp"
 					app:layout_constraintStart_toStartOf="@+id/textViewStatusShow"
 					app:layout_constraintTop_toTopOf="@+id/TextViewStartPoint" />
 
@@ -219,7 +223,7 @@
 					android:fontFamily="@font/boutfont"
 					android:text="TextView"
 					android:textColor="@color/colorPrimary"
-					android:textSize="18sp"
+					android:textSize="14sp"
 					app:layout_constraintStart_toStartOf="@+id/textViewStatusShow"
 					app:layout_constraintTop_toTopOf="@+id/TextViewEndPoint" />
 
@@ -234,7 +238,8 @@
 					android:gravity="center|start"
 					android:text="@string/end_point"
 					android:textColor="@color/editText"
-					android:textSize="18sp"
+					android:textSize="14sp"
+					android:textStyle="bold"
 					app:layout_constraintStart_toStartOf="@+id/textViewStatusTripType"
 					app:layout_constraintTop_toBottomOf="@+id/TextViewStartPoint" />
 
@@ -255,7 +260,7 @@
 					android:inputType="time"
 					android:textColor="@color/colorAccent"
 					android:textColorHint="@color/colorPrimary"
-					android:textSize="18sp"
+					android:textSize="14sp"
 					app:layout_constraintEnd_toEndOf="parent"
 					app:layout_constraintStart_toStartOf="parent"
 					app:layout_constraintTop_toBottomOf="@+id/editTextStatusStartDate" />
@@ -277,7 +282,7 @@
 					android:inputType="datetime"
 					android:textColor="@color/colorAccent"
 					android:textColorHint="@color/colorPrimary"
-					android:textSize="18sp"
+					android:textSize="14sp"
 					app:layout_constraintEnd_toEndOf="parent"
 					app:layout_constraintStart_toStartOf="parent"
 					app:layout_constraintTop_toBottomOf="@+id/TextViewEndPoint" />
@@ -303,7 +308,7 @@
 					android:singleLine="false"
 					android:textColor="@color/colorAccent"
 					android:textColorHint="@color/colorPrimary"
-					android:textSize="18sp"
+					android:textSize="14sp"
 					app:layout_constraintEnd_toEndOf="parent"
 					app:layout_constraintStart_toStartOf="parent"
 					app:layout_constraintTop_toBottomOf="@+id/editTextStatusStartTime" />
@@ -319,7 +324,7 @@
 					android:fontFamily="@font/boutfont"
 					android:text="@string/edit"
 					android:textColor="@color/background_offwhite"
-					android:textSize="18sp"
+					android:textSize="14sp"
 					app:layout_constraintBottom_toBottomOf="parent"
 					app:layout_constraintStart_toStartOf="@+id/editTextStatusNote"
 					app:layout_constraintTop_toBottomOf="@+id/editTextStatusNote" />
@@ -328,15 +333,15 @@
 					android:id="@+id/btnStatusStart"
 					android:layout_width="0dp"
 					android:layout_height="35dp"
-					android:layout_marginStart="10dp"
+					android:layout_marginStart="5dp"
 					android:layout_marginTop="20dp"
-					android:layout_marginEnd="10dp"
+					android:layout_marginEnd="5dp"
 					android:layout_marginBottom="100dp"
 					android:background="@drawable/gradient_btn_signin"
 					android:fontFamily="@font/boutfont"
 					android:text="@string/start"
 					android:textColor="@color/background_offwhite"
-					android:textSize="18sp"
+					android:textSize="14sp"
 					app:layout_constraintBottom_toBottomOf="parent"
 					app:layout_constraintEnd_toStartOf="@+id/btnStatusDelete"
 					app:layout_constraintStart_toEndOf="@+id/btnStatusLater"
@@ -353,7 +358,7 @@
 					android:fontFamily="@font/boutfont"
 					android:text="@string/delete"
 					android:textColor="@color/background_offwhite"
-					android:textSize="18sp"
+					android:textSize="14sp"
 					app:layout_constraintBottom_toBottomOf="parent"
 					app:layout_constraintEnd_toEndOf="@+id/editTextStatusNote"
 					app:layout_constraintTop_toBottomOf="@+id/editTextNote" />
@@ -366,7 +371,7 @@
 					android:fontFamily="@font/boutfont"
 					android:text="TextView"
 					android:textColor="@color/colorPrimary"
-					android:textSize="18sp"
+					android:textSize="14sp"
 					app:layout_constraintStart_toEndOf="@+id/textViewStatus"
 					app:layout_constraintTop_toTopOf="@+id/textViewStatus" />
 
@@ -377,7 +382,7 @@
 					android:fontFamily="@font/boutfont"
 					android:text="TextView"
 					android:textColor="@color/colorPrimary"
-					android:textSize="18sp"
+					android:textSize="14sp"
 					app:layout_constraintStart_toStartOf="@+id/textViewStatusShow"
 					app:layout_constraintTop_toTopOf="@+id/textViewStatusRepetition" />
 
