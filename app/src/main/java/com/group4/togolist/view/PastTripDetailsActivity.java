@@ -146,6 +146,7 @@ public class PastTripDetailsActivity extends AppCompatActivity  implements View.
                 repetitionString = "WEEKLY";
                 break;
             case Trip.MONTHLY:
+                repetitionString = "MONTHLY";
                 break;
         }
         txtRepetition.setText(repetitionString);
