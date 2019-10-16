@@ -26,7 +26,7 @@ import java.util.List;
 /**
  * A simple {@link Fragment} subclass.
  */
-public class UpcomingFragment extends Fragment  implements HistoryAdapter.OnItemListener {
+public class UpcomingFragment extends Fragment  implements HomeRecyclerViewAdapter.OnItemListener {
 
     private RecyclerView recyclerViewUpcomingTrip;
     private List<Trip> upcomingTrip ;
@@ -50,7 +50,7 @@ public class UpcomingFragment extends Fragment  implements HistoryAdapter.OnItem
 
         LinearLayoutManager lm = new LinearLayoutManager(context);
         recyclerViewUpcomingTrip.setLayoutManager(lm);
-        HomeRecyclerViewAdapter adapter = new HomeRecyclerViewAdapter((HomeRecyclerViewAdapter.OnItemListener) this, context);
+        HomeRecyclerViewAdapter adapter = new HomeRecyclerViewAdapter(this , context);
 
         adapter.setUpcomingTrip(upcomingTrip);
 
