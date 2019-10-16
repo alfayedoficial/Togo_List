@@ -49,12 +49,6 @@ public class HomeActivity extends AppCompatActivity implements View.OnClickListe
         initcomponent();
         homeViewModel = ViewModelProviders.of(this , new MyViewModelFactory(HomeActivity.this)).get(HomeViewModel.class);
 
-        btnUpcoming = findViewById(R.id.btnUpcoming);
-        btnPastTrip = findViewById(R.id.btnPastTrip);
-
-        btnUpcoming.setOnClickListener(this);
-        btnPastTrip.setOnClickListener(this);
-
         viewPager = findViewById(R.id.viewPager);
         Fragment[] fragments = new Fragment[2];
 
@@ -88,10 +82,26 @@ public class HomeActivity extends AppCompatActivity implements View.OnClickListe
                     case 0:
                         btnUpcoming.setEnabled(false);
                         btnPastTrip.setEnabled(true);
+
+                      /*  btnUpcoming.setTextColor(getResources().getColor(R.color.background_offwhite));
+                        btnUpcoming.setBackgroundColor(getResources().getColor(R.color.colorPrimaryDark));
+                        btnUpcoming.setBackgroundResource((R.drawable.buttonbarhome));
+
+                        btnPastTrip.setTextColor(getResources().getColor(R.color.colorPrimaryDark));
+                        btnPastTrip.setBackgroundColor(getResources().getColor(R.color.background_offwhite));
+                        btnPastTrip.setBackgroundResource((R.drawable.buttonbarhome2));*/
                         break;
                     case 1:
                         btnUpcoming.setEnabled(true);
                         btnPastTrip.setEnabled(false);
+                        /*
+                        btnUpcoming.setTextColor(getResources().getColor(R.color.colorPrimaryDark));
+                        btnUpcoming.setBackgroundColor(getResources().getColor(R.color.background_offwhite));
+                        btnUpcoming.setBackgroundResource((R.drawable.buttonbarhome));
+
+                        btnPastTrip.setTextColor(getResources().getColor(R.color.background_offwhite));
+                        btnPastTrip.setBackgroundColor(getResources().getColor(R.color.colorPrimaryDark));
+                        btnPastTrip.setBackgroundResource((R.drawable.buttonbarhome2));*/
                         break;
                 }
             }
@@ -106,9 +116,17 @@ public class HomeActivity extends AppCompatActivity implements View.OnClickListe
     }
 
     private void initcomponent() {
+
+
+        btnUpcoming = findViewById(R.id.btnUpcoming);
+        btnPastTrip = findViewById(R.id.btnPastTrip);
+
         imgBtnHome = findViewById(R.id.imageBtnHome);
         imgBtnProfile = findViewById(R.id.imageBtnProfile);
         fltBtnAdd = findViewById(R.id.fABtnAddNote);
+
+        btnUpcoming.setOnClickListener(this);
+        btnPastTrip.setOnClickListener(this);
 
         imgBtnHome.setEnabled(false);
 
