@@ -71,6 +71,7 @@ public class DetailsTripActivity extends AppCompatActivity implements View.OnCli
         eTxtStartDate = findViewById(R.id.editTextStatusStartDate);
         eTxtStartTime = findViewById(R.id.editTextStatusStartTime);
         eTxtNotes = findViewById(R.id.editTextStatusNote);
+
         setEditTextEnablity(false);
 
         txtStatus = findViewById(R.id.textViewStatusShow);
@@ -361,8 +362,10 @@ public class DetailsTripActivity extends AppCompatActivity implements View.OnCli
 
     private void setEditTextEnablity( boolean enable){
         eTxtTripName.setEnabled(enable);
+        eTxtTripName.setClickable(enable);
         eTxtStartTime.setEnabled(enable);
         eTxtStartDate.setEnabled(enable);
+        eTxtNotes.setClickable(enable);
         eTxtNotes.setEnabled(enable);
     }
 
