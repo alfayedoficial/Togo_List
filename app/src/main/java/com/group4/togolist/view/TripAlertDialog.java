@@ -3,59 +3,127 @@ package com.group4.togolist.view;
 import android.app.AlertDialog;
 import android.app.Dialog;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.Window;
+import android.widget.Button;
+import android.widget.TextView;
 
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import androidx.fragment.app.DialogFragment;
 
 import com.group4.togolist.R;
+import com.group4.togolist.viewmodel.DialogViewModel;
 
-public class TripAlertDialog extends DialogFragment {
+public class TripAlertDialog  implements View.OnClickListener {
+    private Context context;
+    private DialogViewModel dialogViewModel ;
+    private String tripName ;
+    private TextView txtTripName , txtTripPlace , txtTripDate , txtTripTime ;
 
-   private String [] tripData;
+    public  TripAlertDialog(Context context , String tripNam){
+        this.context = context ;
+        this.tripName = tripNam;
+        //dialogViewModel = new DialogViewModel();
 
-    private AlertDialog.Builder builder ;
-    private TripDialogInterface  tripDialogInterface;
-
-    public void setTripData(String[] tripData) {
-        this.tripData = tripData;
     }
+    public void showDialog ( ){
 
-    @NonNull
-    @Override
-    public Dialog onCreateDialog(@Nullable Bundle savedInstanceState) {
-        Dialog dialog = super.onCreateDialog(savedInstanceState);
-        dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
+        Dialog dialog = new Dialog(context);
+        dialog.setContentView(R.layout.activity_dialog);
+         txtTripName = dialog.findViewById(R.id.textViewPastTripName);
+         txtTripPlace = dialog.findViewById(R.id.textViewPastTripPlace);
+          txtTripDate = dialog.findViewById(R.id.textViewPastTripCalender);
+         txtTripTime = dialog.findViewById(R.id.textViewPastTripTime);
+
+        //TextView imgBtnDetails = findViewById(R.id.imageBtnDetails);
+        Button btnStart = dialog.findViewById(R.id.btnDialogStart);
+        Button  btnLater = dialog.findViewById(R.id.btnDialogLater);
+        Button btnCancel = dialog.findViewById(R.id.btnDialogCancel);
+
+      //  imgBtnDetails.setOnClickListener(this);
+        btnStart.setOnClickListener(this);
+        btnLater.setOnClickListener(this);
+        btnCancel.setOnClickListener(this);
         dialog.setCanceledOnTouchOutside(false);
-        return dialog;
+        dialog.show();
+    }
+
+
+
+    private void cancelTrip() {
+        AlertDialog.Builder builder = new AlertDialog.Builder(context);
+        /**
+         * set message
+         */
+
+        builder.setMessage("Are you Sure you want to Cancel the Trip?");
+        builder.setCancelable(false);
+        builder.setPositiveButton("Yes",
+                new DialogInterface.OnClickListener() {
+
+                    public void onClick(DialogInterface dialog,
+                                        int which) {
+                        dialogViewModel.cancelTrip();
+                    }
+                });
+
+        builder.setNegativeButton("No",
+                new DialogInterface.OnClickListener() {
+
+                    public void onClick(DialogInterface dialog,
+                                        int which) {
+                        // TODO Auto-generated method stub
+                        // close the dialog box
+                        dialog.cancel();
+                    }
+                });
+/**
+ * create instance of alert dialog and assign configuration of builder to alert dialog instance
+ */
+
+        AlertDialog alert = builder.create();
+        alert.setCanceledOnTouchOutside(false);
+        /**
+         * Show Alert Dialog
+         */
+
+        alert.show();
+    }
+    /**
+     *
+     * @param tripName assign Trip Name to textView for TripName
+     * @param tripPlace assign Trip Place to textView for TripPlace
+     * @param tripDate assign Trip Date to textView for TripDate
+     * @param tripTime assign Trip Time to textView for TripTime
+     */
+    public void setDialogTripData(String tripName , String tripPlace , String tripDate , String tripTime){
+
+        txtTripName.setText(tripName);
+        txtTripDate.setText(tripPlace);
+        txtTripDate.setText(tripDate);
+        txtTripTime.setText(tripTime);
+
     }
 
     @Override
-    public void onAttach(@NonNull Context context) {
-
-        super.onAttach(context);
-        try {
-            tripDialogInterface = (TripDialogInterface) context;
-        } catch (Exception e) {
-            e.printStackTrace();
+    public void onClick(View v) {
+        switch (v.getId()){
+            case R.id.btnDialogStart:
+                dialogViewModel.startTrip();
+                break;
+            case R.id.btnDialogLater:
+                dialogViewModel.waitForLater();
+                break;
+            case R.id.btnDialogCancel:
+                cancelTrip();
+                break;
+            case R.id.imageBtnDetails:
+                dialogViewModel.showDetails();
+                break;
         }
 
 
-        super.onAttach(context);
-    }
-
-    @Nullable
-    @Override
-    public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-
-        View dialogView = inflater.inflate(R.layout.activity_dialog , container , false );
-
-
-        return dialogView;
     }
 }
