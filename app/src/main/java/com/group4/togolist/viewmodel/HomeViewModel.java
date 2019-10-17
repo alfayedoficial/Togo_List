@@ -103,6 +103,9 @@ public class HomeViewModel extends ViewModel {
         activity.startActivity(new Intent(activity, ProfileActivity.class));
     }
 
+    /**
+     *
+     */
     public void goToAddForm(){
         activity.startActivity(new Intent(activity, AddFormActivity.class));
     }
