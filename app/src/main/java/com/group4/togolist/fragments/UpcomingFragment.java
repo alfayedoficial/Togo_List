@@ -71,6 +71,11 @@ public class UpcomingFragment extends Fragment implements HomeRecyclerViewAdapte
     public void onItemDeleteClick(int deleteTripPosition) {
             deleteTrip(upcomingTrip.get(deleteTripPosition).getTripName());
     }
+
+    /**
+     *
+     *  to show alert dialog
+     */
     private void deleteTrip(String tripNam) {
        final String  tripName = tripNam ;
         AlertDialog.Builder builder = new AlertDialog.Builder(
