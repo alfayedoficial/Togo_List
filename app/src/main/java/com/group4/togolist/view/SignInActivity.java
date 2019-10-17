@@ -6,6 +6,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 
+import com.google.android.material.textfield.TextInputLayout;
 import com.group4.togolist.R;
 import com.group4.togolist.viewmodel.LoginViewModel;
 
@@ -23,8 +24,8 @@ public class SignInActivity extends AppCompatActivity implements View.OnClickLis
      */
 
     private LoginViewModel loginViewModel;
-    private Button btnCancel, btnForgetPassword, btnSignIn, btnSignInWithGoogle, btn_forget_password;
-    private EditText eTxtEmail, eTxtPassword;
+    private Button btnForgetPassword, btnSignIn, btnSignInWithGoogle;
+    private TextInputLayout eTxtEmail, eTxtPassword;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -42,7 +43,6 @@ public class SignInActivity extends AppCompatActivity implements View.OnClickLis
     private void initComponent() {
 
         btnSignIn = findViewById(R.id.btn_sign_up);
-        btnCancel = findViewById(R.id.btn_Cancel_Signin);
         btnSignInWithGoogle = findViewById(R.id.btn_sign_up_with_google);
         btnForgetPassword = findViewById(R.id.btn_forget_password);
 
@@ -50,7 +50,6 @@ public class SignInActivity extends AppCompatActivity implements View.OnClickLis
         eTxtPassword = findViewById(R.id.editText_password_Signin);
 
         btnSignIn.setOnClickListener(this);
-        btnCancel.setOnClickListener(this);
         btnSignInWithGoogle.setOnClickListener(this);
         btnForgetPassword.setOnClickListener(this);
 
@@ -68,13 +67,9 @@ public class SignInActivity extends AppCompatActivity implements View.OnClickLis
         switch (v.getId()) {
             case R.id.btn_sign_up:
 
-                loginViewModel.signIn(eTxtEmail.getText().toString(), eTxtPassword.getText().toString());
+                loginViewModel.signIn(eTxtEmail.toString(), eTxtPassword.toString());
                 break;
 
-            case R.id.btn_Cancel_Signin:
-
-                loginViewModel.cancel();
-                break;
 
             case R.id.btn_sign_up_with_google:
                 loginViewModel.signInWithGoogle();
