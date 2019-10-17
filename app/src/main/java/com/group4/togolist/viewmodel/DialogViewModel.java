@@ -67,6 +67,7 @@ public class DialogViewModel extends ViewModel {
         Intent intent = new Intent(activity, DetailsTripActivity.class);
         intent.putExtra(HomeViewModel.TRIP_NAME,currentTrip.getTripName());
         activity.startActivity(intent);
+        activity.finish();
     }
 
     /**
@@ -76,6 +77,7 @@ public class DialogViewModel extends ViewModel {
         NotificationHelper notificationHelper = new NotificationHelper(activity);
         NotificationCompat.Builder nb = notificationHelper.getChannelNotification();
         notificationHelper.getManager().notify(1, nb.build());
+        activity.finish();
     }
 
     /**
@@ -92,6 +94,7 @@ public class DialogViewModel extends ViewModel {
         currentTrip.setStatus(Trip.ENDED);
         // Attempt to start an activity that can handle the Intent
         activity.startActivity(tripIntent);
+        activity.finish();
     }
 
     /**
