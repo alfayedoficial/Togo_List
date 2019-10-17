@@ -11,6 +11,11 @@ public class TripAlarm extends BroadcastReceiver {
 
     public static final String TRIP_NAME = "TripName";
 
+    /**
+     *
+     * @param context
+     * @param intent
+     */
     @Override
     public void onReceive(Context context, Intent intent) {
         String tripName = intent.getExtras().getString(TRIP_NAME);
