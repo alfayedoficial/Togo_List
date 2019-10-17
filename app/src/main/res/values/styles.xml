@@ -20,6 +20,7 @@
 		  <item name="android:textColor">@color/color7</item>
 		  <item name="android:fontFamily">@font/boutfont</item>
 <!--		  <item name="android:textSize">10sp</item>-->
+		  <item name="android:importantForAutofill">noExcludeDescendants</item>
 		  <item name="android:textStyle">bold</item>
 		  <item name="android:strokeColor">@color/colorheavy</item>
 

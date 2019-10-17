@@ -75,69 +75,59 @@
 					app:layout_constraintTop_toBottomOf="@+id/textView2"
 					app:layout_constraintVertical_bias="0.0" />
 
-			   <TextView
-
-					android:id="@+id/textViewPofileUsername"
-					android:layout_width="wrap_content"
-					android:layout_height="wrap_content"
-					android:layout_marginTop="16dp"
-					android:text="@string/username"
-					android:textSize="14sp"
-					android:textStyle="bold"
-					app:layout_constraintStart_toStartOf="@+id/textView2"
-					app:layout_constraintTop_toBottomOf="@+id/profile_image" />
-
-			   <EditText
-
+			   <com.google.android.material.textfield.TextInputLayout
 					android:id="@+id/editTextPofileUsername"
 					android:layout_width="0dp"
 					android:layout_height="wrap_content"
-					android:layout_marginStart="14dp"
-					android:layout_marginTop="8dp"
+					android:layout_marginStart="16dp"
 					android:layout_marginEnd="17dp"
-					android:autoLink="none"
-					android:ems="10"
-					android:hint="@string/username"
-					android:inputType="textEmailAddress"
-					android:textColor="@color/colorAccent"
-					android:textSize="14sp"
+					app:errorEnabled="true"
+					app:errorTextAppearance="@style/textinputlayoutErrorAppearance"
 					app:layout_constraintEnd_toEndOf="parent"
 					app:layout_constraintStart_toStartOf="parent"
-					app:layout_constraintTop_toBottomOf="@+id/textViewPofileUsername" />
+					app:layout_constraintTop_toBottomOf="@+id/profile_image">
 
-			   <TextView
+					<com.google.android.material.textfield.TextInputEditText
+						 android:layout_width="match_parent"
+						 android:layout_height="wrap_content"
+						 android:hint="@string/username"
+						 android:inputType="text"
+						 android:textColor="@color/colorAccent"
+						 android:textSize="14sp"
+						 android:textStyle="bold" />
+			   </com.google.android.material.textfield.TextInputLayout>
 
-					android:id="@+id/textViewPofileEmail"
-					android:layout_width="wrap_content"
-					android:layout_height="wrap_content"
-					android:layout_marginTop="8dp"
-					android:text="@string/email"
-					android:textSize="14sp"
-					android:textStyle="bold"
-					app:layout_constraintStart_toStartOf="@+id/textViewPofileUsername"
-					app:layout_constraintTop_toBottomOf="@+id/editTextPofileUsername" />
-
-			   <EditText
+			   <com.google.android.material.textfield.TextInputLayout
 					android:id="@+id/editTextPofileEmail"
 					android:layout_width="0dp"
 					android:layout_height="wrap_content"
-					android:layout_marginStart="14dp"
-					android:layout_marginTop="8dp"
+					android:layout_marginStart="16dp"
+					android:layout_marginTop="4dp"
 					android:layout_marginEnd="17dp"
-					android:ems="10"
-					android:hint="@string/email"
-					android:inputType="textEmailAddress"
-					android:textColor="@color/colorAccent"
-					android:textSize="14sp"
+					app:errorEnabled="true"
+					app:errorTextAppearance="@style/textinputlayoutErrorAppearance"
 					app:layout_constraintEnd_toEndOf="parent"
 					app:layout_constraintStart_toStartOf="parent"
-					app:layout_constraintTop_toBottomOf="@+id/textViewPofileEmail" />
+					app:layout_constraintTop_toBottomOf="@+id/editTextPofileUsername">
+
+					<com.google.android.material.textfield.TextInputEditText
+						 android:layout_width="match_parent"
+						 android:layout_height="wrap_content"
+						 android:hint="@string/email"
+						 android:inputType="text"
+						 android:textColor="@color/colorAccent"
+						 android:textSize="14sp"
+						 android:textStyle="bold" />
+			   </com.google.android.material.textfield.TextInputLayout>
+
+
+
 
 			   <Button
 					android:id="@+id/btnEdit"
 					android:layout_width="0dp"
 					android:layout_height="wrap_content"
-					android:layout_marginTop="8dp"
+					android:layout_marginTop="16dp"
 					android:layout_marginEnd="17dp"
 					android:background="@drawable/gradient_btn_signin"
 					android:text="@string/edit"
@@ -151,8 +141,8 @@
 					android:layout_width="0dp"
 					android:layout_height="wrap_content"
 					android:layout_marginStart="100dp"
+					android:layout_marginTop="8dp"
 					android:layout_marginEnd="100dp"
-					android:layout_marginBottom="100dp"
 					android:background="@drawable/gradient_btn_signup"
 					android:text="@string/logout"
 					android:textColor="@color/background_offwhite"
@@ -161,7 +151,8 @@
 					app:layout_constraintEnd_toEndOf="parent"
 					app:layout_constraintHorizontal_bias="0.495"
 					app:layout_constraintStart_toStartOf="parent"
-					app:layout_constraintTop_toBottomOf="@+id/btnEdit" />
+					app:layout_constraintTop_toBottomOf="@+id/btnEdit"
+					app:layout_constraintVertical_bias="0.0" />
 
 			   <TextView
 					android:id="@+id/textView10"
@@ -175,59 +166,57 @@
 					app:layout_constraintTop_toBottomOf="@+id/btnLogout" />
 
 			   <!--			   Update Profile-->
-			   <TextView
-					android:id="@+id/textViewPofilePassword"
-					android:layout_width="wrap_content"
-					android:layout_height="wrap_content"
-					android:layout_marginTop="8dp"
-					android:text="@string/password"
-					android:textSize="16sp"
-					android:textStyle="bold"
-					android:visibility="gone"
-					app:layout_constraintStart_toStartOf="@+id/textViewPofileEmail"
-					app:layout_constraintTop_toBottomOf="@+id/editTextPofileEmail" />
 
-			   <EditText
+
+			   <com.google.android.material.textfield.TextInputLayout
 					android:id="@+id/editTextPofilePassword"
 					android:layout_width="0dp"
 					android:layout_height="wrap_content"
-					android:layout_marginTop="8dp"
+					android:layout_marginStart="16dp"
+					android:layout_marginTop="4dp"
 					android:layout_marginEnd="17dp"
-					android:ems="10"
-					android:hint="@string/password"
-					android:inputType="textPassword"
-					android:textSize="16sp"
-					android:visibility="gone"
+					app:errorEnabled="true"
+					app:errorTextAppearance="@style/textinputlayoutErrorAppearance"
 					app:layout_constraintEnd_toEndOf="parent"
-					app:layout_constraintStart_toStartOf="@+id/editTextPofileEmail"
-					app:layout_constraintTop_toBottomOf="@+id/textViewPofilePassword" />
+					app:layout_constraintStart_toStartOf="parent"
+					app:layout_constraintTop_toBottomOf="@+id/editTextPofileEmail"
+					app:passwordToggleEnabled="true"
+					tools:visibility="gone">
 
-			   <TextView
-					android:id="@+id/textViewPofileConfirmPassword"
-					android:layout_width="wrap_content"
-					android:layout_height="wrap_content"
-					android:layout_marginTop="8dp"
-					android:text="@string/confirmPassword"
-					android:textSize="16sp"
-					android:textStyle="bold"
-					android:visibility="gone"
-					app:layout_constraintStart_toStartOf="@+id/textViewPofilePassword"
-					app:layout_constraintTop_toBottomOf="@+id/editTextPofilePassword" />
+					<com.google.android.material.textfield.TextInputEditText
+						 android:layout_width="match_parent"
+						 android:layout_height="wrap_content"
+						 android:hint="@string/password"
+						 android:inputType="textPassword"
+						 android:textColor="@color/colorAccent"
+						 android:textSize="14sp"
+						 android:textStyle="bold" />
+			   </com.google.android.material.textfield.TextInputLayout>
 
-			   <EditText
+			   <com.google.android.material.textfield.TextInputLayout
 					android:id="@+id/editTextPofileConfirmPassword"
 					android:layout_width="0dp"
 					android:layout_height="wrap_content"
-					android:layout_marginTop="8dp"
+					android:layout_marginStart="16dp"
+					android:layout_marginTop="4dp"
 					android:layout_marginEnd="17dp"
-					android:ems="10"
-					android:hint="@string/confirmPassword"
-					android:inputType="textPassword"
-					android:textSize="16sp"
-					android:visibility="gone"
+					app:errorEnabled="true"
+					app:errorTextAppearance="@style/textinputlayoutErrorAppearance"
 					app:layout_constraintEnd_toEndOf="parent"
-					app:layout_constraintStart_toStartOf="@+id/editTextPofilePassword"
-					app:layout_constraintTop_toBottomOf="@+id/textViewPofileConfirmPassword" />
+					app:layout_constraintStart_toStartOf="parent"
+					app:layout_constraintTop_toBottomOf="@+id/editTextPofilePassword"
+					app:passwordToggleEnabled="true"
+					tools:visibility="gone">
+
+					<com.google.android.material.textfield.TextInputEditText
+						 android:layout_width="match_parent"
+						 android:layout_height="wrap_content"
+						 android:hint="@string/confirmPassword"
+						 android:inputType="textPassword"
+						 android:textColor="@color/colorAccent"
+						 android:textSize="14sp"
+						 android:textStyle="bold" />
+			   </com.google.android.material.textfield.TextInputLayout>
 
 			   <Button
 					android:id="@+id/btnProfileUpdate"
@@ -239,10 +228,11 @@
 					android:background="@drawable/gradient_btn_signin"
 					android:text="@string/update"
 					android:textColor="@color/background_offwhite"
-					android:visibility="gone"
+					android:visibility="visible"
 					app:layout_constraintBottom_toBottomOf="parent"
 					app:layout_constraintEnd_toEndOf="parent"
-					app:layout_constraintTop_toBottomOf="@+id/editTextPofileConfirmPassword" />
+					app:layout_constraintTop_toBottomOf="@+id/editTextPofileConfirmPassword"
+					tools:visibility="gone" />
 
 
 

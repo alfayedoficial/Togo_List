@@ -13,6 +13,7 @@ import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.TextView;
 
+import com.google.android.material.textfield.TextInputLayout;
 import com.group4.togolist.R;
 import com.group4.togolist.viewmodel.AddFormViewModel;
 import com.group4.togolist.viewmodel.LoginViewModel;
@@ -20,9 +21,9 @@ import com.group4.togolist.viewmodel.ProfileViewModel;
 
 public class ProfileActivity extends AppCompatActivity  implements View.OnClickListener {
 
-    private EditText eTxtUserName , eTxtEmail  , eTxtPassword , eTxtConfirmPassword;
+    private TextInputLayout eTxtUserName , eTxtEmail  , eTxtPassword , eTxtConfirmPassword;
     private Button btnEdit , btnLogout , btnUpdate;
-    private TextView txtHopeComeBack , textViewPofilePassword , textViewPofileConfirmPassword;
+    private TextView txtHopeComeBack ;
     private ProfileViewModel profileViewModel ;
     /**
      *  1- define flag and set default value true
@@ -47,8 +48,6 @@ public class ProfileActivity extends AppCompatActivity  implements View.OnClickL
         eTxtPassword = findViewById(R.id.editTextPofilePassword);
         eTxtConfirmPassword = findViewById(R.id.editTextPofileConfirmPassword);
         txtHopeComeBack = findViewById(R.id.textView10);
-        textViewPofilePassword  = findViewById(R.id.textViewPofilePassword);
-        textViewPofileConfirmPassword = findViewById(R.id.textViewPofileConfirmPassword);
 
         btnEdit = findViewById(R.id.btnEdit);
         btnLogout = findViewById(R.id.btnLogout);
@@ -57,6 +56,10 @@ public class ProfileActivity extends AppCompatActivity  implements View.OnClickL
         imgBtnHome = findViewById(R.id.imageBtnHome);
         imgBtnProfile = findViewById(R.id.imageBtnProfile);
         fltBtnAdd = findViewById(R.id.fABtnAddNote);
+
+        eTxtPassword.setVisibility(View.GONE);
+        eTxtConfirmPassword.setVisibility(View.GONE);
+        btnUpdate.setVisibility(View.GONE);
 
         /**
          *  - set userName and Password EditText enable( false)
@@ -89,9 +92,6 @@ public class ProfileActivity extends AppCompatActivity  implements View.OnClickL
                     eTxtPassword.setVisibility(View.VISIBLE);
                     eTxtConfirmPassword.setVisibility(View.VISIBLE);
                     btnUpdate.setVisibility(View.VISIBLE);
-                    textViewPofilePassword.setVisibility(View.VISIBLE);
-                    textViewPofileConfirmPassword.setVisibility(View.VISIBLE);
-
 
                     btnEdit.setVisibility(View.GONE);
                     btnLogout.setVisibility(View.GONE);
@@ -107,9 +107,10 @@ public class ProfileActivity extends AppCompatActivity  implements View.OnClickL
                  * 3 - when flag is false (  update button) , so  disable Views and change flag to true (Edit button state)
                  */
                 if (!editFlag){
-                    profileViewModel.updateUser(eTxtPassword.getText().toString() , eTxtConfirmPassword.getText().toString());
+
                     afterUpdate();
                     setUserAndMailEtxtViewDisable();
+                    profileViewModel.updateUser(eTxtPassword.getEditText().getText().toString() , eTxtConfirmPassword.getEditText().getText().toString());
                     editFlag = true ;
                 }
 
@@ -132,8 +133,6 @@ public class ProfileActivity extends AppCompatActivity  implements View.OnClickL
        eTxtPassword.setVisibility(View.GONE);
        eTxtConfirmPassword.setVisibility(View.GONE);
        btnUpdate.setVisibility(View.GONE);
-       textViewPofilePassword.setVisibility(View.GONE);
-       textViewPofileConfirmPassword.setVisibility(View.GONE);
 
        btnEdit.setVisibility(View.VISIBLE);
        btnLogout.setVisibility(View.VISIBLE);
@@ -150,18 +149,18 @@ public class ProfileActivity extends AppCompatActivity  implements View.OnClickL
         eTxtEmail.setEnabled(true);
     }
     public void setUserName(String userName){
-        eTxtUserName.setText(userName);
+        eTxtUserName.getEditText().setText(userName);
     }
 
     public void setEmail(String email){
-        eTxtEmail.setText(email);
+        eTxtEmail.getEditText().setText(email);
     }
     public void setPassword(String password){
-        eTxtPassword.setText(password);
+        eTxtPassword.getEditText().setText(password);
     }
 
     public void setConfirmedPassword(String confirmedPassword){
-        eTxtConfirmPassword.setText(confirmedPassword);
+        eTxtConfirmPassword.getEditText().setText(confirmedPassword);
     }
 
     /**
