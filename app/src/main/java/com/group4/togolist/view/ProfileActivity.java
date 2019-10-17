@@ -108,9 +108,10 @@ public class ProfileActivity extends AppCompatActivity  implements View.OnClickL
                  */
                 if (!editFlag){
 
-                    afterUpdate();
+
                     setUserAndMailEtxtViewDisable();
                     profileViewModel.updateUser(eTxtPassword.getEditText().getText().toString() , eTxtConfirmPassword.getEditText().getText().toString());
+                    afterUpdate();
                     editFlag = true ;
                 }
 
