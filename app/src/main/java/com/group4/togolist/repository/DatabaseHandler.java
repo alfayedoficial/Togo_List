@@ -110,6 +110,9 @@ public class DatabaseHandler {
         }
     }
 
+    /**
+     *
+     */
     class GetTripByStatus extends AsyncTask<Void,Void,List<Trip>>{
         String status;
         public GetTripByStatus(String status){
