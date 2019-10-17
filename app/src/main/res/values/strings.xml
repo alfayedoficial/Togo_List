@@ -68,6 +68,7 @@
 	 <string name="triptime">Trip Time</string>
 	 <string name="later">Later</string>
 	 <string name="start">Start</string>
+	 <!--Home Activity-->
 	 <string name="past_trip">Past Trip</string>
 	 <string name="upcoming">Upcoming</string>
 	 <string name="your_trip_details">Your Trip Details</string>
