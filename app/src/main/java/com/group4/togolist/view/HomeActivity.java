@@ -138,6 +138,11 @@ public class HomeActivity extends AppCompatActivity implements View.OnClickListe
         fltBtnAdd.setOnClickListener(this);
     }
 
+    /**
+     *
+     * @param v
+     */
+
     @Override
     public void onClick(View v) {
         switch (v.getId()){
