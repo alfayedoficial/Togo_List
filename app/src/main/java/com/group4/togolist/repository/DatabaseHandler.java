@@ -61,7 +61,7 @@ public class DatabaseHandler {
     }
 
     public void deleteTrip(Trip trip){
-
+         new DeleteTrip(trip).execute();
     }
 
 
