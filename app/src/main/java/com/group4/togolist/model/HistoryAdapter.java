@@ -119,6 +119,9 @@ public class HistoryAdapter extends RecyclerView.Adapter<HistoryAdapter.HistoryH
         }
     }
 
+    /**
+     *  communicator interface
+     */
     public interface OnItemListener{
         void onItemClick(int position);
         void onItemDeleteClick( int position);
