@@ -82,8 +82,8 @@ public class HomeActivity extends AppCompatActivity implements View.OnClickListe
                     case 0:
                         btnUpcoming.setEnabled(false);
                         btnPastTrip.setEnabled(true);
-
-                      /*  btnUpcoming.setTextColor(getResources().getColor(R.color.background_offwhite));
+/*
+                        btnUpcoming.setTextColor(getResources().getColor(R.color.background_offwhite));
                         btnUpcoming.setBackgroundColor(getResources().getColor(R.color.colorPrimaryDark));
                         btnUpcoming.setBackgroundResource((R.drawable.buttonbarhome));
 
@@ -94,15 +94,15 @@ public class HomeActivity extends AppCompatActivity implements View.OnClickListe
                     case 1:
                         btnUpcoming.setEnabled(true);
                         btnPastTrip.setEnabled(false);
-                        /*
+                      /*
                         btnUpcoming.setTextColor(getResources().getColor(R.color.colorPrimaryDark));
                         btnUpcoming.setBackgroundColor(getResources().getColor(R.color.background_offwhite));
                         btnUpcoming.setBackgroundResource((R.drawable.buttonbarhome));
 
                         btnPastTrip.setTextColor(getResources().getColor(R.color.background_offwhite));
                         btnPastTrip.setBackgroundColor(getResources().getColor(R.color.colorPrimaryDark));
-                        btnPastTrip.setBackgroundResource((R.drawable.buttonbarhome2));*/
-                        break;
+                        btnPastTrip.setBackgroundResource((R.drawable.buttonbarhome2));
+                        break;*/
                 }
             }
 
@@ -115,6 +115,9 @@ public class HomeActivity extends AppCompatActivity implements View.OnClickListe
 
     }
 
+    /**
+     *  set up views object
+     */
     private void initcomponent() {
 
 
