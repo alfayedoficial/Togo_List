@@ -18,6 +18,7 @@ import com.group4.togolist.R;
 import com.group4.togolist.repository.DatabaseHandler;
 import com.group4.togolist.model.Trip;
 import com.group4.togolist.repository.TripAlarm;
+import com.group4.togolist.util.NotificationHelper;
 import com.group4.togolist.view.DetailsTripActivity;
 import com.group4.togolist.view.DialogActivity;
 import com.group4.togolist.view.HomeActivity;
@@ -67,15 +68,17 @@ public class DialogViewModel extends ViewModel {
         Intent intent = new Intent(activity, DetailsTripActivity.class);
         intent.putExtra(HomeViewModel.TRIP_NAME,currentTrip.getTripName());
         activity.startActivity(intent);
+        activity.finish();
     }
 
     /**
      *  Set Dialog to Notification Bar
      */
     public void waitForLater(){
-        NotificationHelper notificationHelper = new NotificationHelper(activity);
+        NotificationHelper notificationHelper = new NotificationHelper(activity,currentTrip);
         NotificationCompat.Builder nb = notificationHelper.getChannelNotification();
         notificationHelper.getManager().notify(1, nb.build());
+        activity.finish();
     }
 
     /**
@@ -92,6 +95,7 @@ public class DialogViewModel extends ViewModel {
         currentTrip.setStatus(Trip.ENDED);
         // Attempt to start an activity that can handle the Intent
         activity.startActivity(tripIntent);
+        activity.finish();
     }
 
     /**
@@ -101,45 +105,5 @@ public class DialogViewModel extends ViewModel {
         currentTrip.setStatus(Trip.CANCELED);
         databaseHandler.updateTrip(currentTrip);
         activity.finish();
-    }
-
-    /**
-     * Class Created to handle the creation of Notification
-     */
-
-    class NotificationHelper extends ContextWrapper {
-        public static final String channelID = "channelID";
-        public static final String channelName = "Channel Name";
-
-        private NotificationManager mManager;
-
-        public NotificationHelper(Context base) {
-            super(base);
-            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
-                createChannel();
-            }
-        }
-
-        @TargetApi(Build.VERSION_CODES.O)
-        private void createChannel() {
-            NotificationChannel channel = new NotificationChannel(channelID, channelName, NotificationManager.IMPORTANCE_HIGH);
-
-            getManager().createNotificationChannel(channel);
-        }
-
-        public NotificationManager getManager() {
-            if (mManager == null) {
-                mManager = (NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);
-            }
-
-            return mManager;
-        }
-
-        public NotificationCompat.Builder getChannelNotification() {
-            return new NotificationCompat.Builder(getApplicationContext(), channelID)
-                    .setContentTitle(getString(R.string.app_name))
-                    .setContentText(currentTrip.getTripName())
-                    .setSmallIcon(R.drawable.logo);
-        }
     }
 }
