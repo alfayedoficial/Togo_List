@@ -77,5 +77,6 @@
 	 <string name="past_trips">Your Past Trips</string>
 	 <string name="note">Note</string>
 	<string name="save"> Save</string>
+	 <string name="errormessage">Field can\'t be empty</string>
 
 </resources>

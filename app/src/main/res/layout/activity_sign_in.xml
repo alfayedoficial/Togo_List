@@ -140,6 +140,7 @@
 			   android:layout_marginStart="16dp"
 			   android:layout_marginEnd="17dp"
 			   app:errorEnabled="true"
+			   app:errorTextAppearance="@style/textinputlayoutErrorAppearance"
 			   app:layout_constraintEnd_toEndOf="parent"
 			   app:layout_constraintStart_toStartOf="parent"
 			   app:layout_constraintTop_toBottomOf="@+id/textView3">
@@ -161,6 +162,7 @@
 			   android:layout_marginTop="8dp"
 			   app:errorEnabled="true"
 			   app:passwordToggleEnabled="true"
+			   app:errorTextAppearance="@style/textinputlayoutErrorAppearance"
 			   app:layout_constraintEnd_toEndOf="@+id/editText_email_Signin"
 			   app:layout_constraintStart_toStartOf="@+id/editText_email_Signin"
 			   app:layout_constraintTop_toBottomOf="@+id/editText_email_Signin"
@@ -183,6 +185,7 @@
 			   android:layout_marginTop="4dp"
 			   android:fontFamily="@font/boutfont"
 			   android:text="@string/forgetpassword"
+			   android:strokeColor="@color/colorheavy"
 			   android:textColor="@color/home_color"
 			   android:textSize="14sp"
 			   android:textStyle="bold"

@@ -1,29 +1,28 @@
 package com.group4.togolist.view;
 
+import android.app.Activity;
+import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
+
+import com.google.android.material.textfield.TextInputLayout;
+import com.group4.togolist.R;
+import com.group4.togolist.viewmodel.RegisterViewModel;
+
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.lifecycle.ViewModel;
 import androidx.lifecycle.ViewModelProvider;
 import androidx.lifecycle.ViewModelProviders;
 
-import android.app.Activity;
-import android.os.Bundle;
-import android.view.View;
-import android.widget.Button;
-import android.widget.EditText;
-
-import com.group4.togolist.R;
-import com.group4.togolist.viewmodel.LoginViewModel;
-import com.group4.togolist.viewmodel.RegisterViewModel;
-
-public class SignUpActivity extends AppCompatActivity  implements View.OnClickListener {
+public class SignUpActivity extends AppCompatActivity implements View.OnClickListener {
     /**
      * Class do :
      * Created by Group 4 ITI (Eng/Bassen - Eng Fatma - Eng Ali)
      */
 
     private RegisterViewModel registerViewModel;
-    private Button btnSignUp  , btnTermsAndConditions , btnPrivacyPolicy;
-    private EditText eTxtUserName , eTxtEmail , eTxtPassword , eTxtConfirmPassword;
+    private Button btnSignUp, btnTermsAndConditions, btnPrivacyPolicy;
+    private TextInputLayout eTxtUserName, eTxtEmail, eTxtPassword, eTxtConfirmPassword;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -33,11 +32,10 @@ public class SignUpActivity extends AppCompatActivity  implements View.OnClickLi
         registerViewModel = ViewModelProviders.of(this, new MyViewModelFactory(SignUpActivity.this)).get(RegisterViewModel.class);
 
 
-
     }
 
     /**
-     *  getting button and editText objects and assigning Listenter to buttons
+     * getting button and editText objects and assigning Listenter to buttons
      */
     private void initComponent() {
 
@@ -55,18 +53,78 @@ public class SignUpActivity extends AppCompatActivity  implements View.OnClickLi
         btnPrivacyPolicy.setOnClickListener(this);
     }
 
+//    Cheack if editText Empty
+
+    private boolean validateUsername() {
+        String usenameInput = eTxtUserName.getEditText().getText().toString().trim();
+        if (usenameInput.isEmpty()) {
+            eTxtUserName.setError("Field can not be empty");
+            System.out.println(Integer.toString(R.string.errormessage).trim());
+            return false;
+        } else if (usenameInput.length() > 15) {
+            eTxtUserName.setError("Username too long");
+            return false;
+        }else if (usenameInput.length() < 6) {
+            eTxtUserName.setError("Username too short 6 characters");
+            return false;
+        } else {
+            eTxtUserName.setError(null);
+            return true;
+        }
+    }
+
+    private boolean validateEmail() {
+        String emailInput = eTxtEmail.getEditText().getText().toString().trim();
+        if (emailInput.isEmpty()) {
+            eTxtEmail.setError("Field can not be empty");
+            System.out.println(Integer.toString(R.string.errormessage).trim());
+            return false;
+        } else {
+            eTxtEmail.setError(null);
+            return true;
+        }
+    }
+
+    private boolean validatePassword() {
+        String passwordInput = eTxtPassword.getEditText().getText().toString().trim();
+
+        if (passwordInput.isEmpty()) {
+            eTxtPassword.setError("Field can not be empty");
+            return false;
+        } else {
+            eTxtPassword.setError(null);
+            return true;
+        }
+    }
+
+    private boolean validateConfirmPassword() {
+        String passwordInput = eTxtConfirmPassword.getEditText().getText().toString().trim();
+
+        if (passwordInput.isEmpty()) {
+            eTxtConfirmPassword.setError("Field can not be empty");
+            return false;
+        } else {
+            eTxtConfirmPassword.setError(null);
+            return true;
+        }
+    }
+
     /**
-     *
-     *  Handling events to sign up , sign up with google , cancel , terms and conditions , privacy policy Buttons
+     * Handling events to sign up , sign up with google , cancel , terms and conditions , privacy policy Buttons
      */
     @Override
     public void onClick(View v) {
-        switch (v.getId()){
+        switch (v.getId()) {
             case R.id.btn_sign_up:
-
-                registerViewModel.signUp(eTxtUserName.getText().toString(), eTxtEmail.getText().toString(),eTxtPassword.getText().toString(),eTxtConfirmPassword.getText().toString());
+                if (!validateUsername() | !validateEmail() | !validatePassword() | !validateConfirmPassword()){
+                    return;
+                }
+                String usename = eTxtUserName.getEditText().getText().toString();
+                String email = eTxtEmail.getEditText().getText().toString();
+                String password = eTxtPassword.getEditText().getText().toString();
+                String confirmPassword = eTxtConfirmPassword.getEditText().getText().toString();
+                registerViewModel.signUp(usename,email,password,confirmPassword);
                 break;
-
 
 
             case R.id.btn_Terms_And_Conditions:
@@ -80,7 +138,7 @@ public class SignUpActivity extends AppCompatActivity  implements View.OnClickLi
     }
 
     /**
-     *  to get an Object from RegisterViewModel
+     * to get an Object from RegisterViewModel
      */
 
     class MyViewModelFactory implements ViewModelProvider.Factory {

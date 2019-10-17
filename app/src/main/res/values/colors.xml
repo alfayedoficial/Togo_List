@@ -4,10 +4,27 @@
 	 <color name="colorPrimaryDark">#303F9F</color>
 	 <color name="colorAccent">#FFC107</color>
 
-	 // colors
+<!--	 // colors-->
 	 <color name="background_offwhite">#F6F8F5</color>
 	 <color name="home_color">#FFC107</color>
 	 <color name="text_shadow">#7F000000</color>
 	 <color name="text_shadow_white">#FFFFFF</color>
 	 <color name="editText">#717270</color>
+
+<!--	 // another colors-->
+	 <color name="color1">#2196F3</color>
+	 <color name="color2">#FF9800</color>
+	 <color name="color3">#4CAF50</color>
+	 <color name="color4">#F44336</color>
+	 <color name="color5">#FFEB3B</color>
+	 <color name="color6">#3F51B5</color>
+	 <color name="color7">#FF6F00</color>
+	 <color name="color8">#827717</color>
+	 <color name="color9">#1e2224</color>
+	 <color name="color10">#191d1e</color>
+	 <color name="colorheavy">#1a1d1e</color>
+	 <color name="black">#000000</color>
+	 <color name="white">#ffffff</color>
+	 <color name="offwhite">#eaeaea</color>
+	 <color name="circle_select">#FF48C9D4</color>
 </resources>

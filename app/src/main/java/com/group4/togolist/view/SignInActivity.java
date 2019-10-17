@@ -56,6 +56,30 @@ public class SignInActivity extends AppCompatActivity implements View.OnClickLis
 
     }
 
+//    Cheack if editText Empty
+    private boolean validateEmail(){
+        String emailInput = eTxtEmail.getEditText().getText().toString().trim();
+        if(emailInput.isEmpty()){
+            eTxtEmail.setError("Field can not be empty");
+            System.out.println(Integer.toString(R.string.errormessage).trim());
+            return false;
+        }else {
+            eTxtEmail.setError(null);
+            return true;
+        }
+    }
+    private boolean validatePassword() {
+        String passwordInput = eTxtPassword.getEditText().getText().toString().trim();
+
+        if (passwordInput.isEmpty()) {
+            eTxtPassword.setError("Field can not be empty");
+            return false;
+        } else {
+            eTxtPassword.setError(null);
+            return true;
+        }
+    }
+
 
     /**
      * Handling Button events
@@ -66,8 +90,12 @@ public class SignInActivity extends AppCompatActivity implements View.OnClickLis
 
         switch (v.getId()) {
             case R.id.btn_sign_up:
-
-                loginViewModel.signIn(eTxtEmail.toString(), eTxtPassword.toString());
+                if (!validateEmail() | !validatePassword()){
+                    return;
+                }
+                String email = eTxtEmail.getEditText().getText().toString();
+                String password = eTxtPassword.getEditText().getText().toString();
+                loginViewModel.signIn(email,password );
                 break;
 
 

@@ -15,4 +15,14 @@
 		  <item name="windowActionBarOverlay">true</item>
 	 </style>
 
+<!--	 color error textinputlayout-->
+	 <style name="textinputlayoutErrorAppearance" parent="@android:style/TextAppearance">
+		  <item name="android:textColor">@color/color7</item>
+		  <item name="android:fontFamily">@font/boutfont</item>
+<!--		  <item name="android:textSize">10sp</item>-->
+		  <item name="android:textStyle">bold</item>
+		  <item name="android:strokeColor">@color/colorheavy</item>
+
+	 </style>
+
 </resources>
