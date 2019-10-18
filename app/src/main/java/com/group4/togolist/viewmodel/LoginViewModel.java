@@ -5,14 +5,27 @@ import android.content.Intent;
 import android.util.Log;
 import android.widget.Toast;
 
+import androidx.annotation.NonNull;
 import androidx.lifecycle.ViewModel;
 
+import com.google.android.gms.auth.api.signin.GoogleSignInAccount;
+import com.google.android.gms.auth.api.signin.GoogleSignInOptions;
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
+import com.google.android.material.snackbar.Snackbar;
+import com.google.firebase.auth.AuthCredential;
+import com.google.firebase.auth.AuthResult;
+import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.auth.GoogleAuthProvider;
+import com.group4.togolist.R;
 import com.group4.togolist.repository.DatabaseHandler;
 import com.group4.togolist.model.User;
 import com.group4.togolist.view.ForgetPasswordActivity;
 import com.group4.togolist.view.HomeActivity;
 import com.group4.togolist.repository.FirebaseHandler;
 import com.group4.togolist.view.FirstActivity;
+
+import static io.fabric.sdk.android.Fabric.TAG;
 
 /**
  * Class do : Handle Sign In Activity
@@ -27,7 +40,7 @@ public class LoginViewModel extends ViewModel {
     private Activity loginActivity;
     private FirebaseHandler firebaseHandler;
     private DatabaseHandler databaseHandler;
-    User user;
+    private User user;
     /**
      * Login View Model Constructor Method it takes the activity as input parameter
      */
@@ -51,6 +64,13 @@ public class LoginViewModel extends ViewModel {
     }
 
     /**
+     *  this method call when sign in with google button in the log in activity ,
+     */
+    public void signInWithGoogle(){
+       firebaseHandler.signinWithGoogle();
+    }
+
+    /**
      *  Go To Home Screen
      */
     public void loginToHomeScreen(int loginResult){
@@ -64,10 +84,10 @@ public class LoginViewModel extends ViewModel {
         }
     }
 
-
-    public void signInWithGoogle(){
-
+    public void firebaseSignInWithGoogle( GoogleSignInAccount account){
+        firebaseHandler.firebaseAuthWithGoogle(account);
     }
+
 
     /**
      * go to Forget Password Activity

@@ -24,15 +24,12 @@
 			   android:theme="@style/Theme.AppCompat.Dialog"/>
 
 		  <activity android:name=".view.DetailsTripActivity"
-			  android:theme="@style/AppTheme.NoActionBar"/>
-
-		  <meta-data
-			   android:name="com.google.android.geo.API_KEY"
-			   android:value="@string/google_maps_key" />
-
+			  android:theme="@style/AppTheme.NoActionBar"
+			   android:windowSoftInputMode="stateAlwaysHidden"/>
 		  <activity
 			   android:name=".view.ProfileActivity"
-			   android:theme="@style/AppTheme.NoActionBar" />
+			   android:theme="@style/AppTheme.NoActionBar"
+			   android:windowSoftInputMode="stateAlwaysHidden"/>
 		  <activity
 			   android:name=".view.AddFormActivity"
 			   android:theme="@style/AppTheme.NoActionBar" />
@@ -44,10 +41,12 @@
 			   android:theme="@style/AppTheme.NoActionBar" />
 		  <activity
 			   android:name=".view.SignUpActivity"
-			   android:theme="@style/AppTheme.NoActionBar" />
+			   android:theme="@style/AppTheme.NoActionBar"
+			   android:windowSoftInputMode="stateAlwaysHidden"/>
 		  <activity
 			   android:name=".view.SignInActivity"
-			   android:theme="@style/AppTheme.NoActionBar" />
+			   android:theme="@style/AppTheme.NoActionBar"
+			   android:windowSoftInputMode="stateAlwaysHidden"/>
 		  <activity
 			   android:name=".view.FirstActivity"
 			   android:theme="@style/AppTheme.NoActionBar" />
@@ -60,6 +59,12 @@
 					<category android:name="android.intent.category.LAUNCHER" />
 			   </intent-filter>
 		  </activity>
+		  <meta-data
+			   android:name="firebase_performance_logcat_enabled"
+			   android:value="true" />
+		  <meta-data
+			   android:name="com.google.android.geo.API_KEY"
+			   android:value="@string/google_maps_key" />
 	 </application>
 
 </manifest>

@@ -15,6 +15,14 @@
       },
       "oauth_client": [
         {
+          "client_id": "515667335394-o9nhjcndulao5mfo1nrn2rk14r7que1s.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.group4.togolist",
+            "certificate_hash": "ad1e980dcedb3467bc0577fc2e7175d9205d22a3"
+          }
+        },
+        {
           "client_id": "515667335394-l561eu48nd5ootigeiqgh5hg6kiacgov.apps.googleusercontent.com",
           "client_type": 1,
           "android_info": {

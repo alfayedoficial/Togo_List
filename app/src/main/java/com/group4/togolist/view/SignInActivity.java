@@ -1,22 +1,32 @@
 package com.group4.togolist.view;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 
+import com.google.android.gms.auth.api.signin.GoogleSignIn;
+import com.google.android.gms.auth.api.signin.GoogleSignInAccount;
+import com.google.android.gms.common.api.ApiException;
+import com.google.android.gms.tasks.Task;
 import com.google.android.material.textfield.TextInputLayout;
 import com.group4.togolist.R;
 import com.group4.togolist.viewmodel.LoginViewModel;
 
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.lifecycle.ViewModel;
 import androidx.lifecycle.ViewModelProvider;
 import androidx.lifecycle.ViewModelProviders;
 
+import static com.group4.togolist.repository.FirebaseHandler.GOOGLE_SIGNIN;
+
 
 public class SignInActivity extends AppCompatActivity implements View.OnClickListener {
+
 
     /**
      * Class do :
@@ -26,6 +36,8 @@ public class SignInActivity extends AppCompatActivity implements View.OnClickLis
     private LoginViewModel loginViewModel;
     private Button btnForgetPassword, btnSignIn, btnSignInWithGoogle;
     private TextInputLayout eTxtEmail, eTxtPassword;
+    private static final String TAG = "SignInActivity";
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -43,7 +55,7 @@ public class SignInActivity extends AppCompatActivity implements View.OnClickLis
     private void initComponent() {
 
         btnSignIn = findViewById(R.id.btn_sign_up);
-        btnSignInWithGoogle = findViewById(R.id.btn_sign_up_with_google);
+        btnSignInWithGoogle = findViewById(R.id.btn_sign_in_with_google);
         btnForgetPassword = findViewById(R.id.btn_forget_password);
 
         eTxtEmail = findViewById(R.id.editText_email_Signin);
@@ -99,7 +111,7 @@ public class SignInActivity extends AppCompatActivity implements View.OnClickLis
                 break;
 
 
-            case R.id.btn_sign_up_with_google:
+            case R.id.btn_sign_in_with_google:
                 loginViewModel.signInWithGoogle();
                 break;
 
@@ -123,6 +135,25 @@ public class SignInActivity extends AppCompatActivity implements View.OnClickLis
         @Override
         public <T extends ViewModel> T create(Class<T> modelClass) {
             return (T) new LoginViewModel(mActivity);
+        }
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        // Result returned from launching the Intent from GoogleSignInApi.getSignInIntent(...);
+        if (resultCode == GOOGLE_SIGNIN) {
+            Task<GoogleSignInAccount> task = GoogleSignIn.getSignedInAccountFromIntent(data);
+            try {
+                // Google Sign In was successful, authenticate with Firebase
+                GoogleSignInAccount account = task.getResult(ApiException.class);
+                if (account != null){
+                    loginViewModel.firebaseSignInWithGoogle(account);                }
+            } catch (ApiException e) {
+                // Google Sign In failed, update UI appropriately
+                Log.w(TAG, "Google sign in failed", e);
+
+            }
         }
     }
 }
