@@ -251,12 +251,14 @@
 		  app:layout_constraintStart_toStartOf="parent">
 
 		  <ImageButton
+			   android:contentDescription="@string/home"
 			   android:id="@+id/imageBtnHome"
 			   style="@style/Widget.AppCompat.Button.Borderless.Colored"
 			   android:layout_width="wrap_content"
 			   android:layout_height="wrap_content"
 			   android:layout_marginStart="30dp"
 			   android:src="@drawable/home_yellow"
+			   android:background="@drawable/gradient_btn_profile"
 			   app:layout_constraintBottom_toBottomOf="parent"
 			   app:layout_constraintStart_toStartOf="parent"
 			   app:layout_constraintTop_toTopOf="parent"
@@ -277,12 +279,14 @@
 
 
 		  <ImageButton
+			   android:contentDescription="@string/profile"
 			   android:id="@+id/imageBtnProfile"
 			   style="@style/Widget.AppCompat.Button.Borderless.Colored"
 			   android:layout_width="wrap_content"
 			   android:layout_height="wrap_content"
 			   android:layout_marginEnd="30dp"
 			   android:src="@drawable/user"
+			   android:background="@drawable/gradient_btn_home"
 			   app:layout_constraintBottom_toBottomOf="parent"
 			   app:layout_constraintEnd_toEndOf="parent"
 			   app:layout_constraintTop_toTopOf="parent"
@@ -313,6 +317,8 @@
 		  android:layout_height="wrap_content"
 		  android:layout_marginBottom="24dp"
 		  android:clickable="true"
+		  android:focusable="true"
+		  app:rippleColor="@color/colorAccent"
 		  app:backgroundTint="@color/colorPrimary"
 		  app:layout_constraintBottom_toBottomOf="parent"
 		  app:layout_constraintEnd_toEndOf="parent"
