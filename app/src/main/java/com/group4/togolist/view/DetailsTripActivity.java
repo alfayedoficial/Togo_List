@@ -326,7 +326,7 @@ public class DetailsTripActivity extends AppCompatActivity implements View.OnCli
                 myCalendar.set(Calendar.MONTH, monthOfYear);
                 myCalendar.set(Calendar.DAY_OF_MONTH, dayOfMonth);
 
-                String myFormat = "MM/dd/yy"; //In which you need put here
+                String myFormat = "MM / dd / yy"; //In which you need put here
                 SimpleDateFormat sdf = new SimpleDateFormat(myFormat, Locale.US);
 
                 eTxtStartDate.setText(sdf.format(myCalendar.getTime()));
