@@ -55,6 +55,7 @@ public class DetailsTripViewModel extends ViewModel {
         tripIntent.setPackage("com.google.android.apps.maps");
         activity.startActivity(tripIntent);
         currentTrip.setStatus(Trip.ENDED);
+        databaseHandler.updateTrip(currentTrip);
     }
 
     public void deleteTrip(){
@@ -81,7 +82,7 @@ public class DetailsTripViewModel extends ViewModel {
     private void startAlarm(Calendar c) {
         AlarmManager alarmManager = (AlarmManager) activity.getSystemService(Context.ALARM_SERVICE);
         Intent intent = new Intent(activity, TripAlarm.class);
-        PendingIntent pendingIntent = PendingIntent.getBroadcast(activity, 1, intent, 0);
+        PendingIntent pendingIntent = PendingIntent.getBroadcast(activity, currentTrip.getId(), intent, 0);
 
         if (c.before(Calendar.getInstance())) {
             c.add(Calendar.DATE, 1);
