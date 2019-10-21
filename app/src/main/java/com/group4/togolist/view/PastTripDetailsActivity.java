@@ -206,12 +206,14 @@ public class PastTripDetailsActivity extends AppCompatActivity  implements View.
 
         final Trip ex2 = (Trip) getIntent().getSerializableExtra("Past_Trip");
         assert ex2 != null;
-        lat1 = ex2.getStartLocationLatitude();
-        long1 = ex2.getStartLocationLongitude();
-        lat2 = ex2.getEndLocationLatitude();
-        long2 = ex2.getEndLocationLongitude();
-        avgLat = (lat1 + lat2) / 2;
-        avgLong = (long1 + long2) / 2;
+        if(ex2 != null) {
+            lat1 = ex2.getStartLocationLatitude();
+            long1 = ex2.getStartLocationLongitude();
+            lat2 = ex2.getEndLocationLatitude();
+            long2 = ex2.getEndLocationLongitude();
+            avgLat = (lat1 + lat2) / 2;
+            avgLong = (long1 + long2) / 2;
+        }
     }
 
     @Override
