@@ -25,5 +25,10 @@
 		  <item name="android:strokeColor">@color/colorheavy</item>
 
 	 </style>
+	
+	<style name="dialogTheme" parent="Theme.AppCompat.Dialog">
+		<item name="windowActionBar">false</item>
+		<item name="windowNoTitle">true</item>
+	</style>
 
 </resources>

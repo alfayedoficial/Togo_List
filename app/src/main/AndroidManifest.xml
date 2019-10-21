@@ -22,7 +22,7 @@
 			   android:theme="@style/AppTheme.NoActionBar" />
 		  <activity
 			   android:name=".view.DialogActivity"
-			   android:theme="@style/Theme.AppCompat.Dialog"/>
+			   android:theme="@style/dialogTheme"/>
 
 		  <activity android:name=".view.DetailsTripActivity"
 			  android:theme="@style/AppTheme.NoActionBar"
