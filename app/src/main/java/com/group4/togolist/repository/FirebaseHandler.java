@@ -19,6 +19,7 @@ import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.auth.GoogleAuthProvider;
 import com.group4.togolist.R;
 import com.group4.togolist.model.User;
+import com.group4.togolist.view.HomeActivity;
 import com.group4.togolist.viewmodel.ForgetPassViewModel;
 import com.group4.togolist.viewmodel.LoginViewModel;
 import com.group4.togolist.viewmodel.ProfileViewModel;
@@ -68,6 +69,10 @@ public class FirebaseHandler {
         this.forgetPassViewModel = forgetPassViewModel;
     }
 
+    public FirebaseHandler(Activity activity){
+        createFirebaseAuth();
+        this.activity = activity;
+    }
     public FirebaseHandler(Activity activity, RegisterViewModel viewModel) {
         createFirebaseAuth();
         this.activity = activity;
@@ -234,6 +239,17 @@ public class FirebaseHandler {
     public void createFirebaseAuth() {
         if (mAuth == null) {
             mAuth = FirebaseAuth.getInstance();
+        }
+    }
+
+    public void checkFirebaseUser(){
+        FirebaseAuth auth = FirebaseAuth.getInstance();
+
+        if (auth.getCurrentUser() != null) {
+            // User is signed in (getCurrentUser() will be null if not signed in)
+            Intent intent = new Intent(activity, HomeActivity.class);
+            User user = User.getUserInstance(auth.getCurrentUser().getEmail(),auth.getCurrentUser().getEmail(),auth.getCurrentUser().getEmail());
+            activity.startActivity(intent);
         }
     }
 }

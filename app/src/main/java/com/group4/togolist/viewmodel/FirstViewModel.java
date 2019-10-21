@@ -3,6 +3,10 @@ package com.group4.togolist.viewmodel;
 import android.app.Activity;
 import android.content.Intent;
 
+import com.google.firebase.auth.FirebaseAuth;
+import com.group4.togolist.model.User;
+import com.group4.togolist.repository.FirebaseHandler;
+import com.group4.togolist.view.HomeActivity;
 import com.group4.togolist.view.SignInActivity;
 import com.group4.togolist.view.SignUpActivity;
 
@@ -39,6 +43,12 @@ public class FirstViewModel extends ViewModel {
     public void createAccount(){
         Intent signUpIntent = new Intent (firstActivity, SignUpActivity.class);
         firstActivity.startActivity(signUpIntent);
+    }
+
+
+    public void checkFirebaseUser(){
+        FirebaseHandler firebaseHandler = new FirebaseHandler(firstActivity);
+        firebaseHandler.checkFirebaseUser();
     }
 
 }

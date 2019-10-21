@@ -30,7 +30,7 @@ public class FirstActivity extends AppCompatActivity implements View.OnClickList
         setContentView(R.layout.activity_first);
         initComponent();
         firstViewModel = ViewModelProviders.of(this , new MyViewModelFactory(FirstActivity.this)).get(FirstViewModel.class);
-
+        firstViewModel.checkFirebaseUser();
     }
 
     /**
