@@ -11,6 +11,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
+import androidx.cardview.widget.CardView;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.group4.togolist.R;
@@ -37,7 +38,7 @@ public class HistoryAdapter extends RecyclerView.Adapter<HistoryAdapter.HistoryH
     public HistoryHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
 
         LayoutInflater inflater =LayoutInflater.from(parent.getContext());
-        View view = inflater.inflate(R.layout.cardrecyclerview_pasttrip,parent,false);
+        View view = inflater.inflate(R.layout.cardrecyclerview_upcoming,parent,false);
         HistoryHolder historyHolder =new HistoryHolder(view,onItemListener);
         return historyHolder;
     }
@@ -45,16 +46,9 @@ public class HistoryAdapter extends RecyclerView.Adapter<HistoryAdapter.HistoryH
     @Override
     public void onBindViewHolder(@NonNull HistoryHolder holder, int position) {
         Trip trip = pastTrips.get(position);
-        Geocoder geocoder = new Geocoder(context, Locale.getDefault());
-        List<Address> address = null;
-        try {
-            address = geocoder.getFromLocation(trip.getEndLocationLatitude(),trip.getEndLocationLongitude(),1);
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-        String tripLocation =address.get(0).getAddressLine(0);
+
         holder.getTxtTripName().setText(trip.getTripName());
-        holder.getTxtTripPlace().setText(tripLocation);
+        holder.getTxtTripPlace().setText(getTripPlace(trip));
         holder.getTxtTripDate().setText(trip.getTripDate());
         holder.getTxtTripTime().setText(trip.getTripTime());
     }
@@ -73,9 +67,9 @@ public class HistoryAdapter extends RecyclerView.Adapter<HistoryAdapter.HistoryH
 
         public HistoryHolder(@NonNull View itemView, OnItemListener onItemListener) {
             super(itemView);
-            txtTripName = itemView.findViewById(R.id.textViewPastTripName);
-            txtTripPlace = itemView.findViewById(R.id.textViewPastTripPlace);
-            txtTripDate = itemView.findViewById(R.id.textViewPastTripCalender);
+            txtTripName = itemView.findViewById(R.id.textViewTripName);
+            txtTripPlace = itemView.findViewById(R.id.textViewTripPlace);
+            txtTripDate = itemView.findViewById(R.id.textViewTripCalender);
             txtTripTime = itemView.findViewById(R.id.textViewPastTripTime);
 
             imgBtnDetails = itemView.findViewById(R.id.imageBtnDetails);
@@ -125,5 +119,18 @@ public class HistoryAdapter extends RecyclerView.Adapter<HistoryAdapter.HistoryH
     public interface OnItemListener{
         void onItemClick(int position);
         void onItemDeleteClick( int position);
+    }
+
+    private String getTripPlace(Trip currentTrip){
+        String tripLocation = "";
+        try{
+            Geocoder geocoder = new Geocoder(context, Locale.getDefault());
+            List<Address> address = geocoder.getFromLocation(currentTrip.getEndLocationLatitude(),currentTrip.getEndLocationLongitude(),1);
+            tripLocation =address.get(0).getAddressLine(0);
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return tripLocation ;
     }
 }
