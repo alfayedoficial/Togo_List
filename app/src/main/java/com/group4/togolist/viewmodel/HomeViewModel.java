@@ -1,6 +1,9 @@
 package com.group4.togolist.viewmodel;
 
 import android.app.Activity;
+import android.app.AlarmManager;
+import android.app.PendingIntent;
+import android.content.Context;
 import android.content.Intent;
 
 import androidx.lifecycle.MutableLiveData;
@@ -9,6 +12,7 @@ import androidx.lifecycle.ViewModel;
 import com.group4.togolist.repository.DatabaseHandler;
 import com.group4.togolist.model.Trip;
 import com.group4.togolist.repository.FirebaseHandler;
+import com.group4.togolist.repository.TripAlarm;
 import com.group4.togolist.view.AddFormActivity;
 import com.group4.togolist.view.DetailsTripActivity;
 import com.group4.togolist.view.FirstActivity;
@@ -50,6 +54,7 @@ public class HomeViewModel extends ViewModel {
         try {
             Trip trip = databaseHandler.getTripByName(tripName);
             databaseHandler.deleteTrip(trip);
+            cancelAlarm(trip);
         } catch (ExecutionException e) {
             e.printStackTrace();
         } catch (InterruptedException e) {
@@ -57,6 +62,13 @@ public class HomeViewModel extends ViewModel {
         }
     }
 
+    private void cancelAlarm(Trip currentTrip) {
+        AlarmManager alarmManager = (AlarmManager) activity.getSystemService(Context.ALARM_SERVICE);
+        Intent intent = new Intent(activity, TripAlarm.class);
+        PendingIntent pendingIntent = PendingIntent.getBroadcast(activity, currentTrip.getId(), intent, 0);
+
+        alarmManager.cancel(pendingIntent);
+    }
     /**
      * get an ArrayList of UpComing Trips
      */

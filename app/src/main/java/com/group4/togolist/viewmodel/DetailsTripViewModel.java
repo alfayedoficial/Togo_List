@@ -81,7 +81,6 @@ public class DetailsTripViewModel extends ViewModel {
 //        currentTrip.setRoundTrip(isRoundTrip);
         currentTrip.setNotes(notes);
         databaseHandler.updateTrip(currentTrip);
-        cancelAlarm();
         startAlarm(startDate);
     }
 
@@ -89,19 +88,21 @@ public class DetailsTripViewModel extends ViewModel {
     private void startAlarm(Calendar c) {
         AlarmManager alarmManager = (AlarmManager) activity.getSystemService(Context.ALARM_SERVICE);
         Intent intent = new Intent(activity, TripAlarm.class);
-        PendingIntent pendingIntent = PendingIntent.getBroadcast(activity, currentTrip.getId(), intent, 0);
+        PendingIntent pendingIntent = PendingIntent.getBroadcast(activity, currentTrip.getId(), intent, PendingIntent.FLAG_UPDATE_CURRENT);
 
         if (c.before(Calendar.getInstance())) {
             c.add(Calendar.DATE, 1);
+            Toast.makeText(activity, "Please Check your Starting Time", Toast.LENGTH_SHORT).show();
+        }else {
+            c.set(Calendar.MONTH, c.get(Calendar.MONTH) - 1);
+            alarmManager.setExact(AlarmManager.RTC_WAKEUP, c.getTimeInMillis(), pendingIntent);
         }
-
-        alarmManager.setExact(AlarmManager.RTC_WAKEUP, c.getTimeInMillis(), pendingIntent);
     }
 
     private void cancelAlarm() {
         AlarmManager alarmManager = (AlarmManager) activity.getSystemService(Context.ALARM_SERVICE);
         Intent intent = new Intent(activity, TripAlarm.class);
-        PendingIntent pendingIntent = PendingIntent.getBroadcast(activity, currentTrip.getId(), intent, 0);
+        PendingIntent pendingIntent = PendingIntent.getBroadcast(activity, currentTrip.getId(), intent, PendingIntent.FLAG_CANCEL_CURRENT);
 
         alarmManager.cancel(pendingIntent);
     }
