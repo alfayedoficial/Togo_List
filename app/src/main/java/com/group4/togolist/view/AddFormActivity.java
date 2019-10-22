@@ -283,7 +283,7 @@ public class AddFormActivity extends AppCompatActivity implements View.OnClickLi
     private void autocompletePlace() {
 
         if (!Places.isInitialized()) {
-            Places.initialize(AddFormActivity.this, "AIzaSyDZYB_DYK3-5xAkI1c3ioMAZ6I_Gm_wqX8",Locale.getDefault());
+            Places.initialize(AddFormActivity.this, getString(R.string.google_maps_key),Locale.getDefault());
             PlacesClient placesClient = Places.createClient(AddFormActivity.this);
         }
 

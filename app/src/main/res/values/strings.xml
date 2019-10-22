@@ -60,7 +60,7 @@
 	 <string name="logout">Log Out</string>
 	 <string name="wehope">We Hope You Will Come Back Again</string>
 	 <!--	 Google API Key-->
-	  <string name="google_maps_key" templateMergeStrategy="preserve" translatable="false">AIzaSyDZ8gkXKHtKldCAlLSm4Aau0y-SmzYw7M0</string>
+	  <string name="google_maps_key" templateMergeStrategy="preserve" translatable="false">AIzaSyCMIF8imk5Jfi6uct4_8EPxDK-_0y7P1IA</string>
 	 <!--Dialog Activity-->
 	 <string name="details">Details</string>
 	 <string name="tripplace">Trip Place</string>
