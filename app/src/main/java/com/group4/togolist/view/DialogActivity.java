@@ -8,12 +8,15 @@ import androidx.lifecycle.ViewModelProviders;
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
+import android.os.Build;
 import android.os.Bundle;
+import android.provider.Settings;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.group4.togolist.R;
 import com.group4.togolist.viewmodel.DialogViewModel;
@@ -34,7 +37,7 @@ public class DialogActivity extends AppCompatActivity implements View.OnClickLis
         getWindow().setLayout(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT);
         initComponent();
         dialogViewModel = ViewModelProviders.of(this, new MyViewModelFactory(DialogActivity.this)).get(DialogViewModel.class);
-
+        dialogViewModel.askForSystemOverlayPermission();
     }
 
     /**

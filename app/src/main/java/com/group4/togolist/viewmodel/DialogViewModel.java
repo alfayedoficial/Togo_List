@@ -10,7 +10,10 @@ import android.location.Address;
 import android.location.Geocoder;
 import android.net.Uri;
 import android.os.Build;
+import android.provider.Settings;
+import android.widget.Toast;
 
+import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.NotificationCompat;
 import androidx.lifecycle.ViewModel;
 
@@ -18,6 +21,7 @@ import com.group4.togolist.R;
 import com.group4.togolist.repository.DatabaseHandler;
 import com.group4.togolist.model.Trip;
 import com.group4.togolist.repository.TripAlarm;
+import com.group4.togolist.util.FloatingWidgetService;
 import com.group4.togolist.util.NotificationHelper;
 import com.group4.togolist.view.DetailsTripActivity;
 import com.group4.togolist.view.DialogActivity;
@@ -32,11 +36,14 @@ public class DialogViewModel extends ViewModel {
 
     private String textTitle;
     private String textContent;
-    Trip currentTrip;
+    private Trip currentTrip;
+    private static final int DRAW_OVER_OTHER_APP_PERMISSION = 123;
+    public static final String TRIP_NAME_TAG = "tripName";
+    public static final String TRIP_NOTES_TAG = "tripNotes";
 
-    DatabaseHandler databaseHandler;
+    private DatabaseHandler databaseHandler;
 
-    DialogActivity activity;
+    private DialogActivity activity;
 
     /**
      * Class Consturcotr
@@ -93,9 +100,11 @@ public class DialogViewModel extends ViewModel {
         // Make the Intent explicit by setting the Google Maps package
         tripIntent.setPackage("com.google.android.apps.maps");
         currentTrip.setStatus(Trip.ENDED);
+        databaseHandler.updateTrip(currentTrip);
         // Attempt to start an activity that can handle the Intent
         activity.startActivity(tripIntent);
-        activity.finish();
+        startFloatingWidgetService();
+        //activity.finish();
     }
 
     /**
@@ -106,4 +115,35 @@ public class DialogViewModel extends ViewModel {
         databaseHandler.updateTrip(currentTrip);
         activity.finish();
     }
+
+    public void askForSystemOverlayPermission() {
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M && !Settings.canDrawOverlays(activity)) {
+
+            //If the draw over permission is not available to open the settings screen
+            //to grant the permission.
+            Intent intent = new Intent(Settings.ACTION_MANAGE_OVERLAY_PERMISSION,
+                    Uri.parse("package:" + activity.getPackageName()));
+            activity.startActivityForResult(intent, DRAW_OVER_OTHER_APP_PERMISSION);
+        }
+    }
+
+    public void startFloatingWidgetService(){
+        Intent intent = new Intent(activity, FloatingWidgetService.class);
+        intent.putExtra(TRIP_NAME_TAG,currentTrip.getTripName());
+        intent.putExtra(TRIP_NOTES_TAG,currentTrip.getNotes());
+
+        if (Build.VERSION.SDK_INT < Build.VERSION_CODES.M) {
+            activity.startService(intent);
+            activity.finish();
+        } else if (Settings.canDrawOverlays(activity)) {
+            activity.startService(intent);
+            activity.finish();
+        } else {
+            askForSystemOverlayPermission();
+            Toast.makeText(activity, "You need System Alert Window Permission to do this", Toast.LENGTH_SHORT).show();
+        }
+    }
+
+
+
 }

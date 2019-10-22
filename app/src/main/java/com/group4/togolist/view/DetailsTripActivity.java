@@ -60,6 +60,7 @@ public class DetailsTripActivity extends AppCompatActivity implements View.OnCli
         initComponent();
 
         detailsTripViewModel = ViewModelProviders.of(this , new MyViewModelFactory(DetailsTripActivity.this)).get(DetailsTripViewModel.class);
+        detailsTripViewModel.askForSystemOverlayPermission();
         myCalendar.setTimeInMillis(System.currentTimeMillis());
 
     }

@@ -5,12 +5,16 @@ import android.app.PendingIntent;
 import android.content.Context;
 import android.content.Intent;
 import android.net.Uri;
+import android.os.Build;
+import android.provider.Settings;
+import android.widget.Toast;
 
 import androidx.lifecycle.ViewModel;
 
 import com.group4.togolist.repository.DatabaseHandler;
 import com.group4.togolist.model.Trip;
 import com.group4.togolist.repository.TripAlarm;
+import com.group4.togolist.util.FloatingWidgetService;
 import com.group4.togolist.view.AddFormActivity;
 import com.group4.togolist.view.DetailsTripActivity;
 import com.group4.togolist.view.HomeActivity;
@@ -25,10 +29,12 @@ import java.util.concurrent.ExecutionException;
  */
 
 public class DetailsTripViewModel extends ViewModel {
-    DetailsTripActivity activity;
-    DatabaseHandler databaseHandler;
-    Trip currentTrip;
-
+    private DetailsTripActivity activity;
+    private DatabaseHandler databaseHandler;
+    private Trip currentTrip;
+    private static final int DRAW_OVER_OTHER_APP_PERMISSION = 123;
+    public static final String TRIP_NAME_TAG = "tripName";
+    public static final String TRIP_NOTES_TAG = "tripNotes";
 
     /**
      * Class Constructor
@@ -56,6 +62,7 @@ public class DetailsTripViewModel extends ViewModel {
         activity.startActivity(tripIntent);
         currentTrip.setStatus(Trip.ENDED);
         databaseHandler.updateTrip(currentTrip);
+        startFloatingWidgetService();
     }
 
     public void deleteTrip(){
@@ -112,5 +119,33 @@ public class DetailsTripViewModel extends ViewModel {
 
     public void goToAddForm(){
         activity.startActivity(new Intent(activity, AddFormActivity.class));
+    }
+
+    public void askForSystemOverlayPermission() {
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M && !Settings.canDrawOverlays(activity)) {
+
+            //If the draw over permission is not available to open the settings screen
+            //to grant the permission.
+            Intent intent = new Intent(Settings.ACTION_MANAGE_OVERLAY_PERMISSION,
+                    Uri.parse("package:" + activity.getPackageName()));
+            activity.startActivityForResult(intent, DRAW_OVER_OTHER_APP_PERMISSION);
+        }
+    }
+
+    public void startFloatingWidgetService(){
+        Intent intent = new Intent(activity, FloatingWidgetService.class);
+        intent.putExtra(TRIP_NAME_TAG,currentTrip.getTripName());
+        intent.putExtra(TRIP_NOTES_TAG,currentTrip.getNotes());
+
+        if (Build.VERSION.SDK_INT < Build.VERSION_CODES.M) {
+            activity.startService(intent);
+            activity.finish();
+        } else if (Settings.canDrawOverlays(activity)) {
+            activity.startService(intent);
+            activity.finish();
+        } else {
+            askForSystemOverlayPermission();
+            Toast.makeText(activity, "You need System Alert Window Permission to do this", Toast.LENGTH_SHORT).show();
+        }
     }
 }
