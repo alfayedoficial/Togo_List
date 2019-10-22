@@ -17,14 +17,22 @@ import com.google.firebase.auth.EmailAuthProvider;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.auth.GoogleAuthProvider;
+import com.google.firebase.auth.UserProfileChangeRequest;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 import com.group4.togolist.R;
 import com.group4.togolist.model.User;
+import com.group4.togolist.model.UserTrip;
 import com.group4.togolist.view.HomeActivity;
 import com.group4.togolist.viewmodel.ForgetPassViewModel;
 import com.group4.togolist.viewmodel.LoginViewModel;
 import com.group4.togolist.viewmodel.ProfileViewModel;
 import com.group4.togolist.viewmodel.RegisterViewModel;
 
+import java.util.List;
 import java.util.concurrent.Executor;
 
 import androidx.annotation.NonNull;
@@ -58,6 +66,8 @@ public class FirebaseHandler {
     private RegisterViewModel registerViewModel;
     private ForgetPassViewModel forgetPassViewModel;
     private ProfileViewModel profileViewModel;
+
+    private DatabaseReference mDatabase;
 
     /**
      * Firebase Handler Constructors
@@ -95,7 +105,7 @@ public class FirebaseHandler {
     /**
      * this method request sign in using email and password
      */
-    public void signIn(String email, String password) {
+    public void signIn(final String email, final String password) {
         user = FirebaseAuth.getInstance().getCurrentUser();
         mAuth.signInWithEmailAndPassword(email, password).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
             @Override
@@ -103,6 +113,8 @@ public class FirebaseHandler {
                 if (!task.isSuccessful()) {
                     loginViewModel.loginToHomeScreen(ACCESS_DENIED);
                 } else {
+                    String username = user.getDisplayName();
+                    User user = User.getUserInstance(username,email,password);
                     loginViewModel.loginToHomeScreen(ACCESS_GRANTED);
                 }
             }
@@ -144,6 +156,7 @@ public class FirebaseHandler {
                         if (!task.isSuccessful()) {
                             loginViewModel.loginToHomeScreen(ACCESS_DENIED);
                         } else {
+
                             loginViewModel.loginToHomeScreen(ACCESS_GRANTED);
                         }
 //                        if (task.isSuccessful()) {
@@ -163,7 +176,7 @@ public class FirebaseHandler {
     /**
      * this method request sign up using email and password
      */
-    public void signUp(String email, String password) {
+    public void signUp(final String username, String email, String password) {
         user = FirebaseAuth.getInstance().getCurrentUser();
         mAuth.createUserWithEmailAndPassword(email, password)
                 .addOnCompleteListener(new OnCompleteListener<AuthResult>() {
@@ -174,10 +187,24 @@ public class FirebaseHandler {
                             registerViewModel.signUpToHomeScreen(NEW_ACCOUNT_FAILED);
                         } else {
                             Toast.makeText(activity, "Success", Toast.LENGTH_SHORT).show();
-                            registerViewModel.signUpToHomeScreen(NEW_ACCOUNT_CREATED);
+                            user = mAuth.getCurrentUser();
+                            UserProfileChangeRequest profileUpdates = new UserProfileChangeRequest.Builder()
+                                    .setDisplayName(username).build();
+                            user.updateProfile(profileUpdates)
+                                    .addOnCompleteListener(new OnCompleteListener<Void>() {
+                                        @Override
+                                        public void onComplete(@NonNull Task<Void> task) {
+                                            if (task.isSuccessful()) {
+                                                Log.d(TAG, "User profile updated.");
+                                                registerViewModel.signUpToHomeScreen(NEW_ACCOUNT_CREATED);
+                                            }
+                                        }
+                                    });
                         }
                     }
                 });
+
+
     }
 
 
@@ -240,16 +267,24 @@ public class FirebaseHandler {
         if (mAuth == null) {
             mAuth = FirebaseAuth.getInstance();
         }
+        mDatabase = FirebaseDatabase.getInstance().getReference("Trips");
     }
 
     public void checkFirebaseUser(){
         FirebaseAuth auth = FirebaseAuth.getInstance();
-
         if (auth.getCurrentUser() != null) {
             // User is signed in (getCurrentUser() will be null if not signed in)
             Intent intent = new Intent(activity, HomeActivity.class);
-            User user = User.getUserInstance(auth.getCurrentUser().getEmail(),auth.getCurrentUser().getEmail(),auth.getCurrentUser().getEmail());
+            User user = User.getUserInstance(auth.getCurrentUser().getDisplayName(),auth.getCurrentUser().getEmail(),auth.getCurrentUser().getEmail());
             activity.startActivity(intent);
         }
     }
+
+    public void insertTripToDB(){
+        UserTrip newTrip = new UserTrip();
+        mDatabase.child("Trip").setValue(newTrip);
+    }
+
+
+
 }
