@@ -55,8 +55,8 @@ public class AddFormActivity extends AppCompatActivity implements View.OnClickLi
     private boolean roundTrip = false;
     private AddFormViewModel addFormViewModel;
     private Button btnAdd , btnCancel ;
-    private RadioButton rdnBtnDaily , rdnBtnWeekly , rdnBtnDays , rdnBtnOneDirection , rdnBtnRoundTrip;
-    private EditText eTxtTripName  , eTxtStartDate , eTxtStartTime , eTxtNotes;
+    private RadioButton rdnBtnDaily , rdnBtnWeekly , rdnBtnDays , rdnBtnOneDirection , rdnBtnRoundTrip ;
+    private EditText eTxtTripName  , eTxtStartDate , eTxtStartTime , eTxtNotes ,eTxTStartDateRoundTrip ,eTxtStartTimeRoundTrip;
     private TextView txtViewStartPoint , txtViewEndPoint ;
 
     private    final Calendar myCalendar = Calendar.getInstance();
@@ -86,6 +86,8 @@ public class AddFormActivity extends AppCompatActivity implements View.OnClickLi
         eTxtStartDate =findViewById(R.id.editText_startDate);
         eTxtStartTime = findViewById(R.id.editText_startTime);
         eTxtNotes = findViewById(R.id.editTextNote);
+        eTxtStartTimeRoundTrip = findViewById(R.id.editText_startTimeRoundTrip);
+        eTxTStartDateRoundTrip = findViewById(R.id.editText_startDateRoundTrip);
 
         txtViewStartPoint = findViewById(R.id.TextViewStartPoint);
         txtViewEndPoint = findViewById(R.id.TextViewEndPoint);
@@ -283,7 +285,7 @@ public class AddFormActivity extends AppCompatActivity implements View.OnClickLi
     private void autocompletePlace() {
 
         if (!Places.isInitialized()) {
-            Places.initialize(AddFormActivity.this, getString(R.string.google_maps_key),Locale.getDefault());
+            Places.initialize(AddFormActivity.this, getString(R.string.google_api_key),Locale.getDefault());
             PlacesClient placesClient = Places.createClient(AddFormActivity.this);
         }
 
