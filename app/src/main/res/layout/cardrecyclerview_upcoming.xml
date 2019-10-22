@@ -1,150 +1,149 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
 	 xmlns:app="http://schemas.android.com/apk/res-auto"
 	 xmlns:tools="http://schemas.android.com/tools"
 	 android:layout_width="match_parent"
 	 android:layout_height="wrap_content"
+	 app:cardBackgroundColor="@android:color/transparent"
 	 tools:context=".view.DialogActivity"
-	 android:background="@android:color/transparent">
+	 android:layout_margin="10dp"
+	 android:background="@drawable/cardbackground"
+	 android:elevation="6dp">
 
-	 <androidx.constraintlayout.widget.ConstraintLayout
-		  android:layout_width="match_parent"
+	 <ImageButton
+		  android:id="@+id/imageBtnDetails"
+		  style="@style/Widget.AppCompat.Button.Borderless.Colored"
+		  android:layout_width="wrap_content"
 		  android:layout_height="wrap_content"
-		  android:layout_margin="10dp"
-		  android:background="@drawable/cardbackground"
-		  android:elevation="6dp"
-		  >
+		  android:layout_marginStart="5dp"
+		  android:background="@drawable/gradient_btn_home"
+		  app:layout_constraintBottom_toBottomOf="parent"
+		  app:layout_constraintStart_toStartOf="parent"
+		  app:layout_constraintTop_toTopOf="parent"
+		  app:layout_constraintVertical_bias="0.49"
+		  app:srcCompat="@drawable/detailss" />
 
-		  <ImageButton
-			   android:id="@+id/imageBtnDetails"
-			   style="@style/Widget.AppCompat.Button.Borderless.Colored"
-			   android:layout_width="wrap_content"
-			   android:layout_height="wrap_content"
-			   android:layout_marginStart="5dp"
-			   android:background="@drawable/gradient_btn_home"
-			   app:layout_constraintBottom_toBottomOf="parent"
-			   app:layout_constraintStart_toStartOf="parent"
-			   app:layout_constraintTop_toTopOf="parent"
-			   app:layout_constraintVertical_bias="0.49"
-			   app:srcCompat="@drawable/details" />
+	 <TextView
+		  android:id="@+id/textViewBtnDetails"
+		  android:layout_width="wrap_content"
+		  android:layout_height="wrap_content"
+		  android:fontFamily="@font/boutfont"
+		  android:text="@string/details"
+		  android:textColor="@color/background_offwhite"
+		  android:textSize="14sp"
+		  app:layout_constraintBottom_toBottomOf="@+id/imageBtnDetails"
+		  app:layout_constraintEnd_toEndOf="@+id/imageBtnDetails"
+		  app:layout_constraintStart_toStartOf="@+id/imageBtnDetails"
+		  app:layout_constraintTop_toTopOf="@+id/imageBtnDetails" />
 
-		  <TextView
-			   android:id="@+id/textViewBtnDetails"
-			   android:layout_width="wrap_content"
-			   android:layout_height="wrap_content"
-			   android:text="@string/details"
-			   android:textSize="14sp"
-			   android:fontFamily="@font/boutfont"
-			   android:textColor="@color/background_offwhite"
-			   app:layout_constraintBottom_toBottomOf="@+id/imageBtnDetails"
-			   app:layout_constraintEnd_toEndOf="@+id/imageBtnDetails"
-			   app:layout_constraintStart_toStartOf="@+id/imageBtnDetails"
-			   app:layout_constraintTop_toTopOf="@+id/imageBtnDetails" />
+	 <ImageView
+		  android:id="@+id/imageView"
+		  android:layout_width="wrap_content"
+		  android:layout_height="wrap_content"
+		  android:layout_marginStart="5dp"
+		  android:layout_marginTop="10dp"
+		  app:layout_constraintStart_toEndOf="@+id/imageBtnDetails"
+		  app:layout_constraintTop_toTopOf="@+id/imageBtnDetails"
+		  app:srcCompat="@drawable/nametrip" />
 
-		  <ImageView
-			   android:id="@+id/imageView"
-			   android:layout_width="wrap_content"
-			   android:layout_height="wrap_content"
-			   android:layout_marginStart="5dp"
-			   android:layout_marginTop="10dp"
-			   app:layout_constraintStart_toEndOf="@+id/imageBtnDetails"
-			   app:layout_constraintTop_toTopOf="@+id/imageBtnDetails"
-			   app:srcCompat="@drawable/nametrip" />
+	 <ImageView
+		  android:id="@+id/imageView2"
+		  android:layout_width="wrap_content"
+		  android:layout_height="wrap_content"
+		  android:layout_marginStart="5dp"
+		  android:layout_marginTop="16dp"
+		  app:layout_constraintStart_toEndOf="@+id/imageBtnDetails"
+		  app:layout_constraintTop_toBottomOf="@+id/imageView"
+		  app:srcCompat="@drawable/shapetrip" />
 
-		  <ImageView
-			   android:id="@+id/imageView2"
-			   android:layout_width="wrap_content"
-			   android:layout_height="wrap_content"
-			   android:layout_marginStart="5dp"
-			   android:layout_marginTop="16dp"
-			   app:layout_constraintStart_toEndOf="@+id/imageBtnDetails"
-			   app:layout_constraintTop_toBottomOf="@+id/imageView"
-			   app:srcCompat="@drawable/shapetrip" />
+	 <ImageView
+		  android:id="@+id/imageView5"
+		  android:layout_width="wrap_content"
+		  android:layout_height="wrap_content"
+		  android:layout_marginStart="5dp"
+		  android:layout_marginTop="16dp"
+		  android:layout_marginBottom="16dp"
+		  app:layout_constraintBottom_toBottomOf="parent"
+		  app:layout_constraintStart_toEndOf="@+id/imageBtnDetails"
+		  app:layout_constraintTop_toBottomOf="@+id/imageView2"
+		  app:srcCompat="@drawable/calendar" />
 
-		  <ImageView
-			   android:id="@+id/imageView5"
-			   android:layout_width="wrap_content"
-			   android:layout_height="wrap_content"
-			   android:layout_marginStart="5dp"
-			   android:layout_marginTop="16dp"
-			   android:layout_marginBottom="16dp"
-			   app:layout_constraintBottom_toBottomOf="parent"
-			   app:layout_constraintStart_toEndOf="@+id/imageBtnDetails"
-			   app:layout_constraintTop_toBottomOf="@+id/imageView2"
-			   app:srcCompat="@drawable/calendar" />
+	 <ImageView
+		  android:id="@+id/imageView6"
+		  android:layout_width="wrap_content"
+		  android:layout_height="wrap_content"
+		  android:layout_marginStart="20dp"
+		  app:layout_constraintStart_toEndOf="@+id/textViewTripCalender"
+		  app:layout_constraintTop_toTopOf="@+id/imageView5"
+		  app:srcCompat="@drawable/clock" />
 
-		  <ImageView
-			   android:id="@+id/imageView6"
-			   android:layout_width="wrap_content"
-			   android:layout_height="wrap_content"
-			   android:layout_marginStart="20dp"
-			   app:layout_constraintStart_toEndOf="@+id/textViewTripCalender"
-			   app:layout_constraintTop_toTopOf="@+id/imageView5"
-			   app:srcCompat="@drawable/clock" />
+	 <TextView
+		  android:id="@+id/textViewTripName"
+		  android:layout_width="wrap_content"
+		  android:layout_height="wrap_content"
+		  android:layout_marginStart="10dp"
+		  android:fontFamily="@font/boutfont"
+		  android:text="@string/trip_name"
+		  android:textColor="@color/editText"
+		  android:textSize="14sp"
+		  app:layout_constraintBottom_toBottomOf="@+id/imageView"
+		  app:layout_constraintStart_toEndOf="@+id/imageView"
+		  app:layout_constraintTop_toTopOf="@+id/imageView" />
 
-		  <TextView
-			   android:id="@+id/textViewTripName"
-			   android:layout_width="wrap_content"
-			   android:layout_height="wrap_content"
-			   android:layout_marginStart="10dp"
-			   android:text="@string/trip_name"
-			   android:textColor="@color/editText"
-			   android:textSize="14sp"
-			   android:fontFamily="@font/boutfont"
-			   app:layout_constraintBottom_toBottomOf="@+id/imageView"
-			   app:layout_constraintStart_toEndOf="@+id/imageView"
-			   app:layout_constraintTop_toTopOf="@+id/imageView" />
+	 <TextView
+		  android:id="@+id/textViewTripPlace"
+		  android:layout_width="0dp"
+		  android:layout_height="wrap_content"
+		  android:layout_marginStart="10dp"
+		  android:layout_marginEnd="10dp"
+		  android:fontFamily="@font/boutfont"
+		  android:text="@string/tripplace"
+		  android:textColor="@color/editText"
+		  android:textSize="14sp"
+		  app:layout_constraintBottom_toBottomOf="@+id/imageView2"
+		  app:layout_constraintEnd_toEndOf="parent"
+		  app:layout_constraintHorizontal_bias="0.0"
+		  app:layout_constraintStart_toEndOf="@+id/imageView2"
+		  app:layout_constraintTop_toTopOf="@+id/imageView2" />
 
-		  <TextView
-			   android:id="@+id/textViewTripPlace"
-			   android:layout_width="wrap_content"
-			   android:layout_height="wrap_content"
-			   android:layout_marginStart="10dp"
-			   android:text="@string/tripplace"
-			   android:textColor="@color/editText"
-			   android:textSize="14sp"
-			   android:fontFamily="@font/boutfont"
-			   app:layout_constraintBottom_toBottomOf="@+id/imageView2"
-			   app:layout_constraintStart_toEndOf="@+id/imageView2"
-			   app:layout_constraintTop_toTopOf="@+id/imageView2" />
+	 <TextView
+		  android:id="@+id/textViewTripCalender"
+		  android:layout_width="wrap_content"
+		  android:layout_height="wrap_content"
+		  android:layout_marginStart="10dp"
+		  android:fontFamily="@font/boutfont"
+		  android:text="@string/tripcalender"
+		  android:textColor="@color/editText"
+		  android:textSize="14sp"
+		  app:layout_constraintBottom_toBottomOf="@+id/imageView5"
+		  app:layout_constraintStart_toEndOf="@+id/imageView5"
+		  app:layout_constraintTop_toTopOf="@+id/imageView5" />
 
-		  <TextView
-			   android:id="@+id/textViewTripCalender"
-			   android:layout_width="wrap_content"
-			   android:layout_height="wrap_content"
-			   android:layout_marginStart="10dp"
-			   android:text="@string/tripcalender"
-			   android:textColor="@color/editText"
-			   android:textSize="14sp"
-			   android:fontFamily="@font/boutfont"
-			   app:layout_constraintBottom_toBottomOf="@+id/imageView5"
-			   app:layout_constraintStart_toEndOf="@+id/imageView5"
-			   app:layout_constraintTop_toTopOf="@+id/imageView5" />
+	 <TextView
+		  android:id="@+id/textViewPastTripTime"
+		  android:layout_width="wrap_content"
+		  android:layout_height="wrap_content"
+		  android:layout_marginStart="10dp"
+		  android:fontFamily="@font/boutfont"
+		  android:text="@string/triptime"
+		  android:textColor="@color/editText"
+		  android:textSize="14sp"
+		  app:layout_constraintBottom_toBottomOf="@+id/imageView6"
+		  app:layout_constraintStart_toEndOf="@+id/imageView6"
+		  app:layout_constraintTop_toTopOf="@+id/imageView6" />
 
-		  <TextView
-			   android:id="@+id/textViewPastTripTime"
-			   android:layout_width="wrap_content"
-			   android:layout_height="wrap_content"
-			   android:layout_marginStart="10dp"
-			   android:text="@string/triptime"
-			   android:textColor="@color/editText"
-			   android:textSize="14sp"
-			   android:fontFamily="@font/boutfont"
-			   app:layout_constraintBottom_toBottomOf="@+id/imageView6"
-			   app:layout_constraintStart_toEndOf="@+id/imageView6"
-			   app:layout_constraintTop_toTopOf="@+id/imageView6" />
-
-		  <ImageView
-			   android:id="@+id/imageView3"
-			   android:layout_width="wrap_content"
-			   android:layout_height="wrap_content"
-			   android:layout_marginTop="10dp"
-			   android:layout_marginEnd="16dp"
-			   app:layout_constraintEnd_toEndOf="parent"
-			   app:layout_constraintTop_toTopOf="parent"
-			   app:srcCompat="@drawable/close" />
+	 <ImageView
+		  android:id="@+id/imageView3"
+		  android:layout_width="wrap_content"
+		  android:layout_height="wrap_content"
+		  android:layout_marginTop="10dp"
+		  android:layout_marginEnd="16dp"
+		  app:layout_constraintEnd_toEndOf="parent"
+		  app:layout_constraintTop_toTopOf="parent"
+		  app:srcCompat="@drawable/close" />>
 
 
-	 </androidx.constraintlayout.widget.ConstraintLayout>
 
-</androidx.cardview.widget.CardView>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

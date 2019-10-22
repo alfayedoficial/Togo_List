@@ -34,7 +34,7 @@
 	 <string name="end_point">End Point</string>
 	 <string name="startdate">Start Date</string>
 	 <string name="starttime">Start Time</string>
-	 <string name="repetition">Repetition</string>
+	 <string name="repetition">Repetition\n( Optional )</string>
 	 <string name="daily">Daily</string>
 	 <string name="weakly">Weekly</string>
 	 <string name="months">Months</string>
