@@ -305,8 +305,8 @@ public class AddFormActivity extends AppCompatActivity implements View.OnClickLi
                     placeStartPoint = (String) place.getName();
                     longStartPoint = latLangStartPoint.longitude;
                     latStartPoint = latLangStartPoint.latitude;
-                    txtViewStartPoint.setText(placeStartPoint);
-                    Toast.makeText(AddFormActivity.this, placeStartPoint + ": " + longStartPoint + " : " + latStartPoint, Toast.LENGTH_SHORT).show();
+                    //txtViewStartPoint.setText(placeStartPoint);
+                    //Toast.makeText(AddFormActivity.this, placeStartPoint + ": " + longStartPoint + " : " + latStartPoint, Toast.LENGTH_SHORT).show();
                 }
                 @Override
                 public void onError(Status status) {
@@ -352,9 +352,9 @@ public class AddFormActivity extends AppCompatActivity implements View.OnClickLi
                     longEndPoint = latLangEndPoint.longitude;
                     latEndPoint = latLangEndPoint.latitude;
 
-                    txtViewEndPoint.setText(placeEndPoint);
+                    //txtViewEndPoint.setText(placeEndPoint);
 
-                    Toast.makeText(AddFormActivity.this, placeEndPoint + ": " + longEndPoint + " : " + latEndPoint, Toast.LENGTH_SHORT).show();
+                    //Toast.makeText(AddFormActivity.this, placeEndPoint + ": " + longEndPoint + " : " + latEndPoint, Toast.LENGTH_SHORT).show();
 
                 }
 

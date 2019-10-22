@@ -41,7 +41,7 @@ public class AddFormViewModel extends ViewModel{
      * it takes trip information as an input and it create a Trip and add to database
      */
     public void createNewTrip(String tripName, double startLocationLongitude, double startLocationLatitude, double endLocationLongitude, double endLocationLatitude, Calendar startDate, int repetition, boolean isRoundTrip, String notes){
-        Trip newTrip = new Trip(tripName, 20.0, 20.0, 30.0, 30.0,startDate, Trip.UPCOMING, repetition, isRoundTrip, notes);
+        Trip newTrip = new Trip(tripName, startLocationLongitude, startLocationLatitude, endLocationLongitude, endLocationLatitude,startDate, Trip.UPCOMING, repetition, isRoundTrip, notes);
         databaseHandler.addTrip(newTrip);
         AlarmManager alarmManager = (AlarmManager) activity.getSystemService(Context.ALARM_SERVICE);
         Intent intent = new Intent(activity, TripAlarm.class);
