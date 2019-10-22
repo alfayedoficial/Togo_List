@@ -406,6 +406,7 @@
 						 android:textSize="14sp"
 						 android:visibility="gone" />
 
+
 					<EditText
 						 android:id="@+id/editText_startDateRoundTrip"
 						 android:layout_width="match_parent"
