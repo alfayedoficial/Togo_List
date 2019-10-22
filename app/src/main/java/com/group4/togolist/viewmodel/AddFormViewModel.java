@@ -10,6 +10,7 @@ import android.widget.Toast;
 
 import androidx.lifecycle.ViewModel;
 
+import com.group4.togolist.R;
 import com.group4.togolist.repository.DatabaseHandler;
 import com.group4.togolist.model.Trip;
 import com.group4.togolist.repository.TripAlarm;
@@ -40,8 +41,17 @@ public class AddFormViewModel extends ViewModel{
      * this method is called by Button Add in addFormActivity
      * it takes trip information as an input and it create a Trip and add to database
      */
-    public void createNewTrip(String tripName, double startLocationLongitude, double startLocationLatitude, double endLocationLongitude, double endLocationLatitude, Calendar startDate, int repetition, boolean isRoundTrip, String notes){
-        Trip newTrip = new Trip(tripName, startLocationLongitude, startLocationLatitude, endLocationLongitude, endLocationLatitude,startDate, Trip.UPCOMING, repetition, isRoundTrip, notes);
+    public void createNewTrip(String tripName, double startLocationLongitude, double startLocationLatitude, double endLocationLongitude, double endLocationLatitude, Calendar startDate,Calendar roundDate, int repetition, boolean isRoundTrip, String notes){
+        Trip newTrip = new Trip(tripName, startLocationLongitude, startLocationLatitude, endLocationLongitude, endLocationLatitude, Trip.UPCOMING, repetition, isRoundTrip, notes);
+        newTrip.setStartTime(startDate);
+        if(newTrip.isRoundTrip()){
+            if(roundDate.after(startDate)) {
+                newTrip.setRoundTime(roundDate);
+            }else {
+                Toast.makeText(activity, activity.getString(R.string.wrong_round_time), Toast.LENGTH_SHORT).show();
+                return;
+            }
+        }
         databaseHandler.addTrip(newTrip);
         AlarmManager alarmManager = (AlarmManager) activity.getSystemService(Context.ALARM_SERVICE);
         Intent intent = new Intent(activity, TripAlarm.class);
@@ -50,7 +60,8 @@ public class AddFormViewModel extends ViewModel{
 
 //        setAlarm(startDate,alarmManager,activity);
         if (startDate.before(Calendar.getInstance())) {
-            startDate.add(Calendar.DATE, 1);
+            //startDate.add(Calendar.DATE, 1);
+            Toast.makeText(activity, activity.getString(R.string.wrong_start_time), Toast.LENGTH_SHORT).show();
         }else {
 
             Log.i("addform", newTrip.getStartTime().toString());

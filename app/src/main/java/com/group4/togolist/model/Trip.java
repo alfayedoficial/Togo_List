@@ -25,6 +25,32 @@ public class Trip {
     private int startDateDay;
     private int startDateHours;
     private int startDateMinutes;
+    private int roundTripDateYear;
+    private int roundTripDateMonth;
+    private int roundTripDateDay;
+    private int roundTripDateHours;
+
+    public int getRoundTripDateYear() {
+        return roundTripDateYear;
+    }
+
+    public int getRoundTripDateMonth() {
+        return roundTripDateMonth;
+    }
+
+    public int getRoundTripDateDay() {
+        return roundTripDateDay;
+    }
+
+    public int getRoundTripDateHours() {
+        return roundTripDateHours;
+    }
+
+    public int getRoundTripDateMinutes() {
+        return roundTripDateMinutes;
+    }
+
+    private int roundTripDateMinutes;
     private String status;
     private int repetition;
     private boolean isRoundTrip;
@@ -53,6 +79,41 @@ public class Trip {
         this.startDateDay = startDateDay;
         this.startDateHours = startDateHours;
         this.startDateMinutes = startDateMinutes;
+        this.status = status;
+        this.repetition = repetition;
+        this.isRoundTrip = isRoundTrip;
+        this.notes = notes;
+    }
+
+    public Trip(int id, String tripName, double startLocationLongitude, double startLocationLatitude, double endLocationLongitude, double endLocationLatitude, int startDateYear, int startDateMonth, int startDateDay, int startDateHours, int startDateMinutes, int roundTripDateYear, int roundTripDateMonth, int roundTripDateDay, int roundTripDateHours, int roundTripDateMinutes, String status, int repetition, boolean isRoundTrip, String notes) {
+        this.id = id;
+        this.tripName = tripName;
+        this.startLocationLongitude = startLocationLongitude;
+        this.startLocationLatitude = startLocationLatitude;
+        this.endLocationLongitude = endLocationLongitude;
+        this.endLocationLatitude = endLocationLatitude;
+        this.startDateYear = startDateYear;
+        this.startDateMonth = startDateMonth;
+        this.startDateDay = startDateDay;
+        this.startDateHours = startDateHours;
+        this.startDateMinutes = startDateMinutes;
+        this.roundTripDateYear = roundTripDateYear;
+        this.roundTripDateMonth = roundTripDateMonth;
+        this.roundTripDateDay = roundTripDateDay;
+        this.roundTripDateHours = roundTripDateHours;
+        this.roundTripDateMinutes = roundTripDateMinutes;
+        this.status = status;
+        this.repetition = repetition;
+        this.isRoundTrip = isRoundTrip;
+        this.notes = notes;
+    }
+
+    public Trip(String tripName, double startLocationLongitude, double startLocationLatitude, double endLocationLongitude, double endLocationLatitude, String status, int repetition, boolean isRoundTrip, String notes) {
+        this.tripName = tripName;
+        this.startLocationLongitude = startLocationLongitude;
+        this.startLocationLatitude = startLocationLatitude;
+        this.endLocationLongitude = endLocationLongitude;
+        this.endLocationLatitude = endLocationLatitude;
         this.status = status;
         this.repetition = repetition;
         this.isRoundTrip = isRoundTrip;
@@ -154,6 +215,24 @@ public class Trip {
         setStartDateMinutes(cal.get(Calendar.MINUTE));
     }
 
+    public Calendar getRoundTime() {
+        Calendar cal = Calendar.getInstance();
+        cal.set(Calendar.YEAR, getRoundTripDateYear());
+        cal.set(Calendar.MONTH, getRoundTripDateMonth());
+        cal.set(Calendar.DAY_OF_MONTH, getRoundTripDateDay());
+        cal.set(Calendar.HOUR_OF_DAY, getRoundTripDateHours());
+        cal.set(Calendar.MINUTE, getRoundTripDateMinutes());
+        return cal;
+    }
+
+    public void setRoundTime(Calendar cal) {
+        setRoundTripDateYear(cal.get(Calendar.YEAR));
+        setRoundTripDateMonth(cal.get(Calendar.MONTH));
+        setRoundTripDateDay(cal.get(Calendar.DAY_OF_MONTH));
+        setRoundTripDateHours(cal.get(Calendar.HOUR_OF_DAY));
+        setRoundTripDateMinutes(cal.get(Calendar.MINUTE));
+    }
+
     public void setId(int id) {
         this.id = id;
     }
@@ -220,6 +299,26 @@ public class Trip {
 
     public String getTripTime() {
         return startDateHours + " : " + startDateMinutes;
+    }
+
+    public void setRoundTripDateYear(int roundTripDateYear) {
+        this.roundTripDateYear = roundTripDateYear;
+    }
+
+    public void setRoundTripDateMonth(int roundTripDateMonth) {
+        this.roundTripDateMonth = roundTripDateMonth;
+    }
+
+    public void setRoundTripDateDay(int roundTripDateDay) {
+        this.roundTripDateDay = roundTripDateDay;
+    }
+
+    public void setRoundTripDateHours(int roundTripDateHours) {
+        this.roundTripDateHours = roundTripDateHours;
+    }
+
+    public void setRoundTripDateMinutes(int roundTripDateMinutes) {
+        this.roundTripDateMinutes = roundTripDateMinutes;
     }
 }
 

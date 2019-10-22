@@ -84,4 +84,6 @@
 	 <string name="messagelog">Are you sure you want to Log Out ?</string>
 	 <string name="yes">Yes</string>
 	 <string name="no">No</string>
+	<string name="wrong_round_time">Error In Round Trip time</string>
+	<string name="wrong_start_time">Error In Start Time</string>
 </resources>
