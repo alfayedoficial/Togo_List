@@ -1,12 +1,15 @@
 package com.group4.togolist.viewmodel;
 
 import android.app.Activity;
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.util.Log;
 import android.widget.Toast;
 
 import androidx.lifecycle.ViewModel;
 
+import com.group4.togolist.R;
 import com.group4.togolist.model.User;
 import com.group4.togolist.repository.FirebaseHandler;
 import com.group4.togolist.view.AddFormActivity;
@@ -62,9 +65,20 @@ public class ProfileViewModel extends ViewModel {
      * User Logout
      */
     public void logOut(){
-        firebaseHandler.logOut();
-        activity.startActivity(new Intent(activity, FirstActivity.class));
+        new AlertDialog.Builder(activity)
+                .setTitle(R.string.titlelog)
+                .setMessage(R.string.messagelog)
+                .setNegativeButton(R.string.no, null)
+                .setPositiveButton(R.string.yes, new DialogInterface.OnClickListener() {
+
+                    public void onClick(DialogInterface dilog, int arg1) {
+                        firebaseHandler.logOut();
+                        activity.startActivity(new Intent(activity, FirstActivity.class));
+                    }
+                }).create().show();
+
     }
+
 
     /**
      * SnakeBarHandler

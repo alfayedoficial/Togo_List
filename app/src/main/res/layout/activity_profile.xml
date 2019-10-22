@@ -92,7 +92,7 @@
 						 android:layout_height="wrap_content"
 						 android:hint="@string/username"
 						 android:inputType="text"
-						 android:textColor="@color/colorAccent"
+						 android:textColor="@color/colorPrimary"
 						 android:textSize="14sp"
 						 android:textStyle="bold" />
 			   </com.google.android.material.textfield.TextInputLayout>
@@ -115,7 +115,7 @@
 						 android:layout_height="wrap_content"
 						 android:hint="@string/email"
 						 android:inputType="text"
-						 android:textColor="@color/colorAccent"
+						 android:textColor="@color/colorPrimary"
 						 android:textSize="14sp"
 						 android:textStyle="bold" />
 			   </com.google.android.material.textfield.TextInputLayout>
@@ -188,7 +188,7 @@
 						 android:layout_height="wrap_content"
 						 android:hint="@string/password"
 						 android:inputType="textPassword"
-						 android:textColor="@color/colorAccent"
+						 android:textColor="@color/colorPrimary"
 						 android:textSize="14sp"
 						 android:textStyle="bold" />
 			   </com.google.android.material.textfield.TextInputLayout>
@@ -213,7 +213,7 @@
 						 android:layout_height="wrap_content"
 						 android:hint="@string/confirmPassword"
 						 android:inputType="textPassword"
-						 android:textColor="@color/colorAccent"
+						 android:textColor="@color/colorPrimary"
 						 android:textSize="14sp"
 						 android:textStyle="bold" />
 			   </com.google.android.material.textfield.TextInputLayout>

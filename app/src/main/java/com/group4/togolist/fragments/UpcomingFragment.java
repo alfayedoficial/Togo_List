@@ -83,7 +83,6 @@ public class UpcomingFragment extends Fragment implements HomeRecyclerViewAdapte
         /**
          * set message
          */
-
         builder.setMessage("Are you Sure you want to Delete Trip?");
         builder.setCancelable(false);
         builder.setPositiveButton("Yes",

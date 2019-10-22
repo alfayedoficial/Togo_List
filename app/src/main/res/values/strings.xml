@@ -79,5 +79,9 @@
 	 <string name="note">Note</string>
 	<string name="save"> Save</string>
 	 <string name="errormessage">Field can\'t be empty</string>
-
+<!--	 Dilog Log Out-->
+<string name="titlelog">Really LogOut ?</string>
+	 <string name="messagelog">Are you sure you want to Log Out ?</string>
+	 <string name="yes">Yes</string>
+	 <string name="no">No</string>
 </resources>

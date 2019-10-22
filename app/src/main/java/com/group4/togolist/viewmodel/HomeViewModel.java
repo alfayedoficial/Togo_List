@@ -7,8 +7,10 @@ import androidx.lifecycle.ViewModel;
 
 import com.group4.togolist.repository.DatabaseHandler;
 import com.group4.togolist.model.Trip;
+import com.group4.togolist.repository.FirebaseHandler;
 import com.group4.togolist.view.AddFormActivity;
 import com.group4.togolist.view.DetailsTripActivity;
+import com.group4.togolist.view.FirstActivity;
 import com.group4.togolist.view.PastTripDetailsActivity;
 import com.group4.togolist.view.ProfileActivity;
 
@@ -23,6 +25,8 @@ import java.util.concurrent.ExecutionException;
 public class HomeViewModel extends ViewModel {
     private Activity activity;
     private DatabaseHandler databaseHandler;
+    private FirebaseHandler firebaseHandler;
+
 
     public final static String TRIP_NAME = "trip_name";
 
@@ -33,6 +37,7 @@ public class HomeViewModel extends ViewModel {
     public HomeViewModel(Activity activity){
         this.activity = activity;
         databaseHandler = new DatabaseHandler(activity);
+        firebaseHandler = new FirebaseHandler(activity);
     }
 
     /**
@@ -112,4 +117,12 @@ public class HomeViewModel extends ViewModel {
     /**
      *
      */
+
+    /**
+     * User Logout
+     */
+    public void logOut(){
+        firebaseHandler.logOut();
+        activity.startActivity(new Intent(activity, FirstActivity.class));
+    }
 }
