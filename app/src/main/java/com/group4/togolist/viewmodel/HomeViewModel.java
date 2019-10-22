@@ -3,6 +3,7 @@ package com.group4.togolist.viewmodel;
 import android.app.Activity;
 import android.content.Intent;
 
+import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModel;
 
 import com.group4.togolist.repository.DatabaseHandler;
@@ -26,7 +27,7 @@ public class HomeViewModel extends ViewModel {
     private Activity activity;
     private DatabaseHandler databaseHandler;
     private FirebaseHandler firebaseHandler;
-
+    private MutableLiveData<List<Trip>> upcomingTrips, pastTrips;
 
     public final static String TRIP_NAME = "trip_name";
 
@@ -38,6 +39,8 @@ public class HomeViewModel extends ViewModel {
         this.activity = activity;
         databaseHandler = new DatabaseHandler(activity);
         firebaseHandler = new FirebaseHandler(activity);
+        upcomingTrips = new MutableLiveData<>();
+        pastTrips = new MutableLiveData<>();
     }
 
     /**
@@ -57,31 +60,28 @@ public class HomeViewModel extends ViewModel {
     /**
      * get an ArrayList of UpComing Trips
      */
-    public List<Trip> getUpcomingTrip() throws ExecutionException, InterruptedException {
-        return databaseHandler.getTripsByStatus(Trip.UPCOMING);
+    public MutableLiveData<List<Trip>> getUpcomingTrip(){
+        databaseHandler.getTripsByStatus(upcomingTrips,Trip.UPCOMING);
+        return upcomingTrips;
     }
 
     /**
      * get an ArrayList of EndedTrips
      */
-    public List<Trip> getEndedTrip() throws ExecutionException, InterruptedException {
-        return databaseHandler.getTripsByStatus(Trip.ENDED);
+    public MutableLiveData<List<Trip>> getEndedTrip() {
+        databaseHandler.getTripsByStatus(pastTrips,Trip.ENDED);
+        return pastTrips;
     }
 
     /**
      * send activity to Details with trip name
      */
     public void upcomingTripItemClicked(int position){
-        try {
-            List<Trip> trips = databaseHandler.getTripsByStatus(Trip.UPCOMING);
+
             Intent detailsIntent = new Intent(activity, DetailsTripActivity.class);
-            detailsIntent.putExtra(TRIP_NAME,trips.get(position).getTripName());
+            detailsIntent.putExtra(TRIP_NAME,upcomingTrips.getValue().get(position).getTripName());
             activity.startActivity(detailsIntent);
-        } catch (ExecutionException e) {
-            e.printStackTrace();
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
+
     }
 
     /**
@@ -89,16 +89,10 @@ public class HomeViewModel extends ViewModel {
      */
 
     public void endedTripItemClicked (int position){
-        try {
-            List<Trip> trips = databaseHandler.getTripsByStatus(Trip.ENDED);
             Intent pastDetailsIntent = new Intent(activity, PastTripDetailsActivity.class);
-            pastDetailsIntent.putExtra(TRIP_NAME,trips.get(position).getTripName());
+            pastDetailsIntent.putExtra(TRIP_NAME,pastTrips.getValue().get(position).getTripName());
             activity.startActivity(pastDetailsIntent);
-        } catch (ExecutionException e) {
-            e.printStackTrace();
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
+
     }
     /**
      * SnakeBarHandler

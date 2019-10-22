@@ -51,7 +51,11 @@ public class HomeRecyclerViewAdapter extends RecyclerView.Adapter {
 
     @Override
     public int getItemCount() {
-        return upcomingTrip.size();
+
+        int count = 0;
+        if(upcomingTrip != null)
+            count = upcomingTrip.size();
+        return count;
     }
 
 
@@ -114,6 +118,7 @@ public class HomeRecyclerViewAdapter extends RecyclerView.Adapter {
 
     public void setUpcomingTrip(List<Trip> upcomingTrip) {
         this.upcomingTrip = upcomingTrip;
+        notifyDataSetChanged();
     }
     public interface OnItemListener{
         void onItemClick(int position);

@@ -56,19 +56,12 @@ public class HomeActivity extends AppCompatActivity implements View.OnClickListe
         viewPager = findViewById(R.id.viewPager);
         Fragment[] fragments = new Fragment[2];
 
-        try {
-            upcomingTrip = homeViewModel.getUpcomingTrip();
-            pastTrips = homeViewModel.getEndedTrip();
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        } catch (ExecutionException e) {
-            e.printStackTrace();
-        }
 
-        UpcomingFragment upcomingFragment = new UpcomingFragment(this, upcomingTrip, homeViewModel);
+
+        UpcomingFragment upcomingFragment = new UpcomingFragment(this, homeViewModel);
         fragments[0] = upcomingFragment;
 
-        fragments[1] = new HistoryFragment(this, pastTrips, homeViewModel);
+        fragments[1] = new HistoryFragment(this, homeViewModel);
 
 
         FragmentManager fm = getSupportFragmentManager();

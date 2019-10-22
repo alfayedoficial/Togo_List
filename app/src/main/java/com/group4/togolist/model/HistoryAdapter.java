@@ -26,9 +26,8 @@ public class HistoryAdapter extends RecyclerView.Adapter<HistoryAdapter.HistoryH
     private List<Trip> pastTrips;
     private Context context;
 
-    public HistoryAdapter(Context context,List<Trip> pastTrips,OnItemListener onItemListener){
+    public HistoryAdapter(Context context,OnItemListener onItemListener){
         this.context = context;
-        this.pastTrips = pastTrips;
         this.onItemListener = onItemListener;
     }
 
@@ -43,6 +42,11 @@ public class HistoryAdapter extends RecyclerView.Adapter<HistoryAdapter.HistoryH
         return historyHolder;
     }
 
+    public void setPastTrips(List<Trip> pastTrips) {
+        this.pastTrips = pastTrips;
+        notifyDataSetChanged();
+    }
+
     @Override
     public void onBindViewHolder(@NonNull HistoryHolder holder, int position) {
         Trip trip = pastTrips.get(position);
@@ -55,7 +59,10 @@ public class HistoryAdapter extends RecyclerView.Adapter<HistoryAdapter.HistoryH
 
     @Override
     public int getItemCount() {
-        return pastTrips.size();
+        int count = 0;
+        if(pastTrips != null)
+            count = pastTrips.size();
+        return count;
     }
 
     public class HistoryHolder extends RecyclerView.ViewHolder implements View.OnClickListener {

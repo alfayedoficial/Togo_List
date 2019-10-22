@@ -7,6 +7,7 @@ import android.content.DialogInterface;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
+import androidx.lifecycle.Observer;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -30,13 +31,15 @@ public class HistoryFragment extends Fragment  implements HistoryAdapter.OnItemL
    private List<Trip> pastTrips;
    private Context context;
    private HomeViewModel homeViewModel;
+   private HistoryAdapter historyAdapter;
 
-    public HistoryFragment(Context context, List<Trip> trips, HomeViewModel homeViewModel) {
+    public HistoryFragment(Context context, HomeViewModel homeViewModel) {
         // Required empty public constructor
         this.context = context;
-        pastTrips = trips;
         this.homeViewModel = homeViewModel ;
     }
+
+
 
 
     @Override
@@ -48,7 +51,7 @@ public class HistoryFragment extends Fragment  implements HistoryAdapter.OnItemL
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(context);
         pastTripRecyclerView.setLayoutManager(linearLayoutManager);
 
-        HistoryAdapter historyAdapter = new HistoryAdapter(context, pastTrips,this);
+        historyAdapter = new HistoryAdapter(context,this);
         pastTripRecyclerView.setAdapter(historyAdapter);
         return view;
     }
@@ -79,6 +82,7 @@ public class HistoryFragment extends Fragment  implements HistoryAdapter.OnItemL
                     public void onClick(DialogInterface dialog,
                                         int which) {
                         homeViewModel.deleteTrip(tripName);
+                        updateRecyclerView();
                     }
                 });
 
@@ -103,5 +107,21 @@ public class HistoryFragment extends Fragment  implements HistoryAdapter.OnItemL
          */
 
         alert.show();
+    }
+
+    @Override
+    public void onStart() {
+        super.onStart();
+        updateRecyclerView();
+    }
+
+    public void updateRecyclerView(){
+        homeViewModel.getEndedTrip().observe(this, new Observer<List<Trip>>() {
+            @Override
+            public void onChanged(List<Trip> trips) {
+                historyAdapter.setPastTrips(trips);
+                pastTrips = trips;
+            }
+        });
     }
 }

@@ -4,11 +4,13 @@ import android.app.AlertDialog;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
 import androidx.fragment.app.Fragment;
+import androidx.lifecycle.Observer;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -29,12 +31,12 @@ public class UpcomingFragment extends Fragment implements HomeRecyclerViewAdapte
     private List<Trip> upcomingTrip ;
     private Context context;
     private HomeViewModel homeViewModel;
+    private HomeRecyclerViewAdapter adapter;
 
-    public UpcomingFragment(Context context, List<Trip> trips, HomeViewModel homeViewModel) {
+    public UpcomingFragment(Context context, HomeViewModel homeViewModel) {
         // Required empty public constructor
         this.homeViewModel = homeViewModel;
         this.context = context;
-        upcomingTrip = trips;
         this.homeViewModel = homeViewModel ;
     }
 
@@ -48,7 +50,7 @@ public class UpcomingFragment extends Fragment implements HomeRecyclerViewAdapte
 
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(context);
         recyclerViewUpcomingTrip.setLayoutManager(linearLayoutManager);
-        HomeRecyclerViewAdapter adapter = new HomeRecyclerViewAdapter(this , context);
+        adapter = new HomeRecyclerViewAdapter(this , context);
 
         adapter.setUpcomingTrip(upcomingTrip);
 
@@ -57,8 +59,23 @@ public class UpcomingFragment extends Fragment implements HomeRecyclerViewAdapte
         return view;
     }
 
+    public void updateRecyclerView(){
+        homeViewModel.getUpcomingTrip().observe(this, new Observer<List<Trip>>() {
+            @Override
+            public void onChanged(List<Trip> trips) {
+                adapter.setUpcomingTrip(trips);
+                upcomingTrip = trips;
+            }
+        });
+    }
 
-   public void setUpcomingTrip(List<Trip> upcomingTrip) {
+    @Override
+    public void onStart() {
+        super.onStart();
+        updateRecyclerView();
+    }
+
+    public void setUpcomingTrip(List<Trip> upcomingTrip) {
         this.upcomingTrip = upcomingTrip;
     }
 
@@ -91,6 +108,7 @@ public class UpcomingFragment extends Fragment implements HomeRecyclerViewAdapte
                     public void onClick(DialogInterface dialog,
                                         int which) {
                         homeViewModel.deleteTrip(tripName);
+                        updateRecyclerView();
                     }
                 });
 

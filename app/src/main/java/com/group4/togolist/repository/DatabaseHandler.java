@@ -4,6 +4,7 @@ import android.app.Activity;
 import android.os.AsyncTask;
 
 import androidx.lifecycle.LiveData;
+import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.Observer;
 
 import com.group4.togolist.db.TripDao;
@@ -56,8 +57,21 @@ public class DatabaseHandler {
         new UpdateTrip(trip).execute();
     }
 
-    public List<Trip> getTripsByStatus(String status) throws ExecutionException, InterruptedException {
-        return new GetTripByStatus(status).execute().get();
+    public void getTripsByStatus(final MutableLiveData<List<Trip>> tripList, final String status)  {
+        class GetTripByStatus extends AsyncTask<Void,Void,List<Trip>>{
+
+            @Override
+            protected List<Trip> doInBackground(Void... voids) {
+                return daoInstance.getTripsByStatus(status);
+            }
+
+            @Override
+            protected void onPostExecute(List<Trip> trips) {
+                super.onPostExecute(trips);
+                tripList.setValue(trips);
+            }
+        }
+        new GetTripByStatus().execute();
     }
 
     public void deleteTrip(Trip trip){
@@ -113,17 +127,7 @@ public class DatabaseHandler {
     /**
      *
      */
-    class GetTripByStatus extends AsyncTask<Void,Void,List<Trip>>{
-        String status;
-        public GetTripByStatus(String status){
-            this.status = status;
-        }
 
-        @Override
-        protected List<Trip> doInBackground(Void... voids) {
-            return daoInstance.getTripsByStatus(status);
-        }
-    }
 
     class DeleteTrip extends AsyncTask<Void,Void,Void>{
         Trip trip;
