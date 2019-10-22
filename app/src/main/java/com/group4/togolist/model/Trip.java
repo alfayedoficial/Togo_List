@@ -4,6 +4,7 @@ package com.group4.togolist.model;
 import java.util.Calendar;
 
 import androidx.room.Entity;
+import androidx.room.Ignore;
 import androidx.room.PrimaryKey;
 
 /**
@@ -68,23 +69,19 @@ public class Trip {
     public static final int WEEKLY = 1003;
     public static final int MONTHLY = 1004;
 
-    public Trip(String tripName, double startLocationLongitude, double startLocationLatitude, double endLocationLongitude, double endLocationLatitude, int startDateYear, int startDateMonth, int startDateDay, int startDateHours, int startDateMinutes, String status, int repetition, boolean isRoundTrip, String notes) {
+    public Trip( String tripName, double startLocationLongitude, double startLocationLatitude, double endLocationLongitude, double endLocationLatitude, String status, int repetition, boolean isRoundTrip, String notes) {
         this.tripName = tripName;
         this.startLocationLongitude = startLocationLongitude;
         this.startLocationLatitude = startLocationLatitude;
         this.endLocationLongitude = endLocationLongitude;
         this.endLocationLatitude = endLocationLatitude;
-        this.startDateYear = startDateYear;
-        this.startDateMonth = startDateMonth;
-        this.startDateDay = startDateDay;
-        this.startDateHours = startDateHours;
-        this.startDateMinutes = startDateMinutes;
         this.status = status;
         this.repetition = repetition;
         this.isRoundTrip = isRoundTrip;
         this.notes = notes;
     }
 
+    @Ignore
     public Trip(int id, String tripName, double startLocationLongitude, double startLocationLatitude, double endLocationLongitude, double endLocationLatitude, int startDateYear, int startDateMonth, int startDateDay, int startDateHours, int startDateMinutes, int roundTripDateYear, int roundTripDateMonth, int roundTripDateDay, int roundTripDateHours, int roundTripDateMinutes, String status, int repetition, boolean isRoundTrip, String notes) {
         this.id = id;
         this.tripName = tripName;
@@ -102,35 +99,6 @@ public class Trip {
         this.roundTripDateDay = roundTripDateDay;
         this.roundTripDateHours = roundTripDateHours;
         this.roundTripDateMinutes = roundTripDateMinutes;
-        this.status = status;
-        this.repetition = repetition;
-        this.isRoundTrip = isRoundTrip;
-        this.notes = notes;
-    }
-
-    public Trip(String tripName, double startLocationLongitude, double startLocationLatitude, double endLocationLongitude, double endLocationLatitude, String status, int repetition, boolean isRoundTrip, String notes) {
-        this.tripName = tripName;
-        this.startLocationLongitude = startLocationLongitude;
-        this.startLocationLatitude = startLocationLatitude;
-        this.endLocationLongitude = endLocationLongitude;
-        this.endLocationLatitude = endLocationLatitude;
-        this.status = status;
-        this.repetition = repetition;
-        this.isRoundTrip = isRoundTrip;
-        this.notes = notes;
-    }
-
-    public Trip(String tripName, double startLocationLongitude, double startLocationLatitude, double endLocationLongitude, double endLocationLatitude, Calendar startDate, String status, int repetition, boolean isRoundTrip, String notes) {
-        this.tripName = tripName;
-        this.startLocationLongitude = startLocationLongitude;
-        this.startLocationLatitude = startLocationLatitude;
-        this.endLocationLongitude = endLocationLongitude;
-        this.endLocationLatitude = endLocationLatitude;
-        this.startDateYear = startDate.get(Calendar.YEAR);
-        this.startDateMonth = startDate.get(Calendar.MONTH);
-        this.startDateDay = startDate.get(Calendar.DAY_OF_MONTH);
-        this.startDateHours = startDate.get(Calendar.HOUR_OF_DAY);
-        this.startDateMinutes = startDate.get(Calendar.MINUTE);
         this.status = status;
         this.repetition = repetition;
         this.isRoundTrip = isRoundTrip;

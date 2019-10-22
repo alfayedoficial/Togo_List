@@ -113,8 +113,6 @@ public class FirebaseHandler {
                 if (!task.isSuccessful()) {
                     loginViewModel.loginToHomeScreen(ACCESS_DENIED);
                 } else {
-                    String username = user.getDisplayName();
-                    User user = User.getUserInstance(username,email,password);
                     loginViewModel.loginToHomeScreen(ACCESS_GRANTED);
                 }
             }

@@ -62,13 +62,13 @@ public class AddFormViewModel extends ViewModel{
         if (startDate.before(Calendar.getInstance())) {
             //startDate.add(Calendar.DATE, 1);
             Toast.makeText(activity, activity.getString(R.string.wrong_start_time), Toast.LENGTH_SHORT).show();
-        }else {
+        }
 
             Log.i("addform", newTrip.getStartTime().toString());
             alarmManager.setExact(AlarmManager.RTC_WAKEUP, startDate.getTimeInMillis(), pendingIntent);
             Toast.makeText(activity, "Trip Created", Toast.LENGTH_SHORT).show();
             activity.startActivity(new Intent(activity, HomeActivity.class));
-        }
+
     }
 
 //    public void setAlarm(Calendar startDate, AlarmManager alarmManager,

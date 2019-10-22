@@ -107,6 +107,12 @@ public class AddFormActivity extends AppCompatActivity implements View.OnClickLi
         eTxtStartDate.setOnClickListener(this);
         eTxtStartTime.setOnClickListener(this);
 
+        eTxTStartDateRoundTrip.setOnFocusChangeListener(this);
+        eTxtStartTimeRoundTrip.setOnFocusChangeListener(this);
+
+        eTxTStartDateRoundTrip.setOnClickListener(this);
+        eTxtStartTimeRoundTrip.setOnClickListener(this);
+
         imgBtnHome = findViewById(R.id.imageBtnHome);
         imgBtnProfile = findViewById(R.id.imageBtnProfile);
         fltBtnAdd = findViewById(R.id.fABtnAddNote);
@@ -131,10 +137,16 @@ public class AddFormActivity extends AppCompatActivity implements View.OnClickLi
         switch (v.getId()){
 
             case R.id.editText_startDate:
-                showDate();
+                showDate(eTxtStartDate);
                 break;
             case R.id.editText_startTime:
-                showTime();
+                showTime(eTxtStartTime);
+                break;
+            case R.id.editText_startDateRoundTrip:
+                showDate(eTxTStartDateRoundTrip);
+                break;
+            case R.id.editText_startTimeRoundTrip:
+                showTime(eTxtStartTimeRoundTrip);
                 break;
             case R.id.radioBtnDaily:
                 boolean checked = ((RadioButton) v).isChecked();
@@ -158,12 +170,16 @@ public class AddFormActivity extends AppCompatActivity implements View.OnClickLi
                 boolean checked3 = ((RadioButton) v).isChecked();
                 if (checked3){
                     roundTrip = false ;
+                    eTxTStartDateRoundTrip.setVisibility(View.GONE);
+                    eTxtStartTimeRoundTrip.setVisibility(View.GONE);
                 }
                 break;
             case R.id.radioBtnRoundTrip:
                 boolean checked4 = ((RadioButton) v).isChecked();
                 if (checked4){
                     roundTrip = true ;
+                    eTxTStartDateRoundTrip.setVisibility(View.VISIBLE);
+                    eTxtStartTimeRoundTrip.setVisibility(View.VISIBLE);
                 }
                 break;
             case R.id.btnAdd:
@@ -191,10 +207,16 @@ public class AddFormActivity extends AppCompatActivity implements View.OnClickLi
             switch (v.getId()) {
 
                 case R.id.editText_startDate:
-                    showDate();
+                    showDate(eTxtStartDate);
                     break;
                 case R.id.editText_startTime:
-                    showTime();
+                    showTime(eTxtStartTime);
+                    break;
+                case R.id.editText_startDateRoundTrip:
+                    showDate(eTxTStartDateRoundTrip);
+                    break;
+                case R.id.editText_startTimeRoundTrip:
+                    showTime(eTxtStartTimeRoundTrip);
                     break;
             }
         }
@@ -206,9 +228,16 @@ public class AddFormActivity extends AppCompatActivity implements View.OnClickLi
         int year = 0;
         int hour = 0;
         int minute  =0 ;
+        int monthRound = 0;
+        int dayRound = 0;
+        int yearRound = 0;
+        int hourRound = 0;
+        int minuteRound  =0 ;
 
         String startDate = eTxtStartDate.getText().toString();
         String startTime = eTxtStartTime.getText().toString();
+        String roundDate = eTxTStartDateRoundTrip.getText().toString();
+        String roundTime = eTxtStartTimeRoundTrip.getText().toString();
 
         /**
          *  getting date and time from editText and split them to the required data
@@ -229,14 +258,30 @@ public class AddFormActivity extends AppCompatActivity implements View.OnClickLi
                  minute = Integer.parseInt(startTimeArr[1]);
              }
         }
+        if (roundDate != null ) {
+            if(!startDate.isEmpty()) {
+                String[] startDateArr = startDate.split("/");
+                monthRound = Integer.parseInt(startDateArr[0]);
+                dayRound = Integer.parseInt(startDateArr[1]);
+                yearRound = Integer.parseInt(startDateArr[2]);
+            }
+        }
+        if (roundTime != null){
+            if (!startTime.isEmpty()) {
+                String[] startTimeArr = startTime.split(":");
+                hourRound = Integer.parseInt(startTimeArr[0]);
+                minuteRound = Integer.parseInt(startTimeArr[1]);
+            }
+        }
 
         tripCalendar.set(year , month , day , hour , minute);
-
-       addFormViewModel.createNewTrip(eTxtTripName.getText().toString() , longStartPoint, latStartPoint, longEndPoint, latEndPoint, tripCalendar, repetition, roundTrip, eTxtNotes.getText().toString());
+        Calendar roundCalendar = Calendar.getInstance();
+        roundCalendar.set(yearRound,monthRound,dayRound,hourRound,minuteRound);
+       addFormViewModel.createNewTrip(eTxtTripName.getText().toString() , longStartPoint, latStartPoint, longEndPoint, latEndPoint, tripCalendar,roundCalendar, repetition, roundTrip, eTxtNotes.getText().toString());
 
     }
 
-    private void showTime() {
+    private void showTime(final TextView timeText) {
 
         TimePickerDialog timePickerDialog = new TimePickerDialog(AddFormActivity.this, new TimePickerDialog.OnTimeSetListener() {
             @Override
@@ -250,12 +295,12 @@ public class AddFormActivity extends AppCompatActivity implements View.OnClickLi
                     strHour = "0"+hourOfDay;
                 }else
                     strHour = hourOfDay +"";
-                eTxtStartTime.setText(strHour + ":" + strMinute);
+                timeText.setText(strHour + ":" + strMinute);
             }
         }, 0, 0, false);
         timePickerDialog.show();
     }
-    private void showDate() {
+    private void showDate(final TextView dateText) {
         final DatePickerDialog.OnDateSetListener date = new DatePickerDialog.OnDateSetListener() {
 
             @Override
@@ -269,7 +314,7 @@ public class AddFormActivity extends AppCompatActivity implements View.OnClickLi
                 String myFormat = "MM/dd/yy"; //In which you need put here
                 SimpleDateFormat sdf = new SimpleDateFormat(myFormat, Locale.US);
 
-                eTxtStartDate.setText(sdf.format(myCalendar.getTime()));
+                dateText.setText(sdf.format(myCalendar.getTime()));
 
             }
 

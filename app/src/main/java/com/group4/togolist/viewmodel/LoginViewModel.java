@@ -15,6 +15,7 @@ import com.google.android.gms.tasks.Task;
 import com.google.android.material.snackbar.Snackbar;
 import com.google.firebase.auth.AuthCredential;
 import com.google.firebase.auth.AuthResult;
+import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.auth.GoogleAuthProvider;
 import com.group4.togolist.R;
@@ -75,6 +76,8 @@ public class LoginViewModel extends ViewModel {
     public void loginToHomeScreen(int loginResult){
         if(loginResult == FirebaseHandler.ACCESS_GRANTED){
             Intent loginIntent = new Intent(loginActivity, HomeActivity.class);
+            FirebaseUser firebaseUser = FirebaseAuth.getInstance().getCurrentUser();
+            User user = User.getUserInstance(firebaseUser.getDisplayName(),firebaseUser.getEmail());
             loginActivity.startActivity(loginIntent);
             Log.i("user",user.getEmail());
         }else{
