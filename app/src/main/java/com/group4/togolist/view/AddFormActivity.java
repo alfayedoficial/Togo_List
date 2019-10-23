@@ -59,7 +59,9 @@ public class AddFormActivity extends AppCompatActivity implements View.OnClickLi
     private RadioButton rdnBtnDaily , rdnBtnWeekly , rdnBtnDays , rdnBtnOneDirection , rdnBtnRoundTrip ;
     private EditText eTxtTripName  , eTxtStartDate , eTxtStartTime , eTxtNotes ,eTxTStartDateRoundTrip ,eTxtStartTimeRoundTrip;
     private TextView txtViewStartPoint , txtViewEndPoint ;
-
+    private int yearT , monthT , dayT , hourT , minuteT ;
+    private  boolean dateSelected = false ;
+    private  boolean timeSelected = false ;
     private    final Calendar myCalendar = Calendar.getInstance();
     private Calendar currentCalendar = Calendar.getInstance();
     private Calendar tripCalendar = Calendar.getInstance();
@@ -285,7 +287,8 @@ public class AddFormActivity extends AppCompatActivity implements View.OnClickLi
 
         roundCalendar.set(yearRound,monthRound,dayRound,hourRound,minuteRound,0);
        addFormViewModel.createNewTrip(eTxtTripName.getText().toString() , longStartPoint, latStartPoint, longEndPoint, latEndPoint, tripCalendar,roundCalendar, repetition, roundTrip, eTxtNotes.getText().toString());
-
+       timeSelected = false ;
+       dateSelected = false ;
     }
 
     private void showTime(final TextView timeText) {
@@ -302,7 +305,19 @@ public class AddFormActivity extends AppCompatActivity implements View.OnClickLi
                     strHour = "0"+hourOfDay;
                 }else
                     strHour = hourOfDay +"";
-                timeText.setText(strHour + ":" + strMinute);
+                currentCalendar.setTimeInMillis(System.currentTimeMillis());
+
+                if((! dateSelected )||(currentCalendar.get(Calendar.YEAR)== yearT && currentCalendar.get(Calendar.MONTH) == monthT && currentCalendar.get(Calendar.DAY_OF_MONTH)== dayT  && (currentCalendar.get(Calendar.HOUR_OF_DAY) < hourOfDay)  || (currentCalendar.get(Calendar.HOUR_OF_DAY) == hourOfDay || (currentCalendar.get(Calendar.MINUTE ) < minutes  ) ))){
+                    timeText.setText(strHour + ":" + strMinute);
+                    hourT = hourOfDay ;
+                    monthT = minutes ;
+                    timeSelected = true ;
+                }else {
+                    Toast.makeText(AddFormActivity.this, "Please Correct Upcoming Date and Time", Toast.LENGTH_LONG).show();
+                    timeText.setText("");
+                    timeSelected = false ;
+                }
+
             }
         }, 0, 0, false);
         timePickerDialog.show();
@@ -313,6 +328,8 @@ public class AddFormActivity extends AppCompatActivity implements View.OnClickLi
             @Override
             public void onDateSet(DatePicker view, int year, int monthOfYear,
                                   int dayOfMonth) {
+
+            if( (((timeSelected) && (currentCalendar.get(Calendar.YEAR)== year && currentCalendar.get(Calendar.MONTH) == monthOfYear && currentCalendar.get(Calendar.DAY_OF_MONTH)== dayOfMonth  && (currentCalendar.get(Calendar.HOUR_OF_DAY) < hourT || (currentCalendar.get(Calendar.HOUR_OF_DAY) == hourT && currentCalendar.get(Calendar.MINUTE ) < minuteT ))))||(currentCalendar.get(Calendar.YEAR)== year && currentCalendar.get(Calendar.MONTH) == monthOfYear && currentCalendar.get(Calendar.DAY_OF_MONTH)<= dayOfMonth ) || (currentCalendar.get(Calendar.YEAR)== year && currentCalendar.get(Calendar.MONTH) < monthOfYear  )||(currentCalendar.get(Calendar.YEAR) < year ))) {
                 // TODO Auto-generated method stub
                 myCalendar.set(Calendar.YEAR, year);
                 myCalendar.set(Calendar.MONTH, monthOfYear);
@@ -322,10 +339,15 @@ public class AddFormActivity extends AppCompatActivity implements View.OnClickLi
                 SimpleDateFormat sdf = new SimpleDateFormat(myFormat, Locale.US);
 
                 dateText.setText(sdf.format(myCalendar.getTime()));
-
-            }
-
-        };
+                yearT = year ;
+                monthT = monthOfYear ;
+                dayT = dayOfMonth ;
+                dateSelected = true ;
+            }else {
+                Toast.makeText(AddFormActivity.this, "Please Choose Upcoming Date and Time", Toast.LENGTH_LONG).show();
+                dateText.setText("");
+                dateSelected = false ;
+            } }};
 
                 // TODO Auto-generated method stub
                 new DatePickerDialog(AddFormActivity.this, date, myCalendar
@@ -367,7 +389,7 @@ public class AddFormActivity extends AppCompatActivity implements View.OnClickLi
                     // TODO: Handle the error.
                   //  txtViewStartPoint.setText(status.toString());
                     System.out.println(status.toString());
-                    Toast.makeText(AddFormActivity.this, status.toString(), Toast.LENGTH_SHORT).show();
+                   // Toast.makeText(AddFormActivity.this, status.toString(), Toast.LENGTH_SHORT).show();
                 }
             });
 
@@ -416,7 +438,7 @@ public class AddFormActivity extends AppCompatActivity implements View.OnClickLi
                 public void onError(Status status) {
                     // TODO: Handle the error.
                     System.out.println(status.toString());
-                    Toast.makeText(AddFormActivity.this, status.toString(), Toast.LENGTH_SHORT).show();
+                  //  Toast.makeText(AddFormActivity.this, status.toString(), Toast.LENGTH_SHORT).show();
                 }
             });
 
