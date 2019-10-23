@@ -4,6 +4,7 @@ import android.app.Activity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ProgressBar;
 
 import com.google.android.material.textfield.TextInputLayout;
 import com.group4.togolist.R;
@@ -23,6 +24,7 @@ public class SignUpActivity extends AppCompatActivity implements View.OnClickLis
     private RegisterViewModel registerViewModel;
     private Button btnSignUp, btnTermsAndConditions, btnPrivacyPolicy;
     private TextInputLayout eTxtUserName, eTxtEmail, eTxtPassword, eTxtConfirmPassword;
+    private ProgressBar progressBar2;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -47,6 +49,8 @@ public class SignUpActivity extends AppCompatActivity implements View.OnClickLis
         eTxtEmail = findViewById(R.id.editText_email_Signup);
         eTxtPassword = findViewById(R.id.editText_password_Signup);
         eTxtConfirmPassword = findViewById(R.id.editText_confirmPassword);
+
+        progressBar2 = findViewById(R.id.progressBar2);
 
         btnSignUp.setOnClickListener(this);
         btnTermsAndConditions.setOnClickListener(this);
@@ -155,5 +159,20 @@ public class SignUpActivity extends AppCompatActivity implements View.OnClickLis
         public <T extends ViewModel> T create(Class<T> modelClass) {
             return (T) new RegisterViewModel(mActivity);
         }
+    }
+    /**
+     *  close edit text and sign up activity
+     */
+    public void disableLayout(boolean status){
+        eTxtUserName.setEnabled(status);
+        eTxtEmail.setEnabled(status);
+        eTxtPassword.setEnabled(status);
+        eTxtConfirmPassword.setEnabled(status);
+        btnSignUp.setEnabled(status);
+        btnTermsAndConditions.setEnabled(status);
+        btnPrivacyPolicy.setEnabled(status);
+        if(!status){
+            progressBar2.setVisibility(View.VISIBLE);
+        }else {progressBar2.setVisibility(View.GONE);}
     }
 }
