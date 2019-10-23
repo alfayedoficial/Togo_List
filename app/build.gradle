@@ -6,14 +6,6 @@ apply plugin: 'io.fabric'
 apply plugin: 'com.google.firebase.firebase-perf'
 
 android {
-    signingConfigs {
-        debug {
-            storeFile file('F:\\courses\\ITI\\w6.7-android\\project\\togolist\\app\\group4.jks')
-            storePassword '123456789'
-            keyAlias = 'togolist'
-            keyPassword '123456789'
-        }
-    }
     compileSdkVersion 29
     buildToolsVersion "29.0.2"
     defaultConfig {
