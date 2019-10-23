@@ -1,0 +1,111 @@
+<resources>
+	 <string name="app_name">ToGo List</string>
+	 <string name="titleHome">لن تنسى رحلاتك !</string>
+
+	 <!--	 Sign in Activity-->
+	 <string name="signin">تسجيل الدخول</string>
+	 <string name="createanaccount">إنشاء حساب</string>
+	 <string name="cancel">إلغاء</string>
+	 <string name="welcomeback">مرحبا بك</string>
+	 <string name="email">البريد الإلكترونى</string>
+	 <string name="password">كلمة المرور</string>
+	 <string name="forgetpassword">هل نسيت كلة المرور</string>
+	 <string name="sign_in_with_google">تسجيل الدخول بواسطة جوجل</string>
+	 <!--	 Sign up Activity-->
+	 <string name="e_mail">البريد الإلكترونى</string>
+	 <string name="welcome_to_togo_list"> مرحبا بك فى ToGo List</string>
+	 <string name="sign_up">إنشاء حساب</string>
+	 <string name="username">اسم المستخدم</string>
+	 <string name="confirmPassword">تأكيد كلمة المرور</string>
+	 <string name="sign_up_with_google">Sign Up With Google</string>
+	 <string name="privacy_policy"><![CDATA[عند الضغط على ذر إنشاء حساب , فأنت قد وافقت على
+]]></string>
+	 <string name="terms_conditions"><![CDATA[البنود و الظروف]]></string>
+	 <string name="privacy_policybutton">سياسية الخصوصية</string>
+	 <string name="and">and</string>
+	 <!--	 Forget password Activity-->
+	 <string name="sorry_for_forget_your_password">نحن أسفون لنسيانك كلمة المرور</string>
+	 <string name="forget_password">نسيت كلمة المرور</string>
+	 <string name="please_enter_your_e_mail">من فضلك إدخل البريد الإلكترونى الخاص بك</string>
+	 <string name="reset_password">استرجاع كلمة المرور</string>
+	 <!--	 Add new Trip activity-->
+	 <string name="add_new_trip">إضافة رحلة جديدة</string>
+	 <string name="trip_name">اسم الرحلة</string>
+	 <string name="start_pint">نقطة البداية</string>
+	 <string name="end_point">نقطة النهاية</string>
+	 <string name="startdate">التاريخ</string>
+	 <string name="starttime">الساعة</string>
+	 <string name="repetition">التكرار\n( إختيارى )</string>
+	 <string name="daily">يومياً</string>
+	 <string name="weakly">اسبوعياً</string>
+	 <string name="months">شهرياً</string>
+	 <string name="saturday">Saturday</string>
+	 <string name="sunday">Sunday</string>
+	 <string name="monday">Monday</string>
+	 <string name="tuesday">Tuesday</string>
+	 <string name="wednesday">Wednesday</string>
+	 <string name="thursday">Thursday</string>
+	 <string name="friday">Friday</string>
+	 <string name="one_direction">ذهابا فقط</string>
+	 <string name="trip_type">نوع الرحلة</string>
+	 <string name="round_trip">ذهابا وإيابا</string>
+	 <string name="addnote">أضف ملحوظة</string>
+	 <string name="add">اضافة</string>
+	 <!--	 button bar-->
+	 <string name="home">الصفحة الرئيسية</string>
+	 <string name="user">المستخدم</string>
+	 <!--	 profile activity-->
+	 <string name="profile">الصفحة الشخصية</string>
+	 <string name="edit">تعديل</string>
+	 <string name="update">تحديث</string>
+	 <string name="logout">تسجيل الخروج</string>
+	 <string name="wehope"> نحن نأمل ان تعود مره أخرى </string>
+	 <!--	 Google API Key-->
+	 <string name="google_maps_key" templateMergeStrategy="preserve" translatable="false">AIzaSyCMIF8imk5Jfi6uct4_8EPxDK-_0y7P1IA</string>
+	 <!--Dialog Activity-->
+	 <string name="details">التفاصيل</string>
+	 <string name="tripplace">المكان</string>
+	 <string name="tripcalender">التاريخ</string>
+	 <string name="triptime">اسم الرحلة</string>
+	 <string name="later">تأجيل</string>
+	 <string name="start">ابدأ</string>
+	 <!--Home Activity-->
+	 <string name="past_trip">السابقة</string>
+	 <string name="upcoming">القادمة</string>
+	 <string name="your_trip_details">تفاصيل رحلتك</string>
+	 <string name="status">الحالة</string>
+	 <string name="delete">حذف</string>
+	 <string name="your_trips">رحلاتك</string>
+	 <string name="past_trips">رحلاتك السابقة</string>
+	 <string name="note">ملاحظة</string>
+	 <string name="save"> حفظ</string>
+	 <string name="errormessage">لا يمكن أن يكون الحقل فارغًا</string>
+	 <!--	 Dialog Log Out-->
+	 <string name="titlelog">حقاً تريد تسجيل الخروج ؟</string>
+	 <string name="messagelog">هل أنت متأكد من تسجيل الخروج ؟</string>
+	 <string name="yes">نعم</string>
+	 <string name="no">لا</string>
+	 <!--	 Dialog delete-->
+	 <string name="titledelete">حقاً تريد حذف الرحلة ؟</string>
+	 <string name="messagedelete">هل أنت متأكد من حذف الرحلة ؟</string>
+	 <!--	 Dialog cancel-->
+	 <string name="titlecancel">حقاً تريد إلغاء الرحلة ؟</string>
+	 <string name="messagecancel">هل أنت متأكد من إلغاء الرحلة ؟</string>
+	 <!--	 Tost-->
+	 <string name="emailsent">أرسل البريد الإلكتروني</string>
+	 <string name="emailnotfound">البريد الإلكترونى غير موجود</string>
+	 <string name="messigninpleaseenter">من فضلك إدخل اسم المستخدم و كلمة السر</string>
+	 <string name="messigninincorrect">بريدك الإلكتروني او كلمة المرور ليست صحيحة</string>
+	 <string name="mesprofile">من فضللك إدخل كلمة مرور جديدة</string>
+	 <string name="mesregisterrepeated">كلمة المرور وكلمة المرور المتكررة ليست هي نفسها</string>
+	 <string name="mesregisterrequiredfields">الرجاء إدخال الحقول المطلوبة بشكل صحيح</string>
+	 <string name="mesregisterdifferent">يرجى المحاولة مرة أخرى مع بريد الإلكتروني وكلمة مرور
+	 مختلفة</string>
+	 <string name="messageempty">لا يمكن أن يكون الحقل فارغًا</string>
+	 <string name="messagelong">اسم المستخدم طويل جداً</string>
+	 <string name="messageshort">اسم المستخدم اقل من 6 حروف</string>
+
+	 <string name="wrong_round_time">خطأ في وقت الرحلة المكررة</string>
+	 <string name="wrong_start_time">خطأ في وقت البدء</string>
+
+</resources>
