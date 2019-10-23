@@ -6,6 +6,7 @@ import android.widget.Toast;
 
 import androidx.lifecycle.ViewModel;
 
+import com.group4.togolist.R;
 import com.group4.togolist.model.User;
 import com.group4.togolist.view.HomeActivity;
 import com.group4.togolist.repository.FirebaseHandler;
@@ -45,11 +46,11 @@ public class RegisterViewModel extends ViewModel {
 
             }
             else {
-                Toast.makeText(registerActivity,"the password and repeated password is not the same",Toast.LENGTH_SHORT).show();
+                Toast.makeText(registerActivity, R.string.mesregisterrepeated,Toast.LENGTH_SHORT).show();
             }
         }
         else{
-            Toast.makeText(registerActivity, "Please Enter required Fields Correctly", Toast.LENGTH_SHORT).show();
+            Toast.makeText(registerActivity, R.string.mesregisterrequiredfields, Toast.LENGTH_SHORT).show();
         }
     }
 
@@ -63,7 +64,7 @@ public class RegisterViewModel extends ViewModel {
             registerActivity.startActivity (registerIntent);
         }
         else{
-            Toast.makeText(registerActivity, "Please Try Again with different Email and Password", Toast.LENGTH_SHORT).show();
+            Toast.makeText(registerActivity, R.string.mesregisterdifferent, Toast.LENGTH_SHORT).show();
             user = null;
         }
     }

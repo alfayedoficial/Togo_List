@@ -72,7 +72,7 @@ public class SignInActivity extends AppCompatActivity implements View.OnClickLis
     private boolean validateEmail(){
         String emailInput = eTxtEmail.getEditText().getText().toString().trim();
         if(emailInput.isEmpty()){
-            eTxtEmail.setError("Field can not be empty");
+            eTxtEmail.setError(getString(R.string.messageempty));
             System.out.println(Integer.toString(R.string.errormessage).trim());
             return false;
         }else {
@@ -84,7 +84,7 @@ public class SignInActivity extends AppCompatActivity implements View.OnClickLis
         String passwordInput = eTxtPassword.getEditText().getText().toString().trim();
 
         if (passwordInput.isEmpty()) {
-            eTxtPassword.setError("Field can not be empty");
+            eTxtPassword.setError(getString(R.string.messageempty));
             return false;
         } else {
             eTxtPassword.setError(null);

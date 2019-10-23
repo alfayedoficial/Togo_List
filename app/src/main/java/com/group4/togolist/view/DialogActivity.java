@@ -87,9 +87,10 @@ public class DialogActivity extends AppCompatActivity implements View.OnClickLis
          * set message
          */
 
-        builder.setMessage("Are you Sure you want to Cancel the Trip?");
+        builder.setTitle(R.string.titlecancel);
+        builder.setMessage(R.string.messagecancel);
         builder.setCancelable(false);
-        builder.setPositiveButton("Yes",
+        builder.setPositiveButton(R.string.yes,
                 new DialogInterface.OnClickListener() {
 
                     public void onClick(DialogInterface dialog,
@@ -98,7 +99,7 @@ public class DialogActivity extends AppCompatActivity implements View.OnClickLis
                     }
                 });
 
-        builder.setNegativeButton("No",
+        builder.setNegativeButton(R.string.no,
                 new DialogInterface.OnClickListener() {
 
                     public void onClick(DialogInterface dialog,

@@ -58,14 +58,14 @@ public class SignUpActivity extends AppCompatActivity implements View.OnClickLis
     private boolean validateUsername() {
         String usenameInput = eTxtUserName.getEditText().getText().toString().trim();
         if (usenameInput.isEmpty()) {
-            eTxtUserName.setError("Field can not be empty");
+            eTxtUserName.setError(getString(R.string.messageempty));
             System.out.println(Integer.toString(R.string.errormessage).trim());
             return false;
         } else if (usenameInput.length() > 15) {
-            eTxtUserName.setError("Username too long");
+            eTxtUserName.setError(getString(R.string.messagelong));
             return false;
         }else if (usenameInput.length() < 6) {
-            eTxtUserName.setError("Username too short 6 characters");
+            eTxtUserName.setError(getString(R.string.messageshort));
             return false;
         } else {
             eTxtUserName.setError(null);
@@ -76,7 +76,7 @@ public class SignUpActivity extends AppCompatActivity implements View.OnClickLis
     private boolean validateEmail() {
         String emailInput = eTxtEmail.getEditText().getText().toString().trim();
         if (emailInput.isEmpty()) {
-            eTxtEmail.setError("Field can not be empty");
+            eTxtEmail.setError(getString(R.string.messageempty));
             System.out.println(Integer.toString(R.string.errormessage).trim());
             return false;
         } else {
@@ -89,7 +89,7 @@ public class SignUpActivity extends AppCompatActivity implements View.OnClickLis
         String passwordInput = eTxtPassword.getEditText().getText().toString().trim();
 
         if (passwordInput.isEmpty()) {
-            eTxtPassword.setError("Field can not be empty");
+            eTxtPassword.setError(getString(R.string.messageempty));
             return false;
         } else {
             eTxtPassword.setError(null);
@@ -101,7 +101,7 @@ public class SignUpActivity extends AppCompatActivity implements View.OnClickLis
         String passwordInput = eTxtConfirmPassword.getEditText().getText().toString().trim();
 
         if (passwordInput.isEmpty()) {
-            eTxtConfirmPassword.setError("Field can not be empty");
+            eTxtConfirmPassword.setError(getString(R.string.messageempty));
             return false;
         } else {
             eTxtConfirmPassword.setError(null);

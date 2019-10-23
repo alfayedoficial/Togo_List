@@ -59,7 +59,7 @@ public class LoginViewModel extends ViewModel {
             firebaseHandler.signIn(username,password);
         }
         else {
-            Toast.makeText(loginActivity, "Please Enter your Username and Password", Toast.LENGTH_SHORT).show();
+            Toast.makeText(loginActivity, R.string.messigninpleaseenter, Toast.LENGTH_SHORT).show();
         }
     }
 
@@ -81,7 +81,7 @@ public class LoginViewModel extends ViewModel {
             loginActivity.startActivity(loginIntent);
             Log.i("user",user.getEmail());
         }else{
-            Toast.makeText(loginActivity, "Your Email or Password is incorrect", Toast.LENGTH_SHORT).show();
+            Toast.makeText(loginActivity, R.string.messigninincorrect, Toast.LENGTH_SHORT).show();
             user = null;
         }
     }

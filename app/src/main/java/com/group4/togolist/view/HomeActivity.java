@@ -3,6 +3,7 @@ package com.group4.togolist.view;
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
+import android.os.Build;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -19,6 +20,7 @@ import com.group4.togolist.viewmodel.ProfileViewModel;
 import java.util.List;
 import java.util.concurrent.ExecutionException;
 
+import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
@@ -73,12 +75,17 @@ public class HomeActivity extends AppCompatActivity implements View.OnClickListe
 
             }
 
+            @RequiresApi(api = Build.VERSION_CODES.M)
             @Override
             public void onPageSelected(int position) {
                 switch (position) {
                     case 0:
                         btnUpcoming.setEnabled(false);
+                        btnUpcoming.setBackground(getDrawable(R.drawable.buttonbarhome));
+                        btnUpcoming.setTextColor(getColor(R.color.background_offwhite));
                         btnPastTrip.setEnabled(true);
+                        btnPastTrip.setBackground(getDrawable(R.drawable.buttonbarhome2));
+                        btnPastTrip.setTextColor(getColor(R.color.colorPrimary));
 /*
                         btnUpcoming.setTextColor(getResources().getColor(R.color.background_offwhite));
                         btnUpcoming.setBackgroundColor(getResources().getColor(R.color.colorPrimaryDark));
@@ -90,7 +97,11 @@ public class HomeActivity extends AppCompatActivity implements View.OnClickListe
                         break;
                     case 1:
                         btnUpcoming.setEnabled(true);
+                        btnUpcoming.setBackground(getDrawable(R.drawable.buttonbarhome2right));
+                        btnUpcoming.setTextColor(getColor(R.color.colorPrimary));
                         btnPastTrip.setEnabled(false);
+                        btnPastTrip.setBackground(getDrawable(R.drawable.buttonbarhomeright));
+                        btnPastTrip.setTextColor(getColor(R.color.background_offwhite));
                       /*
                         btnUpcoming.setTextColor(getResources().getColor(R.color.colorPrimaryDark));
                         btnUpcoming.setBackgroundColor(getResources().getColor(R.color.background_offwhite));

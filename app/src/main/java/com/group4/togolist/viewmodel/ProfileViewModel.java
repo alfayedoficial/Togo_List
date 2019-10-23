@@ -57,7 +57,7 @@ public class ProfileViewModel extends ViewModel {
             }
         }
         else{
-            Toast.makeText(activity, "Please Enter New Password", Toast.LENGTH_SHORT).show();
+            Toast.makeText(activity, R.string.mesprofile, Toast.LENGTH_SHORT).show();
         }
     }
 

@@ -164,9 +164,10 @@ public class DetailsTripActivity extends AppCompatActivity implements View.OnCli
         AlertDialog.Builder builder = new AlertDialog.Builder(
                 DetailsTripActivity.this);
         // set message
-        builder.setMessage("Are you Sure you want to Delete Trip?");
+        builder.setTitle(R.string.titledelete);
+        builder.setMessage(R.string.messagedelete);
         builder.setCancelable(false);
-        builder.setPositiveButton("Yes",
+        builder.setPositiveButton(R.string.yes,
                 new DialogInterface.OnClickListener() {
 
                     public void onClick(DialogInterface dialog,
@@ -175,7 +176,7 @@ public class DetailsTripActivity extends AppCompatActivity implements View.OnCli
                     }
                 });
 
-        builder.setNegativeButton("No",
+        builder.setNegativeButton(R.string.no,
                 new DialogInterface.OnClickListener() {
 
                     public void onClick(DialogInterface dialog,
@@ -252,9 +253,9 @@ public class DetailsTripActivity extends AppCompatActivity implements View.OnCli
         txtRepetition.setText(repetitionString);
 
         if (trip.isRoundTrip()){
-            txtTripType.setText("Round Trip");
+            txtTripType.setText(getString(R.string.round_trip));
         }else
-            txtTripType.setText("One Direction");
+            txtTripType.setText(getString(R.string.one_direction));
 
         txtStartPoint.setText(getTripPlace(trip.getStartLocationLatitude() , trip.getStartLocationLongitude()));
         txtEndPoint.setText(getTripPlace(trip.getEndLocationLatitude() , trip.getEndLocationLongitude()));

@@ -60,7 +60,7 @@
 	 <string name="logout">Log Out</string>
 	 <string name="wehope">We Hope You Will Come Back Again</string>
 	 <!--	 Google API Key-->
-	  <string name="google_maps_key" templateMergeStrategy="preserve" translatable="false">AIzaSyCMIF8imk5Jfi6uct4_8EPxDK-_0y7P1IA</string>
+	 <string name="google_maps_key" templateMergeStrategy="preserve" translatable="false">AIzaSyCMIF8imk5Jfi6uct4_8EPxDK-_0y7P1IA</string>
 	 <!--Dialog Activity-->
 	 <string name="details">Details</string>
 	 <string name="tripplace">Trip Place</string>
@@ -77,13 +77,33 @@
 	 <string name="your_trips">Your Trips</string>
 	 <string name="past_trips">Your Past Trips</string>
 	 <string name="note">Note</string>
-	<string name="save"> Save</string>
+	 <string name="save"> Save</string>
 	 <string name="errormessage">Field can\'t be empty</string>
-<!--	 Dilog Log Out-->
-<string name="titlelog">Really LogOut ?</string>
+	 <!--	 Dialog Log Out-->
+	 <string name="titlelog">Really LogOut ?</string>
 	 <string name="messagelog">Are you sure you want to Log Out ?</string>
 	 <string name="yes">Yes</string>
 	 <string name="no">No</string>
-	<string name="wrong_round_time">Error In Round Trip time</string>
-	<string name="wrong_start_time">Error In Start Time</string>
+	 <!--	 Dialog delete-->
+	 <string name="titledelete">Really Delete Trip ?</string>
+	 <string name="messagedelete">Are you sure you want to delete trip ?</string>
+	 <!--	 Dialog cancel-->
+	 <string name="titlecancel">Really Cancel Trip ?</string>
+	 <string name="messagecancel">Are you sure you want to cancel trip ?</string>
+	 <!--	 Tost-->
+	 <string name="emailsent">Email sent</string>
+	 <string name="emailnotfound">Email not found</string>
+	 <string name="messigninpleaseenter">Please Enter your Username and Password</string>
+	 <string name="messigninincorrect">Your Email or Password is incorrect</string>
+	 <string name="mesprofile">Please Enter New Password</string>
+	 <string name="mesregisterrepeated">The password and repeated password is not the same</string>
+	 <string name="mesregisterrequiredfields">Please Enter required Fields Correctly</string>
+	 <string name="mesregisterdifferent">Please Try Again with different Email and Password</string>
+	 <string name="messageempty">Field can not be empty</string>
+	 <string name="messagelong">Username too long</string>
+	 <string name="messageshort">Username too short 6 characters</string>
+
+	 <string name="wrong_round_time">Error In Round Trip time</string>
+	 <string name="wrong_start_time">Error In Start Time</string>
+
 </resources>

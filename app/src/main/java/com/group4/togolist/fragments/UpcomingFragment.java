@@ -100,9 +100,10 @@ public class UpcomingFragment extends Fragment implements HomeRecyclerViewAdapte
         /**
          * set message
          */
-        builder.setMessage("Are you Sure you want to Delete Trip?");
+        builder.setTitle(R.string.titledelete);
+        builder.setMessage(R.string.messagedelete);
         builder.setCancelable(false);
-        builder.setPositiveButton("Yes",
+        builder.setPositiveButton(R.string.yes,
                 new DialogInterface.OnClickListener() {
 
                     public void onClick(DialogInterface dialog,
@@ -112,7 +113,7 @@ public class UpcomingFragment extends Fragment implements HomeRecyclerViewAdapte
                     }
                 });
 
-        builder.setNegativeButton("No",
+        builder.setNegativeButton(R.string.no,
                 new DialogInterface.OnClickListener() {
 
                     public void onClick(DialogInterface dialog,
