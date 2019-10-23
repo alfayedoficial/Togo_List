@@ -2,6 +2,7 @@ package com.group4.togolist.viewmodel;
 
 import android.app.Activity;
 import android.content.Intent;
+import android.net.Uri;
 import android.widget.Toast;
 
 import androidx.lifecycle.ViewModel;
@@ -74,6 +75,16 @@ public class RegisterViewModel extends ViewModel {
      */
     public void cancel(){
         registerActivity.startActivity(new Intent(registerActivity, FirstActivity.class));
+    }
+
+    /**
+     * this method called when btn_Terms_And_Conditions Button in the Register activity, it takes you to website
+     */
+    public void termsAndConditions(){
+        String url = "http://alialfayed.com/cv/Privacy_Policy.html";
+        Intent i = new Intent(Intent.ACTION_VIEW);
+        i.setData(Uri.parse(url));
+        registerActivity.startActivity(i);
     }
 
 }

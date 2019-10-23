@@ -128,11 +128,12 @@ public class SignUpActivity extends AppCompatActivity implements View.OnClickLis
 
 
             case R.id.btn_Terms_And_Conditions:
+                registerViewModel.termsAndConditions();
 
                 break;
 
             case R.id.btn_Privacy_Policy:
-
+                registerViewModel.termsAndConditions();
                 break;
         }
     }
