@@ -41,7 +41,7 @@ public class FirebaseHandler {
 
     /**
      * Class do : This class is Designed to handle Firebase Login And Register
-     * Created by Group 4 ITI (Eng/Bassen - Eng Fatma - Eng Ali)
+     * Created by Group 4 ITI (Eng/Bassem - Eng Fatma - Eng Ali)
      */
 
     private FirebaseAuth mAuth;

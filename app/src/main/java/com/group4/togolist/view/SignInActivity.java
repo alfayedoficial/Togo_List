@@ -30,7 +30,7 @@ public class SignInActivity extends AppCompatActivity implements View.OnClickLis
 
     /**
      * Class do :
-     * Created by Group 4 ITI (Eng/Bassen - Eng Fatma - Eng Ali)
+     * Created by Group 4 ITI (Eng/Bassem - Eng Fatma - Eng Ali)
      */
 
     private LoginViewModel loginViewModel;

@@ -17,7 +17,7 @@ import androidx.lifecycle.ViewModelProviders;
 public class SignUpActivity extends AppCompatActivity implements View.OnClickListener {
     /**
      * Class do :
-     * Created by Group 4 ITI (Eng/Bassen - Eng Fatma - Eng Ali)
+     * Created by Group 4 ITI (Eng/Bassem - Eng Fatma - Eng Ali)
      */
 
     private RegisterViewModel registerViewModel;

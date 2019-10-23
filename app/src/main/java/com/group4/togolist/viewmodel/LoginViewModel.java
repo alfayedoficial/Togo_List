@@ -30,7 +30,7 @@ import static io.fabric.sdk.android.Fabric.TAG;
 
 /**
  * Class do : Handle Sign In Activity
- * Created by Group 4 ITI (Eng/Bassen - Eng Fatma - Eng Ali)
+ * Created by Group 4 ITI (Eng/Bassem - Eng Fatma - Eng Ali)
  */
 
 

@@ -9,7 +9,7 @@ import androidx.room.PrimaryKey;
 
 /**
  * Class do :
- * Created by Group 4 ITI (Eng/Bassen - Eng Fatma - Eng Ali)
+ * Created by Group 4 ITI (Eng/Bassem - Eng Fatma - Eng Ali)
  */
 
 @Entity

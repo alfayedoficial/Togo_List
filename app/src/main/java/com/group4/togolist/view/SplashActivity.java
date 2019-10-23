@@ -15,7 +15,7 @@ public class SplashActivity extends AppCompatActivity {
      /**
      * Class do : run animation plane
      * duration of wait 2 sec until animation finished
-     * Created by Group 4 ITI (Eng/Bassen - Eng Fatma - Eng Ali)
+     * Created by Group 4 ITI (Eng/Bassem - Eng Fatma - Eng Ali)
      */
 
     ObjectAnimator objectAnimator;

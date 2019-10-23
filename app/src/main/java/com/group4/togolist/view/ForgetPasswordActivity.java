@@ -19,7 +19,7 @@ import com.group4.togolist.viewmodel.RegisterViewModel;
 public class ForgetPasswordActivity extends AppCompatActivity implements View.OnClickListener {
     /**
      * Class do :
-     * Created by Group 4 ITI (Eng/Bassen - Eng Fatma - Eng Ali)
+     * Created by Group 4 ITI (Eng/Bassem - Eng Fatma - Eng Ali)
      */
 
     private ForgetPassViewModel forgetPassViewModel;

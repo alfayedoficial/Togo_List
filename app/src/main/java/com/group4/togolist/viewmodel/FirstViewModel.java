@@ -14,7 +14,7 @@ import androidx.lifecycle.ViewModel;
 
 /**
  * Class do : Handle First Activity Buttons
- * Created by Group 4 ITI (Eng/Bassen - Eng Fatma - Eng Ali)
+ * Created by Group 4 ITI (Eng/Bassem - Eng Fatma - Eng Ali)
  */
 
 public class FirstViewModel extends ViewModel {

@@ -15,7 +15,7 @@ import com.group4.togolist.view.FirstActivity;
 
 /**
  * Class do : Handle Sign up Activity
- * Created by Group 4 ITI (Eng/Bassen - Eng Fatma - Eng Ali)
+ * Created by Group 4 ITI (Eng/Bassem - Eng Fatma - Eng Ali)
  */
 
 public class RegisterViewModel extends ViewModel {

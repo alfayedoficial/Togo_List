@@ -32,7 +32,7 @@ import androidx.viewpager.widget.ViewPager;
 public class HomeActivity extends AppCompatActivity implements View.OnClickListener {
     /**
      * Class do :
-     * Created by Group 4 ITI (Eng/Bassen - Eng Fatma - Eng Ali)
+     * Created by Group 4 ITI (Eng/Bassem - Eng Fatma - Eng Ali)
      */
     private HomeViewModel homeViewModel;
     private Button btnUpcoming, btnPastTrip;
