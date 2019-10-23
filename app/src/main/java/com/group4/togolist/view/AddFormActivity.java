@@ -4,6 +4,7 @@ import android.app.Activity;
 import android.app.DatePickerDialog;
 import android.app.TimePickerDialog;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.DatePicker;
@@ -225,12 +226,12 @@ public class AddFormActivity extends AppCompatActivity implements View.OnClickLi
     private void addTrip() {
         int month = 0;
         int day = 0;
-        int year = 0;
+        int year = 2000;
         int hour = 0;
         int minute  =0 ;
         int monthRound = 0;
         int dayRound = 0;
-        int yearRound = 0;
+        int yearRound = 2000;
         int hourRound = 0;
         int minuteRound  =0 ;
 
@@ -248,7 +249,7 @@ public class AddFormActivity extends AppCompatActivity implements View.OnClickLi
               String[] startDateArr = startDate.split("/");
               month = Integer.parseInt(startDateArr[0]);
                 day = Integer.parseInt(startDateArr[1]);
-                 year = Integer.parseInt(startDateArr[2]);
+                 year += Integer.parseInt(startDateArr[2]);
              }
         }
         if (startTime != null){
@@ -263,7 +264,7 @@ public class AddFormActivity extends AppCompatActivity implements View.OnClickLi
                 String[] startDateArr = startDate.split("/");
                 monthRound = Integer.parseInt(startDateArr[0]);
                 dayRound = Integer.parseInt(startDateArr[1]);
-                yearRound = Integer.parseInt(startDateArr[2]);
+                yearRound += Integer.parseInt(startDateArr[2]);
             }
         }
         if (roundTime != null){
@@ -274,9 +275,15 @@ public class AddFormActivity extends AppCompatActivity implements View.OnClickLi
             }
         }
 
-        tripCalendar.set(year , month , day , hour , minute);
+        tripCalendar.set(year , month , day , hour , minute,0);
         Calendar roundCalendar = Calendar.getInstance();
-        roundCalendar.set(yearRound,monthRound,dayRound,hourRound,minuteRound);
+        Log.i("TAG",roundCalendar.get(Calendar.YEAR)+"");
+        Log.i("TAG",roundCalendar.get(Calendar.MONTH)+"");
+        Log.i("TAG",roundCalendar.get(Calendar.DAY_OF_MONTH)+"");
+        Log.i("TAG",roundCalendar.get(Calendar.HOUR_OF_DAY)+"");
+        Log.i("TAG",roundCalendar.get(Calendar.MINUTE)+"");
+
+        roundCalendar.set(yearRound,monthRound,dayRound,hourRound,minuteRound,0);
        addFormViewModel.createNewTrip(eTxtTripName.getText().toString() , longStartPoint, latStartPoint, longEndPoint, latEndPoint, tripCalendar,roundCalendar, repetition, roundTrip, eTxtNotes.getText().toString());
 
     }
