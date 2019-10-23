@@ -105,5 +105,8 @@
 
 	 <string name="wrong_round_time">Error In Round Trip time</string>
 	 <string name="wrong_start_time">Error In Start Time</string>
+	 <string name="aboutapp">About App</string>
+	 <string name="policytest">Policy Text</string>
+	 <string name="abouttext">About Text</string>
 
 </resources>

@@ -89,6 +89,20 @@
 			   app:layout_constraintStart_toEndOf="@+id/btnUpcoming"
 			   app:layout_constraintTop_toTopOf="@+id/btnUpcoming" />
 
+		  <ImageButton
+			   android:id="@+id/imageBtnapp"
+			   android:layout_width="wrap_content"
+			   android:layout_height="wrap_content"
+			   android:layout_marginEnd="17dp"
+			   style="@style/Widget.AppCompat.Button.Borderless.Colored"
+			   android:background="@drawable/gradient_btn_home"
+			   app:layout_constraintBottom_toBottomOf="@+id/id_name_app4"
+			   app:layout_constraintEnd_toEndOf="parent"
+			   app:layout_constraintHorizontal_bias="1.0"
+			   app:layout_constraintStart_toEndOf="@+id/id_name_app4"
+			   app:layout_constraintTop_toTopOf="@+id/id_name_app4"
+			   app:srcCompat="@drawable/policy" />
+
 	 </androidx.constraintlayout.widget.ConstraintLayout>
 
 	 <androidx.constraintlayout.widget.ConstraintLayout
