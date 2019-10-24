@@ -307,16 +307,16 @@ public class AddFormActivity extends AppCompatActivity implements View.OnClickLi
                     strHour = hourOfDay +"";
                 currentCalendar.setTimeInMillis(System.currentTimeMillis());
 
-                if((! dateSelected )||(currentCalendar.get(Calendar.YEAR)== yearT && currentCalendar.get(Calendar.MONTH) == monthT && currentCalendar.get(Calendar.DAY_OF_MONTH)== dayT  && (currentCalendar.get(Calendar.HOUR_OF_DAY) < hourOfDay)  || (currentCalendar.get(Calendar.HOUR_OF_DAY) == hourOfDay || (currentCalendar.get(Calendar.MINUTE ) < minutes  ) ))){
+             //   if((! dateSelected )||(currentCalendar.get(Calendar.YEAR) == yearT && currentCalendar.get(Calendar.MONTH) == monthT && currentCalendar.get(Calendar.DAY_OF_MONTH)== dayT  && (currentCalendar.get(Calendar.HOUR_OF_DAY) < hourOfDay)  || (currentCalendar.get(Calendar.HOUR_OF_DAY) == hourOfDay || (currentCalendar.get(Calendar.MINUTE ) < minutes  ) ))){
                     timeText.setText(strHour + ":" + strMinute);
                     hourT = hourOfDay ;
                     monthT = minutes ;
                     timeSelected = true ;
-                }else {
+             /*   }else {
                     Toast.makeText(AddFormActivity.this, "Please Correct Upcoming Date and Time", Toast.LENGTH_LONG).show();
                     timeText.setText("");
                     timeSelected = false ;
-                }
+               }*/
 
             }
         }, 0, 0, false);
