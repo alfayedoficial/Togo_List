@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-	 xmlns:tools="http://schemas.android.com/tools"
 	 package="com.group4.togolist">
 
 	 <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
@@ -16,9 +15,15 @@
 		  android:roundIcon="@mipmap/ic_launcher_round"
 		  android:supportsRtl="true"
 		  android:theme="@style/AppTheme">
-		  <activity android:name=".view.activities.AboutAppActivity"></activity>
-		  <activity android:name=".view.activities.PrivacyActivity" />
-		  <activity android:name=".view.activities.AppActivity" />
+		  <activity
+			   android:name=".view.activities.AboutAppActivity"
+			   android:theme="@style/dialogTheme" />
+		  <activity
+			   android:name=".view.activities.PrivacyActivity"
+			   android:theme="@style/dialogTheme" />
+		  <activity
+			   android:name=".view.activities.AppActivity"
+			   android:theme="@style/dialogTheme" />
 
 		  <service
 			   android:name=".util.FloatingWidgetService"

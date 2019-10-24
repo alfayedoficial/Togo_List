@@ -151,6 +151,19 @@
 			   app:layout_constraintVertical_bias="0.63">
 
 			   <Button
+					android:id="@+id/btnDialogCancel"
+					android:layout_width="wrap_content"
+					android:layout_height="35dp"
+					android:layout_gravity="center"
+					android:layout_margin="4dp"
+					android:layout_weight="1"
+					android:background="@drawable/gradient_btn_sigup"
+					android:fontFamily="@font/boutfont"
+					android:text="@string/cancel"
+					android:textColor="@color/background_offwhite"
+					android:textSize="14sp" />
+
+			   <Button
 					android:id="@+id/btnDialogLater"
 					android:layout_width="wrap_content"
 					android:layout_height="35dp"
@@ -176,18 +189,6 @@
 					android:textColor="@color/background_offwhite"
 					android:textSize="14sp" />
 
-			   <Button
-					android:id="@+id/btnDialogCancel"
-					android:layout_width="wrap_content"
-					android:layout_height="35dp"
-					android:layout_gravity="center"
-					android:layout_margin="4dp"
-					android:layout_weight="1"
-					android:background="@drawable/gradient_btn_sigup"
-					android:fontFamily="@font/boutfont"
-					android:text="@string/cancel"
-					android:textColor="@color/background_offwhite"
-					android:textSize="14sp" />
 		  </LinearLayout>
 
 	 </androidx.constraintlayout.widget.ConstraintLayout>

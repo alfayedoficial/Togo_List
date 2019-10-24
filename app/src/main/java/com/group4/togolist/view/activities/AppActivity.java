@@ -8,6 +8,7 @@ import androidx.lifecycle.ViewModelProviders;
 import android.app.Activity;
 import android.os.Bundle;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ImageButton;
 
@@ -19,28 +20,29 @@ import com.group4.togolist.viewmodel.HomeViewModel;
 public class AppActivity extends AppCompatActivity  implements View.OnClickListener {
 
     private Button btnPrivacyLayout , btnInfoLayout;
-    private ImageButton imgBtnHome, imgBtnProfile ;
-    private FloatingActionButton  fltBtnAdd;
+//    private ImageButton imgBtnHome, imgBtnProfile ;
+//    private FloatingActionButton  fltBtnAdd;
     private AppViewModel appViewModel;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_app);
+        getWindow().setLayout(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT);
         initComponent();
         appViewModel = ViewModelProviders.of(this, new MyViewModelFactory(AppActivity.this)).get(AppViewModel.class);
 
     }
 
     private void initComponent() {
-        imgBtnHome = findViewById(R.id.imageBtnHome);
-        imgBtnProfile = findViewById(R.id.imageBtnProfile);
-        fltBtnAdd = findViewById(R.id.fABtnAddNote);
+//        imgBtnHome = findViewById(R.id.imageBtnHome);
+//        imgBtnProfile = findViewById(R.id.imageBtnProfile);
+//        fltBtnAdd = findViewById(R.id.fABtnAddNote);
         btnPrivacyLayout = findViewById(R.id.btnPrivacyLayout);
         btnInfoLayout = findViewById(R.id.btnInfoLayout);
 
-        imgBtnHome.setOnClickListener(this);
-        imgBtnProfile.setOnClickListener(this);
-        fltBtnAdd.setOnClickListener(this);
+//        imgBtnHome.setOnClickListener(this);
+//        imgBtnProfile.setOnClickListener(this);
+//        fltBtnAdd.setOnClickListener(this);
         btnPrivacyLayout.setOnClickListener(this);
         btnInfoLayout.setOnClickListener(this);
 
@@ -50,15 +52,15 @@ public class AppActivity extends AppCompatActivity  implements View.OnClickListe
     @Override
     public void onClick(View view) {
         switch (view.getId()) {
-            case R.id.imageBtnHome:
-                appViewModel.goToHome();
-                break;
-            case R.id.imageBtnProfile:
-              appViewModel.goToProfile();
-                break;
-            case R.id.fABtnAddNote:
-                appViewModel.goToAddForm();
-                break;
+//            case R.id.imageBtnHome:
+//                appViewModel.goToHome();
+//                break;
+//            case R.id.imageBtnProfile:
+//              appViewModel.goToProfile();
+//                break;
+//            case R.id.fABtnAddNote:
+//                appViewModel.goToAddForm();
+//                break;
             case R.id.btnPrivacyLayout:
                 appViewModel.goToPrivacyLayout();
                 break;

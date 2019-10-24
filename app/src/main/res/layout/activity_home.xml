@@ -91,10 +91,9 @@
 
 		  <ImageButton
 			   android:id="@+id/imageBtnapp"
+			   style="@style/Widget.AppCompat.Button.Borderless.Colored"
 			   android:layout_width="wrap_content"
 			   android:layout_height="wrap_content"
-			   android:layout_marginEnd="17dp"
-			   style="@style/Widget.AppCompat.Button.Borderless.Colored"
 			   android:background="@drawable/gradient_btn_home"
 			   app:layout_constraintBottom_toBottomOf="@+id/id_name_app4"
 			   app:layout_constraintEnd_toEndOf="parent"
