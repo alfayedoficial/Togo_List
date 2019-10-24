@@ -26,12 +26,12 @@ public class AppActivity extends AppCompatActivity  implements View.OnClickListe
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_app);
-        initcomponent();
+        initComponent();
         appViewModel = ViewModelProviders.of(this, new MyViewModelFactory(AppActivity.this)).get(AppViewModel.class);
 
     }
 
-    private void initcomponent() {
+    private void initComponent() {
         imgBtnHome = findViewById(R.id.imageBtnHome);
         imgBtnProfile = findViewById(R.id.imageBtnProfile);
         fltBtnAdd = findViewById(R.id.fABtnAddNote);
@@ -69,17 +69,17 @@ public class AppActivity extends AppCompatActivity  implements View.OnClickListe
     }
 
     class MyViewModelFactory implements ViewModelProvider.Factory {
-        private Activity mActivity;
+        private AppActivity mActivity;
 
 
-        public MyViewModelFactory(Activity activity) {
+        public MyViewModelFactory(AppActivity activity) {
             mActivity = activity;
         }
 
 
         @Override
         public <T extends ViewModel> T create(Class<T> modelClass) {
-            return (T) new HomeViewModel(mActivity);
+            return (T) new AppViewModel(mActivity);
         }
     }
 }
