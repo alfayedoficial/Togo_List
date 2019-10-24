@@ -55,17 +55,7 @@ public class AddFormViewModel extends ViewModel{
         }
         databaseHandler.addTrip(newTrip);
 
-        try {
-            newTrip = databaseHandler.getTripByName(newTrip.getTripName());
-        } catch (ExecutionException e) {
-            e.printStackTrace();
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
-        AlarmManager alarmManager = (AlarmManager) activity.getSystemService(Context.ALARM_SERVICE);
-        Intent intent = new Intent(activity, TripAlarm.class);
-        intent.putExtra(TripAlarm.TRIP_NAME,newTrip.getTripName());
-        PendingIntent pendingIntent = PendingIntent.getBroadcast(activity, newTrip.getId(), intent, 0);
+
         startDate.set(Calendar.MONTH,startDate.get(Calendar.MONTH)-1);
 //        setAlarm(startDate,alarmManager,activity);
         if (startDate.before(Calendar.getInstance())) {
@@ -73,11 +63,17 @@ public class AddFormViewModel extends ViewModel{
             Toast.makeText(activity, activity.getString(R.string.wrong_start_time), Toast.LENGTH_SHORT).show();
         }
         else {
-            Log.i("TAG", startDate.get(Calendar.YEAR) + "");
-            Log.i("TAG", startDate.get(Calendar.MONTH) + "");
-            Log.i("TAG", startDate.get(Calendar.DAY_OF_MONTH) + "");
-            Log.i("TAG", startDate.get(Calendar.HOUR_OF_DAY) + "");
-            Log.i("TAG", startDate.get(Calendar.MINUTE) + "");
+            try {
+                newTrip = databaseHandler.getTripByName(newTrip.getTripName());
+            } catch (ExecutionException e) {
+                e.printStackTrace();
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+            AlarmManager alarmManager = (AlarmManager) activity.getSystemService(Context.ALARM_SERVICE);
+            Intent intent = new Intent(activity, TripAlarm.class);
+            intent.putExtra(TripAlarm.TRIP_NAME,newTrip.getTripName());
+            PendingIntent pendingIntent = PendingIntent.getBroadcast(activity, newTrip.getId(), intent, 0);
             alarmManager.setExact(AlarmManager.RTC_WAKEUP, startDate.getTimeInMillis(), pendingIntent);
             activity.startActivity(new Intent(activity, HomeActivity.class));
         }

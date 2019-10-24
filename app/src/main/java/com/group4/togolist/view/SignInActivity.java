@@ -7,6 +7,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ProgressBar;
 
 import com.google.android.gms.auth.api.signin.GoogleSignIn;
 import com.google.android.gms.auth.api.signin.GoogleSignInAccount;
@@ -37,6 +38,7 @@ public class SignInActivity extends AppCompatActivity implements View.OnClickLis
     private Button btnForgetPassword, btnSignIn, btnSignInWithGoogle;
     private TextInputLayout eTxtEmail, eTxtPassword;
     private static final String TAG = "SignInActivity";
+    private ProgressBar progressBar;
 
 
     @Override
@@ -54,12 +56,13 @@ public class SignInActivity extends AppCompatActivity implements View.OnClickLis
      */
     private void initComponent() {
 
-        btnSignIn = findViewById(R.id.btn_sign_up);
+        btnSignIn = findViewById(R.id.btn_sign_in);
         btnSignInWithGoogle = findViewById(R.id.btn_sign_in_with_google);
         btnForgetPassword = findViewById(R.id.btn_forget_password);
 
         eTxtEmail = findViewById(R.id.editText_email_Signin);
         eTxtPassword = findViewById(R.id.editText_password_Signin);
+        progressBar = findViewById(R.id.progressBar);
 
         btnSignIn.setOnClickListener(this);
         btnSignInWithGoogle.setOnClickListener(this);
@@ -101,7 +104,7 @@ public class SignInActivity extends AppCompatActivity implements View.OnClickLis
     public void onClick(View v) {
 
         switch (v.getId()) {
-            case R.id.btn_sign_up:
+            case R.id.btn_sign_in:
                 if (!validateEmail() | !validatePassword()){
                     return;
                 }
@@ -113,6 +116,7 @@ public class SignInActivity extends AppCompatActivity implements View.OnClickLis
 
             case R.id.btn_sign_in_with_google:
                 loginViewModel.signInWithGoogle();
+
                 break;
 
             case R.id.btn_forget_password:
@@ -124,10 +128,10 @@ public class SignInActivity extends AppCompatActivity implements View.OnClickLis
     }
 
     class MyViewModelFactory implements ViewModelProvider.Factory {
-        private Activity mActivity;
+        private SignInActivity mActivity;
 
 
-        public MyViewModelFactory(Activity activity) {
+        public MyViewModelFactory(SignInActivity activity) {
             mActivity = activity;
         }
 
@@ -155,5 +159,15 @@ public class SignInActivity extends AppCompatActivity implements View.OnClickLis
 
             }
         }
+    }
+    public void disableLayout(boolean status){
+        eTxtEmail.setEnabled(status);
+        eTxtPassword.setEnabled(status);
+        btnSignIn.setEnabled(status);
+        btnSignInWithGoogle.setEnabled(status);
+        btnForgetPassword.setEnabled(status);
+        if(!status){
+            progressBar.setVisibility(View.VISIBLE);
+        }else {progressBar.setVisibility(View.GONE);}
     }
 }

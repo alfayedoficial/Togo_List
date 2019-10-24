@@ -25,6 +25,7 @@ import com.group4.togolist.view.ForgetPasswordActivity;
 import com.group4.togolist.view.HomeActivity;
 import com.group4.togolist.repository.FirebaseHandler;
 import com.group4.togolist.view.FirstActivity;
+import com.group4.togolist.view.SignInActivity;
 
 import static io.fabric.sdk.android.Fabric.TAG;
 
@@ -38,14 +39,14 @@ public class LoginViewModel extends ViewModel {
 
 
 
-    private Activity loginActivity;
+    private SignInActivity loginActivity;
     private FirebaseHandler firebaseHandler;
     private DatabaseHandler databaseHandler;
     private User user;
     /**
      * Login View Model Constructor Method it takes the activity as input parameter
      */
-    public LoginViewModel(Activity loginActivity){
+    public LoginViewModel(SignInActivity loginActivity){
         this.loginActivity = loginActivity;
         firebaseHandler = new FirebaseHandler(loginActivity,this);
         databaseHandler = new DatabaseHandler(loginActivity);
@@ -57,9 +58,13 @@ public class LoginViewModel extends ViewModel {
     public void signIn(String username, String password){
         if(username != null && !username.isEmpty() && password != null && !password.isEmpty()){
             firebaseHandler.signIn(username,password);
+            loginActivity.disableLayout(false);
+
         }
         else {
             Toast.makeText(loginActivity, R.string.messigninpleaseenter, Toast.LENGTH_SHORT).show();
+            loginActivity.disableLayout(true);
+
         }
     }
 
@@ -83,6 +88,7 @@ public class LoginViewModel extends ViewModel {
         }else{
             Toast.makeText(loginActivity, R.string.messigninincorrect, Toast.LENGTH_SHORT).show();
             user = null;
+            loginActivity.disableLayout(true);
         }
     }
 

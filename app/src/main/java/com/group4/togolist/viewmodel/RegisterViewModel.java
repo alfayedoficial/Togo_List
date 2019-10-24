@@ -12,6 +12,7 @@ import com.group4.togolist.model.User;
 import com.group4.togolist.view.HomeActivity;
 import com.group4.togolist.repository.FirebaseHandler;
 import com.group4.togolist.view.FirstActivity;
+import com.group4.togolist.view.SignUpActivity;
 
 /**
  * Class do : Handle Sign up Activity
@@ -20,14 +21,14 @@ import com.group4.togolist.view.FirstActivity;
 
 public class RegisterViewModel extends ViewModel {
 
-    private Activity registerActivity;
+    private SignUpActivity registerActivity;
     private FirebaseHandler firebaseHandler;
     private User user;
 
     /**
      * RegisterViewModel Constructor Method, it takes Activity as its input parameter
      */
-    public RegisterViewModel(Activity registerActivity){
+    public RegisterViewModel(SignUpActivity registerActivity){
         this.registerActivity = registerActivity;
         firebaseHandler = new FirebaseHandler(registerActivity,this);
     }
@@ -44,14 +45,15 @@ public class RegisterViewModel extends ViewModel {
             if(password.equals(repeatedPassword)){
                 user = User.getUserInstance(username,email,password);
                 firebaseHandler.signUp(username,email,password);
-
             }
             else {
                 Toast.makeText(registerActivity, R.string.mesregisterrepeated,Toast.LENGTH_SHORT).show();
+                registerActivity.disableLayout(true);
             }
         }
         else{
             Toast.makeText(registerActivity, R.string.mesregisterrequiredfields, Toast.LENGTH_SHORT).show();
+            registerActivity.disableLayout(true);
         }
     }
 
@@ -61,12 +63,14 @@ public class RegisterViewModel extends ViewModel {
 
     public void signUpToHomeScreen(int registerResult){
         if(registerResult == FirebaseHandler.NEW_ACCOUNT_CREATED){
+            registerActivity.disableLayout(false);
             Intent registerIntent = new Intent(registerActivity, HomeActivity.class);
             registerActivity.startActivity (registerIntent);
         }
         else{
             Toast.makeText(registerActivity, R.string.mesregisterdifferent, Toast.LENGTH_SHORT).show();
             user = null;
+            registerActivity.disableLayout(true);
         }
     }
 

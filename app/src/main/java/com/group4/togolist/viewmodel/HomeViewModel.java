@@ -14,6 +14,7 @@ import com.group4.togolist.model.Trip;
 import com.group4.togolist.repository.FirebaseHandler;
 import com.group4.togolist.repository.TripAlarm;
 import com.group4.togolist.view.AddFormActivity;
+import com.group4.togolist.view.AppActivity;
 import com.group4.togolist.view.DetailsTripActivity;
 import com.group4.togolist.view.FirstActivity;
 import com.group4.togolist.view.PastTripDetailsActivity;
@@ -130,5 +131,9 @@ public class HomeViewModel extends ViewModel {
     public void logOut(){
         firebaseHandler.logOut();
         activity.startActivity(new Intent(activity, FirstActivity.class));
+    }
+
+    public void goToApp() {
+        activity.startActivity(new Intent(activity , AppActivity.class));
     }
 }

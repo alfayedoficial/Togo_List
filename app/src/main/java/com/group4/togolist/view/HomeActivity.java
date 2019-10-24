@@ -43,7 +43,7 @@ public class HomeActivity extends AppCompatActivity implements View.OnClickListe
 
 
 
-    private ImageButton imgBtnHome, imgBtnProfile;
+    private ImageButton imgBtnHome, imgBtnProfile , imageBtnapp;
     private com.google.android.material.floatingactionbutton.FloatingActionButton fltBtnAdd;
 
 
@@ -134,6 +134,7 @@ public class HomeActivity extends AppCompatActivity implements View.OnClickListe
 
         imgBtnHome = findViewById(R.id.imageBtnHome);
         imgBtnProfile = findViewById(R.id.imageBtnProfile);
+        imageBtnapp = findViewById(R.id.imageBtnapp);
         fltBtnAdd = findViewById(R.id.fABtnAddNote);
 
         btnUpcoming.setOnClickListener(this);
@@ -142,6 +143,7 @@ public class HomeActivity extends AppCompatActivity implements View.OnClickListe
         imgBtnHome.setEnabled(false);
 
 
+        imageBtnapp.setOnClickListener(this);
         imgBtnProfile.setOnClickListener(this);
         fltBtnAdd.setOnClickListener(this);
     }
@@ -168,6 +170,9 @@ public class HomeActivity extends AppCompatActivity implements View.OnClickListe
                 break;
             case R.id.fABtnAddNote:
                 homeViewModel.goToAddForm();
+                break;
+            case  R.id.imageBtnapp:
+                homeViewModel.goToApp();
                 break;
         }
     }

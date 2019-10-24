@@ -59,6 +59,7 @@ public class DetailsTripViewModel extends ViewModel {
         String uri = String.format(Locale.ENGLISH, "geo:%f,%f", currentTrip.getEndLocationLatitude(), currentTrip.getEndLocationLongitude());
         Intent tripIntent = new Intent(Intent.ACTION_VIEW, Uri.parse(uri));
         tripIntent.setPackage("com.google.android.apps.maps");
+        cancelAlarm();
         activity.startActivity(tripIntent);
         currentTrip.setStatus(Trip.ENDED);
         databaseHandler.updateTrip(currentTrip);
@@ -76,6 +77,7 @@ public class DetailsTripViewModel extends ViewModel {
 //        currentTrip.setStartLocationLatitude(startLocationLatitude);
 //        currentTrip.setEndLocationLongitude(endLocationLongitude);
 //        currentTrip.setEndLocationLatitude(endLocationLatitude);
+        startDate.set(Calendar.MONTH,startDate.get(Calendar.MONTH)-1);
         currentTrip.setStartTime(startDate);
 //        currentTrip.setRepetition(repetition);
 //        currentTrip.setRoundTrip(isRoundTrip);
