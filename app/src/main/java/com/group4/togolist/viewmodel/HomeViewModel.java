@@ -13,14 +13,13 @@ import com.group4.togolist.repository.DatabaseHandler;
 import com.group4.togolist.model.Trip;
 import com.group4.togolist.repository.FirebaseHandler;
 import com.group4.togolist.repository.TripAlarm;
-import com.group4.togolist.view.AddFormActivity;
-import com.group4.togolist.view.AppActivity;
-import com.group4.togolist.view.DetailsTripActivity;
-import com.group4.togolist.view.FirstActivity;
-import com.group4.togolist.view.PastTripDetailsActivity;
-import com.group4.togolist.view.ProfileActivity;
+import com.group4.togolist.view.activities.AddFormActivity;
+import com.group4.togolist.view.activities.AppActivity;
+import com.group4.togolist.view.activities.DetailsTripActivity;
+import com.group4.togolist.view.activities.FirstActivity;
+import com.group4.togolist.view.activities.PastTripDetailsActivity;
+import com.group4.togolist.view.activities.ProfileActivity;
 
-import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.ExecutionException;
 

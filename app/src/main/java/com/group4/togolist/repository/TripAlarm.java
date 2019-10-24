@@ -5,7 +5,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.util.Log;
 
-import com.group4.togolist.view.DialogActivity;
+import com.group4.togolist.view.activities.DialogActivity;
 
 public class TripAlarm extends BroadcastReceiver {
 

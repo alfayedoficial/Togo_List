@@ -1,4 +1,4 @@
-package com.group4.togolist.view;
+package com.group4.togolist.view.adapters;
 
 import android.content.Context;
 import android.location.Address;
@@ -19,69 +19,73 @@ import com.group4.togolist.model.Trip;
 import java.util.List;
 import java.util.Locale;
 
-public class HomeRecyclerViewAdapter extends RecyclerView.Adapter {
+public class HistoryAdapter extends RecyclerView.Adapter<HistoryAdapter.HistoryHolder> {
 
     private OnItemListener onItemListener;
-    private List<Trip> upcomingTrip;
+    private List<Trip> pastTrips;
     private Context context;
 
-    public HomeRecyclerViewAdapter(OnItemListener onItemListener, Context context) {
-        this.onItemListener = onItemListener;
+    public HistoryAdapter(Context context,OnItemListener onItemListener){
         this.context = context;
+        this.onItemListener = onItemListener;
     }
+
 
     @NonNull
     @Override
-    public RecyclerView.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+    public HistoryHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
 
-        View itemView = LayoutInflater.from(parent.getContext()).inflate(R.layout.cardrecyclerview_upcoming , parent,false);
-        return  new MyViewHolder(itemView , onItemListener);
+        LayoutInflater inflater =LayoutInflater.from(parent.getContext());
+        View view = inflater.inflate(R.layout.cardrecyclerview_upcoming,parent,false);
+        HistoryHolder historyHolder =new HistoryHolder(view,onItemListener);
+        return historyHolder;
+    }
+
+    public void setPastTrips(List<Trip> pastTrips) {
+        this.pastTrips = pastTrips;
+        notifyDataSetChanged();
     }
 
     @Override
-    public void onBindViewHolder(@NonNull RecyclerView.ViewHolder holder, int position) {
-        MyViewHolder myHolder = (MyViewHolder)holder;
+    public void onBindViewHolder(@NonNull HistoryHolder holder, int position) {
+        Trip trip = pastTrips.get(position);
 
-        myHolder.txtTripName.setText(upcomingTrip.get(position).getTripName());
-        myHolder.txtTripPlace.setText(getTripPlace(upcomingTrip.get(position)));
-        myHolder.txtTripDate.setText(upcomingTrip.get(position).getTripDate());
-        myHolder.txtTripTime.setText(upcomingTrip.get(position).getTripTime());
-
+        holder.getTxtTripName().setText(trip.getTripName());
+        holder.getTxtTripPlace().setText(getTripPlace(trip));
+        holder.getTxtTripDate().setText(trip.getTripDate());
+        holder.getTxtTripTime().setText(trip.getTripTime());
     }
 
     @Override
     public int getItemCount() {
-
         int count = 0;
-        if(upcomingTrip != null)
-            count = upcomingTrip.size();
+        if(pastTrips != null)
+            count = pastTrips.size();
         return count;
     }
 
+    public class HistoryHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
 
-
-    private class MyViewHolder extends RecyclerView.ViewHolder implements  View.OnClickListener{
-
-        private TextView txtTripPlace , txtTripName , txtTripDate , txtTripTime;
+        private TextView txtTripName, txtTripPlace, txtTripDate, txtTripTime;
+        private OnItemListener onItemListener;
         private ImageButton imgBtnDetails;
         private ImageView imgViewDelete ;
-        OnItemListener onItemListener;
 
-        public MyViewHolder(@NonNull View itemView , OnItemListener onclickLis) {
+        public HistoryHolder(@NonNull View itemView, OnItemListener onItemListener) {
             super(itemView);
-
             txtTripName = itemView.findViewById(R.id.textViewTripName);
             txtTripPlace = itemView.findViewById(R.id.textViewTripPlace);
             txtTripDate = itemView.findViewById(R.id.textViewTripCalender);
             txtTripTime = itemView.findViewById(R.id.textViewPastTripTime);
+
             imgBtnDetails = itemView.findViewById(R.id.imageBtnDetails);
             imgViewDelete = itemView.findViewById(R.id.imageView3);
 
+            this.onItemListener = onItemListener;
             imgViewDelete.setOnClickListener(this);
-
-            this.onItemListener = onclickLis;
-            //itemView.setOnClickListener(this);
             imgBtnDetails.setOnClickListener(this);
+
+           // itemView.setOnClickListener(this);
         }
 
         public TextView getTxtTripName() {
@@ -103,7 +107,6 @@ public class HomeRecyclerViewAdapter extends RecyclerView.Adapter {
         @Override
         public void onClick(View v) {
 
-
             switch (v.getId()){
                 case R.id.imageView3:
                     onItemListener.onItemDeleteClick(getAdapterPosition());
@@ -116,10 +119,9 @@ public class HomeRecyclerViewAdapter extends RecyclerView.Adapter {
         }
     }
 
-    public void setUpcomingTrip(List<Trip> upcomingTrip) {
-        this.upcomingTrip = upcomingTrip;
-        notifyDataSetChanged();
-    }
+    /**
+     *  communicator interface
+     */
     public interface OnItemListener{
         void onItemClick(int position);
         void onItemDeleteClick( int position);
@@ -128,9 +130,9 @@ public class HomeRecyclerViewAdapter extends RecyclerView.Adapter {
     private String getTripPlace(Trip currentTrip){
         String tripLocation = "";
         try{
-        Geocoder geocoder = new Geocoder(context, Locale.getDefault());
-        List<Address> address = geocoder.getFromLocation(currentTrip.getEndLocationLatitude(),currentTrip.getEndLocationLongitude(),1);
-        tripLocation =address.get(0).getAddressLine(0);
+            Geocoder geocoder = new Geocoder(context, Locale.getDefault());
+            List<Address> address = geocoder.getFromLocation(currentTrip.getEndLocationLatitude(),currentTrip.getEndLocationLongitude(),1);
+            tripLocation =address.get(0).getAddressLine(0);
 
         } catch (Exception e) {
             e.printStackTrace();

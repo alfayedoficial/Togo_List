@@ -1,6 +1,5 @@
 package com.group4.togolist.viewmodel;
 
-import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
@@ -12,10 +11,10 @@ import androidx.lifecycle.ViewModel;
 import com.group4.togolist.R;
 import com.group4.togolist.model.User;
 import com.group4.togolist.repository.FirebaseHandler;
-import com.group4.togolist.view.AddFormActivity;
-import com.group4.togolist.view.FirstActivity;
-import com.group4.togolist.view.HomeActivity;
-import com.group4.togolist.view.ProfileActivity;
+import com.group4.togolist.view.activities.AddFormActivity;
+import com.group4.togolist.view.activities.FirstActivity;
+import com.group4.togolist.view.activities.HomeActivity;
+import com.group4.togolist.view.activities.ProfileActivity;
 
 /**
  * Class Created to handle Profile Activity

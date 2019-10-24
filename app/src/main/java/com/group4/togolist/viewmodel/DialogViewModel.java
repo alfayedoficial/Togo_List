@@ -1,10 +1,5 @@
 package com.group4.togolist.viewmodel;
 
-import android.annotation.TargetApi;
-import android.app.NotificationChannel;
-import android.app.NotificationManager;
-import android.content.Context;
-import android.content.ContextWrapper;
 import android.content.Intent;
 import android.location.Address;
 import android.location.Geocoder;
@@ -13,19 +8,16 @@ import android.os.Build;
 import android.provider.Settings;
 import android.widget.Toast;
 
-import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.NotificationCompat;
 import androidx.lifecycle.ViewModel;
 
-import com.group4.togolist.R;
 import com.group4.togolist.repository.DatabaseHandler;
 import com.group4.togolist.model.Trip;
 import com.group4.togolist.repository.TripAlarm;
 import com.group4.togolist.util.FloatingWidgetService;
 import com.group4.togolist.util.NotificationHelper;
-import com.group4.togolist.view.DetailsTripActivity;
-import com.group4.togolist.view.DialogActivity;
-import com.group4.togolist.view.HomeActivity;
+import com.group4.togolist.view.activities.DetailsTripActivity;
+import com.group4.togolist.view.activities.DialogActivity;
 
 import java.io.IOException;
 import java.util.List;

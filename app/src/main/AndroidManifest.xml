@@ -16,9 +16,9 @@
 		  android:roundIcon="@mipmap/ic_launcher_round"
 		  android:supportsRtl="true"
 		  android:theme="@style/AppTheme">
-		  <activity android:name=".view.AboutAppActivity"></activity>
-		  <activity android:name=".view.PrivacyActivity" />
-		  <activity android:name=".view.AppActivity" />
+		  <activity android:name=".view.activities.AboutAppActivity"></activity>
+		  <activity android:name=".view.activities.PrivacyActivity" />
+		  <activity android:name=".view.activities.AppActivity" />
 
 		  <service
 			   android:name=".util.FloatingWidgetService"
@@ -31,41 +31,41 @@
 			   android:exported="true" />
 
 		  <activity
-			   android:name=".view.PastTripDetailsActivity"
+			   android:name=".view.activities.PastTripDetailsActivity"
 			   android:theme="@style/AppTheme.NoActionBar" />
 		  <activity
-			   android:name=".view.DialogActivity"
+			   android:name=".view.activities.DialogActivity"
 			   android:theme="@style/dialogTheme" />
 		  <activity
-			   android:name=".view.DetailsTripActivity"
+			   android:name=".view.activities.DetailsTripActivity"
 			   android:theme="@style/AppTheme.NoActionBar"
 			   android:windowSoftInputMode="stateAlwaysHidden" />
 		  <activity
-			   android:name=".view.ProfileActivity"
+			   android:name=".view.activities.ProfileActivity"
 			   android:theme="@style/AppTheme.NoActionBar"
 			   android:windowSoftInputMode="stateAlwaysHidden" />
 		  <activity
-			   android:name=".view.AddFormActivity"
+			   android:name=".view.activities.AddFormActivity"
 			   android:theme="@style/AppTheme.NoActionBar" />
 		  <activity
-			   android:name=".view.ForgetPasswordActivity"
+			   android:name=".view.activities.ForgetPasswordActivity"
 			   android:theme="@style/AppTheme.NoActionBar" />
 		  <activity
-			   android:name=".view.HomeActivity"
+			   android:name=".view.activities.HomeActivity"
 			   android:theme="@style/AppTheme.NoActionBar" />
 		  <activity
-			   android:name=".view.SignUpActivity"
+			   android:name=".view.activities.SignUpActivity"
 			   android:theme="@style/AppTheme.NoActionBar"
 			   android:windowSoftInputMode="stateAlwaysHidden" />
 		  <activity
-			   android:name=".view.SignInActivity"
+			   android:name=".view.activities.SignInActivity"
 			   android:theme="@style/AppTheme.NoActionBar"
 			   android:windowSoftInputMode="stateAlwaysHidden" />
 		  <activity
-			   android:name=".view.FirstActivity"
+			   android:name=".view.activities.FirstActivity"
 			   android:theme="@style/AppTheme.NoActionBar" />
 		  <activity
-			   android:name=".view.SplashActivity"
+			   android:name=".view.activities.SplashActivity"
 			   android:theme="@style/AppTheme.NoActionBar">
 			   <intent-filter>
 					<action android:name="android.intent.action.MAIN" />

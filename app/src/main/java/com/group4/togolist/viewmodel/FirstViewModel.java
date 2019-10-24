@@ -3,12 +3,9 @@ package com.group4.togolist.viewmodel;
 import android.app.Activity;
 import android.content.Intent;
 
-import com.google.firebase.auth.FirebaseAuth;
-import com.group4.togolist.model.User;
 import com.group4.togolist.repository.FirebaseHandler;
-import com.group4.togolist.view.HomeActivity;
-import com.group4.togolist.view.SignInActivity;
-import com.group4.togolist.view.SignUpActivity;
+import com.group4.togolist.view.activities.SignInActivity;
+import com.group4.togolist.view.activities.SignUpActivity;
 
 import androidx.lifecycle.ViewModel;
 
@@ -20,12 +17,14 @@ import androidx.lifecycle.ViewModel;
 public class FirstViewModel extends ViewModel {
 
     Activity firstActivity;
+    FirebaseHandler firebaseHandler;
 
     /**
      * FirstViewModel Constructor take activity as input parameter
      */
     public FirstViewModel(Activity firstActivity){
         this.firstActivity = firstActivity;
+        firebaseHandler = new FirebaseHandler(firstActivity);
     }
 
 
@@ -47,7 +46,6 @@ public class FirstViewModel extends ViewModel {
 
 
     public void checkFirebaseUser(){
-        FirebaseHandler firebaseHandler = new FirebaseHandler(firstActivity);
         firebaseHandler.checkFirebaseUser();
     }
 

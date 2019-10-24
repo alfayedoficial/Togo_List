@@ -1,27 +1,21 @@
-package com.group4.togolist.view;
+package com.group4.togolist.view.activities;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.lifecycle.ViewModel;
 import androidx.lifecycle.ViewModelProvider;
 import androidx.lifecycle.ViewModelProviders;
 
-import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
-import android.os.Build;
 import android.os.Bundle;
-import android.provider.Settings;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.group4.togolist.R;
 import com.group4.togolist.viewmodel.DialogViewModel;
-import com.group4.togolist.viewmodel.LoginViewModel;
-import com.group4.togolist.viewmodel.ProfileViewModel;
 
 public class DialogActivity extends AppCompatActivity implements View.OnClickListener {
 

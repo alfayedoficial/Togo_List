@@ -1,10 +1,9 @@
-package com.group4.togolist.fragments;
+package com.group4.togolist.view.fragments;
 
 import android.app.AlertDialog;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -16,8 +15,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.group4.togolist.R;
 import com.group4.togolist.model.Trip;
-import com.group4.togolist.view.HomeRecyclerViewAdapter;
-import com.group4.togolist.view.PastTripDetailsActivity;
+import com.group4.togolist.view.adapters.HomeRecyclerViewAdapter;
 import com.group4.togolist.viewmodel.HomeViewModel;
 
 import java.util.List;

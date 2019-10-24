@@ -3,7 +3,6 @@ package com.group4.togolist.repository;
 import android.app.Activity;
 import android.content.Intent;
 import android.util.Log;
-import android.widget.Toast;
 
 import com.google.android.gms.auth.api.signin.GoogleSignIn;
 import com.google.android.gms.auth.api.signin.GoogleSignInAccount;
@@ -18,21 +17,17 @@ import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.auth.GoogleAuthProvider;
 import com.google.firebase.auth.UserProfileChangeRequest;
-import com.google.firebase.database.DataSnapshot;
-import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
-import com.google.firebase.database.ValueEventListener;
 import com.group4.togolist.R;
 import com.group4.togolist.model.User;
 import com.group4.togolist.model.UserTrip;
-import com.group4.togolist.view.HomeActivity;
+import com.group4.togolist.view.activities.HomeActivity;
 import com.group4.togolist.viewmodel.ForgetPassViewModel;
 import com.group4.togolist.viewmodel.LoginViewModel;
 import com.group4.togolist.viewmodel.ProfileViewModel;
 import com.group4.togolist.viewmodel.RegisterViewModel;
 
-import java.util.List;
 import java.util.concurrent.Executor;
 
 import androidx.annotation.NonNull;
@@ -105,14 +100,18 @@ public class FirebaseHandler {
     /**
      * this method request sign in using email and password
      */
-    public void signIn(final String email, final String password) {
+    public void signIn(String email, String password) {
         user = FirebaseAuth.getInstance().getCurrentUser();
+        Log.i("test",email);
+        Log.i("test",password);
         mAuth.signInWithEmailAndPassword(email, password).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
             @Override
             public void onComplete(@NonNull Task<AuthResult> task) {
                 if (!task.isSuccessful()) {
+                    Log.i("test","Access Denied");
                     loginViewModel.loginToHomeScreen(ACCESS_DENIED);
                 } else {
+                    Log.i("test","Access Granted");
                     loginViewModel.loginToHomeScreen(ACCESS_GRANTED);
                 }
             }
@@ -123,14 +122,14 @@ public class FirebaseHandler {
      * this method request sign in with google
      */
     public void signinWithGoogle() {
-        mAuth = FirebaseAuth.getInstance();
-        GoogleSignInOptions googleSignInOptions = new GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
-                .requestIdToken(activity.getString(R.string.default_web_client_id))
-                .requestEmail()
-                .build();
-        mGoogleSignInClient = GoogleSignIn.getClient(activity, googleSignInOptions);
-        Intent intent = mGoogleSignInClient.getSignInIntent();
-        activity.startActivityForResult(intent,GOOGLE_SIGNIN);
+//        mAuth = FirebaseAuth.getInstance();
+//        GoogleSignInOptions googleSignInOptions = new GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
+//                .requestIdToken(activity.getString(R.string.default_web_client_id))
+//                .requestEmail()
+//                .build();
+//        mGoogleSignInClient = GoogleSignIn.getClient(activity, googleSignInOptions);
+//        Intent intent = mGoogleSignInClient.getSignInIntent();
+//        activity.startActivityForResult(intent,GOOGLE_SIGNIN);
 //        mGoogleSignInClient = GoogleSignIn.getClient(activity, googleSignInOptions).silentSignIn().addOnCompleteListener(new OnCompleteListener<GoogleSignInAccount>() {
 //            @Override
 //            public void onComplete(@NonNull Task<GoogleSignInAccount> task) {
@@ -176,15 +175,15 @@ public class FirebaseHandler {
      */
     public void signUp(final String username, String email, String password) {
         user = FirebaseAuth.getInstance().getCurrentUser();
+        Log.i("test",email);
+        Log.i("test",password);
         mAuth.createUserWithEmailAndPassword(email, password)
                 .addOnCompleteListener(new OnCompleteListener<AuthResult>() {
                     @Override
                     public void onComplete(@NonNull Task<AuthResult> task) {
                         if (!task.isSuccessful()) {
-                            Toast.makeText(activity, "Please Try again with a different username", Toast.LENGTH_SHORT).show();
                             registerViewModel.signUpToHomeScreen(NEW_ACCOUNT_FAILED);
                         } else {
-                            Toast.makeText(activity, "Success", Toast.LENGTH_SHORT).show();
                             user = mAuth.getCurrentUser();
                             UserProfileChangeRequest profileUpdates = new UserProfileChangeRequest.Builder()
                                     .setDisplayName(username).build();
@@ -193,7 +192,6 @@ public class FirebaseHandler {
                                         @Override
                                         public void onComplete(@NonNull Task<Void> task) {
                                             if (task.isSuccessful()) {
-                                                Log.d(TAG, "User profile updated.");
                                                 registerViewModel.signUpToHomeScreen(NEW_ACCOUNT_CREATED);
                                             }
                                         }
@@ -269,11 +267,11 @@ public class FirebaseHandler {
     }
 
     public void checkFirebaseUser(){
-        FirebaseAuth auth = FirebaseAuth.getInstance();
-        if (auth.getCurrentUser() != null) {
+
+        if (mAuth.getCurrentUser() != null) {
             // User is signed in (getCurrentUser() will be null if not signed in)
             Intent intent = new Intent(activity, HomeActivity.class);
-            User user = User.getUserInstance(auth.getCurrentUser().getDisplayName(),auth.getCurrentUser().getEmail(),auth.getCurrentUser().getEmail());
+            User user = User.getUserInstance(mAuth.getCurrentUser().getDisplayName(),mAuth.getCurrentUser().getEmail(),mAuth.getCurrentUser().getEmail());
             activity.startActivity(intent);
         }
     }

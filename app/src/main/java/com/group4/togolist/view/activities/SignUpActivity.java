@@ -1,6 +1,5 @@
-package com.group4.togolist.view;
+package com.group4.togolist.view.activities;
 
-import android.app.Activity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -147,10 +146,10 @@ public class SignUpActivity extends AppCompatActivity implements View.OnClickLis
      */
 
     class MyViewModelFactory implements ViewModelProvider.Factory {
-        private Activity mActivity;
+        private SignUpActivity mActivity;
 
 
-        public MyViewModelFactory(Activity activity) {
+        public MyViewModelFactory(SignUpActivity activity) {
             mActivity = activity;
         }
 

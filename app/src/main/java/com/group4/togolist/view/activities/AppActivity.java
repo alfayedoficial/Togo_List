@@ -1,4 +1,4 @@
-package com.group4.togolist.view;
+package com.group4.togolist.view.activities;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.lifecycle.ViewModel;
@@ -13,6 +13,7 @@ import android.widget.ImageButton;
 
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.group4.togolist.R;
+import com.group4.togolist.viewmodel.AppViewModel;
 import com.group4.togolist.viewmodel.HomeViewModel;
 
 public class AppActivity extends AppCompatActivity  implements View.OnClickListener {

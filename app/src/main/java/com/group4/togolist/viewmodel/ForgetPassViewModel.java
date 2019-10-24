@@ -8,7 +8,6 @@ import androidx.lifecycle.ViewModel;
 
 import com.group4.togolist.R;
 import com.group4.togolist.repository.FirebaseHandler;
-import com.group4.togolist.view.FirstActivity;
 
 public class ForgetPassViewModel extends ViewModel {
 

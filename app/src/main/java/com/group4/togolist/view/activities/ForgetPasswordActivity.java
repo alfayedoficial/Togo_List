@@ -1,4 +1,4 @@
-package com.group4.togolist.view;
+package com.group4.togolist.view.activities;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.lifecycle.ViewModel;
@@ -6,7 +6,6 @@ import androidx.lifecycle.ViewModelProvider;
 import androidx.lifecycle.ViewModelProviders;
 
 import android.app.Activity;
-import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -14,7 +13,6 @@ import android.widget.TextView;
 
 import com.group4.togolist.R;
 import com.group4.togolist.viewmodel.ForgetPassViewModel;
-import com.group4.togolist.viewmodel.RegisterViewModel;
 
 public class ForgetPasswordActivity extends AppCompatActivity implements View.OnClickListener {
     /**

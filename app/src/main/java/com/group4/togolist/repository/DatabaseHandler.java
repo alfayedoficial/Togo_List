@@ -3,18 +3,12 @@ package com.group4.togolist.repository;
 import android.app.Activity;
 import android.os.AsyncTask;
 
-import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
-import androidx.lifecycle.Observer;
 
 import com.group4.togolist.db.TripDao;
 import com.group4.togolist.db.TripDatabase;
 import com.group4.togolist.model.Trip;
-import com.group4.togolist.view.FirstActivity;
-import com.group4.togolist.view.SignInActivity;
-import com.group4.togolist.viewmodel.LoginViewModel;
 
-import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.ExecutionException;
 

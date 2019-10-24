@@ -12,7 +12,6 @@ import android.view.View;
 import android.view.WindowManager;
 import android.widget.TextView;
 
-import com.andremion.counterfab.CounterFab;
 import com.group4.togolist.R;
 import com.group4.togolist.viewmodel.DialogViewModel;
 

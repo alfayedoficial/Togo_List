@@ -1,6 +1,5 @@
 package com.group4.togolist.viewmodel;
 
-import android.app.Activity;
 import android.content.Intent;
 import android.net.Uri;
 import android.widget.Toast;
@@ -9,10 +8,10 @@ import androidx.lifecycle.ViewModel;
 
 import com.group4.togolist.R;
 import com.group4.togolist.model.User;
-import com.group4.togolist.view.HomeActivity;
+import com.group4.togolist.view.activities.HomeActivity;
 import com.group4.togolist.repository.FirebaseHandler;
-import com.group4.togolist.view.FirstActivity;
-import com.group4.togolist.view.SignUpActivity;
+import com.group4.togolist.view.activities.FirstActivity;
+import com.group4.togolist.view.activities.SignUpActivity;
 
 /**
  * Class do : Handle Sign up Activity

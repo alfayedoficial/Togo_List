@@ -1,4 +1,4 @@
-package com.group4.togolist.fragments;
+package com.group4.togolist.view.fragments;
 
 
 import android.app.AlertDialog;
@@ -16,11 +16,10 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.group4.togolist.R;
-import com.group4.togolist.model.HistoryAdapter;
+import com.group4.togolist.view.adapters.HistoryAdapter;
 import com.group4.togolist.model.Trip;
 import com.group4.togolist.viewmodel.HomeViewModel;
 
-import java.util.ArrayList;
 import java.util.List;
 
 /**

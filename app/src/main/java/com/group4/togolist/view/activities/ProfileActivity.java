@@ -1,22 +1,18 @@
-package com.group4.togolist.view;
+package com.group4.togolist.view.activities;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.lifecycle.ViewModel;
 import androidx.lifecycle.ViewModelProvider;
 import androidx.lifecycle.ViewModelProviders;
 
-import android.app.Activity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
-import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.TextView;
 
 import com.google.android.material.textfield.TextInputLayout;
 import com.group4.togolist.R;
-import com.group4.togolist.viewmodel.AddFormViewModel;
-import com.group4.togolist.viewmodel.LoginViewModel;
 import com.group4.togolist.viewmodel.ProfileViewModel;
 
 public class ProfileActivity extends AppCompatActivity  implements View.OnClickListener {

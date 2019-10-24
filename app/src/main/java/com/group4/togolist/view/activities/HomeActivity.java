@@ -1,4 +1,4 @@
-package com.group4.togolist.view;
+package com.group4.togolist.view.activities;
 
 import android.app.Activity;
 import android.app.AlertDialog;
@@ -10,15 +10,13 @@ import android.widget.Button;
 import android.widget.ImageButton;
 
 import com.group4.togolist.R;
-import com.group4.togolist.fragments.HistoryFragment;
-import com.group4.togolist.fragments.MyViewPagerAdapter;
-import com.group4.togolist.fragments.UpcomingFragment;
+import com.group4.togolist.view.fragments.HistoryFragment;
+import com.group4.togolist.view.adapters.MyViewPagerAdapter;
+import com.group4.togolist.view.fragments.UpcomingFragment;
 import com.group4.togolist.model.Trip;
 import com.group4.togolist.viewmodel.HomeViewModel;
-import com.group4.togolist.viewmodel.ProfileViewModel;
 
 import java.util.List;
-import java.util.concurrent.ExecutionException;
 
 import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;

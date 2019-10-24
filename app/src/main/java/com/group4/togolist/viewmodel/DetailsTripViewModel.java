@@ -15,10 +15,10 @@ import com.group4.togolist.repository.DatabaseHandler;
 import com.group4.togolist.model.Trip;
 import com.group4.togolist.repository.TripAlarm;
 import com.group4.togolist.util.FloatingWidgetService;
-import com.group4.togolist.view.AddFormActivity;
-import com.group4.togolist.view.DetailsTripActivity;
-import com.group4.togolist.view.HomeActivity;
-import com.group4.togolist.view.ProfileActivity;
+import com.group4.togolist.view.activities.AddFormActivity;
+import com.group4.togolist.view.activities.DetailsTripActivity;
+import com.group4.togolist.view.activities.HomeActivity;
+import com.group4.togolist.view.activities.ProfileActivity;
 
 import java.util.Calendar;
 import java.util.Locale;

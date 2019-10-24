@@ -1,4 +1,4 @@
-package com.group4.togolist.view;
+package com.group4.togolist.view.activities;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.lifecycle.ViewModel;
@@ -18,14 +18,12 @@ import android.os.Message;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
-import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.group4.togolist.R;
 import com.group4.togolist.model.Trip;
-import com.group4.togolist.viewmodel.DetailsTripViewModel;
 import com.group4.togolist.viewmodel.PastTripsDetailsViewModel;
 
 import org.json.JSONArray;

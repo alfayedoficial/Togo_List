@@ -1,4 +1,4 @@
-package com.group4.togolist.view;
+package com.group4.togolist.view.activities;
 
 import android.animation.ObjectAnimator;
 import android.content.Intent;
