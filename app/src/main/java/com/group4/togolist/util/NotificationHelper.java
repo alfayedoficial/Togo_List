@@ -1,16 +1,23 @@
 package com.group4.togolist.util;
 
 import android.annotation.TargetApi;
+import android.app.Activity;
+import android.app.Notification;
 import android.app.NotificationChannel;
 import android.app.NotificationManager;
+import android.app.PendingIntent;
 import android.content.Context;
 import android.content.ContextWrapper;
+import android.content.Intent;
 import android.os.Build;
 
 import androidx.core.app.NotificationCompat;
+import androidx.core.app.TaskStackBuilder;
 
 import com.group4.togolist.R;
 import com.group4.togolist.model.Trip;
+import com.group4.togolist.repository.TripAlarm;
+import com.group4.togolist.view.activities.DialogActivity;
 
 public class NotificationHelper extends ContextWrapper {
     public static final String channelID = "channelID";
@@ -18,8 +25,10 @@ public class NotificationHelper extends ContextWrapper {
 
     private NotificationManager mManager;
     private Trip currentTrip;
+    Context context;
     public NotificationHelper(Context base, Trip currentTrip) {
         super(base);
+        this.context = base;
         this.currentTrip = currentTrip;
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
             createChannel();
@@ -42,9 +51,21 @@ public class NotificationHelper extends ContextWrapper {
     }
 
     public NotificationCompat.Builder getChannelNotification() {
-        return new NotificationCompat.Builder(getApplicationContext(), channelID)
-                .setContentTitle(getString(R.string.app_name))
-                .setContentText(currentTrip.getTripName())
-                .setSmallIcon(R.drawable.logo);
+
+        Intent notificationIntent = new Intent(context, DialogActivity. class ) ;
+        notificationIntent.putExtra(TripAlarm.TRIP_NAME,currentTrip.getTripName());
+        notificationIntent.putExtra( "NotificationMessage" , currentTrip.getTripName() ) ;
+        notificationIntent.addCategory(Intent. CATEGORY_LAUNCHER ) ;
+        notificationIntent.setAction(Intent. ACTION_MAIN ) ;
+        notificationIntent.setFlags(Intent. FLAG_ACTIVITY_CLEAR_TOP | Intent. FLAG_ACTIVITY_SINGLE_TOP ) ;
+        PendingIntent resultIntent = PendingIntent. getActivity (context, 0 , notificationIntent , 0 ) ;
+
+
+        return new NotificationCompat.Builder
+                (context, channelID )
+                .setSmallIcon(R.mipmap.ic_launcher_round )
+                .setContentTitle( currentTrip.getTripName() )
+                .setContentText( "Hello! This is my first push notification" )
+                .setContentIntent(resultIntent) ;
     }
 }
