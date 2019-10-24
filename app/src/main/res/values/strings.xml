@@ -61,7 +61,8 @@
 	 <string name="wehope">We Hope You Will Come Back Again</string>
 	 <!--	 Google API Key-->
 	 <string name="google_maps_key" templateMergeStrategy="preserve" translatable="false">AIzaSyCMIF8imk5Jfi6uct4_8EPxDK-_0y7P1IA</string>
-	 <!--Dialog Activity-->
+
+	<!--Dialog Activity-->
 	 <string name="details">Details</string>
 	 <string name="tripplace">Trip Place</string>
 	 <string name="tripcalender">Trip Calender</string>
