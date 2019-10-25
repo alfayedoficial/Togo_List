@@ -236,14 +236,14 @@ public class DetailsTripActivity extends AppCompatActivity implements View.OnCli
                 repetitionString   = "NOT_REPEATED" ;
                 break;
 
-                case Trip.DAILY:
-                    repetitionString = "DAILY";
-                    break;
-                    case Trip.WEEKLY:
-                        repetitionString = "WEEKLY";
-                        break;
-                        case Trip.MONTHLY:
-                            break;
+            case Trip.DAILY:
+                repetitionString = "DAILY";
+                break;
+            case Trip.WEEKLY:
+                repetitionString = "WEEKLY";
+                break;
+            case Trip.MONTHLY:
+                break;
         }
         txtRepetition.setText(repetitionString);
 
@@ -296,6 +296,7 @@ public class DetailsTripActivity extends AppCompatActivity implements View.OnCli
     private void showTime() {
 
         TimePickerDialog timePickerDialog = new TimePickerDialog(DetailsTripActivity.this, new TimePickerDialog.OnTimeSetListener() {
+
             @Override
             public void onTimeSet(TimePicker timePicker, int hourOfDay, int minutes) {
                 if(minutes < 10){
@@ -323,7 +324,7 @@ public class DetailsTripActivity extends AppCompatActivity implements View.OnCli
                 myCalendar.set(Calendar.MONTH, monthOfYear);
                 myCalendar.set(Calendar.DAY_OF_MONTH, dayOfMonth);
 
-                String myFormat = "MM / dd / yy"; //In which you need put here
+                String myFormat = "MM/dd/yyyy"; //In which you need put here
                 SimpleDateFormat sdf = new SimpleDateFormat(myFormat, Locale.US);
 
                 eTxtStartDate.setText(sdf.format(myCalendar.getTime()));

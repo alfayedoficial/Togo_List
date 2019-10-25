@@ -7,10 +7,12 @@ import android.content.Intent;
 import android.net.Uri;
 import android.os.Build;
 import android.provider.Settings;
+import android.util.Log;
 import android.widget.Toast;
 
 import androidx.lifecycle.ViewModel;
 
+import com.group4.togolist.R;
 import com.group4.togolist.repository.DatabaseHandler;
 import com.group4.togolist.model.Trip;
 import com.group4.togolist.repository.TripAlarm;
@@ -74,33 +76,42 @@ public class DetailsTripViewModel extends ViewModel {
     }
 
     public void editTrip(String tripName, Calendar startDate, String notes){
-        currentTrip.setTripName(tripName);
-//        currentTrip.setStartLocationLongitude(startLocationLongitude);
-//        currentTrip.setStartLocationLatitude(startLocationLatitude);
-//        currentTrip.setEndLocationLongitude(endLocationLongitude);
-//        currentTrip.setEndLocationLatitude(endLocationLatitude);
-        startDate.set(Calendar.MONTH,startDate.get(Calendar.MONTH)-1);
-        currentTrip.setStartTime(startDate);
-//        currentTrip.setRepetition(repetition);
-//        currentTrip.setRoundTrip(isRoundTrip);
-        currentTrip.setNotes(notes);
-        databaseHandler.updateTrip(currentTrip);
-        startAlarm(startDate);
+        Log.i("edit",Calendar.getInstance().getTime().toString());
+        Log.i("edit",startDate.getTime().toString());
+        if(!startDate.before(Calendar.getInstance())){
+            currentTrip.setTripName(tripName);
+            currentTrip.setStartTime(startDate);
+            startDate.set(Calendar.MONTH,startDate.get(Calendar.MONTH)-1);
+            startDate.set(Calendar.SECOND,0);
+            currentTrip.setNotes(notes);
+            setAlarm(currentTrip);
+        }else {
+            Toast.makeText(activity, activity.getString(R.string.wrong_start_time), Toast.LENGTH_SHORT).show();
+            activity.setTripDetails(currentTrip);
+        }
     }
 
 
-    private void startAlarm(Calendar c) {
+    public void setAlarm(Trip newTrip){
+        databaseHandler.updateTrip(newTrip);
+        try {
+            newTrip = databaseHandler.getTripByName(newTrip.getTripName());
+        } catch (ExecutionException e) {
+            e.printStackTrace();
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+
+        Calendar startDate = newTrip.getStartTime();
+        Log.i("trip date",newTrip.getStartTime().getTime().toString());
+        startDate.set(Calendar.MONTH,startDate.get(Calendar.MONTH)-1);
         AlarmManager alarmManager = (AlarmManager) activity.getSystemService(Context.ALARM_SERVICE);
         Intent intent = new Intent(activity, TripAlarm.class);
-        PendingIntent pendingIntent = PendingIntent.getBroadcast(activity, currentTrip.getId(), intent, PendingIntent.FLAG_UPDATE_CURRENT);
+        intent.putExtra(TripAlarm.TRIP_NAME, newTrip.getTripName());
+        PendingIntent pendingIntent = PendingIntent.getBroadcast(activity, newTrip.getId(), intent, 0);
+        alarmManager.setExact(AlarmManager.RTC_WAKEUP, startDate.getTimeInMillis(), pendingIntent);
+        activity.startActivity(new Intent(activity, HomeActivity.class));
 
-        if (c.before(Calendar.getInstance())) {
-            c.add(Calendar.DATE, 1);
-            Toast.makeText(activity, "Please Check your Starting Time", Toast.LENGTH_SHORT).show();
-        }else {
-            c.set(Calendar.MONTH, c.get(Calendar.MONTH) - 1);
-            alarmManager.setExact(AlarmManager.RTC_WAKEUP, c.getTimeInMillis(), pendingIntent);
-        }
     }
 
     private void cancelAlarm() {
