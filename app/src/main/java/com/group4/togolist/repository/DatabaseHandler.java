@@ -230,7 +230,7 @@ public class DatabaseHandler {
 
     public void loadFromFireBase( String userID) {
 
-        deleteAllTrip();
+
         fireBaseHelp();
           if (userID != null) {
               databaseReference.child("Users").child(userID).addValueEventListener(new ValueEventListener() {
@@ -239,6 +239,7 @@ public class DatabaseHandler {
 
 
                       if (!(dataSnapshot.getChildrenCount() == 0)) {
+                          deleteAllTrip();
                           Iterable<DataSnapshot> children = dataSnapshot.getChildren();
                           for (DataSnapshot dSTrip : children) {
                               Trip trip = dSTrip.getValue(Trip.class);
