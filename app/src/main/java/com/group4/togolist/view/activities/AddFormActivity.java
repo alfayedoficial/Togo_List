@@ -65,6 +65,7 @@ public class AddFormActivity extends AppCompatActivity implements View.OnClickLi
     private    final Calendar myCalendar = Calendar.getInstance();
     private Calendar currentCalendar = Calendar.getInstance();
     private Calendar tripCalendar = Calendar.getInstance();
+    private Calendar roundCalendar = Calendar.getInstance();
 
     private ImageButton imgBtnHome , imgBtnProfile;
     private com.google.android.material.floatingactionbutton.FloatingActionButton fltBtnAdd;
@@ -104,8 +105,8 @@ public class AddFormActivity extends AppCompatActivity implements View.OnClickLi
         rdnBtnOneDirection = findViewById(R.id.radioBtnOneDirection);
         rdnBtnRoundTrip = findViewById(R.id.radioBtnRoundTrip);
 
-       eTxtStartDate.setOnFocusChangeListener(this);
-       eTxtStartTime.setOnFocusChangeListener(this);
+        eTxtStartDate.setOnFocusChangeListener(this);
+        eTxtStartTime.setOnFocusChangeListener(this);
 
         eTxtStartDate.setOnClickListener(this);
         eTxtStartTime.setOnClickListener(this);
@@ -231,6 +232,7 @@ public class AddFormActivity extends AppCompatActivity implements View.OnClickLi
         int year = 2000;
         int hour = 0;
         int minute  =0 ;
+
         int monthRound = 0;
         int dayRound = 0;
         int yearRound = 2000;
@@ -262,30 +264,35 @@ public class AddFormActivity extends AppCompatActivity implements View.OnClickLi
              }
         }
         if (roundDate != null ) {
-            if(!startDate.isEmpty()) {
-                String[] startDateArr = startDate.split("/");
+            if(!roundDate.isEmpty()) {
+                String[] startDateArr = roundDate.split("/");
                 monthRound = Integer.parseInt(startDateArr[0]);
                 dayRound = Integer.parseInt(startDateArr[1]);
                 yearRound += Integer.parseInt(startDateArr[2]);
             }
         }
         if (roundTime != null){
-            if (!startTime.isEmpty()) {
-                String[] startTimeArr = startTime.split(":");
+            if (!roundTime.isEmpty()) {
+                String[] startTimeArr = roundTime.split(":");
                 hourRound = Integer.parseInt(startTimeArr[0]);
                 minuteRound = Integer.parseInt(startTimeArr[1]);
             }
         }
 
         tripCalendar.set(year , month , day , hour , minute,0);
-        Calendar roundCalendar = Calendar.getInstance();
+
+        Log.i("TAG",tripCalendar.get(Calendar.YEAR)+"");
+        Log.i("TAG",tripCalendar.get(Calendar.MONTH)+"");
+        Log.i("TAG",tripCalendar.get(Calendar.DAY_OF_MONTH)+"");
+        Log.i("TAG",tripCalendar.get(Calendar.HOUR_OF_DAY)+"");
+        Log.i("TAG",tripCalendar.get(Calendar.MINUTE)+"");
+
+        roundCalendar.set(yearRound,monthRound,dayRound,hourRound,minuteRound,0);
         Log.i("TAG",roundCalendar.get(Calendar.YEAR)+"");
         Log.i("TAG",roundCalendar.get(Calendar.MONTH)+"");
         Log.i("TAG",roundCalendar.get(Calendar.DAY_OF_MONTH)+"");
         Log.i("TAG",roundCalendar.get(Calendar.HOUR_OF_DAY)+"");
         Log.i("TAG",roundCalendar.get(Calendar.MINUTE)+"");
-
-        roundCalendar.set(yearRound,monthRound,dayRound,hourRound,minuteRound,0);
        addFormViewModel.createNewTrip(eTxtTripName.getText().toString() , longStartPoint, latStartPoint, longEndPoint, latEndPoint, tripCalendar,roundCalendar, repetition, roundTrip, eTxtNotes.getText().toString());
        timeSelected = false ;
        dateSelected = false ;

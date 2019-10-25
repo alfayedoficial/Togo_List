@@ -77,34 +77,36 @@
 		  app:layout_constraintTop_toTopOf="@+id/imageView5"
 		  app:srcCompat="@drawable/clock" />
 
-	 <TextView
-		  android:id="@+id/textViewTripName"
-		  android:layout_width="wrap_content"
-		  android:layout_height="wrap_content"
-		  android:layout_marginStart="10dp"
-		  android:fontFamily="@font/boutfont"
-		  android:text="@string/trip_name"
-		  android:textColor="@color/editText"
-		  android:textSize="14sp"
-		  app:layout_constraintBottom_toBottomOf="@+id/imageView"
-		  app:layout_constraintStart_toEndOf="@+id/imageView"
-		  app:layout_constraintTop_toTopOf="@+id/imageView" />
+	<TextView
+		android:id="@+id/textViewTripName"
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
+		android:layout_marginStart="10dp"
+		android:fontFamily="@font/boutfont"
+		android:singleLine="true"
+		android:text="@string/trip_name"
+		android:textColor="@color/editText"
+		android:textSize="14sp"
+		app:layout_constraintBottom_toBottomOf="@+id/imageView"
+		app:layout_constraintStart_toEndOf="@+id/imageView"
+		app:layout_constraintTop_toTopOf="@+id/imageView" />
 
-	 <TextView
-		  android:id="@+id/textViewTripPlace"
-		  android:layout_width="0dp"
-		  android:layout_height="wrap_content"
-		  android:layout_marginStart="10dp"
-		  android:layout_marginEnd="10dp"
-		  android:fontFamily="@font/boutfont"
-		  android:text="@string/tripplace"
-		  android:textColor="@color/editText"
-		  android:textSize="14sp"
-		  app:layout_constraintBottom_toBottomOf="@+id/imageView2"
-		  app:layout_constraintEnd_toEndOf="parent"
-		  app:layout_constraintHorizontal_bias="0.0"
-		  app:layout_constraintStart_toEndOf="@+id/imageView2"
-		  app:layout_constraintTop_toTopOf="@+id/imageView2" />
+	<TextView
+		android:id="@+id/textViewTripPlace"
+		android:layout_width="0dp"
+		android:layout_height="wrap_content"
+		android:layout_marginStart="10dp"
+		android:layout_marginEnd="10dp"
+		android:fontFamily="@font/boutfont"
+		android:singleLine="true"
+		android:text="@string/tripplace"
+		android:textColor="@color/editText"
+		android:textSize="14sp"
+		app:layout_constraintBottom_toBottomOf="@+id/imageView2"
+		app:layout_constraintEnd_toEndOf="parent"
+		app:layout_constraintHorizontal_bias="0.0"
+		app:layout_constraintStart_toEndOf="@+id/imageView2"
+		app:layout_constraintTop_toTopOf="@+id/imageView2" />
 
 	 <TextView
 		  android:id="@+id/textViewTripCalender"

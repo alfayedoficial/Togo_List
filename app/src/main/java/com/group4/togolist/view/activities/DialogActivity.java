@@ -28,7 +28,7 @@ public class DialogActivity extends AppCompatActivity implements View.OnClickLis
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_dialog);
-//        getWindow().setLayout(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT);
+        getWindow().setLayout(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT);
         initComponent();
         dialogViewModel = ViewModelProviders.of(this, new MyViewModelFactory(DialogActivity.this)).get(DialogViewModel.class);
         dialogViewModel.askForSystemOverlayPermission();

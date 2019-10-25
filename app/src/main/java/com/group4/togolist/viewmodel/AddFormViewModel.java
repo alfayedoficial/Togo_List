@@ -5,6 +5,7 @@ import android.app.AlarmManager;
 import android.app.PendingIntent;
 import android.content.Context;
 import android.content.Intent;
+import android.util.Log;
 import android.widget.Toast;
 
 import androidx.lifecycle.ViewModel;
@@ -26,7 +27,9 @@ import java.util.concurrent.ExecutionException;
 public class AddFormViewModel extends ViewModel{
 
     private Activity activity;
-    DatabaseHandler databaseHandler;
+    private DatabaseHandler databaseHandler;
+    public static final String TRIP_ONE = "(go)";
+    public static final String TRIP_TWO = "(return)";
 
     /**
      *  class Constructor
@@ -42,55 +45,61 @@ public class AddFormViewModel extends ViewModel{
      * it takes trip information as an input and it create a Trip and add to database
      */
     public void createNewTrip(String tripName, double startLocationLongitude, double startLocationLatitude, double endLocationLongitude, double endLocationLatitude, Calendar startDate,Calendar roundDate, int repetition, boolean isRoundTrip, String notes){
-        Trip newTrip = new Trip(tripName, startLocationLongitude, startLocationLatitude, endLocationLongitude, endLocationLatitude, Trip.UPCOMING, repetition, isRoundTrip, notes);
-        newTrip.setStartTime(startDate);
-        if(newTrip.isRoundTrip()){
-            if(roundDate.after(startDate)) {
-                newTrip.setRoundTime(roundDate);
+
+        if(isRoundTrip){
+            if(!roundDate.before(startDate) && !startDate.before(Calendar.getInstance())) {
+                Trip newTrip = new Trip(tripName + TRIP_ONE, startLocationLongitude, startLocationLatitude, endLocationLongitude, endLocationLatitude, Trip.UPCOMING, repetition, isRoundTrip, notes);
+                newTrip.setStartTime(startDate);
+                Trip newTripRound = new Trip(tripName + TRIP_TWO, endLocationLongitude, endLocationLatitude, startLocationLongitude, startLocationLatitude, Trip.UPCOMING, repetition, isRoundTrip, notes);
+                newTripRound.setStartTime(roundDate);
+                Log.i("Tag",roundDate.getTime().toString());
+
+                setAlarm(newTrip);
+                setAlarm(newTripRound);
+
             }else {
                 Toast.makeText(activity, activity.getString(R.string.wrong_round_time), Toast.LENGTH_SHORT).show();
                 return;
             }
-        }
-        databaseHandler.addTrip(newTrip);
-
-
-        startDate.set(Calendar.MONTH,startDate.get(Calendar.MONTH)-1);
-//        setAlarm(startDate,alarmManager,activity);
-        if (startDate.before(Calendar.getInstance())) {
-            //startDate.add(Calendar.DATE, 1);
-            Toast.makeText(activity, activity.getString(R.string.wrong_start_time), Toast.LENGTH_SHORT).show();
-        }
-        else {
-            try {
-                newTrip = databaseHandler.getTripByName(newTrip.getTripName());
-            } catch (ExecutionException e) {
-                e.printStackTrace();
-            } catch (InterruptedException e) {
-                e.printStackTrace();
+        }else {
+            if(startDate.before(Calendar.getInstance())){
+                Toast.makeText(activity, activity.getString(R.string.wrong_start_time), Toast.LENGTH_SHORT).show();
+            }else {
+                Trip newTrip = new Trip(tripName, startLocationLongitude, startLocationLatitude, endLocationLongitude, endLocationLatitude, Trip.UPCOMING, repetition, isRoundTrip, notes);
+                newTrip.setStartTime(startDate);
+                setAlarm(newTrip);
             }
-            AlarmManager alarmManager = (AlarmManager) activity.getSystemService(Context.ALARM_SERVICE);
-            Intent intent = new Intent(activity, TripAlarm.class);
-            intent.putExtra(TripAlarm.TRIP_NAME,newTrip.getTripName());
-            PendingIntent pendingIntent = PendingIntent.getBroadcast(activity, newTrip.getId(), intent, 0);
-            alarmManager.setExact(AlarmManager.RTC_WAKEUP, startDate.getTimeInMillis(), pendingIntent);
-            activity.startActivity(new Intent(activity, HomeActivity.class));
         }
+
+
+
+
+//        setAlarm(startDate,alarmManager,activity);
+
 
     }
 
-//    public void setAlarm(Calendar startDate, AlarmManager alarmManager,
-//                         Context context) {
-//        alarmManager = (AlarmManager) context.getSystemService(Context.ALARM_SERVICE);
-//        Intent intent = new Intent(context, TripAlarm.class);
-//        intent.putExtra("trip","Egypt");
-//        PendingIntent pendingIntent = PendingIntent.getBroadcast(context, 0, intent, 0);
-//        Log.i("Alarm","setAlarm");
-//        if (startDate.before(Calendar.getInstance())) {
-//            startDate.add(Calendar.DATE, 1);
-//        }
-//        alarmManager.setExact(AlarmManager.RTC_WAKEUP, startDate.getTimeInMillis(), pendingIntent);
-//    }
+    public void setAlarm(Trip newTrip){
+        databaseHandler.addTrip(newTrip);
+        try {
+            newTrip = databaseHandler.getTripByName(newTrip.getTripName());
+        } catch (ExecutionException e) {
+            e.printStackTrace();
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+
+            Calendar startDate = newTrip.getStartTime();
+            Log.i("trip date",newTrip.getStartTime().getTime().toString());
+            startDate.set(Calendar.MONTH,startDate.get(Calendar.MONTH)-1);
+            AlarmManager alarmManager = (AlarmManager) activity.getSystemService(Context.ALARM_SERVICE);
+            Intent intent = new Intent(activity, TripAlarm.class);
+            intent.putExtra(TripAlarm.TRIP_NAME, newTrip.getTripName());
+            PendingIntent pendingIntent = PendingIntent.getBroadcast(activity, newTrip.getId(), intent, 0);
+            alarmManager.setExact(AlarmManager.RTC_WAKEUP, startDate.getTimeInMillis(), pendingIntent);
+            activity.startActivity(new Intent(activity, HomeActivity.class));
+
+    }
 
 
     /**

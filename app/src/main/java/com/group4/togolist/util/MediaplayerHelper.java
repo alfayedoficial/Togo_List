@@ -9,6 +9,7 @@ import android.media.AudioManager;
 import android.media.MediaPlayer;
 import android.media.Ringtone;
 import android.media.RingtoneManager;
+import android.net.Uri;
 import android.os.Build;
 
 import com.group4.togolist.R;
@@ -54,21 +55,23 @@ public class MediaplayerHelper extends ContextWrapper {
 
     public void getMediaPlayer(){
         if(mMediaPlayer == null) {
-            mMediaPlayer = MediaPlayer.create(context, R.raw.alarm);
+            Uri alarm = RingtoneManager.getDefaultUri(RingtoneManager.TYPE_ALARM);
+            mMediaPlayer = MediaPlayer.create(context, alarm);
         }
     }
 
     public void playAlarm(){
         getMediaPlayer();
             if(requestAudioFocus(changeListener,AudioManager.STREAM_ALARM,AudioManager.AUDIOFOCUS_GAIN_TRANSIENT)) {
+                mMediaPlayer.setLooping(true);
                 mMediaPlayer.start();
             }
-            mMediaPlayer.setOnCompletionListener(new MediaPlayer.OnCompletionListener() {
-                @Override
-                public void onCompletion(MediaPlayer mp) {
-                    releaseMediaPlayer();
-                }
-            });
+//            mMediaPlayer.setOnCompletionListener(new MediaPlayer.OnCompletionListener() {
+//                @Override
+//                public void onCompletion(MediaPlayer mp) {
+//                    releaseMediaPlayer();
+//                }
+//            });
 
 
     }
