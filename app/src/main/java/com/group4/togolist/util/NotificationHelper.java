@@ -52,20 +52,20 @@ public class NotificationHelper extends ContextWrapper {
 
     public NotificationCompat.Builder getChannelNotification() {
 
-        Intent notificationIntent = new Intent(context, DialogActivity. class ) ;
+        Intent notificationIntent = new Intent(getApplicationContext(), DialogActivity. class ) ;
         notificationIntent.putExtra(TripAlarm.TRIP_NAME,currentTrip.getTripName());
         notificationIntent.putExtra( "NotificationMessage" , currentTrip.getTripName() ) ;
         notificationIntent.addCategory(Intent. CATEGORY_LAUNCHER ) ;
         notificationIntent.setAction(Intent. ACTION_MAIN ) ;
         notificationIntent.setFlags(Intent. FLAG_ACTIVITY_CLEAR_TOP | Intent. FLAG_ACTIVITY_SINGLE_TOP ) ;
-        PendingIntent resultIntent = PendingIntent. getActivity (context, 0 , notificationIntent , 0 ) ;
+        PendingIntent resultIntent = PendingIntent. getActivity (getApplicationContext(), currentTrip.getId() , notificationIntent , 0 ) ;
 
 
         return new NotificationCompat.Builder
-                (context, channelID )
+                (getApplicationContext(), channelID )
                 .setSmallIcon(R.mipmap.ic_launcher_round )
                 .setContentTitle( currentTrip.getTripName() )
-                .setContentText( "Hello! This is my first push notification" )
+                .setContentText( "Remember you Trip" )
                 .setContentIntent(resultIntent) ;
     }
 }

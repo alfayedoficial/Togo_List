@@ -22,6 +22,7 @@ import com.group4.togolist.view.activities.AddFormActivity;
 import com.group4.togolist.view.activities.DetailsTripActivity;
 import com.group4.togolist.view.activities.HomeActivity;
 import com.group4.togolist.view.activities.ProfileActivity;
+import com.shashank.sony.fancytoastlib.FancyToast;
 
 import java.util.Calendar;
 import java.util.Locale;
@@ -78,40 +79,41 @@ public class DetailsTripViewModel extends ViewModel {
     public void editTrip(String tripName, Calendar startDate, String notes){
         Log.i("edit",Calendar.getInstance().getTime().toString());
         Log.i("edit",startDate.getTime().toString());
-        if(!startDate.before(Calendar.getInstance())){
-            currentTrip.setTripName(tripName);
-            currentTrip.setStartTime(startDate);
-            startDate.set(Calendar.MONTH,startDate.get(Calendar.MONTH)-1);
-            startDate.set(Calendar.SECOND,0);
-            currentTrip.setNotes(notes);
-            setAlarm(currentTrip);
-        }else {
-            Toast.makeText(activity, activity.getString(R.string.wrong_start_time), Toast.LENGTH_SHORT).show();
-            activity.setTripDetails(currentTrip);
-        }
+        currentTrip.setTripName(tripName);
+        currentTrip.setStartTime(startDate);
+        startDate.set(Calendar.MONTH,startDate.get(Calendar.MONTH)-1);
+        startDate.set(Calendar.SECOND,0);
+        currentTrip.setNotes(notes);
+        setAlarm(currentTrip);
     }
 
 
     public void setAlarm(Trip newTrip){
-        databaseHandler.updateTrip(newTrip);
-        try {
-            newTrip = databaseHandler.getTripByName(newTrip.getTripName());
-        } catch (ExecutionException e) {
-            e.printStackTrace();
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
+
 
         Calendar startDate = newTrip.getStartTime();
         Log.i("trip date",newTrip.getStartTime().getTime().toString());
         startDate.set(Calendar.MONTH,startDate.get(Calendar.MONTH)-1);
-        AlarmManager alarmManager = (AlarmManager) activity.getSystemService(Context.ALARM_SERVICE);
-        Intent intent = new Intent(activity, TripAlarm.class);
-        intent.putExtra(TripAlarm.TRIP_NAME, newTrip.getTripName());
-        PendingIntent pendingIntent = PendingIntent.getBroadcast(activity, newTrip.getId(), intent, 0);
-        alarmManager.setExact(AlarmManager.RTC_WAKEUP, startDate.getTimeInMillis(), pendingIntent);
-        activity.startActivity(new Intent(activity, HomeActivity.class));
-
+        if(startDate.after(Calendar.getInstance())) {
+            databaseHandler.updateTrip(newTrip);
+            AlarmManager alarmManager = (AlarmManager) activity.getSystemService(Context.ALARM_SERVICE);
+            Intent intent = new Intent(activity, TripAlarm.class);
+            intent.putExtra(TripAlarm.TRIP_NAME, newTrip.getTripName());
+            PendingIntent pendingIntent = PendingIntent.getBroadcast(activity, newTrip.getId(), intent, 0);
+            alarmManager.setExact(AlarmManager.RTC_WAKEUP, startDate.getTimeInMillis(), pendingIntent);
+            activity.startActivity(new Intent(activity, HomeActivity.class));
+        }
+        else {
+            FancyToast.makeText(activity,activity.getString(R.string.wrong_start_time),FancyToast.LENGTH_LONG,FancyToast.WARNING,true).show();
+            try {
+                newTrip = databaseHandler.getTripByName(newTrip.getTripName());
+            } catch (ExecutionException e) {
+                e.printStackTrace();
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+            activity.setTripDetails(newTrip);
+        }
     }
 
     private void cancelAlarm() {

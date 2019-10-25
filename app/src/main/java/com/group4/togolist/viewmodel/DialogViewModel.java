@@ -7,6 +7,7 @@ import android.media.MediaPlayer;
 import android.net.Uri;
 import android.os.Build;
 import android.provider.Settings;
+import android.util.Log;
 import android.widget.Toast;
 
 import androidx.core.app.NotificationCompat;
@@ -49,21 +50,23 @@ public class DialogViewModel extends ViewModel {
         String tripName = activity.getIntent().getExtras().getString(TripAlarm.TRIP_NAME);
         try {
             currentTrip = databaseHandler.getTripByName(tripName);
-            Geocoder geocoder = new Geocoder(activity, Locale.getDefault());
-            List<Address> address = geocoder.getFromLocation(currentTrip.getEndLocationLatitude(),currentTrip.getEndLocationLongitude(),1);
-            String tripLocation =address.get(0).getAddressLine(0);
-            activity.setDialogTripData(currentTrip.getTripName(),tripLocation,currentTrip.getTripDate(),currentTrip.getTripTime());
 
         } catch (ExecutionException e) {
             e.printStackTrace();
         } catch (InterruptedException e) {
             e.printStackTrace();
+        }
+        mediaplayerHelper = new MediaplayerHelper(activity);
+        mediaplayerHelper.playAlarm();
+        Geocoder geocoder = new Geocoder(activity, Locale.getDefault());
+        List<Address> address = null;
+        try {
+            address = geocoder.getFromLocation(currentTrip.getEndLocationLatitude(), currentTrip.getEndLocationLongitude(), 1);
         } catch (IOException e) {
             e.printStackTrace();
         }
-
-        mediaplayerHelper = new MediaplayerHelper(activity);
-        mediaplayerHelper.playAlarm();
+        String tripLocation = address.get(0).getAddressLine(0);
+        activity.setDialogTripData(currentTrip.getTripName(), tripLocation, currentTrip.getTripDate(), currentTrip.getTripTime());
     }
 
     /**
@@ -94,15 +97,14 @@ public class DialogViewModel extends ViewModel {
      */
     public void startTrip(){
         mediaplayerHelper.releaseMediaPlayer();
-        currentTrip.setStatus(Trip.ENDED);
-        databaseHandler.updateTrip(currentTrip);
         new MapDirectionHelper(activity,currentTrip.getStartLocationLatitude()
                 ,currentTrip.getStartLocationLongitude()
                 ,currentTrip.getEndLocationLatitude()
                 ,currentTrip.getEndLocationLongitude())
                 .startNavigation();
         startFloatingWidgetService();
-
+        currentTrip.setStatus(Trip.ENDED);
+        databaseHandler.updateTrip(currentTrip);
         //activity.finish();
     }
 
@@ -110,7 +112,7 @@ public class DialogViewModel extends ViewModel {
      * Cancel Trip and finish Dialog Activity
      */
     public void cancelTrip(){
-        currentTrip.setStatus(Trip.CANCELED);
+        currentTrip.setStatus(Trip.ENDED);
         databaseHandler.updateTrip(currentTrip);
         activity.finish();
     }
