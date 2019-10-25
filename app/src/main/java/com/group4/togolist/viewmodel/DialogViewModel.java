@@ -3,6 +3,7 @@ package com.group4.togolist.viewmodel;
 import android.content.Intent;
 import android.location.Address;
 import android.location.Geocoder;
+import android.media.MediaPlayer;
 import android.net.Uri;
 import android.os.Build;
 import android.provider.Settings;
@@ -15,6 +16,7 @@ import com.group4.togolist.repository.DatabaseHandler;
 import com.group4.togolist.model.Trip;
 import com.group4.togolist.repository.TripAlarm;
 import com.group4.togolist.util.FloatingWidgetService;
+import com.group4.togolist.util.MediaplayerHelper;
 import com.group4.togolist.util.NotificationHelper;
 import com.group4.togolist.view.activities.DetailsTripActivity;
 import com.group4.togolist.view.activities.DialogActivity;
@@ -34,8 +36,8 @@ public class DialogViewModel extends ViewModel {
     public static final String TRIP_NOTES_TAG = "tripNotes";
 
     private DatabaseHandler databaseHandler;
-
     private DialogActivity activity;
+    private MediaplayerHelper mediaplayerHelper;
 
     /**
      * Class Consturcotr
@@ -58,12 +60,16 @@ public class DialogViewModel extends ViewModel {
         } catch (IOException e) {
             e.printStackTrace();
         }
+
+        mediaplayerHelper = new MediaplayerHelper(activity);
+        mediaplayerHelper.playAlarm();
     }
 
     /**
      * Send Dialog to Details Trip Activity
      */
     public void showDetails(){
+        mediaplayerHelper.releaseMediaPlayer();
         Intent intent = new Intent(activity, DetailsTripActivity.class);
         intent.putExtra(HomeViewModel.TRIP_NAME,currentTrip.getTripName());
         activity.startActivity(intent);
@@ -74,6 +80,7 @@ public class DialogViewModel extends ViewModel {
      *  Set Dialog to Notification Bar
      */
     public void waitForLater(){
+        mediaplayerHelper.releaseMediaPlayer();
         NotificationHelper notificationHelper = new NotificationHelper(activity,currentTrip);
         NotificationCompat.Builder nb = notificationHelper.getChannelNotification();
         notificationHelper.getManager().notify(1, nb.build());
@@ -85,6 +92,7 @@ public class DialogViewModel extends ViewModel {
      * still need to open notes on widget
      */
     public void startTrip(){
+        mediaplayerHelper.releaseMediaPlayer();
         // Create a String Uri Use the result to create an Intent.
         String uri = String.format(Locale.ENGLISH, "geo:%f,%f", currentTrip.getEndLocationLatitude(), currentTrip.getEndLocationLongitude());
         // Create an Intent from uri String. Set the action to ACTION_VIEW
@@ -96,6 +104,7 @@ public class DialogViewModel extends ViewModel {
         // Attempt to start an activity that can handle the Intent
         activity.startActivity(tripIntent);
         startFloatingWidgetService();
+
         //activity.finish();
     }
 
@@ -136,6 +145,8 @@ public class DialogViewModel extends ViewModel {
         }
     }
 
-
+    public void releaseMediaPlayer(){
+        mediaplayerHelper.releaseMediaPlayer();
+    }
 
 }

@@ -150,4 +150,10 @@ public class DialogActivity extends AppCompatActivity implements View.OnClickLis
         }
 
     }
+
+    @Override
+    protected void onStop() {
+        super.onStop();
+        dialogViewModel.releaseMediaPlayer();
+    }
 }

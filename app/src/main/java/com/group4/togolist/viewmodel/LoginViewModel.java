@@ -70,7 +70,9 @@ public class LoginViewModel extends ViewModel {
         if(loginResult == FirebaseHandler.ACCESS_GRANTED){
             Intent loginIntent = new Intent(loginActivity, HomeActivity.class);
             FirebaseUser firebaseUser = FirebaseAuth.getInstance().getCurrentUser();
-            User user = User.getUserInstance(firebaseUser.getDisplayName(),firebaseUser.getEmail());
+            User user = User.getUserInstance();
+            user.setName(firebaseUser.getDisplayName());
+            user.setEmail(firebaseUser.getEmail());
             loginActivity.startActivity(loginIntent);
             Log.i("user",user.getEmail());
         }else{
