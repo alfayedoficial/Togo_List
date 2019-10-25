@@ -262,11 +262,11 @@ public class Trip {
     }
 
     public String getTripDate() {
-        return startDateDay + " / " + startDateMonth + " / " + startDateYear;
+        return String.format("%02d/%02d/%02d",startDateMonth,startDateDay,startDateYear);
     }
 
     public String getTripTime() {
-        return startDateHours + " : " + startDateMinutes;
+        return String.format("%02d:%02d",startDateHours,startDateMinutes);
     }
 
     public void setRoundTripDateYear(int roundTripDateYear) {

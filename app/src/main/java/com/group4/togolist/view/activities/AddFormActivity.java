@@ -229,13 +229,13 @@ public class AddFormActivity extends AppCompatActivity implements View.OnClickLi
     private void addTrip() {
         int month = 0;
         int day = 0;
-        int year = 2000;
+        int year = 0;
         int hour = 0;
         int minute  =0 ;
 
         int monthRound = 0;
         int dayRound = 0;
-        int yearRound = 2000;
+        int yearRound = 0;
         int hourRound = 0;
         int minuteRound  =0 ;
 
@@ -253,7 +253,7 @@ public class AddFormActivity extends AppCompatActivity implements View.OnClickLi
               String[] startDateArr = startDate.split("/");
               month = Integer.parseInt(startDateArr[0]);
                 day = Integer.parseInt(startDateArr[1]);
-                 year += Integer.parseInt(startDateArr[2]);
+                 year = Integer.parseInt(startDateArr[2]);
              }
         }
         if (startTime != null){
@@ -268,7 +268,7 @@ public class AddFormActivity extends AppCompatActivity implements View.OnClickLi
                 String[] startDateArr = roundDate.split("/");
                 monthRound = Integer.parseInt(startDateArr[0]);
                 dayRound = Integer.parseInt(startDateArr[1]);
-                yearRound += Integer.parseInt(startDateArr[2]);
+                yearRound = Integer.parseInt(startDateArr[2]);
             }
         }
         if (roundTime != null){
@@ -342,7 +342,7 @@ public class AddFormActivity extends AppCompatActivity implements View.OnClickLi
                 myCalendar.set(Calendar.MONTH, monthOfYear);
                 myCalendar.set(Calendar.DAY_OF_MONTH, dayOfMonth);
 
-                String myFormat = "MM/dd/yy"; //In which you need put here
+                String myFormat = "MM/dd/yyyy"; //In which you need put here
                 SimpleDateFormat sdf = new SimpleDateFormat(myFormat, Locale.US);
 
                 dateText.setText(sdf.format(myCalendar.getTime()));
