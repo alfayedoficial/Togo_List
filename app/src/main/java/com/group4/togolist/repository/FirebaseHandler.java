@@ -20,6 +20,7 @@ import com.google.firebase.auth.UserProfileChangeRequest;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.group4.togolist.R;
+import com.group4.togolist.model.Trip;
 import com.group4.togolist.model.User;
 import com.group4.togolist.model.UserTrip;
 import com.group4.togolist.view.activities.HomeActivity;
@@ -53,7 +54,6 @@ public class FirebaseHandler {
     public static final int USER_PASSWORD_UPDATED = 5001;
     public static final int USER_PASSWORD_UPDATE_FAILED = 5002;
     public static final int GOOGLE_SIGNIN = 123;
-
 
     private Activity activity;
 
