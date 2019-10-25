@@ -7,6 +7,8 @@ import androidx.room.Entity;
 import androidx.room.Ignore;
 import androidx.room.PrimaryKey;
 
+import com.google.firebase.database.Exclude;
+
 /**
  * Class do :
  * Created by Group 4 ITI (Eng/Bassem - Eng Fatma - Eng Ali)
@@ -69,6 +71,9 @@ public class Trip {
     public static final int WEEKLY = 1003;
     public static final int MONTHLY = 1004;
 
+    public Trip (){
+        // Required Default Constructor
+    }
     public Trip( String tripName, double startLocationLongitude, double startLocationLatitude, double endLocationLongitude, double endLocationLatitude, String status, int repetition, boolean isRoundTrip, String notes) {
         this.tripName = tripName;
         this.startLocationLongitude = startLocationLongitude;
@@ -164,8 +169,9 @@ public class Trip {
     public String getNotes() {
         return notes;
     }
-
+   @Exclude
     public Calendar getStartTime() {
+
         Calendar cal = Calendar.getInstance();
         cal.set(Calendar.YEAR, getStartDateYear());
         cal.set(Calendar.MONTH, getStartDateMonth());
@@ -174,7 +180,7 @@ public class Trip {
         cal.set(Calendar.MINUTE, getStartDateMinutes());
         return cal;
     }
-
+    @Exclude
     public void setStartTime(Calendar cal) {
         setStartDateYear(cal.get(Calendar.YEAR));
         setStartDateMonth(cal.get(Calendar.MONTH));
@@ -182,7 +188,7 @@ public class Trip {
         setStartDateHours(cal.get(Calendar.HOUR_OF_DAY));
         setStartDateMinutes(cal.get(Calendar.MINUTE));
     }
-
+    @Exclude
     public Calendar getRoundTime() {
         Calendar cal = Calendar.getInstance();
         cal.set(Calendar.YEAR, getRoundTripDateYear());
@@ -192,7 +198,7 @@ public class Trip {
         cal.set(Calendar.MINUTE, getRoundTripDateMinutes());
         return cal;
     }
-
+    @Exclude
     public void setRoundTime(Calendar cal) {
         setRoundTripDateYear(cal.get(Calendar.YEAR));
         setRoundTripDateMonth(cal.get(Calendar.MONTH));
