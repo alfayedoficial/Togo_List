@@ -15,6 +15,7 @@ import com.group4.togolist.repository.DatabaseHandler;
 import com.group4.togolist.model.Trip;
 import com.group4.togolist.repository.TripAlarm;
 import com.group4.togolist.util.FloatingWidgetService;
+import com.group4.togolist.util.MapDirectionHelper;
 import com.group4.togolist.view.activities.AddFormActivity;
 import com.group4.togolist.view.activities.DetailsTripActivity;
 import com.group4.togolist.view.activities.HomeActivity;
@@ -56,13 +57,14 @@ public class DetailsTripViewModel extends ViewModel {
     }
 
     public void startTrip(){
-        String uri = String.format(Locale.ENGLISH, "geo:%f,%f", currentTrip.getEndLocationLatitude(), currentTrip.getEndLocationLongitude());
-        Intent tripIntent = new Intent(Intent.ACTION_VIEW, Uri.parse(uri));
-        tripIntent.setPackage("com.google.android.apps.maps");
         cancelAlarm();
-        activity.startActivity(tripIntent);
         currentTrip.setStatus(Trip.ENDED);
         databaseHandler.updateTrip(currentTrip);
+        new MapDirectionHelper(activity,currentTrip.getStartLocationLatitude()
+                ,currentTrip.getStartLocationLongitude()
+                ,currentTrip.getEndLocationLatitude()
+                ,currentTrip.getEndLocationLongitude())
+                .startNavigation();
         startFloatingWidgetService();
     }
 

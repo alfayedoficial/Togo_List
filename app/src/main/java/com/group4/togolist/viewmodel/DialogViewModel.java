@@ -16,6 +16,7 @@ import com.group4.togolist.repository.DatabaseHandler;
 import com.group4.togolist.model.Trip;
 import com.group4.togolist.repository.TripAlarm;
 import com.group4.togolist.util.FloatingWidgetService;
+import com.group4.togolist.util.MapDirectionHelper;
 import com.group4.togolist.util.MediaplayerHelper;
 import com.group4.togolist.util.NotificationHelper;
 import com.group4.togolist.view.activities.DetailsTripActivity;
@@ -93,16 +94,13 @@ public class DialogViewModel extends ViewModel {
      */
     public void startTrip(){
         mediaplayerHelper.releaseMediaPlayer();
-        // Create a String Uri Use the result to create an Intent.
-        String uri = String.format(Locale.ENGLISH, "geo:%f,%f", currentTrip.getEndLocationLatitude(), currentTrip.getEndLocationLongitude());
-        // Create an Intent from uri String. Set the action to ACTION_VIEW
-        Intent tripIntent = new Intent(Intent.ACTION_VIEW, Uri.parse(uri));
-        // Make the Intent explicit by setting the Google Maps package
-        tripIntent.setPackage("com.google.android.apps.maps");
         currentTrip.setStatus(Trip.ENDED);
         databaseHandler.updateTrip(currentTrip);
-        // Attempt to start an activity that can handle the Intent
-        activity.startActivity(tripIntent);
+        new MapDirectionHelper(activity,currentTrip.getStartLocationLatitude()
+                ,currentTrip.getStartLocationLongitude()
+                ,currentTrip.getEndLocationLatitude()
+                ,currentTrip.getEndLocationLongitude())
+                .startNavigation();
         startFloatingWidgetService();
 
         //activity.finish();
