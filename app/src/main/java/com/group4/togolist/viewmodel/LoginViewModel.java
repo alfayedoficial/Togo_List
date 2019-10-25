@@ -2,7 +2,7 @@ package com.group4.togolist.viewmodel;
 
 import android.content.Intent;
 import android.util.Log;
-import android.widget.Toast;
+
 
 import androidx.lifecycle.ViewModel;
 
@@ -16,6 +16,7 @@ import com.group4.togolist.view.activities.ForgetPasswordActivity;
 import com.group4.togolist.view.activities.HomeActivity;
 import com.group4.togolist.repository.FirebaseHandler;
 import com.group4.togolist.view.activities.SignInActivity;
+import com.shashank.sony.fancytoastlib.FancyToast;
 
 /**
  * Class do : Handle Sign In Activity
@@ -44,17 +45,18 @@ public class LoginViewModel extends ViewModel {
      * this method called when Sign in Button in the Log In activity, it check firebase for your email address
      */
     public void signIn(String username, String password){
-        if(username != null && !username.isEmpty() && password != null && !password.isEmpty()){
-            firebaseHandler.signIn(username,password);
-            loginActivity.disableLayout(false);
+            if(username != null && !username.isEmpty() && password != null && !password.isEmpty()){
+                firebaseHandler.signIn(username,password);
+                loginActivity.disableLayout(false);
 
-        }
-        else {
-            Toast.makeText(loginActivity, R.string.messigninpleaseenter, Toast.LENGTH_SHORT).show();
-            loginActivity.disableLayout(true);
+            }
+            else {
+               // Toast.makeText(loginActivity, R.string.messigninpleaseenter, Toast.LENGTH_SHORT).show();
+                FancyToast.makeText(loginActivity ,  loginActivity.getString(R.string.messigninpleaseenter) , FancyToast.DEFAULT , FancyToast.ERROR ,false).show();
+                loginActivity.disableLayout(true);
 
+            }
         }
-    }
 
     /**
      *  this method call when sign in with google button in the log in activity ,
@@ -68,15 +70,28 @@ public class LoginViewModel extends ViewModel {
      */
     public void loginToHomeScreen(int loginResult){
         if(loginResult == FirebaseHandler.ACCESS_GRANTED){
+
             Intent loginIntent = new Intent(loginActivity, HomeActivity.class);
             FirebaseUser firebaseUser = FirebaseAuth.getInstance().getCurrentUser();
-            User user = User.getUserInstance();
-            user.setName(firebaseUser.getDisplayName());
-            user.setEmail(firebaseUser.getEmail());
+            User user = User.getUserInstance(firebaseUser.getDisplayName() ,firebaseUser.getEmail() );
+            //User user = User.getUserInstance();
+          //  user.setName(firebaseUser.getDisplayName());
+           // user.setEmail(firebaseUser.getEmail());
+
+            String  uID = firebaseUser.getUid();
+
+            if(uID!= null) {
+
+                databaseHandler.loadFromFireBase(uID);
+            }else
+                Log.i("user","user ID is Null");
+
             loginActivity.startActivity(loginIntent);
             Log.i("user",user.getEmail());
+
         }else{
-            Toast.makeText(loginActivity, R.string.messigninincorrect, Toast.LENGTH_SHORT).show();
+            //Toast.makeText(loginActivity, R.string.messigninincorrect, Toast.LENGTH_SHORT).show();
+            FancyToast.makeText(loginActivity , loginActivity.getString(R.string.messigninincorrect), FancyToast.LENGTH_LONG,FancyToast.ERROR,false).show();
             user = null;
             loginActivity.disableLayout(true);
         }
@@ -94,5 +109,6 @@ public class LoginViewModel extends ViewModel {
         Intent intent = new Intent(loginActivity, ForgetPasswordActivity.class);
         loginActivity.startActivity(intent);
     }
+
 
 }
