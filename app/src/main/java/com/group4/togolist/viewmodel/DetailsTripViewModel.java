@@ -104,7 +104,7 @@ public class DetailsTripViewModel extends ViewModel {
             activity.startActivity(new Intent(activity, HomeActivity.class));
         }
         else {
-            FancyToast.makeText(activity,activity.getString(R.string.wrong_start_time),FancyToast.LENGTH_LONG,FancyToast.WARNING,true).show();
+            FancyToast.makeText(activity,activity.getString(R.string.wrong_start_time),FancyToast.LENGTH_SHORT,FancyToast.ERROR,true).show();
             try {
                 newTrip = databaseHandler.getTripByName(newTrip.getTripName());
             } catch (ExecutionException e) {

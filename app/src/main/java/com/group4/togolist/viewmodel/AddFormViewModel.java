@@ -100,7 +100,7 @@ public class AddFormViewModel extends ViewModel{
                 activity.startActivity(new Intent(activity, HomeActivity.class));
             }
             else {
-                FancyToast.makeText(activity,activity.getString(R.string.wrong_start_time),FancyToast.LENGTH_LONG,FancyToast.WARNING,true).show();
+                FancyToast.makeText(activity,activity.getString(R.string.wrong_start_time),FancyToast.LENGTH_SHORT,FancyToast.ERROR,true).show();
                 databaseHandler.deleteTrip(newTrip);
             }
 
