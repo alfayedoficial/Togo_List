@@ -211,8 +211,9 @@ public class DatabaseHandler {
                 databaseReference.child("Users").child(userID).removeValue();
                 for (Trip trip : tripList) {
                     databaseReference.child("Users").child(userID).child(trip.getId() + "").setValue(trip);
-
+                    deleteTrip(trip);
                 }
+
             }else
                 Log.i("User Id " , " user id is null ");
 
@@ -222,11 +223,15 @@ public class DatabaseHandler {
 
     public void syncWithFireBase(String userId){
             new SyncWithFireBase( getAllTrips(),userId).execute();
+            deleteAllTrip();
+
+
     }
 
     public void loadFromFireBase( String userID) {
 
-          fireBaseHelp();
+        deleteAllTrip();
+        fireBaseHelp();
           if (userID != null) {
               databaseReference.child("Users").child(userID).addValueEventListener(new ValueEventListener() {
                   @Override
@@ -237,7 +242,6 @@ public class DatabaseHandler {
                           Iterable<DataSnapshot> children = dataSnapshot.getChildren();
                           for (DataSnapshot dSTrip : children) {
                               Trip trip = dSTrip.getValue(Trip.class);
-                              deleteTrip(trip);
                               addTrip(trip);
                           }
                       }
@@ -258,6 +262,13 @@ public class DatabaseHandler {
                 databaseReference = firebaseDatabase.getReference();
 
 
+        }
+
+        private void deleteAllTrip(){
+            List<Trip> tripList = getAllTrips() ;
+            for (Trip trip : tripList){
+                deleteTrip(trip);
+            }
         }
 
 }
