@@ -60,8 +60,8 @@
 	 <string name="logout">Log Out</string>
 	 <string name="wehope">We Hope You Will Come Back Again</string>
 	 <!--	 Google API Key-->
-	 <string name="google_maps_key" templateMergeStrategy="preserve" translatable="false">AIzaSyCMIF8imk5Jfi6uct4_8EPxDK-_0y7P1IA</string>
-
+<!--	 <string name="google_maps_key" templateMergeStrategy="preserve" translatable="false">AIzaSyCMIF8imk5Jfi6uct4_8EPxDK-_0y7P1IA</string>-->
+	<string name="google_maps_key" templateMergeStrategy="preserve" translatable="false">AIzaSyDCLbZUb_vCdSX3CYM5rUc6RIQyFVnIIPE</string>
 	<!--Dialog Activity-->
 	 <string name="details">Details</string>
 	 <string name="tripplace">Trip Place</string>
@@ -115,5 +115,6 @@
 	 Policy Text Policy Text Policy Text Policy Text Policy Text Policy Text Policy Text Policy Text Policy Text
 	 </string>
 	 <string name="abouttext">About Text</string>
+
 
 </resources>
