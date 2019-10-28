@@ -1,10 +1,5 @@
 package com.group4.togolist.view.activities;
 
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.lifecycle.ViewModel;
-import androidx.lifecycle.ViewModelProvider;
-import androidx.lifecycle.ViewModelProviders;
-
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -14,19 +9,25 @@ import android.widget.TextView;
 import com.google.android.material.textfield.TextInputLayout;
 import com.group4.togolist.R;
 import com.group4.togolist.viewmodel.ProfileViewModel;
+import com.shashank.sony.fancytoastlib.FancyToast;
 
-public class ProfileActivity extends AppCompatActivity  implements View.OnClickListener {
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.lifecycle.ViewModel;
+import androidx.lifecycle.ViewModelProvider;
+import androidx.lifecycle.ViewModelProviders;
 
-    private TextInputLayout eTxtUserName , eTxtEmail  , eTxtPassword , eTxtConfirmPassword;
-    private Button btnEdit , btnLogout , btnUpdate;
-    private TextView txtHopeComeBack ;
-    private ProfileViewModel profileViewModel ;
+public class ProfileActivity extends AppCompatActivity implements View.OnClickListener {
+
+    private TextInputLayout eTxtUserName, eTxtEmail, eTxtPassword, eTxtConfirmPassword;
+    private Button btnEdit, btnLogout, btnUpdate;
+    private TextView txtHopeComeBack;
+    private ProfileViewModel profileViewModel;
     /**
-     *  1- define flag and set default value true
+     * 1- define flag and set default value true
      */
-    private boolean editFlag = true ;
+    private boolean editFlag = true;
 
-    private ImageButton imgBtnHome , imgBtnProfile;
+    private ImageButton imgBtnHome, imgBtnProfile;
     private com.google.android.material.floatingactionbutton.FloatingActionButton fltBtnAdd;
 
     @Override
@@ -76,41 +77,52 @@ public class ProfileActivity extends AppCompatActivity  implements View.OnClickL
     @Override
     public void onClick(View v) {
 
-        switch (v.getId()){
+        switch (v.getId()) {
             case R.id.btnEdit:
                 /**
                  * 2 - when flag is true ( state edit button) , so  Enable Views and change flag to false (update button)
                  */
-                if(editFlag) {
+                if (editFlag) {
 
                     setUserAndMailEtxtViewEnable();  // set enable (true )
+                    beforeupdate();
 
-                    eTxtPassword.setVisibility(View.VISIBLE);
-                    eTxtConfirmPassword.setVisibility(View.VISIBLE);
-                    btnUpdate.setVisibility(View.VISIBLE);
-
-                    btnEdit.setVisibility(View.GONE);
-                    btnLogout.setVisibility(View.GONE);
-                    txtHopeComeBack.setVisibility(View.GONE);
-
-                    // setting flag false
-                    editFlag = false ;
                 }
-                      break;
+                break;
             case R.id.btnProfileUpdate:
 
                 /**
                  * 3 - when flag is false (  update button) , so  disable Views and change flag to true (Edit button state)
+                 * if condition that password matched or not
                  */
-                if (!editFlag){
+                if (!editFlag) {
+
+                    if(eTxtPassword.getEditText().getText().toString().equals(eTxtConfirmPassword.getEditText().getText().toString())){
+                        profileViewModel.updateUser(eTxtPassword.getEditText().getText().toString(), eTxtConfirmPassword.getEditText().getText().toString());
+                        setUserAndMailEtxtViewDisable();
+                        afterUpdate();
+                        editFlag = true;
+                    }else{
+                        //  Toast.makeText(activity, R.string.mesprofile, Toast.LENGTH_SHORT).show();
+                        FancyToast.makeText(this,getString(R.string.errormessage),FancyToast.DEFAULT,FancyToast.ERROR,false);
+                        setUserAndMailEtxtViewEnable();
+                        beforeupdate();
+                    }
 
 
-                    setUserAndMailEtxtViewDisable();
-                    profileViewModel.updateUser(eTxtPassword.getEditText().getText().toString() , eTxtConfirmPassword.getEditText().getText().toString());
-                    afterUpdate();
-                    editFlag = true ;
                 }
-
+//                if (!editFlag){
+//                    if (eTxtPassword.equals(eTxtConfirmPassword)){
+//                        setUserAndMailEtxtViewDisable();
+//                        profileViewModel.updateUser(eTxtPassword.getEditText().getText().toString() , eTxtConfirmPassword.getEditText().getText().toString());
+//                        afterUpdate();
+//                        editFlag = true ;
+//                        FancyToast.makeText(this,getString(R.string.errormessage),FancyToast.DEFAULT,FancyToast.ERROR,false);
+//
+//                    }else {
+//                        FancyToast.makeText(this,getString(R.string.errormessage),FancyToast.DEFAULT,FancyToast.ERROR,false);
+//                    }
+//                }
                 break;
 
             case R.id.btnLogout:
@@ -126,42 +138,57 @@ public class ProfileActivity extends AppCompatActivity  implements View.OnClickL
                 break;
         }
     }
-   private void afterUpdate(){
-       eTxtPassword.setVisibility(View.GONE);
-       eTxtConfirmPassword.setVisibility(View.GONE);
-       btnUpdate.setVisibility(View.GONE);
 
-       btnEdit.setVisibility(View.VISIBLE);
-       btnLogout.setVisibility(View.VISIBLE);
-       txtHopeComeBack.setVisibility(View.VISIBLE);
+    private void afterUpdate() {
+        eTxtPassword.setVisibility(View.GONE);
+        eTxtConfirmPassword.setVisibility(View.GONE);
+        btnUpdate.setVisibility(View.GONE);
+
+        btnEdit.setVisibility(View.VISIBLE);
+        btnLogout.setVisibility(View.VISIBLE);
+        txtHopeComeBack.setVisibility(View.VISIBLE);
     }
 
-    private void setUserAndMailEtxtViewDisable(){
+    private void setUserAndMailEtxtViewDisable() {
         eTxtUserName.setEnabled(false);
         eTxtEmail.setEnabled(false);
     }
 
-    private void setUserAndMailEtxtViewEnable(){
+    public void setUserAndMailEtxtViewEnable() {
         eTxtUserName.setEnabled(true);
         eTxtEmail.setEnabled(true);
     }
-    public void setUserName(String userName){
+
+    public void setUserName(String userName) {
         eTxtUserName.getEditText().setText(userName);
     }
 
-    public void setEmail(String email){
+    public void setEmail(String email) {
         eTxtEmail.getEditText().setText(email);
     }
-    public void setPassword(String password){
+
+    public void setPassword(String password) {
         eTxtPassword.getEditText().setText(password);
     }
 
-    public void setConfirmedPassword(String confirmedPassword){
+    public void setConfirmedPassword(String confirmedPassword) {
         eTxtConfirmPassword.getEditText().setText(confirmedPassword);
+    }
+    public void beforeupdate(){
+        eTxtPassword.setVisibility(View.VISIBLE);
+        eTxtConfirmPassword.setVisibility(View.VISIBLE);
+        btnUpdate.setVisibility(View.VISIBLE);
+
+        btnEdit.setVisibility(View.GONE);
+        btnLogout.setVisibility(View.GONE);
+        txtHopeComeBack.setVisibility(View.GONE);
+
+        // setting flag false
+        editFlag = false;
     }
 
     /**
-     *  ProfileViewModelFactory
+     * ProfileViewModelFactory
      */
 
     class MyViewModelFactory implements ViewModelProvider.Factory {
@@ -178,4 +205,5 @@ public class ProfileActivity extends AppCompatActivity  implements View.OnClickL
             return (T) new ProfileViewModel(mActivity);
         }
     }
+
 }

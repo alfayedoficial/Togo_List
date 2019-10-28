@@ -55,9 +55,12 @@ public class ProfileViewModel extends ViewModel {
         if(password != null && !password.isEmpty()){
             if(password.equals(confirmPassword)){
                 firebaseHandler.changeUserPassword(password);
+                //  Toast.makeText(activity, R.string.mesprofile, Toast.LENGTH_SHORT).show();
+                FancyToast.makeText(activity ,activity.getString(R.string.confirmNewPassoword), FancyToast.DEFAULT ,FancyToast.ERROR ,false).show();
+
             }
             else {
-                //
+
             }
         }
         else{
