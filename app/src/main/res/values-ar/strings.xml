@@ -61,8 +61,7 @@
 	 <string name="logout">تسجيل الخروج</string>
 	 <string name="wehope"> نحن نأمل ان تعود مره أخرى </string>
 	 <!--	 Google API Key-->
-	 <string name="google_maps_key" templateMergeStrategy="preserve" translatable="false">AIzaSyCMIF8imk5Jfi6uct4_8EPxDK-_0y7P1IA</string>
-	 <!--Dialog Activity-->
+	<!--Dialog Activity-->
 	 <string name="details">التفاصيل</string>
 	 <string name="tripplace">المكان</string>
 	 <string name="tripcalender">التاريخ</string>

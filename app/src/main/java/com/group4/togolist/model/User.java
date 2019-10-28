@@ -74,8 +74,8 @@ public class User {
     }
 
     public static User getUserInstance(String username, String email){
-        user.setName(username);
-        user.setEmail(email);
+        user = new User(username,email);
+
         return user;
     }
 
