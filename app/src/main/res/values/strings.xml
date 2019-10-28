@@ -127,7 +127,13 @@
 		  * Google Map\n
 		  * Google Places\n
 	 </string>
-	 <string name="abouttext">About Text</string>
+	 <string name="abouttext">Welcome in <b> ToGo List </b> app,\nNow you will not miss your trips. \nTo Go
+		  app reminds you at the date and time. To Go will be with you during the trip through a
+		  google map. You can edit and mange your upcoming trips as you like. Your trips are
+		  online when logout, so you can open your account from any other android device. /n<b>
+		  ToGo List </b>/nApp is developed by<b>Ali Al Fayed</b>,<b>Bassem Moustafa Mohamed</b>
+		  and <b>Fatma Kamal</b>
+    </string>
 
 	 <string name="howtousepage1">Create an account and sign in to create your trips</string>
 	 <string name="howtousepage2">Add Name Trip,Start Point , End Point , Start Date ,
