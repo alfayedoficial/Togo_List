@@ -109,5 +109,6 @@
 	 <string name="aboutapp">عن التطبيق</string>
 	 <string name="policytest">Policy Text</string>
 	 <string name="abouttext">About Text</string>
+    <string name="title_activity_maps">الخريطة</string>
 
 </resources>
