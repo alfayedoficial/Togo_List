@@ -366,8 +366,8 @@ public class AddFormActivity extends AppCompatActivity implements View.OnClickLi
     private void autocompletePlace() {
 
         if (!Places.isInitialized()) {
-            Places.initialize(AddFormActivity.this, getString(R.string.google_api_key),Locale.getDefault());
-            PlacesClient placesClient = Places.createClient(AddFormActivity.this);
+            Places.initialize(AddFormActivity.this, getString(R.string.google_maps_key),Locale.getDefault());
+            //PlacesClient placesClient = Places.createClient(AddFormActivity.this);
         }
 
         fields = Arrays.asList(Place.Field.ID, Place.Field.NAME, Place.Field.LAT_LNG);
@@ -418,7 +418,7 @@ public class AddFormActivity extends AppCompatActivity implements View.OnClickLi
 
             autocompleteFragEndPoint.setPlaceFields(fieldsEnd);
 
-            autocompleteFragEndPoint.setCountry("EG");
+//            autocompleteFragEndPoint.setCountry("EG");
            autocompleteFragEndPoint.setTypeFilter(TypeFilter.ADDRESS);
 
             /**

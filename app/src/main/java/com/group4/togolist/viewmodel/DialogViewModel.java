@@ -103,7 +103,7 @@ public class DialogViewModel extends ViewModel {
         startFloatingWidgetService();
         currentTrip.setStatus(Trip.ENDED);
         databaseHandler.updateTrip(currentTrip);
-        //activity.finish();
+        activity.finish();
     }
 
     /**

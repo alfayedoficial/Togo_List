@@ -169,6 +169,7 @@ public class HistoryFragment extends Fragment  implements HistoryAdapter.OnItemL
             public void onChanged(List<Trip> trips) {
                 historyAdapter.setPastTrips(trips);
                 pastTrips = trips;
+                polyline.remove();
                 drawRoutes();
             }
         });
