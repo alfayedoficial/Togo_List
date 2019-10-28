@@ -1,11 +1,13 @@
 package com.group4.togolist.view.activities;
 
 import android.app.Activity;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 
 import com.group4.togolist.R;
+import com.group4.togolist.view.adapters.MyViewPagerHowToUseAdapeter;
 import com.group4.togolist.viewmodel.FirstViewModel;
 
 
@@ -14,6 +16,8 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.lifecycle.ViewModel;
 import androidx.lifecycle.ViewModelProvider;
 import androidx.lifecycle.ViewModelProviders;
+import androidx.viewpager.widget.PagerAdapter;
+import androidx.viewpager.widget.ViewPager;
 
 public class FirstActivity extends AppCompatActivity implements View.OnClickListener {
     /**
@@ -30,6 +34,41 @@ public class FirstActivity extends AppCompatActivity implements View.OnClickList
         initComponent();
         firstViewModel = ViewModelProviders.of(this , new MyViewModelFactory(FirstActivity.this)).get(FirstViewModel.class);
         firstViewModel.checkFirebaseUser();
+
+
+        // SharedPreferences method
+        firstAppStartOnlyMethod();
+
+    }
+    /**
+     * this method doing switch method viewPagerMethod when Start App First Once
+     */
+
+    private void firstAppStartOnlyMethod() {
+        SharedPreferences preferences = getSharedPreferences("prefs",MODE_PRIVATE);
+        Boolean firstStart = preferences.getBoolean("firstStart",true);
+        if (firstStart){
+            viewPagerMethod();
+        }
+    }
+
+    /**
+     * this method doing viewPager How To Use App
+     */
+
+    private void viewPagerMethod() {
+        ViewPager viewPager = (ViewPager) findViewById(R.id.view_pager);
+//        CirclePageIndicator indicator = (CirclePageIndicator) findViewById(R.id.indicator);
+
+        PagerAdapter adapter = new MyViewPagerHowToUseAdapeter(this);
+        viewPager.setAdapter(adapter);
+//        indicator.setViewPager(viewPager);
+
+        // SharedPreferences
+        SharedPreferences preferences = getSharedPreferences("prefs",MODE_PRIVATE);
+        SharedPreferences.Editor editor = preferences.edit();
+        editor.putBoolean("firstStart",false);
+        editor.commit();
     }
 
     /**

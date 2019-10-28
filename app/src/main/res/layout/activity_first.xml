@@ -61,6 +61,24 @@
 		  app:layout_constraintStart_toStartOf="parent"
 		  app:layout_constraintTop_toBottomOf="@+id/divider" />
 
+	 <androidx.constraintlayout.widget.ConstraintLayout
+		  android:layout_width="0dp"
+		  android:layout_height="0dp"
+		  android:layout_marginStart="5dp"
+		  android:layout_marginTop="5dp"
+		  android:layout_marginEnd="5dp"
+		  android:layout_marginBottom="5dp"
+		  app:layout_constraintBottom_toTopOf="@+id/divider2"
+		  app:layout_constraintEnd_toEndOf="parent"
+		  app:layout_constraintStart_toStartOf="parent"
+		  app:layout_constraintTop_toBottomOf="@+id/textView">
+
+		  <androidx.viewpager.widget.ViewPager
+			   android:id="@+id/view_pager"
+			   android:layout_width="match_parent"
+			   android:layout_height="match_parent" />
+	 </androidx.constraintlayout.widget.ConstraintLayout>
+
 	 <View
 		  android:id="@+id/divider2"
 		  android:layout_width="0dp"
@@ -80,10 +98,10 @@
 		  android:layout_marginTop="20dp"
 		  android:layout_marginEnd="70dp"
 		  android:background="@drawable/gradient_btn_signin"
+		  android:fontFamily="@font/boutfont"
 		  android:text="@string/signin"
 		  android:textColor="@color/background_offwhite"
 		  android:textSize="14sp"
-		  android:fontFamily="@font/boutfont"
 		  android:textStyle="bold"
 		  app:layout_constraintEnd_toEndOf="parent"
 		  app:layout_constraintStart_toStartOf="parent"
@@ -97,10 +115,10 @@
 		  android:layout_marginTop="15dp"
 		  android:layout_marginEnd="70dp"
 		  android:background="@drawable/gradient_btn_sigup"
+		  android:fontFamily="@font/boutfont"
 		  android:text="@string/createanaccount"
 		  android:textColor="@color/background_offwhite"
 		  android:textSize="14sp"
-		  android:fontFamily="@font/boutfont"
 		  android:textStyle="bold"
 		  app:layout_constraintEnd_toEndOf="parent"
 		  app:layout_constraintStart_toStartOf="parent"

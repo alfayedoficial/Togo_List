@@ -116,7 +116,7 @@
 
 			   <TextView
 					android:id="@+id/textViewPTDStatusNameTrip"
-					android:layout_width="wrap_content"
+					android:layout_width="0dp"
 					android:layout_height="wrap_content"
 					android:layout_marginStart="10dp"
 					android:layout_marginEnd="10dp"
@@ -134,7 +134,6 @@
 					android:layout_width="0dp"
 					android:layout_height="wrap_content"
 					android:layout_gravity="center"
-					android:layout_marginTop="8dp"
 					android:layout_weight="1"
 					android:fontFamily="@font/boutfont"
 					android:gravity="center|start"
@@ -143,40 +142,45 @@
 					android:textSize="14sp"
 					android:textStyle="bold"
 					app:layout_constraintStart_toStartOf="@+id/textViewPTDNameTrip"
-					app:layout_constraintTop_toBottomOf="@+id/textViewPTDNameTrip" />
+					app:layout_constraintTop_toTopOf="@+id/textViewPTDStatusStartPoint" />
 
 			   <TextView
 					android:id="@+id/textViewPTDStatusStartPoint"
 					android:layout_width="0dp"
 					android:layout_height="wrap_content"
 					android:layout_gravity="center"
+					android:layout_marginTop="8dp"
+					android:layout_marginEnd="30dp"
 					android:layout_weight="2"
 					android:fontFamily="@font/boutfont"
 					android:text="TextView"
 					android:textColor="@color/colorPrimary"
 					android:textSize="14sp"
+					app:layout_constraintEnd_toEndOf="parent"
 					app:layout_constraintStart_toStartOf="@+id/textViewPTDStatusNameTrip"
-					app:layout_constraintTop_toTopOf="@+id/TextViewPTDStartPoint" />
+					app:layout_constraintTop_toBottomOf="@+id/textViewPTDStatusNameTrip" />
 
 			   <TextView
 					android:id="@+id/textViewPTDStatusEndPoint"
 					android:layout_width="0dp"
 					android:layout_height="wrap_content"
 					android:layout_gravity="center"
+					android:layout_marginTop="8dp"
+					android:layout_marginEnd="30dp"
 					android:layout_weight="2"
 					android:fontFamily="@font/boutfont"
 					android:text="TextView"
 					android:textColor="@color/colorPrimary"
 					android:textSize="14sp"
+					app:layout_constraintEnd_toEndOf="parent"
 					app:layout_constraintStart_toStartOf="@+id/textViewPTDStatusNameTrip"
-					app:layout_constraintTop_toTopOf="@+id/TextViewPTDEndPoint" />
+					app:layout_constraintTop_toBottomOf="@+id/textViewPTDStatusStartPoint" />
 
 			   <TextView
 					android:id="@+id/TextViewPTDEndPoint"
 					android:layout_width="0dp"
 					android:layout_height="wrap_content"
 					android:layout_gravity="center"
-					android:layout_marginTop="8dp"
 					android:layout_weight="1"
 					android:fontFamily="@font/boutfont"
 					android:gravity="center|start"
@@ -185,53 +189,57 @@
 					android:textSize="14sp"
 					android:textStyle="bold"
 					app:layout_constraintStart_toStartOf="@+id/textViewPTDNameTrip"
-					app:layout_constraintTop_toBottomOf="@+id/TextViewPTDStartPoint" />
+					app:layout_constraintTop_toTopOf="@+id/textViewPTDStatusEndPoint" />
 
 			   <TextView
 					android:id="@+id/textViewPTDStatusDate"
 					android:layout_width="wrap_content"
 					android:layout_height="wrap_content"
-					android:layout_marginTop="8dp"
 					android:fontFamily="@font/boutfont"
 					android:text="@string/startdate"
 					android:textSize="14sp"
 					android:textStyle="bold"
 					app:layout_constraintStart_toStartOf="@+id/textViewPTDNameTrip"
-					app:layout_constraintTop_toBottomOf="@+id/TextViewPTDEndPoint" />
+					app:layout_constraintTop_toTopOf="@+id/textViewPTDStatusStartDate" />
 
 			   <TextView
 					android:id="@+id/textViewPTDStatusStartDate"
-					android:layout_width="wrap_content"
+					android:layout_width="0dp"
 					android:layout_height="wrap_content"
+					android:layout_marginTop="8dp"
+					android:layout_marginEnd="30dp"
 					android:fontFamily="@font/boutfont"
 					android:text="TextView"
 					android:textColor="@color/colorPrimary"
 					android:textSize="14sp"
+					app:layout_constraintEnd_toEndOf="parent"
 					app:layout_constraintStart_toStartOf="@+id/textViewPTDStatusNameTrip"
-					app:layout_constraintTop_toTopOf="@+id/textViewPTDStatusDate" />
+					app:layout_constraintTop_toBottomOf="@+id/textViewPTDStatusEndPoint" />
 
 			   <TextView
 					android:id="@+id/textViewPTDStatusTime"
 					android:layout_width="wrap_content"
 					android:layout_height="wrap_content"
-					android:layout_marginTop="8dp"
 					android:fontFamily="@font/boutfont"
 					android:text="@string/starttime"
 					android:textSize="14sp"
 					android:textStyle="bold"
 					app:layout_constraintStart_toStartOf="@+id/textViewPTDNameTrip"
-					app:layout_constraintTop_toBottomOf="@+id/textViewPTDStatusDate" />
+					app:layout_constraintTop_toTopOf="@+id/textViewPTDStatusStartTime" />
 
 			   <TextView
 					android:id="@+id/textViewPTDStatusStartTime"
-					android:layout_width="wrap_content"
+					android:layout_width="0dp"
 					android:layout_height="wrap_content"
+					android:layout_marginTop="8dp"
+					android:layout_marginEnd="30dp"
 					android:fontFamily="@font/boutfont"
 					android:text="TextView"
 					android:textColor="@color/colorPrimary"
 					android:textSize="14sp"
+					app:layout_constraintEnd_toEndOf="parent"
 					app:layout_constraintStart_toStartOf="@+id/textViewPTDStatusNameTrip"
-					app:layout_constraintTop_toTopOf="@+id/textViewPTDStatusTime" />
+					app:layout_constraintTop_toBottomOf="@+id/textViewPTDStatusStartDate" />
 
 			   <TextView
 					android:id="@+id/textViewPTDRepetition"
@@ -247,32 +255,35 @@
 
 			   <TextView
 					android:id="@+id/textViewPTDStatusRepetition"
-					android:layout_width="wrap_content"
+					android:layout_width="0dp"
 					android:layout_height="wrap_content"
+					android:layout_marginTop="8dp"
+					android:layout_marginEnd="30dp"
 					android:fontFamily="@font/boutfont"
 					android:text="TextView"
 					android:textColor="@color/colorPrimary"
 					android:textSize="14sp"
+					app:layout_constraintEnd_toEndOf="parent"
 					app:layout_constraintStart_toStartOf="@+id/textViewPTDStatusNameTrip"
-					app:layout_constraintTop_toTopOf="@+id/textViewPTDRepetition" />
+					app:layout_constraintTop_toBottomOf="@+id/textViewPTDStatusStartTime" />
 
 			   <TextView
 					android:id="@+id/textViewPTDTripType"
 					android:layout_width="wrap_content"
 					android:layout_height="wrap_content"
-					android:layout_marginTop="8dp"
 					android:fontFamily="@font/boutfont"
 					android:text="@string/trip_type"
 					android:textSize="14sp"
 					android:textStyle="bold"
 					app:layout_constraintStart_toStartOf="@+id/textViewPTDNameTrip"
-					app:layout_constraintTop_toBottomOf="@+id/textViewPTDRepetition" />
+					app:layout_constraintTop_toTopOf="@+id/textViewPTDStatusTripType" />
 
 			   <TextView
 					android:id="@+id/textViewPTDStatusNote"
-					android:layout_width="wrap_content"
+					android:layout_width="0dp"
 					android:layout_height="wrap_content"
-					android:layout_marginEnd="17dp"
+					android:layout_marginTop="8dp"
+					android:layout_marginEnd="30dp"
 					android:fontFamily="@font/boutfont"
 					android:text="TextView"
 					android:textColor="@color/colorPrimary"
@@ -280,30 +291,32 @@
 					app:layout_constraintEnd_toEndOf="parent"
 					app:layout_constraintHorizontal_bias="0.0"
 					app:layout_constraintStart_toStartOf="@+id/textViewPTDStatusNameTrip"
-					app:layout_constraintTop_toTopOf="@+id/textViewPTDNote" />
+					app:layout_constraintTop_toBottomOf="@+id/textViewPTDStatusTripType" />
 
 			   <TextView
 					android:id="@+id/textViewPTDStatusTripType"
-					android:layout_width="wrap_content"
+					android:layout_width="0dp"
 					android:layout_height="wrap_content"
+					android:layout_marginTop="8dp"
+					android:layout_marginEnd="30dp"
 					android:fontFamily="@font/boutfont"
 					android:text="TextView"
 					android:textColor="@color/colorPrimary"
 					android:textSize="14sp"
+					app:layout_constraintEnd_toEndOf="parent"
 					app:layout_constraintStart_toStartOf="@+id/textViewPTDStatusNameTrip"
-					app:layout_constraintTop_toTopOf="@+id/textViewPTDTripType" />
+					app:layout_constraintTop_toBottomOf="@+id/textViewPTDRepetition" />
 
 			   <TextView
 					android:id="@+id/textViewPTDNote"
 					android:layout_width="wrap_content"
 					android:layout_height="wrap_content"
-					android:layout_marginTop="8dp"
 					android:fontFamily="@font/boutfont"
 					android:text="@string/note"
 					android:textSize="14sp"
 					android:textStyle="bold"
 					app:layout_constraintStart_toStartOf="@+id/textViewPTDNameTrip"
-					app:layout_constraintTop_toBottomOf="@+id/textViewPTDTripType" />
+					app:layout_constraintTop_toTopOf="@+id/textViewPTDStatusNote" />
 
 			   <Button
 					android:id="@+id/btnStatusDelete"
@@ -321,7 +334,7 @@
 					app:layout_constraintBottom_toBottomOf="parent"
 					app:layout_constraintEnd_toEndOf="parent"
 					app:layout_constraintStart_toStartOf="parent"
-					app:layout_constraintTop_toBottomOf="@+id/textViewPTDNote" />
+					app:layout_constraintTop_toBottomOf="@+id/textViewPTDStatusNote" />
 
 
 		  </androidx.constraintlayout.widget.ConstraintLayout>

@@ -117,30 +117,29 @@
 					android:id="@+id/textViewStatusRepetition"
 					android:layout_width="wrap_content"
 					android:layout_height="wrap_content"
-					android:layout_marginTop="10dp"
 					android:fontFamily="@font/boutfont"
 					android:text="@string/repetition"
 					android:textSize="14sp"
 					android:textStyle="bold"
 					app:layout_constraintStart_toStartOf="@+id/textViewStatus"
-					app:layout_constraintTop_toBottomOf="@+id/textViewStatus" />
+					app:layout_constraintTop_toTopOf="@+id/TextViewStatusRepetitionShow" />
 
 			   <TextView
 					android:id="@+id/textViewStatusTripType"
 					android:layout_width="wrap_content"
 					android:layout_height="wrap_content"
-					android:layout_marginTop="10dp"
 					android:fontFamily="@font/boutfont"
 					android:text="@string/trip_type"
 					android:textSize="14sp"
 					android:textStyle="bold"
 					app:layout_constraintStart_toStartOf="@+id/textViewStatusRepetition"
-					app:layout_constraintTop_toBottomOf="@+id/textViewStatusRepetition" />
+					app:layout_constraintTop_toTopOf="@+id/textViewStatusTripTypeShow" />
 
 			   <TextView
 					android:id="@+id/textViewStatusTripTypeShow"
-					android:layout_width="wrap_content"
+					android:layout_width="0dp"
 					android:layout_height="wrap_content"
+					android:layout_marginTop="10dp"
 					android:layout_marginEnd="20dp"
 					android:fontFamily="@font/boutfont"
 					android:text="TextView"
@@ -149,14 +148,13 @@
 					app:layout_constraintEnd_toEndOf="parent"
 					app:layout_constraintHorizontal_bias="0.0"
 					app:layout_constraintStart_toStartOf="@+id/textViewStatusShow"
-					app:layout_constraintTop_toTopOf="@+id/textViewStatusTripType" />
+					app:layout_constraintTop_toBottomOf="@+id/textViewStatusRepetition" />
 
 			   <TextView
 					android:id="@+id/TextViewStartPoint"
 					android:layout_width="0dp"
 					android:layout_height="wrap_content"
 					android:layout_gravity="center"
-					android:layout_marginTop="10dp"
 					android:layout_weight="1"
 					android:fontFamily="@font/boutfont"
 					android:gravity="center|start"
@@ -165,14 +163,15 @@
 					android:textSize="14sp"
 					android:textStyle="bold"
 					app:layout_constraintStart_toStartOf="@+id/textViewStatusTripType"
-					app:layout_constraintTop_toBottomOf="@+id/textViewStatusTripType" />
+					app:layout_constraintTop_toTopOf="@+id/textViewStatusStartPoint" />
 
 			   <TextView
 					android:id="@+id/textViewStatusStartPoint"
-					android:layout_width="wrap_content"
+					android:layout_width="0dp"
 					android:layout_height="wrap_content"
 					android:layout_gravity="center"
-					android:layout_marginEnd="20dp"
+					android:layout_marginTop="10dp"
+					android:layout_marginEnd="30dp"
 					android:layout_weight="2"
 					android:fontFamily="@font/boutfont"
 					android:maxLines="4"
@@ -183,14 +182,15 @@
 					app:layout_constraintEnd_toEndOf="parent"
 					app:layout_constraintHorizontal_bias="0.0"
 					app:layout_constraintStart_toStartOf="@+id/textViewStatusShow"
-					app:layout_constraintTop_toTopOf="@+id/TextViewStartPoint" />
+					app:layout_constraintTop_toBottomOf="@+id/textViewStatusTripType" />
 
 			   <TextView
 					android:id="@+id/textViewStatusEndPoint"
-					android:layout_width="wrap_content"
+					android:layout_width="0dp"
 					android:layout_height="wrap_content"
 					android:layout_gravity="center"
-					android:layout_marginEnd="20dp"
+					android:layout_marginTop="10dp"
+					android:layout_marginEnd="30dp"
 					android:layout_weight="2"
 					android:fontFamily="@font/boutfont"
 					android:maxLines="4"
@@ -201,14 +201,13 @@
 					app:layout_constraintEnd_toEndOf="parent"
 					app:layout_constraintHorizontal_bias="0.0"
 					app:layout_constraintStart_toStartOf="@+id/textViewStatusShow"
-					app:layout_constraintTop_toTopOf="@+id/TextViewEndPoint" />
+					app:layout_constraintTop_toBottomOf="@+id/textViewStatusStartPoint" />
 
 			   <TextView
 					android:id="@+id/TextViewEndPoint"
 					android:layout_width="0dp"
 					android:layout_height="wrap_content"
 					android:layout_gravity="center"
-					android:layout_marginTop="10dp"
 					android:layout_weight="1"
 					android:fontFamily="@font/boutfont"
 					android:gravity="center|start"
@@ -217,7 +216,27 @@
 					android:textSize="14sp"
 					android:textStyle="bold"
 					app:layout_constraintStart_toStartOf="@+id/textViewStatusTripType"
-					app:layout_constraintTop_toBottomOf="@+id/TextViewStartPoint" />
+					app:layout_constraintTop_toTopOf="@+id/textViewStatusEndPoint" />
+
+
+			   <EditText
+					android:id="@+id/editTextStatusStartDate"
+					android:layout_width="0dp"
+					android:layout_height="wrap_content"
+					android:layout_marginStart="10dp"
+					android:layout_marginEnd="17dp"
+					android:layout_marginTop="10dp"
+					android:ems="10"
+					android:fontFamily="@font/boutfont"
+					android:hint="@string/startdate"
+					android:inputType="datetime"
+					android:textColor="@color/colorPrimary"
+					android:textColorHint="@color/colorPrimary"
+					android:textColorLink="@color/colorPrimary"
+					android:textSize="14sp"
+					app:layout_constraintEnd_toEndOf="parent"
+					app:layout_constraintStart_toStartOf="parent"
+					app:layout_constraintTop_toBottomOf="@+id/TextViewEndPoint" />
 
 			   <EditText
 					android:id="@+id/editTextStatusStartTime"
@@ -237,25 +256,6 @@
 					app:layout_constraintEnd_toEndOf="parent"
 					app:layout_constraintStart_toStartOf="parent"
 					app:layout_constraintTop_toBottomOf="@+id/editTextStatusStartDate" />
-
-			   <EditText
-					android:id="@+id/editTextStatusStartDate"
-					android:layout_width="0dp"
-					android:layout_height="wrap_content"
-					android:layout_marginStart="10dp"
-					android:layout_marginTop="10dp"
-					android:layout_marginEnd="17dp"
-					android:ems="10"
-					android:fontFamily="@font/boutfont"
-					android:hint="@string/startdate"
-					android:inputType="datetime"
-					android:textColor="@color/colorPrimary"
-					android:textColorHint="@color/colorPrimary"
-					android:textColorLink="@color/colorPrimary"
-					android:textSize="14sp"
-					app:layout_constraintEnd_toEndOf="parent"
-					app:layout_constraintStart_toStartOf="parent"
-					app:layout_constraintTop_toBottomOf="@+id/TextViewEndPoint" />
 
 			   <EditText
 					android:id="@+id/editTextStatusNote"
@@ -332,7 +332,7 @@
 
 			   <TextView
 					android:id="@+id/textViewStatusShow"
-					android:layout_width="wrap_content"
+					android:layout_width="0dp"
 					android:layout_height="wrap_content"
 					android:layout_marginStart="40dp"
 					android:layout_marginEnd="20dp"
@@ -347,8 +347,9 @@
 
 			   <TextView
 					android:id="@+id/TextViewStatusRepetitionShow"
-					android:layout_width="wrap_content"
+					android:layout_width="0dp"
 					android:layout_height="wrap_content"
+					android:layout_marginTop="10dp"
 					android:layout_marginEnd="20dp"
 					android:fontFamily="@font/boutfont"
 					android:text="TextView"
@@ -357,7 +358,7 @@
 					app:layout_constraintEnd_toEndOf="parent"
 					app:layout_constraintHorizontal_bias="0.0"
 					app:layout_constraintStart_toStartOf="@+id/textViewStatusShow"
-					app:layout_constraintTop_toTopOf="@+id/textViewStatusRepetition" />
+					app:layout_constraintTop_toBottomOf="@+id/textViewStatusShow" />
 
 
 		  </androidx.constraintlayout.widget.ConstraintLayout>
