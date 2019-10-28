@@ -55,8 +55,7 @@ public class MediaplayerHelper extends ContextWrapper {
 
     public void getMediaPlayer(){
         if(mMediaPlayer == null) {
-            Uri alarm = RingtoneManager.getDefaultUri(RingtoneManager.TYPE_ALARM);
-            mMediaPlayer = MediaPlayer.create(context, alarm);
+            mMediaPlayer = MediaPlayer.create(context, R.raw.alarm);
         }
     }
 
