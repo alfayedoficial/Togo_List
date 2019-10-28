@@ -197,15 +197,6 @@ public class HomeActivity extends AppCompatActivity implements View.OnClickListe
 
     @Override
     public void onBackPressed() {
-        new AlertDialog.Builder(this)
-                .setTitle(R.string.titlelog)
-                .setMessage(R.string.messagelog)
-                .setNegativeButton(R.string.no, null)
-                .setPositiveButton(R.string.yes, new DialogInterface.OnClickListener() {
-
-                    public void onClick(DialogInterface dilog, int arg1) {
-                        homeViewModel.logOut();
-                    }
-                }).create().show();
+        finishAffinity();
     }
 }
