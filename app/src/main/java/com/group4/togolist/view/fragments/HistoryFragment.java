@@ -187,8 +187,9 @@ public class HistoryFragment extends Fragment  implements HistoryAdapter.OnItemL
                             .width(5)
                             .color(getColor()));
                     Log.i("MapRoute" , ""+ trip.getTripName());
-
-                    if ( i == markerBitMap.length -1)
+                    System.out.println("Map Route" + trip.getTripName());
+                     i ++ ;
+                    if ( i == markerBitMap.length )
                         i = 0 ;
                 }
             }
