@@ -6,6 +6,7 @@ import android.view.View;
 import android.widget.Button;
 
 import com.group4.togolist.R;
+import com.group4.togolist.view.adapters.MyViewPagerHowToUseAdapeter;
 import com.group4.togolist.viewmodel.FirstViewModel;
 
 
@@ -14,6 +15,8 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.lifecycle.ViewModel;
 import androidx.lifecycle.ViewModelProvider;
 import androidx.lifecycle.ViewModelProviders;
+import androidx.viewpager.widget.PagerAdapter;
+import androidx.viewpager.widget.ViewPager;
 
 public class FirstActivity extends AppCompatActivity implements View.OnClickListener {
     /**
@@ -30,6 +33,14 @@ public class FirstActivity extends AppCompatActivity implements View.OnClickList
         initComponent();
         firstViewModel = ViewModelProviders.of(this , new MyViewModelFactory(FirstActivity.this)).get(FirstViewModel.class);
         firstViewModel.checkFirebaseUser();
+
+        ViewPager viewPager = (ViewPager) findViewById(R.id.view_pager);
+//        CirclePageIndicator indicator = (CirclePageIndicator) findViewById(R.id.indicator);
+
+        PagerAdapter adapter = new MyViewPagerHowToUseAdapeter(this);
+        viewPager.setAdapter(adapter);
+//        indicator.setViewPager(viewPager);
+
     }
 
     /**

@@ -3,18 +3,22 @@ package com.group4.togolist.view.activities;
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.os.Build;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageButton;
 
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 import com.group4.togolist.R;
 import com.group4.togolist.view.fragments.HistoryFragment;
 import com.group4.togolist.view.adapters.MyViewPagerAdapter;
 import com.group4.togolist.view.fragments.UpcomingFragment;
 import com.group4.togolist.model.Trip;
 import com.group4.togolist.viewmodel.HomeViewModel;
+import com.shashank.sony.fancytoastlib.FancyToast;
 
 import java.util.List;
 
@@ -197,6 +201,9 @@ public class HomeActivity extends AppCompatActivity implements View.OnClickListe
 
     @Override
     public void onBackPressed() {
-        finishAffinity();
+//        finishAffinity();
+
+        homeViewModel.exit();
+
     }
 }

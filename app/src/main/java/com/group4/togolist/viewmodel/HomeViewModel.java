@@ -2,8 +2,10 @@ package com.group4.togolist.viewmodel;
 
 import android.app.Activity;
 import android.app.AlarmManager;
+import android.app.AlertDialog;
 import android.app.PendingIntent;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.util.Log;
@@ -14,6 +16,7 @@ import androidx.lifecycle.ViewModel;
 
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.group4.togolist.R;
 import com.group4.togolist.repository.DatabaseHandler;
 import com.group4.togolist.model.Trip;
 import com.group4.togolist.repository.FirebaseHandler;
@@ -136,6 +139,22 @@ public class HomeViewModel extends ViewModel {
     public void logOut(){
         firebaseHandler.logOut();
         activity.startActivity(new Intent(activity, FirstActivity.class));
+    }
+
+    /**
+     * User Exit
+     */
+    public void exit(){
+        new AlertDialog.Builder(activity)
+                .setTitle(R.string.titleexit)
+                .setMessage(R.string.messageexit)
+                .setNegativeButton(R.string.no, null)
+                .setPositiveButton(R.string.yes, new DialogInterface.OnClickListener() {
+
+                    public void onClick(DialogInterface dilog, int arg1) {
+                        activity.finishAffinity();
+                    }
+                }).create().show();
     }
 
     public void updateFirebase(){

@@ -85,6 +85,9 @@
 	 <string name="messagelog">Are you sure you want to Log Out ?</string>
 	 <string name="yes">Yes</string>
 	 <string name="no">No</string>
+	 <!--	 Dialog Exit-->
+	 <string name="titleexit">Really Exit ?</string>
+	 <string name="messageexit">Are you sure you want to exit ?</string>
 	 <!--	 Dialog delete-->
 	 <string name="titledelete">Really Delete Trip ?</string>
 	 <string name="messagedelete">Are you sure you want to delete trip ?</string>
@@ -116,5 +119,11 @@
 	 </string>
 	 <string name="abouttext">About Text</string>
 
+	 <string name="howtousepage1"></string>
+	 <string name="howtousepage2"></string>
+	 <string name="howtousepage3"></string>
+	 <string name="howtousepage4"></string>
+	 <string name="howtousepage5"></string>
+	 <string name="sync">Sync</string>
 
 </resources>

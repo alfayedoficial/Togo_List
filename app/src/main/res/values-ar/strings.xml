@@ -84,6 +84,9 @@
 	 <string name="messagelog">هل أنت متأكد من تسجيل الخروج ؟</string>
 	 <string name="yes">نعم</string>
 	 <string name="no">لا</string>
+	 <!--	 Dialog Exit-->
+	 <string name="titleexit">حقاً تريد إغلاق التطبيق ؟</string>
+	 <string name="messageexit">هل أنت متأكد من إغلاق التطبيق ؟</string>
 	 <!--	 Dialog delete-->
 	 <string name="titledelete">حقاً تريد حذف الرحلة ؟</string>
 	 <string name="messagedelete">هل أنت متأكد من حذف الرحلة ؟</string>
@@ -109,5 +112,12 @@
 	 <string name="aboutapp">عن التطبيق</string>
 	 <string name="policytest">Policy Text</string>
 	 <string name="abouttext">About Text</string>
+	 <string name="howtousepage1"></string>
+	 <string name="howtousepage2"></string>
+	 <string name="howtousepage3"></string>
+	 <string name="howtousepage4"></string>
+	 <string name="howtousepage5"></string>
+	 <string name="sync">مزامنة</string>
+
 
 </resources>
