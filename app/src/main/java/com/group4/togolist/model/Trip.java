@@ -74,6 +74,8 @@ public class Trip {
     public Trip (){
         // Required Default Constructor
     }
+
+    @Ignore
     public Trip( String tripName, double startLocationLongitude, double startLocationLatitude, double endLocationLongitude, double endLocationLatitude, String status, int repetition, boolean isRoundTrip, String notes) {
         this.tripName = tripName;
         this.startLocationLongitude = startLocationLongitude;

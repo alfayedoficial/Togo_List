@@ -1,5 +1,6 @@
 package com.group4.togolist.view.activities;
 
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -31,8 +32,10 @@ public class SignUpActivity extends AppCompatActivity implements View.OnClickLis
         setContentView(R.layout.activity_sign_up);
         initComponent();
         registerViewModel = ViewModelProviders.of(this, new MyViewModelFactory(SignUpActivity.this)).get(RegisterViewModel.class);
-
-
+        SharedPreferences loadDataSetting = getSharedPreferences(SplashActivity.PREFF_NAME,0);
+        SharedPreferences.Editor editor = loadDataSetting.edit();
+        editor.putBoolean(SplashActivity.TAG_LOAD_DATA,true);
+        editor.commit();
     }
 
     /**

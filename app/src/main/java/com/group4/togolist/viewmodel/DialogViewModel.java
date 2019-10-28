@@ -3,11 +3,9 @@ package com.group4.togolist.viewmodel;
 import android.content.Intent;
 import android.location.Address;
 import android.location.Geocoder;
-import android.media.MediaPlayer;
 import android.net.Uri;
 import android.os.Build;
 import android.provider.Settings;
-import android.util.Log;
 import android.widget.Toast;
 
 import androidx.core.app.NotificationCompat;
@@ -15,7 +13,7 @@ import androidx.lifecycle.ViewModel;
 
 import com.group4.togolist.repository.DatabaseHandler;
 import com.group4.togolist.model.Trip;
-import com.group4.togolist.repository.TripAlarm;
+import com.group4.togolist.util.TripAlarm;
 import com.group4.togolist.util.FloatingWidgetService;
 import com.group4.togolist.util.MapDirectionHelper;
 import com.group4.togolist.util.MediaplayerHelper;

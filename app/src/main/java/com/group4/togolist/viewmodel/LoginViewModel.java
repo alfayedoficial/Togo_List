@@ -78,13 +78,13 @@ public class LoginViewModel extends ViewModel {
           //  user.setName(firebaseUser.getDisplayName());
            // user.setEmail(firebaseUser.getEmail());
 
-            String  uID = firebaseUser.getUid();
-
-            if(uID!= null) {
-
-                databaseHandler.loadFromFireBase(uID);
-            }else
-                Log.i("user","user ID is Null");
+//            String  uID = firebaseUser.getUid();
+//
+//            if(uID!= null) {
+//
+//                databaseHandler.loadFromFireBase(uID);
+//            }else
+//                Log.i("user","user ID is Null");
 
             loginActivity.startActivity(loginIntent);
             Log.i("user",user.getEmail());

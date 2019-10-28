@@ -5,20 +5,26 @@ import android.app.AlarmManager;
 import android.app.PendingIntent;
 import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
+import android.util.Log;
 
+import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModel;
 
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 import com.group4.togolist.repository.DatabaseHandler;
 import com.group4.togolist.model.Trip;
 import com.group4.togolist.repository.FirebaseHandler;
-import com.group4.togolist.repository.TripAlarm;
+import com.group4.togolist.util.TripAlarm;
 import com.group4.togolist.view.activities.AddFormActivity;
 import com.group4.togolist.view.activities.AppActivity;
 import com.group4.togolist.view.activities.DetailsTripActivity;
 import com.group4.togolist.view.activities.FirstActivity;
 import com.group4.togolist.view.activities.PastTripDetailsActivity;
 import com.group4.togolist.view.activities.ProfileActivity;
+import com.group4.togolist.view.activities.SplashActivity;
 
 import java.util.List;
 import java.util.concurrent.ExecutionException;
@@ -31,7 +37,7 @@ public class HomeViewModel extends ViewModel {
     private Activity activity;
     private DatabaseHandler databaseHandler;
     private FirebaseHandler firebaseHandler;
-    private MutableLiveData<List<Trip>> upcomingTrips, pastTrips;
+    private LiveData<List<Trip>> upcomingTrips, pastTrips;
 
     public final static String TRIP_NAME = "trip_name";
 
@@ -43,8 +49,10 @@ public class HomeViewModel extends ViewModel {
         this.activity = activity;
         databaseHandler = new DatabaseHandler(activity);
         firebaseHandler = new FirebaseHandler(activity);
-        upcomingTrips = new MutableLiveData<>();
-        pastTrips = new MutableLiveData<>();
+        updateFirebase();
+        upcomingTrips = databaseHandler.getUpcomingTrips();
+        pastTrips = databaseHandler.getPastTrips();
+
     }
 
     /**
@@ -72,16 +80,14 @@ public class HomeViewModel extends ViewModel {
     /**
      * get an ArrayList of UpComing Trips
      */
-    public MutableLiveData<List<Trip>> getUpcomingTrip(){
-        databaseHandler.getTripsByStatus(upcomingTrips,Trip.UPCOMING);
+    public LiveData<List<Trip>> getUpcomingTrip(){
         return upcomingTrips;
     }
 
     /**
      * get an ArrayList of EndedTrips
      */
-    public MutableLiveData<List<Trip>> getEndedTrip() {
-        databaseHandler.getTripsByStatus(pastTrips,Trip.ENDED);
+    public LiveData<List<Trip>> getEndedTrip() {
         return pastTrips;
     }
 
@@ -130,6 +136,22 @@ public class HomeViewModel extends ViewModel {
     public void logOut(){
         firebaseHandler.logOut();
         activity.startActivity(new Intent(activity, FirstActivity.class));
+    }
+
+    public void updateFirebase(){
+        SharedPreferences loadDataSetting = activity.getSharedPreferences(SplashActivity.PREFF_NAME,0);
+        FirebaseUser firebaseUser = FirebaseAuth.getInstance().getCurrentUser();
+        String  uID = firebaseUser.getUid();
+        if(loadDataSetting.getBoolean(SplashActivity.TAG_LOAD_DATA,false)){
+            if(uID!= null) {
+                databaseHandler.loadFromFireBase(uID);
+            }else {
+                Log.i("user", "user ID is Null");
+            }
+        }
+        SharedPreferences.Editor editor = loadDataSetting.edit();
+        editor.putBoolean(SplashActivity.TAG_LOAD_DATA,false);
+        editor.commit();
     }
 
     public void goToApp() {

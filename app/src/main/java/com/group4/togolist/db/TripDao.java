@@ -30,7 +30,7 @@ public interface TripDao {
 
     // get List of Trips by trip Status
     @Query("select * from Trip where status = :tripStatus")
-    List<Trip> getTripsByStatus(String tripStatus);
+    LiveData<List<Trip>> getTripsByStatus(String tripStatus);
 
     @Query("select * from Trip where tripName = :tripByName")
     Trip getTripByName(String tripByName);

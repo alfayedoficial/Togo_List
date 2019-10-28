@@ -1,4 +1,4 @@
-package com.group4.togolist.repository;
+package com.group4.togolist.util;
 
 import android.content.BroadcastReceiver;
 import android.content.Context;

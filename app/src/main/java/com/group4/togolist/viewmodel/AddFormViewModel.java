@@ -13,7 +13,7 @@ import androidx.lifecycle.ViewModel;
 import com.group4.togolist.R;
 import com.group4.togolist.repository.DatabaseHandler;
 import com.group4.togolist.model.Trip;
-import com.group4.togolist.repository.TripAlarm;
+import com.group4.togolist.util.TripAlarm;
 import com.group4.togolist.view.activities.HomeActivity;
 import com.group4.togolist.view.activities.ProfileActivity;
 import com.shashank.sony.fancytoastlib.FancyToast;

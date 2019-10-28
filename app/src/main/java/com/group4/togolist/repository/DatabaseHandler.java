@@ -5,6 +5,7 @@ import android.os.AsyncTask;
 import android.util.Log;
 
 import androidx.annotation.NonNull;
+import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
 
 import com.google.firebase.database.DataSnapshot;
@@ -28,7 +29,7 @@ import java.util.concurrent.ExecutionException;
 public class DatabaseHandler {
     private TripDao daoInstance;
     private DatabaseReference databaseReference ;
-
+    private LiveData<List<Trip>> upcomingTrips,pastTrips;
 
 
     /**
@@ -44,6 +45,8 @@ public class DatabaseHandler {
             TripDatabase databaseInstance = TripDatabase.getDataBaseInstance(activity);
             daoInstance = databaseInstance.getDaoInstance();
 
+            upcomingTrips = daoInstance.getTripsByStatus(Trip.UPCOMING);
+            pastTrips = daoInstance.getTripsByStatus(Trip.ENDED);
             /**
              * fireBase initiate the DB
              */
@@ -86,21 +89,12 @@ public class DatabaseHandler {
         return allTrips ;
     }
 
-    public void getTripsByStatus(final MutableLiveData<List<Trip>> tripList, final String status)  {
-        class GetTripByStatus extends AsyncTask<Void,Void,List<Trip>>{
+    public LiveData<List<Trip>> getUpcomingTrips() {
+        return upcomingTrips;
+    }
 
-            @Override
-            protected List<Trip> doInBackground(Void... voids) {
-                return daoInstance.getTripsByStatus(status);
-            }
-
-            @Override
-            protected void onPostExecute(List<Trip> trips) {
-                super.onPostExecute(trips);
-                tripList.setValue(trips);
-            }
-        }
-        new GetTripByStatus().execute();
+    public LiveData<List<Trip>> getPastTrips() {
+        return pastTrips;
     }
 
     public void deleteTrip(Trip trip){

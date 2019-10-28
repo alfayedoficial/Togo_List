@@ -2,6 +2,7 @@ package com.group4.togolist.view.activities;
 
 import android.animation.ObjectAnimator;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.os.Handler;
 import android.widget.ImageView;
@@ -20,6 +21,9 @@ public class SplashActivity extends AppCompatActivity {
 
     ObjectAnimator objectAnimator;
     ImageView id_splashIcon;
+    public static final String PREFF_NAME = "loading pref";
+    public static final String TAG_LOAD_DATA = "load or not";
+
 
      // Duration of wait
     private final int SPLASH_DISPLAY_LENGTH = 2300;
@@ -30,6 +34,10 @@ public class SplashActivity extends AppCompatActivity {
         setContentView(R.layout.activity_splash);
         animatorPlane();
         durationOfWait();
+        SharedPreferences loadDataSetting = getSharedPreferences(PREFF_NAME,0);
+        SharedPreferences.Editor editor = loadDataSetting.edit();
+        editor.putBoolean(TAG_LOAD_DATA,false);
+        editor.commit();
     }
 
     private void animatorPlane() {

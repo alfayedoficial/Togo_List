@@ -1,6 +1,7 @@
 package com.group4.togolist.view.activities;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -45,8 +46,10 @@ public class SignInActivity extends AppCompatActivity implements View.OnClickLis
         setContentView(R.layout.activity_sign_in);
         initComponent();
         loginViewModel = ViewModelProviders.of(this, new MyViewModelFactory(SignInActivity.this)).get(LoginViewModel.class);
-
-
+        SharedPreferences loadDataSetting = getSharedPreferences(SplashActivity.PREFF_NAME,0);
+        SharedPreferences.Editor editor = loadDataSetting.edit();
+        editor.putBoolean(SplashActivity.TAG_LOAD_DATA,true);
+        editor.commit();
     }
 
     /**
