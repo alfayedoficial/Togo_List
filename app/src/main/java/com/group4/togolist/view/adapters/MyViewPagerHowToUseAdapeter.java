@@ -48,23 +48,23 @@ public class MyViewPagerHowToUseAdapeter extends PagerAdapter {
         switch (position){
             case 0:
                 textView.setText(R.string.howtousepage1);
-                imageView7.setImageResource(R.drawable.logo);
+                imageView7.setImageResource(R.drawable.howtouse1);
                 break;
             case 1:
                 textView.setText(R.string.howtousepage2);
-                imageView7.setImageResource(R.drawable.background_signin);
+                imageView7.setImageResource(R.drawable.howtouse2);
                 break;
             case 2:
                 textView.setText(R.string.howtousepage3);
-                imageView7.setImageResource(R.drawable.background_splash);
+                imageView7.setImageResource(R.drawable.howtouse3);
                 break;
             case 3:
                 textView.setText(R.string.howtousepage4);
-                imageView7.setImageResource(R.drawable.background_signin);
+                imageView7.setImageResource(R.drawable.howtouse4);
                 break;
             case 4:
                 textView.setText(R.string.howtousepage5);
-                imageView7.setImageResource(R.drawable.buttonbarhome2);
+                imageView7.setImageResource(R.drawable.howtouse5);
                 break;
 
 

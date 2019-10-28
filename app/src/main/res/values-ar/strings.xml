@@ -127,11 +127,12 @@
 		  * Crashlytics\n
 		  * Google Map\n
 		  * Google Places\n</string>
-	 <string name="howtousepage1"></string>
-	 <string name="howtousepage2"></string>
-	 <string name="howtousepage3"></string>
-	 <string name="howtousepage4"></string>
-	 <string name="howtousepage5"></string>
+	 <string name="howtousepage1">إنشاء حساب و سجل الدخول لكى تنشأ رحلات</string>
+	 <string name="howtousepage2">أضف اسم الرحلة , نقطقة البداية , نقطة النهاية , التاريخ ,
+	 الوقت و قم بختيار التكرار ( إختيارى )</string>
+	 <string name="howtousepage3">قائمة الرحلات القادمة</string>
+	 <string name="howtousepage4">منبة من اجل تذكرتك بالرحلات</string>
+	 <string name="howtousepage5">تستطيع حذف الرحلات</string>
 	 <string name="sync">مزامنة</string>
 
 

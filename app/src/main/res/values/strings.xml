@@ -129,12 +129,13 @@
 	 </string>
 	 <string name="abouttext">About Text</string>
 
-	 <string name="howtousepage1"></string>
-	 <string name="howtousepage2"></string>
-	 <string name="howtousepage3"></string>
-	 <string name="howtousepage4"></string>
-	 <string name="howtousepage5"></string>
+	 <string name="howtousepage1">Create an account and sign in to create your trips</string>
+	 <string name="howtousepage2">Add Name Trip,Start Point , End Point , Start Date ,
+		  Start Time And choosing your Repetition( Optional ) </string>
+	 <string name="howtousepage3">Your Upcoming Trips List</string>
+	 <string name="howtousepage4">Alarm to remind you for your trip time</string>
+	 <string name="howtousepage5">You Can Delete Trips</string>
 	 <string name="sync">Sync</string>
-	 <string name="trip">Trip</string>
+
 
 </resources>
