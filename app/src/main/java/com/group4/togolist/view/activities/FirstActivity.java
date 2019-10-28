@@ -1,6 +1,7 @@
 package com.group4.togolist.view.activities;
 
 import android.app.Activity;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -34,6 +35,28 @@ public class FirstActivity extends AppCompatActivity implements View.OnClickList
         firstViewModel = ViewModelProviders.of(this , new MyViewModelFactory(FirstActivity.this)).get(FirstViewModel.class);
         firstViewModel.checkFirebaseUser();
 
+
+        // SharedPreferences method
+        firstAppStartOnlyMethod();
+
+    }
+    /**
+     * this method doing switch method viewPagerMethod when Start App First Once
+     */
+
+    private void firstAppStartOnlyMethod() {
+        SharedPreferences preferences = getSharedPreferences("prefs",MODE_PRIVATE);
+        Boolean firstStart = preferences.getBoolean("firstStart",true);
+        if (firstStart){
+            viewPagerMethod();
+        }
+    }
+
+    /**
+     * this method doing viewPager How To Use App
+     */
+
+    private void viewPagerMethod() {
         ViewPager viewPager = (ViewPager) findViewById(R.id.view_pager);
 //        CirclePageIndicator indicator = (CirclePageIndicator) findViewById(R.id.indicator);
 
@@ -41,6 +64,11 @@ public class FirstActivity extends AppCompatActivity implements View.OnClickList
         viewPager.setAdapter(adapter);
 //        indicator.setViewPager(viewPager);
 
+        // SharedPreferences
+        SharedPreferences preferences = getSharedPreferences("prefs",MODE_PRIVATE);
+        SharedPreferences.Editor editor = preferences.edit();
+        editor.putBoolean("firstStart",false);
+        editor.commit();
     }
 
     /**
