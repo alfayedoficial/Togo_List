@@ -142,6 +142,7 @@
 	 <string name="howtousepage4">Alarm to remind you for your trip time</string>
 	 <string name="howtousepage5">You Can Delete Trips</string>
 	 <string name="sync">Sync</string>
-
+	 <string name="errorNewPassoword">"Password not match"</string>
+	 <string name="confirmNewPassoword">"Password updated successfully"</string>
 
 </resources>

@@ -140,6 +140,9 @@
 	 <string name="howtousepage4">منبة من اجل تذكرتك بالرحلات</string>
 	 <string name="howtousepage5">تستطيع حذف الرحلات</string>
 	 <string name="sync">مزامنة</string>
+	 <string name="errorNewPassoword">"كلمة المرور غير متشابة"</string>
+	 <string name="confirmNewPassoword">"تحديث كلمة المرور بنجاح"</string>
+
 
 
 </resources>
