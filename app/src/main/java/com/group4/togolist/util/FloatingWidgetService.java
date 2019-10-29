@@ -69,7 +69,6 @@ public class FloatingWidgetService extends Service implements View.OnClickListen
         mWindowManager = (WindowManager) getSystemService(WINDOW_SERVICE);
         mWindowManager.addView(mFloatingView, params);
 
-
         //getting the collapsed and expanded view from the floating view
         collapsedView = mFloatingView.findViewById(R.id.layoutCollapsed);
         expandedView = mFloatingView.findViewById(R.id.layoutExpanded);

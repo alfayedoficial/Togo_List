@@ -76,7 +76,6 @@
 							  android:textColor="@color/white"
 							  android:textStyle="bold" />
 
-
 					</LinearLayout>
 			   </androidx.cardview.widget.CardView>
 
