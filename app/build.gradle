@@ -21,24 +21,24 @@ android {
         applicationId "com.group4.togolist"
         minSdkVersion 21
         targetSdkVersion 29
-        versionCode 4
+        versionCode 7
         versionName "1.0"
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
         signingConfigs.release
     }
 
     buildTypes {
-//        release {
-//            debuggable false
-//            minifyEnabled false
-//            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
-//            signingConfigs.release
-//        }
-        debug {
-            debuggable true
+        release {
+            debuggable false
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+            signingConfigs.release
         }
+//        debug {
+//            debuggable true
+//            minifyEnabled false
+//            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+//        }
     }
 
     lintOptions {
