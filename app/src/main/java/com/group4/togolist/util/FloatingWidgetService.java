@@ -24,7 +24,6 @@ public class FloatingWidgetService extends Service implements View.OnClickListen
     private View collapsedView;
     private View expandedView;
     private TextView txtTripName;
-    private TextView txtTripNotes;
     String tripName;
     String tripNotes;
     LinearLayout list;
@@ -55,7 +54,6 @@ public class FloatingWidgetService extends Service implements View.OnClickListen
         mFloatingView = LayoutInflater.from(this).inflate(R.layout.floating_widget, null);
 
         txtTripName = mFloatingView.findViewById(R.id.fab_trip_name);
-        txtTripNotes = mFloatingView.findViewById(R.id.fab_trip_notes);
         list = mFloatingView.findViewById(R.id.buttonSimplifiedCoding);
 
         //setting the layout parameters
