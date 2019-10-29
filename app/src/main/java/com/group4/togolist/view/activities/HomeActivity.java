@@ -45,7 +45,7 @@ public class HomeActivity extends AppCompatActivity implements View.OnClickListe
 
 
 
-    private ImageButton imgBtnHome, imgBtnProfile , imageBtnapp;
+    private ImageButton imgBtnHome, imgBtnProfile , imageBtnapp , imageBtnSync;
     private com.google.android.material.floatingactionbutton.FloatingActionButton fltBtnAdd;
 
 
@@ -137,6 +137,7 @@ public class HomeActivity extends AppCompatActivity implements View.OnClickListe
         imgBtnHome = findViewById(R.id.imageBtnHome);
         imgBtnProfile = findViewById(R.id.imageBtnProfile);
         imageBtnapp = findViewById(R.id.imageBtnapp);
+        imageBtnSync = findViewById(R.id.imageBtnSync);
         fltBtnAdd = findViewById(R.id.fABtnAddNote);
 
         btnUpcoming.setOnClickListener(this);
@@ -147,6 +148,7 @@ public class HomeActivity extends AppCompatActivity implements View.OnClickListe
 
         imageBtnapp.setOnClickListener(this);
         imgBtnProfile.setOnClickListener(this);
+        imageBtnSync.setOnClickListener(this);
         fltBtnAdd.setOnClickListener(this);
     }
 
@@ -176,6 +178,8 @@ public class HomeActivity extends AppCompatActivity implements View.OnClickListe
             case  R.id.imageBtnapp:
                 homeViewModel.goToApp();
                 break;
+            case R.id.imageBtnSync:
+                homeViewModel.syncFirebase();
         }
     }
 

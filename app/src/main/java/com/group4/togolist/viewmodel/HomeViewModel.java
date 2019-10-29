@@ -28,6 +28,7 @@ import com.group4.togolist.view.activities.FirstActivity;
 import com.group4.togolist.view.activities.PastTripDetailsActivity;
 import com.group4.togolist.view.activities.ProfileActivity;
 import com.group4.togolist.view.activities.SplashActivity;
+import com.shashank.sony.fancytoastlib.FancyToast;
 
 import java.util.List;
 import java.util.concurrent.ExecutionException;
@@ -171,6 +172,18 @@ public class HomeViewModel extends ViewModel {
         SharedPreferences.Editor editor = loadDataSetting.edit();
         editor.putBoolean(SplashActivity.TAG_LOAD_DATA,false);
         editor.commit();
+    }
+
+    public void syncFirebase(){
+        FirebaseUser firebaseUser = FirebaseAuth.getInstance().getCurrentUser();
+        String  uID = firebaseUser.getUid();
+            if(uID!= null) {
+                databaseHandler.syncOnly(uID);
+                databaseHandler.loadFromFireBase(uID);
+                FancyToast.makeText(activity,activity.getString(R.string.sync_success),FancyToast.LENGTH_SHORT,FancyToast.SUCCESS,true).show();
+            }else {
+                Log.i("user", "user ID is Null");
+            }
     }
 
     public void goToApp() {

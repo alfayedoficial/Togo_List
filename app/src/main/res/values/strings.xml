@@ -144,5 +144,6 @@
 	 <string name="sync">Sync</string>
 	 <string name="errorNewPassoword">"Password not match"</string>
 	 <string name="confirmNewPassoword">"Password updated successfully"</string>
+    <string name="sync_success">Synced Successfully</string>
 
 </resources>

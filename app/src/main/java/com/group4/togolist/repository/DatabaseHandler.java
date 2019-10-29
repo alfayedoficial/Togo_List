@@ -218,8 +218,10 @@ public class DatabaseHandler {
     public void syncWithFireBase(String userId){
             new SyncWithFireBase( getAllTrips(),userId).execute();
             deleteAllTrip();
+    }
 
-
+    public void syncOnly(String userId){
+            new SyncWithFireBase(getAllTrips(),userId).execute();
     }
 
     public void loadFromFireBase( String userID) {
