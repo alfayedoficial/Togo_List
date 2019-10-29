@@ -44,10 +44,10 @@ public class AddFormActivity extends AppCompatActivity implements View.OnClickLi
     private List<Place.Field> fieldsEnd;
     private LatLng latLangStartPoint;
     private LatLng latLangEndPoint;
-    private Double latStartPoint = 31.234464;
-    private Double latEndPoint = 31.344453;
-    private Double longStartPoint = 31.029399;
-    private Double longEndPoint = 31.043933;
+    private Double latStartPoint = 0.0;
+    private Double latEndPoint = 0.0;
+    private Double longStartPoint = 0.0;
+    private Double longEndPoint = 0.0;
     private String placeEndPoint;
     private String placeStartPoint;
     private String strMinute = "";

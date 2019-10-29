@@ -35,13 +35,16 @@
 
         <activity
             android:name=".view.activities.AboutAppActivity"
-            android:theme="@style/dialogTheme" />
+            android:theme="@style/dialogTheme"
+            android:screenOrientation="portrait"/>
         <activity
             android:name=".view.activities.PrivacyActivity"
-            android:theme="@style/dialogTheme" />
+            android:theme="@style/dialogTheme"
+            android:screenOrientation="portrait"/>
         <activity
             android:name=".view.activities.AppActivity"
-            android:theme="@style/dialogTheme" />
+            android:theme="@style/dialogTheme"
+            android:screenOrientation="portrait"/>
 
         <service
             android:name=".util.FloatingWidgetService"
@@ -55,41 +58,52 @@
 
         <activity
             android:name=".view.activities.PastTripDetailsActivity"
-            android:theme="@style/AppTheme.NoActionBar" />
+            android:theme="@style/AppTheme.NoActionBar"
+            android:screenOrientation="portrait"/>
         <activity
             android:name=".view.activities.DialogActivity"
-            android:theme="@style/dialogTheme" />
+            android:theme="@style/dialogTheme"
+            android:screenOrientation="portrait"/>
         <activity
             android:name=".view.activities.DetailsTripActivity"
             android:theme="@style/AppTheme.NoActionBar"
-            android:windowSoftInputMode="stateAlwaysHidden" />
+            android:windowSoftInputMode="stateAlwaysHidden"
+            android:screenOrientation="portrait"/>
         <activity
             android:name=".view.activities.ProfileActivity"
             android:theme="@style/AppTheme.NoActionBar"
-            android:windowSoftInputMode="stateAlwaysHidden" />
+            android:windowSoftInputMode="stateAlwaysHidden"
+            android:screenOrientation="portrait"/>
         <activity
             android:name=".view.activities.AddFormActivity"
-            android:theme="@style/AppTheme.NoActionBar" />
+            android:theme="@style/AppTheme.NoActionBar"
+            android:screenOrientation="portrait"/>
         <activity
             android:name=".view.activities.ForgetPasswordActivity"
-            android:theme="@style/AppTheme.NoActionBar" />
+            android:theme="@style/AppTheme.NoActionBar"
+            android:screenOrientation="portrait"/>
         <activity
             android:name=".view.activities.HomeActivity"
-            android:theme="@style/AppTheme.NoActionBar" />
+            android:theme="@style/AppTheme.NoActionBar"
+            android:screenOrientation="portrait"/>
         <activity
             android:name=".view.activities.SignUpActivity"
             android:theme="@style/AppTheme.NoActionBar"
-            android:windowSoftInputMode="stateAlwaysHidden" />
+            android:windowSoftInputMode="stateAlwaysHidden"
+            android:screenOrientation="portrait"/>
         <activity
             android:name=".view.activities.SignInActivity"
             android:theme="@style/AppTheme.NoActionBar"
-            android:windowSoftInputMode="stateAlwaysHidden" />
+            android:windowSoftInputMode="stateAlwaysHidden"
+            android:screenOrientation="portrait"/>
         <activity
             android:name=".view.activities.FirstActivity"
-            android:theme="@style/AppTheme.NoActionBar" />
+            android:theme="@style/AppTheme.NoActionBar"
+            android:screenOrientation="portrait"/>
         <activity
             android:name=".view.activities.SplashActivity"
-            android:theme="@style/AppTheme.NoActionBar">
+            android:theme="@style/AppTheme.NoActionBar"
+            android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
