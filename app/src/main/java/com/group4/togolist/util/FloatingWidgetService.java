@@ -10,6 +10,8 @@ import android.view.LayoutInflater;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.WindowManager;
+import android.widget.CheckBox;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.group4.togolist.R;
@@ -25,7 +27,7 @@ public class FloatingWidgetService extends Service implements View.OnClickListen
     private TextView txtTripNotes;
     String tripName;
     String tripNotes;
-
+    LinearLayout list;
 
     public FloatingWidgetService() {
 
@@ -41,7 +43,7 @@ public class FloatingWidgetService extends Service implements View.OnClickListen
         tripName = intent.getExtras().getString(DialogViewModel.TRIP_NAME_TAG);
         tripNotes = intent.getExtras().getString(DialogViewModel.TRIP_NOTES_TAG);
         txtTripName.setText(tripName);
-        txtTripNotes.setText(tripNotes);
+        createCheckList();
         return super.onStartCommand(intent, flags, startId);
     }
 
@@ -54,6 +56,7 @@ public class FloatingWidgetService extends Service implements View.OnClickListen
 
         txtTripName = mFloatingView.findViewById(R.id.fab_trip_name);
         txtTripNotes = mFloatingView.findViewById(R.id.fab_trip_notes);
+        list = mFloatingView.findViewById(R.id.buttonSimplifiedCoding);
 
         //setting the layout parameters
         final WindowManager.LayoutParams params = new WindowManager.LayoutParams(
@@ -134,5 +137,13 @@ public class FloatingWidgetService extends Service implements View.OnClickListen
                 stopSelf();
                 break;
         }
+    }
+
+    public void createCheckList(){
+        String[] notes = tripNotes.split("\\r?\\n");
+        for(int i = 0; i < notes.length;i++){
+            CheckBox checkBox = new CheckBox(getApplicationContext());
+            checkBox.setText(notes[i]);
+            list.addView(checkBox);        }
     }
 }
