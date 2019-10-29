@@ -142,8 +142,9 @@
 	 <string name="sync">مزامنة</string>
 	 <string name="errorNewPassoword">"كلمة المرور غير متشابة"</string>
 	 <string name="confirmNewPassoword">"تحديث كلمة المرور بنجاح"</string>
-    <string name="enter_trip_name">من فضلك أدخل المعلومات الناقصة</string>
-	<string name="sync_success">نجخة المزامنة</string>
+	 <string name="sync_success">تم المزامنة بنجاح</string>
+	 <string name="enter_trip_name">من فضلك ادخل البيانات الناقصة</string>
+
 
 
 </resources>
