@@ -146,5 +146,6 @@
 	 <string name="confirmNewPassoword">"Password updated successfully"</string>
     <string name="sync_success">Synced Successfully</string>
 	<string name="enter_trip_name">Please Enter Missing Data</string>
+    <string name="check_connection">Please Check You Internet Connection</string>
 
 </resources>

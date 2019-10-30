@@ -8,10 +8,11 @@ import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.net.ConnectivityManager;
+import android.net.NetworkInfo;
 import android.util.Log;
 
 import androidx.lifecycle.LiveData;
-import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModel;
 
 import com.google.firebase.auth.FirebaseAuth;
@@ -175,15 +176,20 @@ public class HomeViewModel extends ViewModel {
     }
 
     public void syncFirebase(){
-        FirebaseUser firebaseUser = FirebaseAuth.getInstance().getCurrentUser();
-        String  uID = firebaseUser.getUid();
-            if(uID!= null) {
+        ConnectivityManager connectivityManager = (ConnectivityManager)activity.getSystemService(Context.CONNECTIVITY_SERVICE);
+        if(connectivityManager.getNetworkInfo(ConnectivityManager.TYPE_WIFI).getState() == NetworkInfo.State.CONNECTED) {
+            FirebaseUser firebaseUser = FirebaseAuth.getInstance().getCurrentUser();
+            String uID = firebaseUser.getUid();
+            if (uID != null) {
                 databaseHandler.syncOnly(uID);
                 databaseHandler.loadFromFireBase(uID);
-                FancyToast.makeText(activity,activity.getString(R.string.sync_success),FancyToast.LENGTH_SHORT,FancyToast.SUCCESS,true).show();
-            }else {
+                FancyToast.makeText(activity, activity.getString(R.string.sync_success), FancyToast.LENGTH_SHORT, FancyToast.SUCCESS, true).show();
+            } else {
                 Log.i("user", "user ID is Null");
             }
+        }else{
+            FancyToast.makeText(activity, activity.getString(R.string.check_connection), FancyToast.LENGTH_SHORT, FancyToast.WARNING, true).show();
+        }
     }
 
     public void goToApp() {

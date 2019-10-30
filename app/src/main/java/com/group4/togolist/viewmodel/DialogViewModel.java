@@ -1,5 +1,6 @@
 package com.group4.togolist.viewmodel;
 
+import android.content.Context;
 import android.content.Intent;
 import android.location.Address;
 import android.location.Geocoder;
@@ -39,10 +40,12 @@ public class DialogViewModel extends ViewModel {
     private DialogActivity activity;
     private MediaplayerHelper mediaplayerHelper;
 
+
     /**
      * Class Consturcotr
      */
     public DialogViewModel(DialogActivity activity){
+
         this.activity = activity;
         databaseHandler = new DatabaseHandler(activity);
         String tripName = activity.getIntent().getExtras().getString(TripAlarm.TRIP_NAME);
@@ -63,8 +66,12 @@ public class DialogViewModel extends ViewModel {
         } catch (IOException e) {
             e.printStackTrace();
         }
-        String tripLocation = address.get(0).getAddressLine(0);
-        activity.setDialogTripData(currentTrip.getTripName(), tripLocation, currentTrip.getTripDate(), currentTrip.getTripTime());
+        String tripLocation = "";
+        if(address.get(0).getAddressLine(0) != null) {
+            tripLocation = address.get(0).getAddressLine(0);
+        }
+            activity.setDialogTripData(currentTrip.getTripName(), tripLocation, currentTrip.getTripDate(), currentTrip.getTripTime());
+
     }
 
     /**

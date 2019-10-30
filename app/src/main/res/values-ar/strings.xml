@@ -144,7 +144,7 @@
 	 <string name="confirmNewPassoword">"تحديث كلمة المرور بنجاح"</string>
 	 <string name="sync_success">تم المزامنة بنجاح</string>
 	 <string name="enter_trip_name">من فضلك ادخل البيانات الناقصة</string>
-
+    <string name="check_connection">من فضلك تأكد من توصيل الإنترنت</string>
 
 
 </resources>
