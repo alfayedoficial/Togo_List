@@ -25,6 +25,9 @@ Profile">
    <img src="https://github.com/alialfayed1/Togo_List/blob/master/screenshots/Screen%20Details%20PastTrip.gif" width="350" title="Details PastTrip">
 </p>
 
+### Download APP
+<a href="https://play.google.com/store/apps/details?id=com.group4.togolist"><img src="https://play.google.com/intl/en_us/badges/static/images/badges/en_badge_web_generic.png" width="200" height="100" title="Download Now" alt="Flower"></a>
+
 
 
 
