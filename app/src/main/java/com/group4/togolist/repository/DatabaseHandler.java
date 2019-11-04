@@ -254,7 +254,6 @@ public class DatabaseHandler {
     }
 
     private void fireBaseHelp(){
-
                 FirebaseDatabase firebaseDatabase = FirebaseDatabase.getInstance();
                 databaseReference = firebaseDatabase.getReference();
 
